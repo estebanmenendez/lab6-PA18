@@ -1,0 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   DtHora.h
+ * Author: esteban
+ *
+ * Created on 5 de junio de 2018, 02:38 AM
+ */
+
+#ifndef DTHORA_H
+#define DTHORA_H
+
+class DtHora {
+public:
+    DtHora();
+    DtHora(const DtHora& orig);
+    virtual ~DtHora();
+private:
+
+};
+
+#endif /* DTHORA_H */
+
