@@ -35,12 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/ColEstConv.o \
-	${OBJECTDIR}/ColMensaje.o \
-	${OBJECTDIR}/ColTipo.o \
-	${OBJECTDIR}/ColUsuPart.o \
-	${OBJECTDIR}/ColUsuario.o \
-	${OBJECTDIR}/ColVisto.o \
 	${OBJECTDIR}/ContGrupo.o \
 	${OBJECTDIR}/ContMensaje.o \
 	${OBJECTDIR}/ContUsuario.o \
@@ -107,36 +101,6 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6 ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/ColEstConv.o: ColEstConv.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ColEstConv.o ColEstConv.cpp
-
-${OBJECTDIR}/ColMensaje.o: ColMensaje.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ColMensaje.o ColMensaje.cpp
-
-${OBJECTDIR}/ColTipo.o: ColTipo.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ColTipo.o ColTipo.cpp
-
-${OBJECTDIR}/ColUsuPart.o: ColUsuPart.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ColUsuPart.o ColUsuPart.cpp
-
-${OBJECTDIR}/ColUsuario.o: ColUsuario.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ColUsuario.o ColUsuario.cpp
-
-${OBJECTDIR}/ColVisto.o: ColVisto.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ColVisto.o ColVisto.cpp
 
 ${OBJECTDIR}/ContGrupo.o: ContGrupo.cpp
 	${MKDIR} -p ${OBJECTDIR}

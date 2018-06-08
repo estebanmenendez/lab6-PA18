@@ -14,7 +14,9 @@
 #ifndef CONTACTO_H
 #define CONTACTO_H
 
-class Contacto : Mensaje {
+#include"Mensaje.h"
+
+class Contacto : public Mensaje {
 public:
     Contacto();
     Contacto(const Contacto& orig);

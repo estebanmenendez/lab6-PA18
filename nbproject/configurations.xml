@@ -4,12 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>ColEstConv.h</itemPath>
-      <itemPath>ColMensaje.h</itemPath>
-      <itemPath>ColTipo.h</itemPath>
-      <itemPath>ColUsuPart.h</itemPath>
-      <itemPath>ColUsuario.h</itemPath>
-      <itemPath>ColVisto.h</itemPath>
       <itemPath>ContGrupo.h</itemPath>
       <itemPath>ContMensaje.h</itemPath>
       <itemPath>ContUsuario.h</itemPath>
@@ -60,12 +54,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>ColEstConv.cpp</itemPath>
-      <itemPath>ColMensaje.cpp</itemPath>
-      <itemPath>ColTipo.cpp</itemPath>
-      <itemPath>ColUsuPart.cpp</itemPath>
-      <itemPath>ColUsuario.cpp</itemPath>
-      <itemPath>ColVisto.cpp</itemPath>
       <itemPath>ContGrupo.cpp</itemPath>
       <itemPath>ContMensaje.cpp</itemPath>
       <itemPath>ContUsuario.cpp</itemPath>
@@ -130,30 +118,6 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="ColEstConv.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColEstConv.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColMensaje.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColMensaje.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColTipo.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColTipo.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColUsuPart.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColUsuPart.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColUsuario.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColUsuario.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColVisto.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColVisto.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">
@@ -341,30 +305,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="ColEstConv.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColEstConv.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColMensaje.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColMensaje.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColTipo.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColTipo.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColUsuPart.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColUsuPart.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColUsuario.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColUsuario.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ColVisto.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ColVisto.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">

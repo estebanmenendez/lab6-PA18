@@ -14,7 +14,8 @@
 #ifndef TIPO_H
 #define TIPO_H
 
-#include"iostream"
+#include<iostream>
+#include"Usuario.h"
 #include"DtFecha.h"
 #include"DtHora.h"
 

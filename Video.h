@@ -14,6 +14,8 @@
 #ifndef VIDEO_H
 #define VIDEO_H
 
+#include"Multimedia.h"
+
 class Video : public Multimedia {
 public:
     Video();

@@ -14,6 +14,8 @@
 #ifndef SIMPLE_H
 #define SIMPLE_H
 
+#include"Mensaje.h"
+
 class Simple : public Mensaje {
 public:
     Simple();

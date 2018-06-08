@@ -15,7 +15,8 @@
 #define CONTGRUPO_H
 
 #include"iContGrupo.h"
-
+#include"Lista.h"
+#include"IDictionary.h"
 
 class ContGrupo: public iContGrupo {
     

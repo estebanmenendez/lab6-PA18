@@ -15,10 +15,10 @@
 #define GRUPO_H
 
 #include"Tipo.h"
-#include"Conversacion.h"
-#include"iostream"
+#include<iostream>
 #include"DtFecha.h"
 #include"DtHora.h"
+
 
 using namespace std;
 
@@ -30,8 +30,8 @@ public:
     
 private:
     
-        ColTipo * colTipo;
-        Conversacion * con;
+       
+        //Conversacion * conv;
         string nombre;
         string imagen;
         DtFecha fecha;

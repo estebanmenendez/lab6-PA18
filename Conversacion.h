@@ -15,8 +15,10 @@
 #define CONVERSACION_H
 
 #include"Mensaje.h"
-#include"ColMensaje.h"
+
+#include"Grupo.h"
 #include"iostream"
+
 
 using namespace std;
 
@@ -29,9 +31,8 @@ public:
     
 private:
     
-        ColMensaje * colMensaje;
         Grupo * grupo;
-        string idConv;
+        int idConv;
 
 };
 

@@ -14,6 +14,8 @@
 #ifndef MULTIMEDIA_H
 #define MULTIMEDIA_H
 
+#include"Mensaje.h"
+
 class Multimedia : public Mensaje {
 public:
     Multimedia();

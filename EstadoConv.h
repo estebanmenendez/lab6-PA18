@@ -14,7 +14,6 @@
 #ifndef ESTADOCONV_H
 #define ESTADOCONV_H
 
-#include"ColMensaje.h"
 
 class EstadoConv {
 public:
@@ -23,7 +22,7 @@ public:
     virtual ~EstadoConv();
 private:
     
-        ColMensaje * mensaje;
+       
         bool archivada;
 };
 

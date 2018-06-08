@@ -14,6 +14,8 @@
 #ifndef IMAGEN_H
 #define IMAGEN_H
 
+#include"Multimedia.h"
+
 class Imagen : public Multimedia {
 public:
     Imagen();

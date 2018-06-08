@@ -14,13 +14,11 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 
-#include"ColEstConv.h"
-#include"ColUsuario.h"
-#include"ColTipo.h"
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"DtUltCon.h"
-#include"iostream"
+#include"ICollectible.h"
+#include<iostream>
 
 using namespace std;
 
@@ -32,10 +30,6 @@ public:
 
 private:
     
-    ColEstConv * estConv;
-    ColTipo * estTipo;
-    ColUsuario * usuario;
-
     int celular;
     string nombre;
     DtFecha fecha_Registro;
