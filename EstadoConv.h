@@ -14,6 +14,7 @@
 #ifndef ESTADOCONV_H
 #define ESTADOCONV_H
 
+#include"Lista.h"
 
 class EstadoConv {
 public:
@@ -21,8 +22,9 @@ public:
     EstadoConv(const EstadoConv& orig);
     virtual ~EstadoConv();
 private:
+        Lista * usuario;
+        Lista * conversacion;
     
-       
         bool archivada;
 };
 

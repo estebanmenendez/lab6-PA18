@@ -18,6 +18,7 @@
 #include"DtHora.h"
 #include"DtUltCon.h"
 #include"ICollectible.h"
+#include"Lista.h"
 #include<iostream>
 
 using namespace std;
@@ -29,6 +30,10 @@ public:
     virtual ~Usuario();
 
 private:
+    
+    Lista * contactos;
+    Lista * estadoConv;
+    Lista * tipo;
     
     int celular;
     string nombre;

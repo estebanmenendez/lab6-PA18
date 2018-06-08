@@ -17,6 +17,7 @@
 #include"Mensaje.h"
 
 #include"Grupo.h"
+#include"Lista.h"
 #include"iostream"
 
 
@@ -31,7 +32,9 @@ public:
     
 private:
     
-        Grupo * grupo;
+        Lista * grupo;
+        Lista * mensaje;
+        Lista * estadoConv;
         int idConv;
 
 };

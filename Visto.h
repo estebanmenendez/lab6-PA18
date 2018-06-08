@@ -24,7 +24,7 @@ public:
     
 private:
     
-        Usuario * usuario;
+        Lista * usuario;
         bool estado; 
         DtFecha fechaV;
         DtHora horaV;

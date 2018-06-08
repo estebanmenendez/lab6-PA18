@@ -16,6 +16,7 @@
 
 #include<iostream>
 #include"Usuario.h"
+#include"string.h"
 #include"DtFecha.h"
 #include"DtHora.h"
 
@@ -30,7 +31,6 @@ public:
     
 private:
     
-        Usuario * usuario;
         string tipo;
         DtFecha fechaIng;
         DtHora horaIng;

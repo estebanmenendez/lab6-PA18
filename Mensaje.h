@@ -16,6 +16,7 @@
 
 #include"DtFecha.h"
 #include"DtHora.h"
+#include"Lista.h"
 
 
 class Mensaje {
@@ -23,8 +24,10 @@ public:
     Mensaje();
     Mensaje(const Mensaje& orig);
     virtual ~Mensaje();
-
+    
 private:
+        
+        Lista * visto;
        
         int codigo;
         DtFecha fechaEnv;
