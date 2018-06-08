@@ -17,8 +17,6 @@
 #include"iContGrupo.h"
 
 
-
-
 class ContGrupo: public iContGrupo {
     
 public:
