@@ -14,12 +14,25 @@
 #ifndef TIPO_H
 #define TIPO_H
 
+#include"iostream"
+#include"DtFecha.h"
+#include"DtHora.h"
+
+using namespace std;
+
 class Tipo {
+    
 public:
     Tipo();
     Tipo(const Tipo& orig);
     virtual ~Tipo();
+    
 private:
+    
+        Usuario * usuario;
+        string tipo;
+        DtFecha fechaIng;
+        DtHora horaIng;
 
 };
 

@@ -14,7 +14,7 @@
 #ifndef VIDEO_H
 #define VIDEO_H
 
-class Video {
+class Video : public Multimedia {
 public:
     Video();
     Video(const Video& orig);

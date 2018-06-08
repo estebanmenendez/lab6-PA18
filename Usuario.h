@@ -14,12 +14,36 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 
-class Usuario {
+#include"ColEstConv.h"
+#include"ColUsuario.h"
+#include"ColTipo.h"
+#include"DtFecha.h"
+#include"DtHora.h"
+#include"DtUltCon.h"
+#include"iostream"
+
+using namespace std;
+
+class Usuario : public ICollectible {
 public:
     Usuario();
     Usuario(const Usuario& orig);
     virtual ~Usuario();
+
 private:
+    
+    ColEstConv * estConv;
+    ColTipo * estTipo;
+    ColUsuario * usuario;
+
+    int celular;
+    string nombre;
+    DtFecha fecha_Registro;
+    string foto_Perfil;
+    string descripcion; 
+    DtUltCon ultima_conexion;
+    DtFecha fechaCreacion;
+    DtHora horaCreacion; 
 
 };
 

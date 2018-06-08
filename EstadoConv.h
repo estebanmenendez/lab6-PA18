@@ -14,13 +14,17 @@
 #ifndef ESTADOCONV_H
 #define ESTADOCONV_H
 
+#include"ColMensaje.h"
+
 class EstadoConv {
 public:
     EstadoConv();
     EstadoConv(const EstadoConv& orig);
     virtual ~EstadoConv();
 private:
-
+    
+        ColMensaje * mensaje;
+        bool archivada;
 };
 
 #endif /* ESTADOCONV_H */

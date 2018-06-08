@@ -5,23 +5,23 @@
  */
 
 /* 
- * File:   Simple.h
+ * File:   ColVisto.h
  * Author: esteban
  *
- * Created on 5 de junio de 2018, 01:32 AM
+ * Created on 8 de junio de 2018, 12:04 AM
  */
 
-#ifndef SIMPLE_H
-#define SIMPLE_H
+#ifndef COLVISTO_H
+#define COLVISTO_H
 
-class Simple : public Mensaje {
+class ColVisto {
 public:
-    Simple();
-    Simple(const Simple& orig);
-    virtual ~Simple();
+    ColVisto();
+    ColVisto(const ColVisto& orig);
+    virtual ~ColVisto();
 private:
 
 };
 
-#endif /* SIMPLE_H */
+#endif /* COLVISTO_H */
 

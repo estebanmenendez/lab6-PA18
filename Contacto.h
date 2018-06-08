@@ -14,7 +14,7 @@
 #ifndef CONTACTO_H
 #define CONTACTO_H
 
-class Contacto {
+class Contacto : Mensaje {
 public:
     Contacto();
     Contacto(const Contacto& orig);

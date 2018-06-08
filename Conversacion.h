@@ -14,12 +14,24 @@
 #ifndef CONVERSACION_H
 #define CONVERSACION_H
 
+#include"Mensaje.h"
+#include"ColMensaje.h"
+#include"iostream"
+
+using namespace std;
+
 class Conversacion {
 public:
+    
     Conversacion();
     Conversacion(const Conversacion& orig);
     virtual ~Conversacion();
+    
 private:
+    
+        ColMensaje * colMensaje;
+        Grupo * grupo;
+        string idConv;
 
 };
 

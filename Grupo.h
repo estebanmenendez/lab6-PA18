@@ -14,12 +14,29 @@
 #ifndef GRUPO_H
 #define GRUPO_H
 
+#include"Tipo.h"
+#include"Conversacion.h"
+#include"iostream"
+#include"DtFecha.h"
+#include"DtHora.h"
+
+using namespace std;
+
 class Grupo {
 public:
     Grupo();
     Grupo(const Grupo& orig);
     virtual ~Grupo();
+    
 private:
+    
+        ColTipo * colTipo;
+        Conversacion * con;
+        string nombre;
+        string imagen;
+        DtFecha fecha;
+        DtHora hora;    
+        int creador; 
 
 };
 

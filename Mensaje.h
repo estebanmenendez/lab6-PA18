@@ -14,13 +14,26 @@
 #ifndef MENSAJE_H
 #define MENSAJE_H
 
+#include"ColVisto.h"
+#include"DtFecha.h"
+#include"DtHora.h"
+
+
+
 class Mensaje {
 public:
     Mensaje();
     Mensaje(const Mensaje& orig);
     virtual ~Mensaje();
-private:
 
+private:
+        ColVisto * colVisto;
+        ColUsuario * usuarioReceptor;
+        
+        int codigo;
+        DtFecha fechaEnv;
+        DtHora horaEnv;
+    
 };
 
 #endif /* MENSAJE_H */

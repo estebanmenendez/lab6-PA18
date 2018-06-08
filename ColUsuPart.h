@@ -5,23 +5,23 @@
  */
 
 /* 
- * File:   Simple.h
+ * File:   ColUsuPart.h
  * Author: esteban
  *
- * Created on 5 de junio de 2018, 01:32 AM
+ * Created on 8 de junio de 2018, 12:10 AM
  */
 
-#ifndef SIMPLE_H
-#define SIMPLE_H
+#ifndef COLUSUPART_H
+#define COLUSUPART_H
 
-class Simple : public Mensaje {
+class ColUsuPart {
 public:
-    Simple();
-    Simple(const Simple& orig);
-    virtual ~Simple();
+    ColUsuPart();
+    ColUsuPart(const ColUsuPart& orig);
+    virtual ~ColUsuPart();
 private:
 
 };
 
-#endif /* SIMPLE_H */
+#endif /* COLUSUPART_H */
 

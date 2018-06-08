@@ -5,23 +5,23 @@
  */
 
 /* 
- * File:   Simple.h
+ * File:   ColMensaje.h
  * Author: esteban
  *
- * Created on 5 de junio de 2018, 01:32 AM
+ * Created on 7 de junio de 2018, 11:58 PM
  */
 
-#ifndef SIMPLE_H
-#define SIMPLE_H
+#ifndef COLMENSAJE_H
+#define COLMENSAJE_H
 
-class Simple : public Mensaje {
+class ColMensaje {
 public:
-    Simple();
-    Simple(const Simple& orig);
-    virtual ~Simple();
+    ColMensaje();
+    ColMensaje(const ColMensaje& orig);
+    virtual ~ColMensaje();
 private:
 
 };
 
-#endif /* SIMPLE_H */
+#endif /* COLMENSAJE_H */
 

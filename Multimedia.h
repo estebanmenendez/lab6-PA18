@@ -14,7 +14,7 @@
 #ifndef MULTIMEDIA_H
 #define MULTIMEDIA_H
 
-class Multimedia {
+class Multimedia : public Mensaje {
 public:
     Multimedia();
     Multimedia(const Multimedia& orig);

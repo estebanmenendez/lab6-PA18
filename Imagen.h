@@ -14,7 +14,7 @@
 #ifndef IMAGEN_H
 #define IMAGEN_H
 
-class Imagen {
+class Imagen : public Multimedia {
 public:
     Imagen();
     Imagen(const Imagen& orig);

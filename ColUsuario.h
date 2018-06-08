@@ -5,23 +5,23 @@
  */
 
 /* 
- * File:   Simple.h
+ * File:   ColUsuario.h
  * Author: esteban
  *
- * Created on 5 de junio de 2018, 01:32 AM
+ * Created on 7 de junio de 2018, 11:56 PM
  */
 
-#ifndef SIMPLE_H
-#define SIMPLE_H
+#ifndef COLUSUARIO_H
+#define COLUSUARIO_H
 
-class Simple : public Mensaje {
+class ColUsuario {
 public:
-    Simple();
-    Simple(const Simple& orig);
-    virtual ~Simple();
+    ColUsuario();
+    ColUsuario(const ColUsuario& orig);
+    virtual ~ColUsuario();
 private:
 
 };
 
-#endif /* SIMPLE_H */
+#endif /* COLUSUARIO_H */
 

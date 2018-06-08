@@ -15,12 +15,14 @@
 #define CONTGRUPO_H
 
 #include"iContGrupo.h"
-#include"Grupo.h"
-#include"Usuario.h"
+
+
 
 
 class ContGrupo: public iContGrupo {
+    
 public:
+    
     ContGrupo();
     ContGrupo(const ContGrupo& orig);
     virtual ~ContGrupo();

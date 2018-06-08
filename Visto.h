@@ -14,12 +14,20 @@
 #ifndef VISTO_H
 #define VISTO_H
 
+#include"Usuario.h"
+
 class Visto {
 public:
     Visto();
     Visto(const Visto& orig);
     virtual ~Visto();
+    
 private:
+    
+        Usuario * usuario;
+        bool estado; 
+        DtFecha fechaV;
+        DtHora horaV;
 
 };
 

@@ -5,23 +5,23 @@
  */
 
 /* 
- * File:   Simple.h
+ * File:   ColTipo.h
  * Author: esteban
  *
- * Created on 5 de junio de 2018, 01:32 AM
+ * Created on 8 de junio de 2018, 12:08 AM
  */
 
-#ifndef SIMPLE_H
-#define SIMPLE_H
+#ifndef COLTIPO_H
+#define COLTIPO_H
 
-class Simple : public Mensaje {
+class ColTipo {
 public:
-    Simple();
-    Simple(const Simple& orig);
-    virtual ~Simple();
+    ColTipo();
+    ColTipo(const ColTipo& orig);
+    virtual ~ColTipo();
 private:
 
 };
 
-#endif /* SIMPLE_H */
+#endif /* COLTIPO_H */
 
