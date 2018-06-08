@@ -13,4 +13,4 @@
 
 #include "iContUsuario.h"
 
-iContUsuario::~IContUsuario(){}
+iContUsuario::~iContUsuario(){}

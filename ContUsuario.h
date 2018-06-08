@@ -14,7 +14,7 @@
 #ifndef CONTUSUARIO_H
 #define CONTUSUARIO_H
 
-#include"IContUsuario.h"
+#include"iContUsuario.h"
 #include"DtUltCon.h"
 #include"DtContacto.h"
 #include"DtConexion.h"
@@ -32,6 +32,7 @@ class ContUsuario : public iContUsuario{
     
 private:
     Usuario * usuario;
+    
     
         
 public:

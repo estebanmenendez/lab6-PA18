@@ -44,10 +44,15 @@ OBJECTFILES= \
 	${OBJECTDIR}/DtContacto.o \
 	${OBJECTDIR}/DtConversacion.o \
 	${OBJECTDIR}/DtFecha.o \
+	${OBJECTDIR}/DtFechaHoraIng.o \
+	${OBJECTDIR}/DtFechaHoraVisto.o \
+	${OBJECTDIR}/DtGrupo.o \
 	${OBJECTDIR}/DtHora.o \
 	${OBJECTDIR}/DtImagen.o \
 	${OBJECTDIR}/DtMensaje.o \
+	${OBJECTDIR}/DtMensajeVisto.o \
 	${OBJECTDIR}/DtSimple.o \
+	${OBJECTDIR}/DtTipo.o \
 	${OBJECTDIR}/DtUltCon.o \
 	${OBJECTDIR}/EstadoConv.o \
 	${OBJECTDIR}/Fabrica.o \
@@ -57,6 +62,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/IKey.o \
 	${OBJECTDIR}/Imagen.o \
 	${OBJECTDIR}/Lista.o \
+	${OBJECTDIR}/ListaIterator.o \
 	${OBJECTDIR}/Mensaje.o \
 	${OBJECTDIR}/Multimedia.o \
 	${OBJECTDIR}/Nodo.o \
@@ -141,6 +147,21 @@ ${OBJECTDIR}/DtFecha.o: DtFecha.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtFecha.o DtFecha.cpp
 
+${OBJECTDIR}/DtFechaHoraIng.o: DtFechaHoraIng.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtFechaHoraIng.o DtFechaHoraIng.cpp
+
+${OBJECTDIR}/DtFechaHoraVisto.o: DtFechaHoraVisto.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtFechaHoraVisto.o DtFechaHoraVisto.cpp
+
+${OBJECTDIR}/DtGrupo.o: DtGrupo.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtGrupo.o DtGrupo.cpp
+
 ${OBJECTDIR}/DtHora.o: DtHora.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -156,10 +177,20 @@ ${OBJECTDIR}/DtMensaje.o: DtMensaje.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtMensaje.o DtMensaje.cpp
 
+${OBJECTDIR}/DtMensajeVisto.o: DtMensajeVisto.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtMensajeVisto.o DtMensajeVisto.cpp
+
 ${OBJECTDIR}/DtSimple.o: DtSimple.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtSimple.o DtSimple.cpp
+
+${OBJECTDIR}/DtTipo.o: DtTipo.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtTipo.o DtTipo.cpp
 
 ${OBJECTDIR}/DtUltCon.o: DtUltCon.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -205,6 +236,11 @@ ${OBJECTDIR}/Lista.o: Lista.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Lista.o Lista.cpp
+
+${OBJECTDIR}/ListaIterator.o: ListaIterator.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ListaIterator.o ListaIterator.cpp
 
 ${OBJECTDIR}/Mensaje.o: Mensaje.cpp
 	${MKDIR} -p ${OBJECTDIR}

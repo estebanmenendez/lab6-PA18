@@ -44,27 +44,27 @@ public:
 ContMensaje();
 ~ContMensaje();
 
-virtual void enviarMensaje(Mensaje);
-virtual void crearConv(Usuario,Conversacion);
-virtual void create(Grupo);
-virtual void agregarConv(Conversacion);
-virtual void crear(DtSimple);
-virtual void crearMensaje(DtMensaje);
-virtual void seleccionarCont(string);
-virtual void selecConversacion(string);
-virtual void getContactos();
-virtual void getConversacion();
-virtual DtConversacion listarConv();
-virtual void seleccionarConv(string);
-virtual void archivarConv(DtConversacion);
-virtual DtMensaje seleccionarConversacion(string);
-virtual void seleccionarMensaje(int);
-virtual void eliminarMensaje(DtMensaje);
-virtual DtConversacion listarConvArchivadas();
-virtual void cuerpoMensaje(DtSimple);
-virtual void cuerpoMensaje(DtImagen);
-virtual void cuerpoMensaje(DtContacto);
-virtual void crearMensaje();
+void enviarMensaje(Mensaje);
+void crearConv(Usuario,Conversacion);
+void create(Grupo);
+void agregarConv(Conversacion);
+void crear(DtSimple);
+void crearMensaje(DtMensaje);
+void seleccionarCont(string);
+void selecConversacion(string);
+void getContactos();
+void getConversacion();
+DtConversacion listarConv();
+void seleccionarConv(string);
+void archivarConv(DtConversacion);
+DtMensaje seleccionarConversacion(string);
+void seleccionarMensaje(int);
+void eliminarMensaje(DtMensaje);
+DtConversacion listarConvArchivadas();
+void cuerpoMensaje(DtSimple);
+void cuerpoMensaje(DtImagen);
+void cuerpoMensaje(DtContacto);
+void crearMensaje();
 
 
 };

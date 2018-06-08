@@ -13,10 +13,15 @@
       <itemPath>DtContacto.h</itemPath>
       <itemPath>DtConversacion.h</itemPath>
       <itemPath>DtFecha.h</itemPath>
+      <itemPath>DtFechaHoraIng.h</itemPath>
+      <itemPath>DtFechaHoraVisto.h</itemPath>
+      <itemPath>DtGrupo.h</itemPath>
       <itemPath>DtHora.h</itemPath>
       <itemPath>DtImagen.h</itemPath>
       <itemPath>DtMensaje.h</itemPath>
+      <itemPath>DtMensajeVisto.h</itemPath>
       <itemPath>DtSimple.h</itemPath>
+      <itemPath>DtTipo.h</itemPath>
       <itemPath>DtUltCon.h</itemPath>
       <itemPath>EstadoConv.h</itemPath>
       <itemPath>Fabrica.h</itemPath>
@@ -58,10 +63,15 @@
       <itemPath>DtContacto.cpp</itemPath>
       <itemPath>DtConversacion.cpp</itemPath>
       <itemPath>DtFecha.cpp</itemPath>
+      <itemPath>DtFechaHoraIng.cpp</itemPath>
+      <itemPath>DtFechaHoraVisto.cpp</itemPath>
+      <itemPath>DtGrupo.cpp</itemPath>
       <itemPath>DtHora.cpp</itemPath>
       <itemPath>DtImagen.cpp</itemPath>
       <itemPath>DtMensaje.cpp</itemPath>
+      <itemPath>DtMensajeVisto.cpp</itemPath>
       <itemPath>DtSimple.cpp</itemPath>
+      <itemPath>DtTipo.cpp</itemPath>
       <itemPath>DtUltCon.cpp</itemPath>
       <itemPath>EstadoConv.cpp</itemPath>
       <itemPath>Fabrica.cpp</itemPath>
@@ -71,6 +81,7 @@
       <itemPath>IKey.cpp</itemPath>
       <itemPath>Imagen.cpp</itemPath>
       <itemPath>Lista.cpp</itemPath>
+      <itemPath>ListaIterator.cpp</itemPath>
       <itemPath>Mensaje.cpp</itemPath>
       <itemPath>Multimedia.cpp</itemPath>
       <itemPath>Nodo.cpp</itemPath>
@@ -143,6 +154,18 @@
       </item>
       <item path="DtFecha.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DtFechaHoraIng.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtFechaHoraIng.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtFechaHoraVisto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtFechaHoraVisto.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtGrupo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtGrupo.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DtHora.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtHora.h" ex="false" tool="3" flavor2="0">
@@ -155,9 +178,17 @@
       </item>
       <item path="DtMensaje.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DtMensajeVisto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtMensajeVisto.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DtSimple.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtSimple.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtTipo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtTipo.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DtUltCon.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -198,6 +229,8 @@
       <item path="Lista.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Lista.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListaIterator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ListaIterator.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -308,6 +341,18 @@
       </item>
       <item path="DtFecha.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DtFechaHoraIng.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtFechaHoraIng.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtFechaHoraVisto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtFechaHoraVisto.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtGrupo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtGrupo.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DtHora.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtHora.h" ex="false" tool="3" flavor2="0">
@@ -320,9 +365,17 @@
       </item>
       <item path="DtMensaje.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DtMensajeVisto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtMensajeVisto.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DtSimple.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtSimple.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtTipo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtTipo.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DtUltCon.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -363,6 +416,8 @@
       <item path="Lista.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Lista.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListaIterator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ListaIterator.h" ex="false" tool="3" flavor2="0">
       </item>

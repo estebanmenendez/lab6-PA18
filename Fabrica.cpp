@@ -13,10 +13,9 @@
 
 #include "Fabrica.h"
 
-Fabrica::Fabrica() {
-}
+Fabrica* Fabrica::fabrica = NULL;
 
-Fabrica::Fabrica(const Fabrica& orig) {
+Fabrica::Fabrica() {
 }
 
 Fabrica::~Fabrica() {
@@ -39,6 +38,7 @@ iContMensaje* Fabrica::getContMensaje(){
             this-> cMens = new ContMensaje();
     return this-> cMens;
 }
+
 iContGrupo* Fabrica::getContGrupo(){
     if (this-> cGru ==NULL)
             this-> cGru = new ContGrupo();

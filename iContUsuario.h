@@ -16,6 +16,13 @@
 
 #include "IKey.h"
 #include "Lista.h"
+#include "DtFecha.h"
+#include "DtHora.h"
+#include "DtContacto.h"
+#include "DtConexion.h"
+#include "DtUltCon.h"
+#include "Usuario.h"
+
 
 using namespace std;
 
@@ -24,7 +31,7 @@ class iContUsuario {
 private:
     
 public:
-virtual ~IContUsuario();
+virtual ~iContUsuario() = 0;
 virtual void create(string,string,string,int,DtFecha,DtHora) = 0;
 virtual void setUltimaCon(DtUltCon) = 0;
 virtual void setUsuLog(Usuario) = 0;
@@ -33,7 +40,7 @@ virtual bool ingresarCelular(int) = 0;
 virtual bool altaUsuario(string,string,string) = 0;
 virtual bool cancelaIngreso() = 0;
 virtual DtConexion asignarSesion() = 0;
-virtual DtContacto Lista listarContactos() = 0;
+virtual Lista listarContactos() = 0;
 virtual DtContacto ingContacto(int) = 0;
 virtual void agregaContacto(DtContacto) = 0;
 virtual void cerrarSesion(DtConexion) = 0; 

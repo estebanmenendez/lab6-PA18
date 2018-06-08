@@ -5,20 +5,20 @@
  */
 
 /* 
- * File:   IContUsuario.cpp
+ * File:   DtTipo.cpp
  * Author: esteban
  * 
- * Created on 5 de junio de 2018, 01:44 AM
+ * Created on 7 de junio de 2018, 01:53 AM
  */
 
-#include "IContUsuario.h"
+#include "DtTipo.h"
 
-IContUsuario::IContUsuario() {
+DtTipo::DtTipo() {
 }
 
-IContUsuario::IContUsuario(const IContUsuario& orig) {
+DtTipo::DtTipo(const DtTipo& orig) {
 }
 
-IContUsuario::~IContUsuario() {
+DtTipo::~DtTipo() {
 }
 

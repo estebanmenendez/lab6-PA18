@@ -5,20 +5,20 @@
  */
 
 /* 
- * File:   IcontMensaje.cpp
+ * File:   DtGrupo.cpp
  * Author: esteban
  * 
- * Created on 5 de junio de 2018, 01:45 AM
+ * Created on 7 de junio de 2018, 01:52 AM
  */
 
-#include "IcontMensaje.h"
+#include "DtGrupo.h"
 
-IcontMensaje::IcontMensaje() {
+DtGrupo::DtGrupo() {
 }
 
-IcontMensaje::IcontMensaje(const IcontMensaje& orig) {
+DtGrupo::DtGrupo(const DtGrupo& orig) {
 }
 
-IcontMensaje::~IcontMensaje() {
+DtGrupo::~DtGrupo() {
 }
 

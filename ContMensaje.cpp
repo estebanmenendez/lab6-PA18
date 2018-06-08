@@ -34,7 +34,7 @@ void ContMensaje::archivarConv(DtConversacion){}
 DtMensaje ContMensaje::seleccionarConversacion(string){}
 void ContMensaje::seleccionarMensaje(int){}
 void ContMensaje::eliminarMensaje(DtMensaje){}
-DtConversacion listarConvArchivadas(){}
+DtConversacion ContMensaje::listarConvArchivadas(){}
 void ContMensaje::cuerpoMensaje(DtSimple) {}
 void ContMensaje::cuerpoMensaje(DtImagen){}
 void ContMensaje::cuerpoMensaje(DtContacto){}

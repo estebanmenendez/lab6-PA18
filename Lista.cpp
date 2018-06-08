@@ -12,7 +12,6 @@
  */
 
 #include "Lista.h"
-
 #include <string.h>
 
 Lista::Lista() {
@@ -67,4 +66,3 @@ IIterator *Lista::iterator() {
 bool Lista::isEmpty() {
   return !first->hasNext();
 }
-

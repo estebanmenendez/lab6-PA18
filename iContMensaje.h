@@ -16,7 +16,15 @@
 
 #include "IKey.h"
 #include "Lista.h"
-
+#include "Mensaje.h"
+#include "Conversacion.h"
+#include "DtMensaje.h"
+#include "DtSimple.h"
+#include "DtImagen.h"
+#include "DtContacto.h"
+#include "DtConversacion.h"
+#include "Grupo.h"
+#include "Usuario.h"
 
 
 using namespace std;
@@ -26,7 +34,7 @@ class iContMensaje {
 private:
                 
 public:
-virtual ~IContMensaje();
+virtual ~iContMensaje();
 virtual void enviarMensaje(Mensaje) = 0;
 virtual void crearConv(Usuario,Conversacion) = 0;
 virtual void create(Grupo) = 0;

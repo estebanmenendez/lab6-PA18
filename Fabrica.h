@@ -28,6 +28,7 @@ private:
     ContGrupo * cGru;
     Fabrica();
     static Fabrica* fabrica;
+    
 public:
     
     static Fabrica* getInstance();
