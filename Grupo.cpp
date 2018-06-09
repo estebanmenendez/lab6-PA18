@@ -13,6 +13,8 @@
 
 #include "Grupo.h"
 
+
+
 Grupo::Grupo() {
 }
 
@@ -20,5 +22,45 @@ Grupo::Grupo(const Grupo& orig) {
 }
 
 Grupo::~Grupo() {
+}
+
+int Grupo::GetCreador() {
+    return creador;
+}
+
+void Grupo::SetCreador(int creador) {
+    this->creador = creador;
+}
+
+DtFecha Grupo::GetFecha() {
+    return fecha;
+}
+
+void Grupo::SetFecha(DtFecha fecha) {
+    this->fecha = fecha;
+}
+
+DtHora Grupo::GetHora() {
+    return hora;
+}
+
+void Grupo::SetHora(DtHora hora) {
+    this->hora = hora;
+}
+
+string Grupo::GetImagen() {
+    return imagen;
+}
+
+void Grupo::SetImagen(string imagen) {
+    this->imagen = imagen;
+}
+
+string Grupo::GetNombre()  {
+    return nombre;
+}
+
+void Grupo::SetNombre(string nombre) {
+    this->nombre = nombre;
 }
 

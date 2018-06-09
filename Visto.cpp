@@ -22,3 +22,36 @@ Visto::Visto(const Visto& orig) {
 Visto::~Visto() {
 }
 
+
+bool Visto::IsEstado() {
+    return estado;
+}
+
+void Visto::SetEstado(bool estado) {
+    this->estado = estado;
+}
+
+DtFecha Visto::GetFechaV() {
+    return fechaV;
+}
+
+void Visto::SetFechaV(DtFecha fechaV) {
+    this->fechaV = fechaV;
+}
+
+DtHora Visto::GetHoraV() {
+    return horaV;
+}
+
+void Visto::SetHoraV(DtHora horaV) {
+    this->horaV = horaV;
+}
+
+Lista* Visto::GetUsuario() {
+    return usuario;
+}
+
+void Visto::SetUsuario(Lista* usuario) {
+    this->usuario = usuario;
+}
+

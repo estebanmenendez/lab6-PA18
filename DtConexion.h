@@ -14,13 +14,21 @@
 #ifndef DTCONEXION_H
 #define DTCONEXION_H
 
+#include<iostream>
+
+using namespace std;
+
 class DtConexion {
 public:
     DtConexion();
     DtConexion(const DtConexion& orig);
     virtual ~DtConexion();
+    
+    string GetFechaHora();
+    void SetFechaHora(string);   
+    
 private:
-
+    string FechaHora;
 };
 
 #endif /* DTCONEXION_H */

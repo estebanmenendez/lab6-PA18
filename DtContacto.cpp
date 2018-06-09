@@ -22,3 +22,43 @@ DtContacto::DtContacto(const DtContacto& orig) {
 DtContacto::~DtContacto() {
 }
 
+
+DtFecha DtContacto::GetFechaIng() {
+        return fechaIng;
+}
+
+void DtContacto::SetFechaIng(DtFecha fechaIng) {
+    this->fechaIng = fechaIng;
+}
+
+DtHora DtContacto::GetHoraIng() {
+    return horaIng;
+}
+
+void DtContacto::SetHoraIng(DtHora horaIng) {
+    this->horaIng = horaIng;
+}
+
+string DtContacto::GetNombre() {
+    return nombre;
+}
+
+void DtContacto::SetNombre(string nombre) {
+    this->nombre = nombre;
+}
+
+string DtContacto::GetNumCel() {
+    return numCel;
+}
+
+void DtContacto::SetNumCel(string numCel) {
+    this->numCel = numCel;
+}
+
+string DtContacto::GetTipo() {
+    return tipo;
+}
+
+void DtContacto::SetTipo(string tipo) {
+    this->tipo = tipo;
+}

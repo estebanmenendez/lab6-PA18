@@ -22,3 +22,13 @@ Conversacion::Conversacion(const Conversacion& orig) {
 Conversacion::~Conversacion() {
 }
 
+
+void Conversacion::sosConversacion(string idConv){}
+void Conversacion::getMensaje(int mensaje){}
+void Conversacion::remueveConv(Mensaje){}
+void Conversacion::eviarMensaje(Mensaje){}
+DtMensaje Conversacion::listarMensaje(DtFechaHoraIng){}
+DtMensajeVisto Conversacion::listarVistos(int){}
+bool Conversacion::soyGrupo(){}
+void Conversacion::setEstado(bool){}
+    

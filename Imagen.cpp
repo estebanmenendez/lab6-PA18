@@ -21,4 +21,35 @@ Imagen::Imagen(const Imagen& orig) {
 
 Imagen::~Imagen() {
 }
+string Imagen::GetFormato() {
+    return Formato;
+}
+
+void Imagen::SetFormato(string Formato) {
+    this->Formato = Formato;
+}
+
+int Imagen::GetTamanio() {
+    return Tamanio;
+}
+
+void Imagen::SetTamanio(int Tamanio) {
+    this->Tamanio = Tamanio;
+}
+
+string Imagen::GetTexto() {
+    return Texto;
+}
+
+void Imagen::SetTexto(string Texto) {
+    this->Texto = Texto;
+}
+
+string Imagen::GetUrlImg() {
+    return urlImg;
+}
+
+void Imagen::SetUrlImg(string urlImg) {
+    this->urlImg = urlImg;
+}
 

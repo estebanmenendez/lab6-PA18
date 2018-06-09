@@ -18,7 +18,10 @@
 
 #include"Grupo.h"
 #include"Lista.h"
-#include"iostream"
+#include<iostream>
+#include"DtFechaHoraIng.h"
+#include"DtMensajeVisto.h"
+#include"DtMensaje.h"
 
 
 using namespace std;
@@ -29,6 +32,15 @@ public:
     Conversacion();
     Conversacion(const Conversacion& orig);
     virtual ~Conversacion();
+    
+void sosConversacion(string);
+void getMensaje(int);
+void remueveConv(Mensaje);
+void eviarMensaje(Mensaje);
+DtMensaje listarMensaje(DtFechaHoraIng);
+DtMensajeVisto listarVistos(int);
+bool soyGrupo();
+void setEstado(bool);
     
 private:
     

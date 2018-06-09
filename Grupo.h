@@ -27,17 +27,28 @@ public:
     Grupo();
     Grupo(const Grupo& orig);
     virtual ~Grupo();
-    
-private:
-    
+        
+    void SetCreador(int);
+    DtFecha GetFecha();
+    DtHora GetHora();
+    int GetCreador();
+    string GetImagen();
+    string GetNombre();
        
-        //Conversacion * conv;
-        string nombre;
-        string imagen;
-        DtFecha fecha;
-        DtHora hora;    
-        int creador; 
+    void SetFecha(DtFecha);    
+    void SetHora(DtHora);    
+    void SetImagen(string);    
+    void SetNombre(string);
 
+private:    
+       
+    //Conversacion * conv;
+    string nombre;
+    string imagen;
+    DtFecha fecha;
+    DtHora hora;    
+    int creador; 
+    
 };
 
 #endif /* GRUPO_H */

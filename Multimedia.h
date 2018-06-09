@@ -21,6 +21,7 @@ public:
     Multimedia();
     Multimedia(const Multimedia& orig);
     virtual ~Multimedia();
+    
 private:
 
 };

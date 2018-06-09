@@ -25,6 +25,16 @@ public:
     Mensaje(const Mensaje& orig);
     virtual ~Mensaje();
     
+    int GetCodigo();
+    DtFecha GetFechaEnv();
+    DtHora GetHoraEnv();
+    Lista* GetVisto();
+    
+    void SetCodigo(int);
+    void SetFechaEnv(DtFecha);    
+    void SetHoraEnv(DtHora);
+    void SetVisto(Lista*);
+    
 private:
         
         Lista * visto;

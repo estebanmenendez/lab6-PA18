@@ -21,7 +21,13 @@ public:
     Contacto();
     Contacto(const Contacto& orig);
     virtual ~Contacto();
+    
+    int GetNumCel();
+    void SetNumCel(int);
+    
 private:
+    
+    int numCel;
 
 };
 

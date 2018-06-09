@@ -22,3 +22,10 @@ DtConexion::DtConexion(const DtConexion& orig) {
 DtConexion::~DtConexion() {
 }
 
+string DtConexion::GetFechaHora() {
+    return FechaHora;
+}
+
+void DtConexion::SetFechaHora(string FechaHora) {
+    this->FechaHora = FechaHora;
+}

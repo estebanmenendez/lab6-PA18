@@ -22,3 +22,20 @@ Video::Video(const Video& orig) {
 Video::~Video() {
 }
 
+
+float Video::GetDuracion() {
+        return Duracion;
+    }
+
+    void Video::SetDuracion(float Duracion) {
+        this->Duracion = Duracion;
+    }
+
+    string Video::GetUrl() {
+        return url;
+    }
+
+    void Video::SetUrl(string url) {
+        this->url = url;
+    }
+

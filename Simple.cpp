@@ -22,3 +22,9 @@ Simple::Simple(const Simple& orig) {
 Simple::~Simple() {
 }
 
+string Simple::getTexto() {    
+    return this->texto;
+}
+    void Simple::setTexto(string texto){
+    this->texto = texto;
+    }

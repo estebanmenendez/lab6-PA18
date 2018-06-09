@@ -28,7 +28,38 @@ public:
     Usuario();
     Usuario(const Usuario& orig);
     virtual ~Usuario();
+    
+    void SetCelular(int);
+    void SetContactos(Lista*);
+    void SetDescripcion(string);
+    void SetEstadoConv(Lista*);
+    void SetFechaCreacion(DtFecha);
+    void SetFecha_Registro(DtFecha);   
+    void SetFoto_Perfil(string);
+    void SetHoraCreacion(DtHora);
 
+int GetCelular();
+string GetDescripcion();
+string GetFoto_Perfil();
+string GetNombre();
+
+DtFecha GetFechaCreacion();
+DtFecha GetFecha_Registro();
+DtHora GetHoraCreacion();
+DtUltCon GetUltima_conexion();
+Lista* GetTipo();
+Lista* GetEstadoConv();
+Lista* GetContactos();
+
+
+
+    void SetNombre(string);
+
+
+    void SetTipo(Lista*);
+
+    void SetUltima_conexion(DtUltCon);
+    
 private:
     
     Lista * contactos;

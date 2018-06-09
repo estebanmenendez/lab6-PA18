@@ -21,7 +21,14 @@ public:
     Simple();
     Simple(const Simple& orig);
     virtual ~Simple();
+    
+    string getTexto();
+    void setTexto(string);
+    
+    
+    
 private:
+    string texto; 
 
 };
 

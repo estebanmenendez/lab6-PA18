@@ -1,6 +1,6 @@
 build/Debug/GNU-Linux/iContGrupo.o: iContGrupo.cpp iContGrupo.h IKey.h \
  ICollectible.h Lista.h ICollection.h IIterator.h Nodo.h ListaIterator.h \
- DtGrupo.h DtTipo.h DtContacto.h Usuario.h DtFecha.h DtHora.h DtUltCon.h \
+ DtGrupo.h DtTipo.h DtContacto.h DtHora.h DtFecha.h Usuario.h DtUltCon.h \
  Grupo.h Tipo.h
 
 iContGrupo.h:
@@ -25,11 +25,11 @@ DtTipo.h:
 
 DtContacto.h:
 
-Usuario.h:
+DtHora.h:
 
 DtFecha.h:
 
-DtHora.h:
+Usuario.h:
 
 DtUltCon.h:
 

@@ -21,10 +21,15 @@ public:
     EstadoConv();
     EstadoConv(const EstadoConv& orig);
     virtual ~EstadoConv();
+    
+    bool ConvActiva();
+    void SetEstado(bool);
+
+    
 private:
         Lista * usuario;
-        Lista * conversacion;
-    
+        Lista * conversacion; 
+        
         bool archivada;
 };
 

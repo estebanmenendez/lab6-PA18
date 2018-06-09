@@ -19,7 +19,12 @@ public:
     DtFecha();
     DtFecha(const DtFecha& orig);
     virtual ~DtFecha();
+    
+    
+
+    
 private:
+     int dia,mes,anio;
 
 };
 

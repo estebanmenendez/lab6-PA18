@@ -21,7 +21,24 @@ public:
     Imagen();
     Imagen(const Imagen& orig);
     virtual ~Imagen();
+    
+    int GetTamanio();
+    string GetFormato();
+    string GetUrlImg();
+    string GetTexto();
+    
+    void SetTexto(string);
+    void SetTamanio(int);
+    void SetFormato(string);
+    void SetUrlImg(string);
+
+        
+    
 private:
+    int Tamanio;
+    string Formato;
+    string Texto;
+    string urlImg;
 
 };
 

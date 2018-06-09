@@ -14,12 +14,37 @@
 #ifndef DTCONTACTO_H
 #define DTCONTACTO_H
 
+#include"DtHora.h"
+#include"DtFecha.h"
+#include<iostream>
+
+using namespace std;
+
 class DtContacto {
 public:
     DtContacto();
     DtContacto(const DtContacto& orig);
     virtual ~DtContacto();
+    
+    DtFecha GetFechaIng();
+    DtHora GetHoraIng();
+    string GetNumCel();
+    string GetTipo();
+    string GetNombre();
+
+    void SetFechaIng(DtFecha);
+    void SetHoraIng(DtHora);   
+    void SetNombre(string);
+    void SetNumCel(string);
+    void SetTipo(string);
+    
 private:
+    
+    string nombre;
+    string numCel;
+    string tipo;
+    DtFecha fechaIng;
+    DtHora horaIng;
 
 };
 

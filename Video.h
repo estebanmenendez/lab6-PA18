@@ -21,7 +21,16 @@ public:
     Video();
     Video(const Video& orig);
     virtual ~Video();
+    
+    float GetDuracion();
+    string GetUrl();
+
+    void SetDuracion(float);
+    void SetUrl(string);
+
 private:
+    float Duracion;
+    string url;
 
 };
 

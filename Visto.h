@@ -22,6 +22,16 @@ public:
     Visto(const Visto& orig);
     virtual ~Visto();
     
+        bool IsEstado();
+    DtFecha GetFechaV();
+    DtHora GetHoraV();
+    Lista* GetUsuario();
+    
+    void SetFechaV(DtFecha);
+    void SetUsuario(Lista*);
+    void SetHoraV(DtHora);
+    void SetEstado(bool);
+    
 private:
     
         Lista * usuario;

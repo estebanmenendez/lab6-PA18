@@ -22,3 +22,11 @@ Contacto::Contacto(const Contacto& orig) {
 Contacto::~Contacto() {
 }
 
+
+int Contacto::GetNumCel(){    
+    return this->numCel;
+}
+
+void Contacto::SetNumCel(int numCel){
+    this->numCel = numCel;
+}

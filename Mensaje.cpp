@@ -22,3 +22,35 @@ Mensaje::Mensaje(const Mensaje& orig) {
 Mensaje::~Mensaje() {
 }
 
+int Mensaje::GetCodigo() {
+    return codigo;
+}
+
+void Mensaje::SetCodigo(int codigo) {
+    this->codigo = codigo;
+}
+
+DtFecha Mensaje::GetFechaEnv() {
+    return fechaEnv;
+}
+
+void Mensaje::SetFechaEnv(DtFecha fechaEnv) {
+    this->fechaEnv = fechaEnv;
+}
+
+DtHora Mensaje::GetHoraEnv() {
+    return horaEnv;
+}
+
+void Mensaje::SetHoraEnv(DtHora horaEnv) {
+    this->horaEnv = horaEnv;
+}
+
+Lista* Mensaje::GetVisto() {
+    return visto;
+}
+
+void Mensaje::SetVisto(Lista* visto) {
+    this->visto = visto;
+}
+

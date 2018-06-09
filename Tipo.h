@@ -29,6 +29,14 @@ public:
     Tipo(const Tipo& orig);
     virtual ~Tipo();
     
+    DtFecha GetFechaIng();
+    DtHora GetHoraIng();
+    string GetTipo();
+    
+    void SetFechaIng(DtFecha);    
+    void SetHoraIng(DtHora); 
+    void SetTipo(string);    
+    
 private:
     
         string tipo;

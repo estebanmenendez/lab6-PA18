@@ -22,3 +22,27 @@ Tipo::Tipo(const Tipo& orig) {
 Tipo::~Tipo() {
 }
 
+
+ DtFecha Tipo::GetFechaIng() {
+        return fechaIng;
+    }
+
+    void Tipo::SetFechaIng(DtFecha fechaIng) {
+        this->fechaIng = fechaIng;
+    }
+
+    DtHora Tipo::GetHoraIng() {
+        return horaIng;
+    }
+
+    void Tipo::SetHoraIng(DtHora horaIng) {
+        this->horaIng = horaIng;
+    }
+
+    string Tipo::GetTipo() {
+        return tipo;
+    }
+
+    void Tipo::SetTipo(string tipo) {
+        this->tipo = tipo;
+    }
