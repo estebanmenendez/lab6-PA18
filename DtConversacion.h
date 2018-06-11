@@ -14,12 +14,28 @@
 #ifndef DTCONVERSACION_H
 #define DTCONVERSACION_H
 
+#include<iostream>
+
+using namespace std;
+
 class DtConversacion {
 public:
     DtConversacion();
     DtConversacion(const DtConversacion& orig);
     virtual ~DtConversacion();
+    
+    int GetCel_Cantidad();
+    int GetIdConversa();    
+    string GetNombre();
+  
+    void SetCel_Cantidad(int);   
+    void SetNombre(string);
+    void SetIdConversa(int);
+    
 private:
+    int idConversa;
+    int Cel_Cantidad;
+    string Nombre;
 
 };
 

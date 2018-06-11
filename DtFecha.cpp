@@ -22,3 +22,26 @@ DtFecha::DtFecha(const DtFecha& orig) {
 DtFecha::~DtFecha() {
 }
 
+int DtFecha::GetAnio() {
+    return anio;
+}
+
+void DtFecha::SetAnio(int anio) {
+    this->anio = anio;
+}
+
+int DtFecha::GetDia() {
+    return dia;
+}
+
+void DtFecha::SetDia(int dia) {
+    this->dia = dia;
+}
+
+int DtFecha::GetMes() {
+    return mes;
+}
+
+void DtFecha::SetMes(int mes) {
+    this->mes = mes;
+}

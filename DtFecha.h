@@ -14,14 +14,21 @@
 #ifndef DTFECHA_H
 #define DTFECHA_H
 
+using namespace std;
+
 class DtFecha {
 public:
     DtFecha();
     DtFecha(const DtFecha& orig);
     virtual ~DtFecha();
     
-    
+    int GetAnio();
+    int GetDia();  
+    int GetMes();
 
+    void SetAnio(int);
+    void SetDia(int);
+    void SetMes(int);
     
 private:
      int dia,mes,anio;

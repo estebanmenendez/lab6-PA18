@@ -14,13 +14,27 @@
 #ifndef DTFECHAHORAVISTO_H
 #define DTFECHAHORAVISTO_H
 
+#include"DtHora.h"
+#include"DtFecha.h"
+
 class DtFechaHoraVisto {
+
 public:
     DtFechaHoraVisto();
     DtFechaHoraVisto(const DtFechaHoraVisto& orig);
     virtual ~DtFechaHoraVisto();
-private:
+    
+    DtFecha GetFecha();
+    DtHora GetHora();
 
+    void SetFecha(DtFecha);
+    void SetHora(DtHora);
+
+private:
+    
+    DtFecha fecha;
+    DtHora hora; 
+    
 };
 
 #endif /* DTFECHAHORAVISTO_H */

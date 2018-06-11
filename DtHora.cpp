@@ -22,3 +22,27 @@ DtHora::DtHora(const DtHora& orig) {
 DtHora::~DtHora() {
 }
 
+int DtHora::GetHora() {
+    return hora;
+}
+
+void DtHora::SetHora(int hora) {
+    this->hora = hora;
+}
+
+int DtHora::GetMinutos() {
+    return minutos;
+}
+
+void DtHora::SetMinutos(int minutos) {
+    this->minutos = minutos;
+}
+
+int DtHora::GetSegundo() {
+    return segundo;
+}
+
+void DtHora::SetSegundo(int segundo) {
+    this->segundo = segundo;
+}
+

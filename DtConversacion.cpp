@@ -22,3 +22,26 @@ DtConversacion::DtConversacion(const DtConversacion& orig) {
 DtConversacion::~DtConversacion() {
 }
 
+int DtConversacion::GetCel_Cantidad() {
+    return Cel_Cantidad;
+}
+
+void DtConversacion::SetCel_Cantidad(int Cel_Cantidad) {
+    this->Cel_Cantidad = Cel_Cantidad;
+}
+
+string DtConversacion::GetNombre() {
+    return Nombre;
+}
+
+void DtConversacion::SetNombre(string Nombre) {
+    this->Nombre = Nombre;
+}
+
+int DtConversacion::GetIdConversa() {
+    return idConversa;
+}
+
+void DtConversacion::SetIdConversa(int idConversa) {
+    this->idConversa = idConversa;
+}
