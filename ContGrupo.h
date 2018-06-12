@@ -27,27 +27,27 @@ public:
     virtual ~ContGrupo();
     
 private:    
-    
-void create(DtGrupo,Usuario);
-void crearTipoGrupo(DtTipo,Grupo);
-void createTipo(DtTipo,Grupo);
-void crearConvGrupo(Grupo);
-void getUsuario(Usuario);
-void getContactos();
-void getDtContacto();
-DtGrupo listarGrupos();
-DtContacto seleccionarGrupo(string);
-DtContacto seleccionarPart(int);
-bool agregarNuevoAdmin(int);
-DtContacto listarContactos();
-DtContacto seleccionarContacto(int);
-void agregarParticipante(DtContacto);
-DtContacto listarParticipantes();
-DtContacto seleccionarParticipante(int);
-void eliminarPartipante(DtContacto);
-void cancelar();
-DtGrupo altaGrupo(string,string);
-void Salir();
+
+    void create(DtGrupo, Usuario);
+    void crearTipoGrupo(DtTipo, Grupo);
+    void createTipo(DtTipo, Grupo);
+    void crearConvGrupo(Grupo);
+    void getUsuario(Usuario);
+    void getContactos();
+    void getDtContacto();
+    DtGrupo listarGrupos();
+    DtContacto seleccionarGrupo(string);
+    DtContacto seleccionarPart(int);
+    bool agregarNuevoAdmin(int);
+    DtContacto listarContactos();
+    DtContacto seleccionarContacto(int);
+    void agregarParticipante(DtContacto);
+    DtContacto listarParticipantes();
+    DtContacto seleccionarParticipante(int);
+    void eliminarPartipante(DtContacto);
+    void cancelar();
+    DtGrupo altaGrupo(string, string);
+    void Salir();
 
 
 };

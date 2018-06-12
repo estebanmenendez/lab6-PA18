@@ -3,7 +3,7 @@ build/Debug/GNU-Linux/EstadoConv.o: EstadoConv.cpp EstadoConv.h \
  IIterator.h ICollectible.h Nodo.h ListaIterator.h Grupo.h Tipo.h \
  Usuario.h DtUltCon.h ListaDicc.h NodoDicc.h Par.h IKey.h IDictionary.h \
  ListDiccIterator.h ListDiccIteratorObj.h ListDiccIteratorKey.h \
- DtFechaHoraIng.h DtMensajeVisto.h DtMensaje.h
+ DtFechaHoraIng.h DtMensajeVisto.h DtFechaHoraVisto.h DtMensaje.h
 
 EstadoConv.h:
 
@@ -54,5 +54,7 @@ ListDiccIteratorKey.h:
 DtFechaHoraIng.h:
 
 DtMensajeVisto.h:
+
+DtFechaHoraVisto.h:
 
 DtMensaje.h:
