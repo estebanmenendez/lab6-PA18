@@ -108,6 +108,7 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6-pa18: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6-pa18 ${OBJECTFILES} ${LDLIBSOPTIONS}
+<<<<<<< HEAD
 
 ${OBJECTDIR}/_ext/cc38c26e/ListDiccIterator.o: ../../Descargas/ColeccionesG/ListDiccIterator.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
@@ -138,6 +139,8 @@ ${OBJECTDIR}/_ext/cc38c26e/Par.o: ../../Descargas/ColeccionesG/Par.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/Par.o ../../Descargas/ColeccionesG/Par.cpp
+=======
+>>>>>>> 3e52aa3745bc2fb1111846de275b14fcd00c9efa
 
 ${OBJECTDIR}/ContGrupo.o: ContGrupo.cpp
 	${MKDIR} -p ${OBJECTDIR}

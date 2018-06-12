@@ -14,13 +14,44 @@
 #ifndef DTIMAGEN_H
 #define DTIMAGEN_H
 
+
+#include<iostream>
+using namespace std;
+
 class DtImagen {
 public:
+    
     DtImagen();
     DtImagen(const DtImagen& orig);
     virtual ~DtImagen();
-private:
+        
+    int GetTamanio();
+    string GetUrlImg();
+    string GetTexto();
+    string GetFormato();
 
+
+    void SetFormato(string);
+
+
+    void SetTamanio(int);
+
+    
+
+    void SetTexto(string);
+
+    
+
+    void SetUrlImg(string);
+
+    
+private:
+    
+    int Tamanio;
+    string Formato;
+    string Texto;
+    string urlImg;
+    
 };
 
 #endif /* DTIMAGEN_H */

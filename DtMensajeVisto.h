@@ -14,12 +14,31 @@
 #ifndef DTMENSAJEVISTO_H
 #define DTMENSAJEVISTO_H
 
+#include"DtMensajeVisto.h"
+#include"DtFechaHoraVisto.h"
+#include<iostream>
+
+using namespace std;
+
 class DtMensajeVisto {
 public:
     DtMensajeVisto();
     DtMensajeVisto(const DtMensajeVisto& orig);
     virtual ~DtMensajeVisto();
+    
+    int GetCelular();
+    string GetNombre();
+    DtFechaHoraVisto GetFechaHoraVisto();
+    
+    void SetCelular(int);
+    void SetFechaHoraVisto(DtFechaHoraVisto);
+    void SetNombre(string);    
+    
 private:
+    
+    string Nombre;
+    int Celular;
+    DtFechaHoraVisto FechaHoraVisto;
 
 };
 

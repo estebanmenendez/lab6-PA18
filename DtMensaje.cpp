@@ -22,3 +22,26 @@ DtMensaje::DtMensaje(const DtMensaje& orig) {
 DtMensaje::~DtMensaje() {
 }
 
+int DtMensaje::GetCodigo() {
+        return codigo;
+    }
+
+    void DtMensaje::SetCodigo(int codigo) {
+        this->codigo = codigo;
+    }
+
+    DtFecha DtMensaje::GetFechaEnv() {
+        return fechaEnv;
+    }
+
+    void DtMensaje::SetFechaEnv(DtFecha fechaEnv) {
+        this->fechaEnv = fechaEnv;
+    }
+
+    DtHora DtMensaje::GetHoraEnv() {
+        return horaEnv;
+    }
+
+    void DtMensaje::SetHoraEnv(DtHora horaEnv) {
+        this->horaEnv = horaEnv;
+    }

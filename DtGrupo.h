@@ -14,13 +14,43 @@
 #ifndef DTGRUPO_H
 #define DTGRUPO_H
 
+#include"DtHora.h"
+#include"DtFecha.h"
+#include"DtHora.h"
+#include"DtContacto.h"
+
+using namespace std;
+
 class DtGrupo {
 public:
     DtGrupo();
     DtGrupo(const DtGrupo& orig);
     virtual ~DtGrupo();
+    
+    string GetImagenUrl();
+    string GetNombre();
+    DtHora GetHoraCreacion();
+    DtFecha GetFechaCreacion();
+    DtContacto GetContactos();   
+    DtContacto GetUsrCreador();
+    
+    void SetHoraCreacion(DtHora);
+    void SetContactos(DtContacto);
+    void SetFechaCreacion(DtFecha);   
+    void SetImagenUrl(string);
+    void SetNombre(string);
+    void SetUsrCreador(DtContacto);
+    
 private:
+    
+    string nombre;
+    string imagenUrl;
+    DtContacto contactos;
+    DtContacto usrCreador;
+    DtFecha fechaCreacion;
+    DtHora HoraCreacion;    
 
+    
 };
 
 #endif /* DTGRUPO_H */

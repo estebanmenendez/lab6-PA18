@@ -22,3 +22,26 @@ DtFechaHoraIng::DtFechaHoraIng(const DtFechaHoraIng& orig) {
 DtFechaHoraIng::~DtFechaHoraIng() {
 }
 
+int DtFechaHoraIng::GetCelular() {
+    return Celular;
+}
+
+void DtFechaHoraIng::SetCelular(int Celular) {
+    this->Celular = Celular;
+}
+
+DtFechaHoraIng DtFechaHoraIng::GetFechaHoraIng()  {
+    return *FechaHoraIng;
+}
+
+//void DtFechaHoraIng::SetFechaHoraIng(DtFechaHoraIng FechaHoraIng) {
+//    this->FechaHoraIng = FechaHoraIng;
+//}
+
+string DtFechaHoraIng::GetNombre() {
+    return Nombre;
+}
+
+void DtFechaHoraIng::SetNombre(string Nombre) {
+    this->Nombre = Nombre;
+}

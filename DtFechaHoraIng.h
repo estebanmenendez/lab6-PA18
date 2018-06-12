@@ -14,12 +14,30 @@
 #ifndef DTFECHAHORAING_H
 #define DTFECHAHORAING_H
 
+#include<iostream>
+
+using namespace std;
+
 class DtFechaHoraIng {
+    
 public:
     DtFechaHoraIng();
     DtFechaHoraIng(const DtFechaHoraIng& orig);
     virtual ~DtFechaHoraIng();
+    
+    int GetCelular();
+    DtFechaHoraIng GetFechaHoraIng();
+    string GetNombre();
+
+    void SetCelular(int);
+    void SetFechaHoraIng(DtFechaHoraIng);
+    void SetNombre(string);
+    
 private:
+    
+    string Nombre;
+    int Celular;
+    DtFechaHoraIng *FechaHoraIng;
 
 };
 

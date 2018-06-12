@@ -14,12 +14,28 @@
 #ifndef DTMENSAJE_H
 #define DTMENSAJE_H
 
+#include"DtFecha.h"
+#include"DtHora.h"
+
 class DtMensaje {
 public:
     DtMensaje();
     DtMensaje(const DtMensaje& orig);
     virtual ~DtMensaje();
+    
+    int GetCodigo();
+    DtHora GetHoraEnv();
+    DtFecha GetFechaEnv();
+
+    void SetCodigo(int);
+    void SetFechaEnv(DtFecha);
+    void SetHoraEnv(DtHora);
+
 private:
+    
+    int codigo;
+    DtFecha fechaEnv;
+    DtHora horaEnv;
 
 };
 

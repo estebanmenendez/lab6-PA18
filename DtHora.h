@@ -16,10 +16,25 @@
 
 class DtHora {
 public:
+    
     DtHora();
     DtHora(const DtHora& orig);
     virtual ~DtHora();
+    
+int GetHora();
+int GetMinutos();
+int GetSegundo();
+
+void SetHora(int);
+void SetMinutos(int);
+void SetSegundo(int);
+
+    
 private:
+
+    int hora;
+    int minutos; 
+    int segundo; 
 
 };
 
