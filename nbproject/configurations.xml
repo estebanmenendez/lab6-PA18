@@ -33,17 +33,17 @@
       <itemPath>IIterator.h</itemPath>
       <itemPath>IKey.h</itemPath>
       <itemPath>Imagen.h</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/ListDiccIterator.h</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/ListDiccIteratorKey.h</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/ListDiccIteratorObj.h</itemPath>
+      <itemPath>ListDiccIterator.h</itemPath>
+      <itemPath>ListDiccIteratorKey.h</itemPath>
+      <itemPath>ListDiccIteratorObj.h</itemPath>
       <itemPath>Lista.h</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/ListaDicc.h</itemPath>
+      <itemPath>ListaDicc.h</itemPath>
       <itemPath>ListaIterator.h</itemPath>
       <itemPath>Mensaje.h</itemPath>
       <itemPath>Multimedia.h</itemPath>
       <itemPath>Nodo.h</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/NodoDicc.h</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/Par.h</itemPath>
+      <itemPath>NodoDicc.h</itemPath>
+      <itemPath>Par.h</itemPath>
       <itemPath>Simple.h</itemPath>
       <itemPath>StringKey.h</itemPath>
       <itemPath>Tipo.h</itemPath>
@@ -53,7 +53,7 @@
       <itemPath>iContGrupo.h</itemPath>
       <itemPath>iContMensaje.h</itemPath>
       <itemPath>iContUsuario.h</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/intKey.h</itemPath>
+      <itemPath>intKey.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -89,17 +89,17 @@
       <itemPath>IDictionary.cpp</itemPath>
       <itemPath>IKey.cpp</itemPath>
       <itemPath>Imagen.cpp</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/ListDiccIterator.cpp</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp</itemPath>
+      <itemPath>ListDiccIterator.cpp</itemPath>
+      <itemPath>ListDiccIteratorKey.cpp</itemPath>
+      <itemPath>ListDiccIteratorObj.cpp</itemPath>
       <itemPath>Lista.cpp</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/ListaDicc.cpp</itemPath>
+      <itemPath>ListaDicc.cpp</itemPath>
       <itemPath>ListaIterator.cpp</itemPath>
       <itemPath>Mensaje.cpp</itemPath>
       <itemPath>Multimedia.cpp</itemPath>
       <itemPath>Nodo.cpp</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/NodoDicc.cpp</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/Par.cpp</itemPath>
+      <itemPath>NodoDicc.cpp</itemPath>
+      <itemPath>Par.cpp</itemPath>
       <itemPath>Simple.cpp</itemPath>
       <itemPath>StringKey.cpp</itemPath>
       <itemPath>Tipo.cpp</itemPath>
@@ -109,7 +109,7 @@
       <itemPath>iContGrupo.cpp</itemPath>
       <itemPath>iContMensaje.cpp</itemPath>
       <itemPath>iContUsuario.cpp</itemPath>
-      <itemPath>../../Descargas/ColeccionesG/intkey.cpp</itemPath>
+      <itemPath>intkey.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -137,73 +137,6 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="../../Descargas/ColeccionesG/ListDiccIterator.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIterator.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIteratorKey.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIteratorObj.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListaDicc.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListaDicc.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/NodoDicc.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/NodoDicc.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/Par.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/Par.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/intKey.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/intkey.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">
@@ -316,9 +249,25 @@
       </item>
       <item path="Imagen.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ListDiccIterator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListDiccIterator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListDiccIteratorKey.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListDiccIteratorKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListDiccIteratorObj.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListDiccIteratorObj.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Lista.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Lista.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListaDicc.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListaDicc.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ListaIterator.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -335,6 +284,14 @@
       <item path="Nodo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Nodo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NodoDicc.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NodoDicc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Par.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Par.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simple.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -371,6 +328,10 @@
       <item path="iContUsuario.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="iContUsuario.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="intKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="intkey.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -395,73 +356,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="../../Descargas/ColeccionesG/ListDiccIterator.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIterator.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIteratorKey.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListDiccIteratorObj.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListaDicc.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/ListaDicc.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/NodoDicc.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/NodoDicc.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/Par.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/Par.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/intKey.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Descargas/ColeccionesG/intkey.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">
@@ -574,9 +468,25 @@
       </item>
       <item path="Imagen.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ListDiccIterator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListDiccIterator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListDiccIteratorKey.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListDiccIteratorKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListDiccIteratorObj.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListDiccIteratorObj.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Lista.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Lista.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListaDicc.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListaDicc.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ListaIterator.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -593,6 +503,14 @@
       <item path="Nodo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Nodo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NodoDicc.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NodoDicc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Par.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Par.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simple.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -629,6 +547,10 @@
       <item path="iContUsuario.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="iContUsuario.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="intKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="intkey.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

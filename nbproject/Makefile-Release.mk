@@ -35,13 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/cc38c26e/ListDiccIterator.o \
-	${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorKey.o \
-	${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorObj.o \
-	${OBJECTDIR}/_ext/cc38c26e/ListaDicc.o \
-	${OBJECTDIR}/_ext/cc38c26e/NodoDicc.o \
-	${OBJECTDIR}/_ext/cc38c26e/Par.o \
-	${OBJECTDIR}/_ext/cc38c26e/intkey.o \
 	${OBJECTDIR}/ContGrupo.o \
 	${OBJECTDIR}/ContMensaje.o \
 	${OBJECTDIR}/ContUsuario.o \
@@ -69,11 +62,17 @@ OBJECTFILES= \
 	${OBJECTDIR}/IDictionary.o \
 	${OBJECTDIR}/IKey.o \
 	${OBJECTDIR}/Imagen.o \
+	${OBJECTDIR}/ListDiccIterator.o \
+	${OBJECTDIR}/ListDiccIteratorKey.o \
+	${OBJECTDIR}/ListDiccIteratorObj.o \
 	${OBJECTDIR}/Lista.o \
+	${OBJECTDIR}/ListaDicc.o \
 	${OBJECTDIR}/ListaIterator.o \
 	${OBJECTDIR}/Mensaje.o \
 	${OBJECTDIR}/Multimedia.o \
 	${OBJECTDIR}/Nodo.o \
+	${OBJECTDIR}/NodoDicc.o \
+	${OBJECTDIR}/Par.o \
 	${OBJECTDIR}/Simple.o \
 	${OBJECTDIR}/StringKey.o \
 	${OBJECTDIR}/Tipo.o \
@@ -83,6 +82,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/iContGrupo.o \
 	${OBJECTDIR}/iContMensaje.o \
 	${OBJECTDIR}/iContUsuario.o \
+	${OBJECTDIR}/intkey.o \
 	${OBJECTDIR}/main.o
 
 
@@ -109,41 +109,6 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6-pa18: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6-pa18 ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/_ext/cc38c26e/ListDiccIterator.o: ../../Descargas/ColeccionesG/ListDiccIterator.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/ListDiccIterator.o ../../Descargas/ColeccionesG/ListDiccIterator.cpp
-
-${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorKey.o: ../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorKey.o ../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp
-
-${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorObj.o: ../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorObj.o ../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp
-
-${OBJECTDIR}/_ext/cc38c26e/ListaDicc.o: ../../Descargas/ColeccionesG/ListaDicc.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/ListaDicc.o ../../Descargas/ColeccionesG/ListaDicc.cpp
-
-${OBJECTDIR}/_ext/cc38c26e/NodoDicc.o: ../../Descargas/ColeccionesG/NodoDicc.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/NodoDicc.o ../../Descargas/ColeccionesG/NodoDicc.cpp
-
-${OBJECTDIR}/_ext/cc38c26e/Par.o: ../../Descargas/ColeccionesG/Par.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/Par.o ../../Descargas/ColeccionesG/Par.cpp
-
-${OBJECTDIR}/_ext/cc38c26e/intkey.o: ../../Descargas/ColeccionesG/intkey.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/intkey.o ../../Descargas/ColeccionesG/intkey.cpp
 
 ${OBJECTDIR}/ContGrupo.o: ContGrupo.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -280,10 +245,30 @@ ${OBJECTDIR}/Imagen.o: Imagen.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Imagen.o Imagen.cpp
 
+${OBJECTDIR}/ListDiccIterator.o: ListDiccIterator.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ListDiccIterator.o ListDiccIterator.cpp
+
+${OBJECTDIR}/ListDiccIteratorKey.o: ListDiccIteratorKey.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ListDiccIteratorKey.o ListDiccIteratorKey.cpp
+
+${OBJECTDIR}/ListDiccIteratorObj.o: ListDiccIteratorObj.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ListDiccIteratorObj.o ListDiccIteratorObj.cpp
+
 ${OBJECTDIR}/Lista.o: Lista.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Lista.o Lista.cpp
+
+${OBJECTDIR}/ListaDicc.o: ListaDicc.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ListaDicc.o ListaDicc.cpp
 
 ${OBJECTDIR}/ListaIterator.o: ListaIterator.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -304,6 +289,16 @@ ${OBJECTDIR}/Nodo.o: Nodo.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Nodo.o Nodo.cpp
+
+${OBJECTDIR}/NodoDicc.o: NodoDicc.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NodoDicc.o NodoDicc.cpp
+
+${OBJECTDIR}/Par.o: Par.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Par.o Par.cpp
 
 ${OBJECTDIR}/Simple.o: Simple.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -349,6 +344,11 @@ ${OBJECTDIR}/iContUsuario.o: iContUsuario.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/iContUsuario.o iContUsuario.cpp
+
+${OBJECTDIR}/intkey.o: intkey.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/intkey.o intkey.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

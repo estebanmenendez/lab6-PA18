@@ -27,11 +27,11 @@ public:
     
     DtFecha getFecha();
     DtHora getHora();
-    void setFecha(int,int,int);
-    void setHora(int,int,int);
-    int Fecha_Hora_Sis();
-    int Fecha_Hora_Sis(int,int,int,int,int,int);
-    virtual ~Fecha_Hora_Sis();
+    int setFecha(int,int,int);
+    int setHora(int,int,int);
+   int  Fecha_Hora_Sis();
+     int Fecha_Hora_Sis(int,int,int,int,int,int);
+    virtual ~Fecha_Hora_sis();
     DtUltCon getUltimaConexion();
 
    

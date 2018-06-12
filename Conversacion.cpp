@@ -31,7 +31,7 @@ bool Conversacion::sosConversacion(int idConv){
 void Conversacion::getMensaje(int idMensaje){
    intKey *key=new intKey(idMensaje);
     Mensaje *men=(dynamic_cast<Mensaje*>(mensajes->find(key)));
-    ContMensaje.setMensaje(men);
+    ContMensaje().setMensaje(men);
 }
 void Conversacion::remueveConv(Mensaje){}
 void Conversacion::eviarMensaje(Mensaje){

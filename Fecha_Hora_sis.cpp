@@ -24,6 +24,6 @@ int Fecha_Hora_sis::Fecha_Hora_Sis() {
 int Fecha_Hora_sis::Fecha_Hora_Sis(int, int, int, int, int, int) {
 
 }
-Fecha_Hora_sis::setFecha(int, int, int){}
-Fecha_Hora_sis::setHora(int, int, int){}
-Fecha_Hora_sis::~Fecha_Hora_Sis(){}
+int Fecha_Hora_sis::setFecha(int, int, int){}
+int Fecha_Hora_sis::setHora(int, int, int){}
+Fecha_Hora_sis::~Fecha_Hora_sis(){}
