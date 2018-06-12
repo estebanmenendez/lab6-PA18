@@ -16,6 +16,30 @@
 using namespace std;
 
 ContMensaje::ContMensaje(){}
+
+void ContMensaje::setUsu(Usuario* usu) {
+    this->usu = usu;
+}
+
+Usuario* ContMensaje::getUsu() const {
+    return usu;
+}
+
+void ContMensaje::setConversaciones(Conversacion* conversaciones) {
+    this->conversaciones = conversaciones;
+}
+
+Conversacion* ContMensaje::getConversaciones() const {
+    return conversaciones;
+}
+
+void ContMensaje::setMensaje(Mensaje* mensaje) {
+    this->mensaje = mensaje;
+}
+
+Mensaje* ContMensaje::getMensaje() const {
+    return mensaje;
+}
 ContMensaje::~ContMensaje(){}
 
 void ContMensaje::enviarMensaje(Mensaje){}

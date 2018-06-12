@@ -1,27 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   ICollectible.h
- * Author: esteban
+ * ICollectible.h
  *
- * Created on 5 de junio de 2018, 01:53 AM
+ *  Created on: 8 de jun. de 2016
+ *      Author: apias
  */
 
-#ifndef ICOLLECTIBLE_H
-#define ICOLLECTIBLE_H
+#ifndef ICOLLECTIBLE_H_
+#define ICOLLECTIBLE_H_
 
-class ICollectible {
+class ICollectible
+{
 public:
-    ICollectible();
-    ICollectible(const ICollectible& orig);
     virtual ~ICollectible();
-private:
-
 };
 
-#endif /* ICOLLECTIBLE_H */
-
+#endif /* ICOLLECTIBLE_H_ */

@@ -16,6 +16,30 @@
 EstadoConv::EstadoConv() {
 }
 
+void EstadoConv::setEstado(bool archivada) {
+    this->archivada = archivada;
+}
+
+bool EstadoConv::isArchivada() const {
+    return archivada;
+}
+
+void EstadoConv::setConversacion(Conversacion* conversacion) {
+    this->conversacion = conversacion;
+}
+
+Conversacion* EstadoConv::getConversacion() const {
+    return conversacion;
+}
+
+void EstadoConv::setUsuario(Usuario* usuario) {
+    this->usuario = usuario;
+}
+
+Usuario* EstadoConv::getUsuario() const {
+    return usuario;
+}
+
 EstadoConv::EstadoConv(const EstadoConv& orig) {
 }
 

@@ -21,9 +21,7 @@
 #include"DtHora.h"
 #include"DtSimple.h"
 #include"DtContacto.h"
-#include"IDictionary.h"
 #include"Usuario.h"
-#include"Lista.h"
 #include"Grupo.h"
 #include"Mensaje.h"
 #include"DtConversacion.h"
@@ -32,11 +30,12 @@
 using namespace std;
 
 class ContMensaje : public iContMensaje{
+
     
 private: 
         Mensaje * mensaje;
         Conversacion* conversaciones;
-        Usuario* usuario;
+        Usuario* usu;
         
 
 public:
@@ -65,7 +64,12 @@ void cuerpoMensaje(DtSimple);
 void cuerpoMensaje(DtImagen);
 void cuerpoMensaje(DtContacto);
 void crearMensaje();
-
+void setUsu(Usuario* usu);
+Usuario* getUsu() const;
+void setConversaciones(Conversacion* conversaciones);
+Conversacion* getConversaciones() const;
+void setMensaje(Mensaje* mensaje);
+Mensaje* getMensaje() const;
 
 };
 

@@ -1,18 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   Nodo.h
- * Author: esteban
+ * Nodo.h
  *
- * Created on 5 de junio de 2018, 01:52 AM
+ *  Created on: 8 de jun. de 2016
+ *      Author: apias
  */
 
-#ifndef NODO_H
-#define NODO_H
+#ifndef NODO_H_
+#define NODO_H_
 
 #include "ICollectible.h"
 
@@ -32,8 +26,6 @@ public:
 
   virtual ICollectible *getICollectible();
   virtual void setICollectible(ICollectible *);
-
 };
 
-#endif /* NODO_H */
-
+#endif /* NODO_H_ */

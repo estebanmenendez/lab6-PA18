@@ -16,20 +16,25 @@
 
 #include"Lista.h"
 
-class EstadoConv {
-public:
+class EstadoConv :public ICollectible{
+    public:
     EstadoConv();
     EstadoConv(const EstadoConv& orig);
     virtual ~EstadoConv();
     
     bool ConvActiva();
     void SetEstado(bool);
+    void setArchivada(bool archivada);
+    bool isArchivada() const;
+    void setConversacion(Conversacion* conversacion);
+    Conversacion* getConversacion() const;
+    void setUsuario(Usuario* usuario);
+    Usuario* getUsuario() const;
 
     
 private:
-        Lista * usuario;
-        Lista * conversacion; 
-        
+        Usuario * usuario;
+        Conversacion * conversacion; 
         bool archivada;
 };
 

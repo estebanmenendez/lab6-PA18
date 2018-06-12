@@ -1,18 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   IIterator.h
- * Author: esteban
+ * IIterator.h
  *
- * Created on 5 de junio de 2018, 01:56 AM
+ *  Created on: 8 de jun. de 2016
+ *      Author: apias
  */
 
-#ifndef IITERATOR_H
-#define IITERATOR_H
+#ifndef IIterator_H_
+#define IIterator_H_
 
 #include "ICollectible.h"
 
@@ -24,6 +18,4 @@ public:
   virtual void remove() = 0;
 };
 
-
-#endif /* IITERATOR_H */
-
+#endif /* IIterator_H_ */

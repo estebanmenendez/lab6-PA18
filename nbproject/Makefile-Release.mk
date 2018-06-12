@@ -35,6 +35,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/cc38c26e/ListDiccIterator.o \
+	${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorKey.o \
+	${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorObj.o \
+	${OBJECTDIR}/_ext/cc38c26e/ListaDicc.o \
+	${OBJECTDIR}/_ext/cc38c26e/NodoDicc.o \
+	${OBJECTDIR}/_ext/cc38c26e/Par.o \
+	${OBJECTDIR}/_ext/d8755c23/Fecha_Hora_Sis.o \
 	${OBJECTDIR}/ContGrupo.o \
 	${OBJECTDIR}/ContMensaje.o \
 	${OBJECTDIR}/ContUsuario.o \
@@ -96,11 +103,46 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6-pa18
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6-pa18: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lab6-pa18 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/cc38c26e/ListDiccIterator.o: ../../Descargas/ColeccionesG/ListDiccIterator.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/ListDiccIterator.o ../../Descargas/ColeccionesG/ListDiccIterator.cpp
+
+${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorKey.o: ../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorKey.o ../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp
+
+${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorObj.o: ../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/ListDiccIteratorObj.o ../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp
+
+${OBJECTDIR}/_ext/cc38c26e/ListaDicc.o: ../../Descargas/ColeccionesG/ListaDicc.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/ListaDicc.o ../../Descargas/ColeccionesG/ListaDicc.cpp
+
+${OBJECTDIR}/_ext/cc38c26e/NodoDicc.o: ../../Descargas/ColeccionesG/NodoDicc.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/NodoDicc.o ../../Descargas/ColeccionesG/NodoDicc.cpp
+
+${OBJECTDIR}/_ext/cc38c26e/Par.o: ../../Descargas/ColeccionesG/Par.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/Par.o ../../Descargas/ColeccionesG/Par.cpp
+
+${OBJECTDIR}/_ext/d8755c23/Fecha_Hora_Sis.o: ../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/d8755c23
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d8755c23/Fecha_Hora_Sis.o ../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp
 
 ${OBJECTDIR}/ContGrupo.o: ContGrupo.cpp
 	${MKDIR} -p ${OBJECTDIR}

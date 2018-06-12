@@ -15,9 +15,11 @@
 #define CONVERSACION_H
 
 #include"Mensaje.h"
-
+#include <string.h>
 #include"Grupo.h"
 #include"Lista.h"
+#include"ListaDicc.h"
+#include"ContMensaje.h"
 #include<iostream>
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"
@@ -27,26 +29,27 @@
 using namespace std;
 
 class Conversacion {
+using namespace std;
 public:
     
     Conversacion();
     Conversacion(const Conversacion& orig);
     virtual ~Conversacion();
     
-void sosConversacion(string);
+bool sosConversacion(int);
 void getMensaje(int);
 void remueveConv(Mensaje);
 void eviarMensaje(Mensaje);
 DtMensaje listarMensaje(DtFechaHoraIng);
 DtMensajeVisto listarVistos(int);
-bool soyGrupo();
+bool soyGrupo(Grupo);
 void setEstado(bool);
     
 private:
     
-        Lista * grupo;
-        Lista * mensaje;
-        Lista * estadoConv;
+        Grupo * grupo;
+        ListDicc * mensajes=new ListDicc();
+        Lista * estadoConv=new Lista();
         int idConv;
 
 };

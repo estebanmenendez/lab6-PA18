@@ -11,15 +11,11 @@
 #include "ICollectible.h"
 #include "IKey.h"
 #include "IIterator.h"
-#include "StringKey.h"
 
 class IDictionary{
 	public:
-            
 		virtual void add(ICollectible* elem, IKey* key)=0;
-                //virtual void add(ICollectible* elem, StringKey *key)=0;
 		virtual bool member(IKey* key)=0;
-                //virtual bool member(StringKey* key)=0;
 		virtual ICollectible* removeKey(IKey* key)=0;
 		virtual ICollectible* removeObj(ICollectible* obj)=0;
 		virtual ICollectible* find(IKey* key)=0;

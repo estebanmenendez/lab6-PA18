@@ -25,6 +25,7 @@
       <itemPath>DtUltCon.h</itemPath>
       <itemPath>EstadoConv.h</itemPath>
       <itemPath>Fabrica.h</itemPath>
+      <itemPath>../../Pa2018/lab6-PA18/Fecha_Hora_Sis.h</itemPath>
       <itemPath>Grupo.h</itemPath>
       <itemPath>ICollectible.h</itemPath>
       <itemPath>ICollection.h</itemPath>
@@ -32,11 +33,17 @@
       <itemPath>IIterator.h</itemPath>
       <itemPath>IKey.h</itemPath>
       <itemPath>Imagen.h</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/ListDiccIterator.h</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/ListDiccIteratorKey.h</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/ListDiccIteratorObj.h</itemPath>
       <itemPath>Lista.h</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/ListaDicc.h</itemPath>
       <itemPath>ListaIterator.h</itemPath>
       <itemPath>Mensaje.h</itemPath>
       <itemPath>Multimedia.h</itemPath>
       <itemPath>Nodo.h</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/NodoDicc.h</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/Par.h</itemPath>
       <itemPath>Simple.h</itemPath>
       <itemPath>StringKey.h</itemPath>
       <itemPath>Tipo.h</itemPath>
@@ -75,16 +82,23 @@
       <itemPath>DtUltCon.cpp</itemPath>
       <itemPath>EstadoConv.cpp</itemPath>
       <itemPath>Fabrica.cpp</itemPath>
+      <itemPath>../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp</itemPath>
       <itemPath>Grupo.cpp</itemPath>
       <itemPath>ICollectible.cpp</itemPath>
       <itemPath>IDictionary.cpp</itemPath>
       <itemPath>IKey.cpp</itemPath>
       <itemPath>Imagen.cpp</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/ListDiccIterator.cpp</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp</itemPath>
       <itemPath>Lista.cpp</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/ListaDicc.cpp</itemPath>
       <itemPath>ListaIterator.cpp</itemPath>
       <itemPath>Mensaje.cpp</itemPath>
       <itemPath>Multimedia.cpp</itemPath>
       <itemPath>Nodo.cpp</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/NodoDicc.cpp</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/Par.cpp</itemPath>
       <itemPath>Simple.cpp</itemPath>
       <itemPath>StringKey.cpp</itemPath>
       <itemPath>Tipo.cpp</itemPath>
@@ -108,6 +122,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../../Descargas/ColeccionesG</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -118,6 +135,73 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="../../Descargas/ColeccionesG/ListDiccIterator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIterator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIteratorKey.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIteratorObj.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListaDicc.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListaDicc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/NodoDicc.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/NodoDicc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/Par.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/Par.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Pa2018/lab6-PA18/Fecha_Hora_Sis.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">
@@ -305,6 +389,73 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../../Descargas/ColeccionesG/ListDiccIterator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIterator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIteratorKey.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIteratorKey.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIteratorObj.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListDiccIteratorObj.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListaDicc.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/ListaDicc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/NodoDicc.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/NodoDicc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/Par.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/Par.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../Pa2018/lab6-PA18/Fecha_Hora_Sis.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">
