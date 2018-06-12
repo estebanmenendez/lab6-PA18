@@ -53,6 +53,7 @@
       <itemPath>iContGrupo.h</itemPath>
       <itemPath>iContMensaje.h</itemPath>
       <itemPath>iContUsuario.h</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/intKey.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -108,6 +109,7 @@
       <itemPath>iContGrupo.cpp</itemPath>
       <itemPath>iContMensaje.cpp</itemPath>
       <itemPath>iContUsuario.cpp</itemPath>
+      <itemPath>../../Descargas/ColeccionesG/intkey.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -191,6 +193,16 @@
             flavor2="0">
       </item>
       <item path="../../Descargas/ColeccionesG/Par.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/intKey.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/intkey.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -439,6 +451,16 @@
             flavor2="0">
       </item>
       <item path="../../Descargas/ColeccionesG/Par.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/intKey.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../Descargas/ColeccionesG/intkey.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>

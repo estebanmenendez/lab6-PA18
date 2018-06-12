@@ -41,6 +41,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/cc38c26e/ListaDicc.o \
 	${OBJECTDIR}/_ext/cc38c26e/NodoDicc.o \
 	${OBJECTDIR}/_ext/cc38c26e/Par.o \
+	${OBJECTDIR}/_ext/cc38c26e/intkey.o \
 	${OBJECTDIR}/ContGrupo.o \
 	${OBJECTDIR}/ContMensaje.o \
 	${OBJECTDIR}/ContUsuario.o \
@@ -138,6 +139,11 @@ ${OBJECTDIR}/_ext/cc38c26e/Par.o: ../../Descargas/ColeccionesG/Par.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/Par.o ../../Descargas/ColeccionesG/Par.cpp
+
+${OBJECTDIR}/_ext/cc38c26e/intkey.o: ../../Descargas/ColeccionesG/intkey.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/intkey.o ../../Descargas/ColeccionesG/intkey.cpp
 
 ${OBJECTDIR}/ContGrupo.o: ContGrupo.cpp
 	${MKDIR} -p ${OBJECTDIR}

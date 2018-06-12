@@ -5,7 +5,7 @@ build/Debug/GNU-Linux/Conversacion.o: Conversacion.cpp Conversacion.h \
  ListDiccIterator.h ListDiccIteratorObj.h ListDiccIteratorKey.h \
  DtFechaHoraIng.h DtMensajeVisto.h DtFechaHoraVisto.h DtMensaje.h \
  EstadoConv.h ContMensaje.h iContMensaje.h DtSimple.h DtImagen.h \
- DtContacto.h DtConversacion.h
+ DtContacto.h DtConversacion.h intKey.h
 
 Conversacion.h:
 
@@ -72,3 +72,5 @@ DtImagen.h:
 DtContacto.h:
 
 DtConversacion.h:
+
+intKey.h:

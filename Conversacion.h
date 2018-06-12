@@ -19,7 +19,7 @@
 #include"Grupo.h"
 #include"Lista.h"
 #include"ListaDicc.h"
-#include"IKey.h"
+//#include"intKey.h"
 #include<iostream>
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"

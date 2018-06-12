@@ -14,7 +14,7 @@
 #include "Conversacion.h"
 #include "EstadoConv.h"
 #include"ContMensaje.h"
-
+#include"intKey.h"
 Conversacion::Conversacion() {
 }
 
@@ -29,13 +29,14 @@ bool Conversacion::sosConversacion(int idConv){
     if(this->idConv==idConv)return true;
     return false;}
 void Conversacion::getMensaje(int idMensaje){
-  //  IKey *key=new IKey(idMensaje);
-   // Mensaje *men=mensajes->find(key);
+   intKey *key=new intKey(idMensaje);
+    Mensaje *men=(dynamic_cast<Mensaje*>(mensajes->find(key)));
+    ContMensaje.setMensaje(men);
 }
 void Conversacion::remueveConv(Mensaje){}
 void Conversacion::eviarMensaje(Mensaje){
-  
-
+    
+    
 
 }
 DtMensaje Conversacion::listarMensaje(DtFechaHoraIng){}

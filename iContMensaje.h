@@ -14,7 +14,7 @@
 #ifndef ICONTMENSAJE_H
 #define ICONTMENSAJE_H
 
-#include "IKey.h"
+
 #include "Lista.h"
 #include "Mensaje.h"
 #include "Conversacion.h"
