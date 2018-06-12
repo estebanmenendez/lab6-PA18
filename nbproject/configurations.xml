@@ -25,7 +25,7 @@
       <itemPath>DtUltCon.h</itemPath>
       <itemPath>EstadoConv.h</itemPath>
       <itemPath>Fabrica.h</itemPath>
-      <itemPath>../../Pa2018/lab6-PA18/Fecha_Hora_Sis.h</itemPath>
+      <itemPath>Fecha_Hora_sis.h</itemPath>
       <itemPath>Grupo.h</itemPath>
       <itemPath>ICollectible.h</itemPath>
       <itemPath>ICollection.h</itemPath>
@@ -82,7 +82,7 @@
       <itemPath>DtUltCon.cpp</itemPath>
       <itemPath>EstadoConv.cpp</itemPath>
       <itemPath>Fabrica.cpp</itemPath>
-      <itemPath>../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp</itemPath>
+      <itemPath>Fecha_Hora_sis.cpp</itemPath>
       <itemPath>Grupo.cpp</itemPath>
       <itemPath>ICollectible.cpp</itemPath>
       <itemPath>IDictionary.cpp</itemPath>
@@ -192,16 +192,6 @@
       </item>
       <item path="../../Descargas/ColeccionesG/Par.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Pa2018/lab6-PA18/Fecha_Hora_Sis.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">
@@ -285,6 +275,10 @@
       <item path="Fabrica.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Fabrica.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Fecha_Hora_sis.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Fecha_Hora_sis.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Grupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -446,16 +440,6 @@
       </item>
       <item path="../../Descargas/ColeccionesG/Par.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="../../Pa2018/lab6-PA18/Fecha_Hora_Sis.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">
@@ -539,6 +523,10 @@
       <item path="Fabrica.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Fabrica.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Fecha_Hora_sis.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Fecha_Hora_sis.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Grupo.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -19,19 +19,18 @@
 #include"Grupo.h"
 #include"Lista.h"
 #include"ListaDicc.h"
-#include"ContMensaje.h"
+#include"IKey.h"
 #include<iostream>
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"
 #include"DtMensaje.h"
 
 
-using namespace std;
 
 class Conversacion {
-using namespace std;
-public:
     
+    
+public:
     Conversacion();
     Conversacion(const Conversacion& orig);
     virtual ~Conversacion();
@@ -42,7 +41,7 @@ void remueveConv(Mensaje);
 void eviarMensaje(Mensaje);
 DtMensaje listarMensaje(DtFechaHoraIng);
 DtMensajeVisto listarVistos(int);
-bool soyGrupo(Grupo);
+bool soyGrupo();
 void setEstado(bool);
     
 private:

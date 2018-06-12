@@ -41,7 +41,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/cc38c26e/ListaDicc.o \
 	${OBJECTDIR}/_ext/cc38c26e/NodoDicc.o \
 	${OBJECTDIR}/_ext/cc38c26e/Par.o \
-	${OBJECTDIR}/_ext/d8755c23/Fecha_Hora_Sis.o \
 	${OBJECTDIR}/ContGrupo.o \
 	${OBJECTDIR}/ContMensaje.o \
 	${OBJECTDIR}/ContUsuario.o \
@@ -63,6 +62,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/DtUltCon.o \
 	${OBJECTDIR}/EstadoConv.o \
 	${OBJECTDIR}/Fabrica.o \
+	${OBJECTDIR}/Fecha_Hora_sis.o \
 	${OBJECTDIR}/Grupo.o \
 	${OBJECTDIR}/ICollectible.o \
 	${OBJECTDIR}/IDictionary.o \
@@ -138,11 +138,6 @@ ${OBJECTDIR}/_ext/cc38c26e/Par.o: ../../Descargas/ColeccionesG/Par.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/cc38c26e
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/cc38c26e/Par.o ../../Descargas/ColeccionesG/Par.cpp
-
-${OBJECTDIR}/_ext/d8755c23/Fecha_Hora_Sis.o: ../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/d8755c23
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d8755c23/Fecha_Hora_Sis.o ../../Pa2018/lab6-PA18/Fecha_Hora_Sis.cpp
 
 ${OBJECTDIR}/ContGrupo.o: ContGrupo.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -248,6 +243,11 @@ ${OBJECTDIR}/Fabrica.o: Fabrica.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Fabrica.o Fabrica.cpp
+
+${OBJECTDIR}/Fecha_Hora_sis.o: Fecha_Hora_sis.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Fecha_Hora_sis.o Fecha_Hora_sis.cpp
 
 ${OBJECTDIR}/Grupo.o: Grupo.cpp
 	${MKDIR} -p ${OBJECTDIR}

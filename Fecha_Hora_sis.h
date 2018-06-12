@@ -1,0 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   Fecha_Hora_sis.h
+ * Author: juan
+ *
+ * Created on 12 de junio de 2018, 11:48 AM
+ */
+
+#ifndef FECHA_HORA_SIS_H
+#define FECHA_HORA_SIS_H
+#include"DtFecha.h"
+#include"DtHora.h"
+#include"DtUltCon.h"
+
+class Fecha_Hora_sis{
+private:
+    
+      int dia, mes, anio;
+    int HH, MM, SS;
+    
+public:
+    
+    DtFecha getFecha();
+    DtHora getHora();
+    void setFecha(int,int,int);
+    void setHora(int,int,int);
+   // Fecha_Hora_Sis();
+  //  Fecha_Hora_Sis(int,int,int,int,int,int);
+   // virtual ~Fecha_Hora_Sis();
+    DtUltCon getUltimaConexion();
+
+   
+  
+};
+#endif /* FECHA_HORA_SIS_H */

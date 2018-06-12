@@ -19,7 +19,7 @@
 #include"Lista.h"
 
 
-class Mensaje {
+class Mensaje : public ICollectible{
 public:
     Mensaje();
     Mensaje(const Mensaje& orig);

@@ -14,6 +14,7 @@
 #include "Conversacion.h"
 #include "EstadoConv.h"
 #include"ContMensaje.h"
+
 Conversacion::Conversacion() {
 }
 
@@ -28,8 +29,8 @@ bool Conversacion::sosConversacion(int idConv){
     if(this->idConv==idConv)return true;
     return false;}
 void Conversacion::getMensaje(int idMensaje){
-    IKey *key=IKey(idMensaje);
-    Mensaje *men=mensajes->find(key);
+  //  IKey *key=new IKey(idMensaje);
+   // Mensaje *men=mensajes->find(key);
 }
 void Conversacion::remueveConv(Mensaje){}
 void Conversacion::eviarMensaje(Mensaje){
@@ -45,8 +46,8 @@ void Conversacion::setEstado(bool estado){
     IIterator *it=estadoConv->iterator();
     while(it->hasNext()){
     EstadoConv *ec= (dynamic_cast<EstadoConv*>(it->getCurrent()));
-    if(ec->getUsuario()==ContMensaje.getUsu())
-    {ec->SetEstado(estado);} 
+    if(ec->getUsuario()== ContMensaje().getUsu())
+    {ec->setEstado(estado);} 
     }
     
 }

@@ -12,8 +12,10 @@
 
 class IKey: public ICollectible{
 	public:
+       
 		virtual bool equals(IKey* key)=0;
 		virtual ~IKey();
+       
 };
 
 #endif /* IKEY_H_ */

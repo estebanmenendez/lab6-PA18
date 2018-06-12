@@ -13,7 +13,7 @@
 
 #ifndef ESTADOCONV_H
 #define ESTADOCONV_H
-
+#include"Conversacion.h"
 #include"Lista.h"
 
 class EstadoConv :public ICollectible{
@@ -23,7 +23,7 @@ class EstadoConv :public ICollectible{
     virtual ~EstadoConv();
     
     bool ConvActiva();
-    void SetEstado(bool);
+    void setEstado(bool);
     void setArchivada(bool archivada);
     bool isArchivada() const;
     void setConversacion(Conversacion* conversacion);
