@@ -20,7 +20,7 @@
 class Fecha_Hora_sis{
 private:
     
-      int dia, mes, anio;
+    int dia, mes, anio;
     int HH, MM, SS;
     
 public:
@@ -29,9 +29,9 @@ public:
     DtHora getHora();
     void setFecha(int,int,int);
     void setHora(int,int,int);
-   // Fecha_Hora_Sis();
-  //  Fecha_Hora_Sis(int,int,int,int,int,int);
-   // virtual ~Fecha_Hora_Sis();
+    int Fecha_Hora_Sis();
+    int Fecha_Hora_Sis(int,int,int,int,int,int);
+    virtual ~Fecha_Hora_Sis();
     DtUltCon getUltimaConexion();
 
    

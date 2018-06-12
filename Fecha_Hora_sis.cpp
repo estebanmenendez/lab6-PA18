@@ -13,11 +13,17 @@
 
 #include "Fecha_Hora_sis.h"
 
- /*DtFecha getFecha();
-    DtHora getHora();
-    setFecha(int,int,int);
-    setHora(int,int,int);
-    Fecha_Hora_Sis();
-    Fecha_Hora_Sis(int,int,int,int,int,int);
-    virtual ~Fecha_Hora_Sis();
-    DtUltCon getUltimaConexion();*/
+ DtFecha Fecha_Hora_sis::getFecha(){}
+ DtHora Fecha_Hora_sis::getHora(){}
+ DtUltCon Fecha_Hora_sis::getUltimaConexion(){}
+
+int Fecha_Hora_sis::Fecha_Hora_Sis() {
+
+}
+
+int Fecha_Hora_sis::Fecha_Hora_Sis(int, int, int, int, int, int) {
+
+}
+Fecha_Hora_sis::setFecha(int, int, int){}
+Fecha_Hora_sis::setHora(int, int, int){}
+Fecha_Hora_sis::~Fecha_Hora_Sis(){}
