@@ -16,11 +16,12 @@
 
 #include"DtHora.h"
 #include"DtFecha.h"
+
 #include<iostream>
 
 using namespace std;
 
-class DtContacto {
+class DtContacto  {
 public:
     DtContacto();
     DtContacto(const DtContacto& orig);

@@ -49,11 +49,14 @@ OBJECTFILES= \
 	${OBJECTDIR}/DtGrupo.o \
 	${OBJECTDIR}/DtHora.o \
 	${OBJECTDIR}/DtImagen.o \
+	${OBJECTDIR}/DtMContacto.o \
 	${OBJECTDIR}/DtMensaje.o \
 	${OBJECTDIR}/DtMensajeVisto.o \
+	${OBJECTDIR}/DtMultimedia.o \
 	${OBJECTDIR}/DtSimple.o \
 	${OBJECTDIR}/DtTipo.o \
 	${OBJECTDIR}/DtUltCon.o \
+	${OBJECTDIR}/DtVideo.o \
 	${OBJECTDIR}/EstadoConv.o \
 	${OBJECTDIR}/Fabrica.o \
 	${OBJECTDIR}/Fecha_Hora_sis.o \
@@ -180,6 +183,11 @@ ${OBJECTDIR}/DtImagen.o: DtImagen.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtImagen.o DtImagen.cpp
 
+${OBJECTDIR}/DtMContacto.o: DtMContacto.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtMContacto.o DtMContacto.cpp
+
 ${OBJECTDIR}/DtMensaje.o: DtMensaje.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -189,6 +197,11 @@ ${OBJECTDIR}/DtMensajeVisto.o: DtMensajeVisto.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtMensajeVisto.o DtMensajeVisto.cpp
+
+${OBJECTDIR}/DtMultimedia.o: DtMultimedia.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtMultimedia.o DtMultimedia.cpp
 
 ${OBJECTDIR}/DtSimple.o: DtSimple.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -204,6 +217,11 @@ ${OBJECTDIR}/DtUltCon.o: DtUltCon.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtUltCon.o DtUltCon.cpp
+
+${OBJECTDIR}/DtVideo.o: DtVideo.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtVideo.o DtVideo.cpp
 
 ${OBJECTDIR}/EstadoConv.o: EstadoConv.cpp
 	${MKDIR} -p ${OBJECTDIR}

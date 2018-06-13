@@ -18,11 +18,14 @@
       <itemPath>DtGrupo.h</itemPath>
       <itemPath>DtHora.h</itemPath>
       <itemPath>DtImagen.h</itemPath>
+      <itemPath>DtMContacto.h</itemPath>
       <itemPath>DtMensaje.h</itemPath>
       <itemPath>DtMensajeVisto.h</itemPath>
+      <itemPath>DtMultimedia.h</itemPath>
       <itemPath>DtSimple.h</itemPath>
       <itemPath>DtTipo.h</itemPath>
       <itemPath>DtUltCon.h</itemPath>
+      <itemPath>DtVideo.h</itemPath>
       <itemPath>EstadoConv.h</itemPath>
       <itemPath>Fabrica.h</itemPath>
       <itemPath>Fecha_Hora_sis.h</itemPath>
@@ -76,11 +79,14 @@
       <itemPath>DtGrupo.cpp</itemPath>
       <itemPath>DtHora.cpp</itemPath>
       <itemPath>DtImagen.cpp</itemPath>
+      <itemPath>DtMContacto.cpp</itemPath>
       <itemPath>DtMensaje.cpp</itemPath>
       <itemPath>DtMensajeVisto.cpp</itemPath>
+      <itemPath>DtMultimedia.cpp</itemPath>
       <itemPath>DtSimple.cpp</itemPath>
       <itemPath>DtTipo.cpp</itemPath>
       <itemPath>DtUltCon.cpp</itemPath>
+      <itemPath>DtVideo.cpp</itemPath>
       <itemPath>EstadoConv.cpp</itemPath>
       <itemPath>Fabrica.cpp</itemPath>
       <itemPath>Fecha_Hora_sis.cpp</itemPath>
@@ -193,6 +199,10 @@
       </item>
       <item path="DtImagen.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DtMContacto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtMContacto.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DtMensaje.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtMensaje.h" ex="false" tool="3" flavor2="0">
@@ -200,6 +210,10 @@
       <item path="DtMensajeVisto.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtMensajeVisto.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtMultimedia.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtMultimedia.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DtSimple.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -212,6 +226,10 @@
       <item path="DtUltCon.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtUltCon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtVideo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtVideo.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="EstadoConv.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -412,6 +430,10 @@
       </item>
       <item path="DtImagen.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DtMContacto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtMContacto.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DtMensaje.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtMensaje.h" ex="false" tool="3" flavor2="0">
@@ -419,6 +441,10 @@
       <item path="DtMensajeVisto.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtMensajeVisto.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtMultimedia.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtMultimedia.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DtSimple.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -431,6 +457,10 @@
       <item path="DtUltCon.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtUltCon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtVideo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtVideo.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="EstadoConv.cpp" ex="false" tool="1" flavor2="0">
       </item>

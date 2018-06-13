@@ -14,13 +14,18 @@
 #ifndef DTSIMPLE_H
 #define DTSIMPLE_H
 
-class DtSimple {
+#include "DtMensaje.h"
+
+
+class DtSimple : public DtMensaje{
 public:
     DtSimple();
     DtSimple(const DtSimple& orig);
     virtual ~DtSimple();
+    void SetTexto(string texto);
+    string GetTexto() const;
 private:
-
+    string texto;
 };
 
 #endif /* DTSIMPLE_H */

@@ -34,7 +34,7 @@ class ContMensaje : public iContMensaje{
     
 private: 
         Mensaje * mensaje;
-        Conversacion* conversaciones;
+        Conversacion* conv;
         Usuario* usu;
         
 
@@ -66,8 +66,8 @@ void cuerpoMensaje(DtContacto);
 void crearMensaje();
 void setUsu(Usuario* usu);
 Usuario* getUsu() const;
-void setConversaciones(Conversacion* conversaciones);
-Conversacion* getConversaciones() const;
+void setConversacion(Conversacion* conversaciones);
+Conversacion* getConversacion() const;
 void setMensaje(Mensaje* mensaje);
 Mensaje* getMensaje() const;
 

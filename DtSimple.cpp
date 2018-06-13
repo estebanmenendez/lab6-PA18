@@ -22,3 +22,11 @@ DtSimple::DtSimple(const DtSimple& orig) {
 DtSimple::~DtSimple() {
 }
 
+void DtSimple::SetTexto(string texto) {
+    this->texto = texto;
+}
+
+string DtSimple::GetTexto() const {
+    return texto;
+}
+

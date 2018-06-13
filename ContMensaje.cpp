@@ -25,12 +25,12 @@ Usuario* ContMensaje::getUsu() const {
     return usu;
 }
 
-void ContMensaje::setConversaciones(Conversacion* conversaciones) {
-    this->conversaciones = conversaciones;
+void ContMensaje::setConversacion(Conversacion* conversaciones) {
+    this->conv = conversaciones;
 }
 
-Conversacion* ContMensaje::getConversaciones() const {
-    return conversaciones;
+Conversacion* ContMensaje::getConversacion() const {
+    return conv;
 }
 
 void ContMensaje::setMensaje(Mensaje* mensaje) {

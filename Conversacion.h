@@ -19,7 +19,7 @@
 #include"Grupo.h"
 #include"Lista.h"
 #include"ListaDicc.h"
-//#include"intKey.h"
+#include"intKey.h"
 #include<iostream>
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"
@@ -36,11 +36,11 @@ public:
     virtual ~Conversacion();
     
 bool sosConversacion(int);
-void getMensaje(int);
+Mensaje getMensaje(int);
 void remueveConv(Mensaje);
 void eviarMensaje(Mensaje);
-DtMensaje listarMensaje(DtFechaHoraIng);
-DtMensajeVisto listarVistos(int);
+Lista listarMensaje(DtFechaHoraIng);
+Lista listarVistos(int);
 bool soyGrupo();
 void setEstado(bool);
     

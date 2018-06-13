@@ -16,8 +16,9 @@
 
 #include"DtFecha.h"
 #include"DtHora.h"
+#include "ICollectible.h"
 
-class DtMensaje {
+class DtMensaje:public ICollectible {
 public:
     DtMensaje();
     DtMensaje(const DtMensaje& orig);

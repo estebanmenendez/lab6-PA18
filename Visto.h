@@ -22,19 +22,19 @@ public:
     Visto(const Visto& orig);
     virtual ~Visto();
     
-        bool IsEstado();
+        bool getEstado();
     DtFecha GetFechaV();
     DtHora GetHoraV();
-    Lista* GetUsuario();
+  //  Lista* GetUsuario();
     
     void SetFechaV(DtFecha);
     void SetUsuario(Lista*);
     void SetHoraV(DtHora);
     void SetEstado(bool);
-    
+    bool esReceptor(Usuario *recep);
 private:
     
-        Lista * usuario;
+        Usuario * Receptor;
         bool estado; 
         DtFecha fechaV;
         DtHora horaV;

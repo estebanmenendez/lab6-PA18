@@ -46,7 +46,7 @@ void Mensaje::SetHoraEnv(DtHora horaEnv) {
     this->horaEnv = horaEnv;
 }
 
-Lista* Mensaje::GetVisto() {
+Visto* Mensaje::GetVisto() {
     return visto;
 }
 

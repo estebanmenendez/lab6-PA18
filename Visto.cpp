@@ -23,10 +23,12 @@ Visto::~Visto() {
 }
 
 
-bool Visto::IsEstado() {
+bool Visto::getEstado() {
     return estado;
 }
-
+bool Visto::esReceptor(Usuario* recep){
+    if (recep==this->Receptor) return true;
+}
 void Visto::SetEstado(bool estado) {
     this->estado = estado;
 }

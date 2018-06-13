@@ -22,22 +22,17 @@ class DtFechaHoraIng {
     
 public:
     DtFechaHoraIng();
-    DtFechaHoraIng(const DtFechaHoraIng& orig);
-    virtual ~DtFechaHoraIng();
-    
-    int GetCelular();
-    DtFechaHoraIng GetFechaHoraIng();
-    string GetNombre();
 
-    void SetCelular(int);
-    void SetFechaHoraIng(DtFechaHoraIng);
-    void SetNombre(string);
-    
+    virtual ~DtFechaHoraIng();
+    void SetHora(DtHora hora);
+    DtHora GetHora() const;
+    void SetFecha(DtFecha fecha);
+    DtFecha GetFecha() const;
+        
 private:
     
-    string Nombre;
-    int Celular;
-    DtFechaHoraIng *FechaHoraIng;
+    DtFecha fecha;
+    DtHora hora;
 
 };
 

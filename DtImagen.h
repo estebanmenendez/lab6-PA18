@@ -16,9 +16,11 @@
 
 
 #include<iostream>
+
+#include "DtMultimedia.h"
 using namespace std;
 
-class DtImagen {
+class DtImagen :public DtMultimedia {
 public:
     
     DtImagen();

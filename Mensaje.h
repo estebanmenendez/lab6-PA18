@@ -17,7 +17,7 @@
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"Lista.h"
-
+#include "Usuario.h"
 
 class Mensaje : public ICollectible{
 public:
@@ -28,8 +28,8 @@ public:
     int GetCodigo();
     DtFecha GetFechaEnv();
     DtHora GetHoraEnv();
-    Lista* GetVisto();
-    
+    Visto* GetVisto();
+    Visto * esReceptor(Usuario *);
     void SetCodigo(int);
     void SetFechaEnv(DtFecha);    
     void SetHoraEnv(DtHora);
@@ -37,8 +37,8 @@ public:
     
 private:
         
-        Lista * visto;
-       
+        Lista visto=new Lista;
+        Usuario * Emisor;
         int codigo;
         DtFecha fechaEnv;
         DtHora horaEnv;
