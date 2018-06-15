@@ -23,6 +23,7 @@
 #include"IDictionary.h"
 #include"Usuario.h"
 #include"Lista.h"
+#include "ListaDicc.h"
 
 
 using namespace std;
@@ -31,9 +32,9 @@ class ContUsuario : public iContUsuario{
 
     
 private:
-    Usuario * usuario;
-    
-    
+    ListDicc * usuario=new ListDicc();
+    Usuario * usu;
+    int numCel;
         
 public:
 
@@ -42,7 +43,7 @@ ContUsuario(const ContUsuario& orig);
 ~ContUsuario();
 
 virtual void create(string,string,string,int,DtFecha,DtHora);
-virtual void setUltimaCon(DtUltCon);
+virtual void setUltimaCon();
 virtual void setUsuLog(Usuario);
 virtual bool usuarioLogueado(int);
 virtual bool ingresarCelular(int);
@@ -52,9 +53,13 @@ virtual DtConexion asignarSesion();
 virtual Lista listarContactos();
 virtual DtContacto ingContacto(int);
 virtual void agregaContacto(DtContacto);
-virtual void cerrarSesion(DtConexion); 
+virtual void cerrarSesion(); 
 virtual void modificarPerfil(string, string, string);
 virtual void actualizarDatos();
+void setNumCel(int numCel);
+int getNumCel() const;
+void setUsu(Usuario* usu);
+Usuario* getUsu() const;
 
 };
 

@@ -42,3 +42,11 @@ void ContGrupo::eliminarPartipante(DtContacto){}
 void ContGrupo::cancelar(){}
 DtGrupo ContGrupo::altaGrupo(string,string){}
 void ContGrupo::Salir(){}
+
+void ContGrupo::setUsu(Usuario* usu) {
+    this->usu = usu;
+}
+
+Usuario* ContGrupo::getUsu() const {
+    return usu;
+}

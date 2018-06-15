@@ -25,9 +25,6 @@ public:
     ContGrupo();
     ContGrupo(const ContGrupo& orig);
     virtual ~ContGrupo();
-    
-private:    
-
     void create(DtGrupo, Usuario);
     void crearTipoGrupo(DtTipo, Grupo);
     void createTipo(DtTipo, Grupo);
@@ -48,6 +45,11 @@ private:
     void cancelar();
     DtGrupo altaGrupo(string, string);
     void Salir();
+    void setUsu(Usuario* usu);
+    Usuario* getUsu() const;
+private:    
+    Usuario * usu;
+    
 
 
 };
