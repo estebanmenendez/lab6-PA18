@@ -14,7 +14,7 @@
 #ifndef ICONTMENSAJE_H
 #define ICONTMENSAJE_H
 
-
+#include"ContMensaje.h"
 #include "Lista.h"
 #include "Mensaje.h"
 #include "Conversacion.h"
@@ -36,9 +36,9 @@ private:
 public:
 virtual ~iContMensaje();
 virtual void enviarMensaje(Mensaje) = 0;
-virtual void crearConv(Usuario,Conversacion) = 0;
+virtual void crearConv(Usuario *,Conversacion *) = 0;
 virtual void create(Grupo) = 0;
-virtual void agregarConv(Conversacion) = 0;
+virtual void agregarConv(Conversacion *) = 0;
 virtual void crear(DtSimple) = 0;
 virtual void crearMensaje(DtMensaje) = 0;
 virtual void seleccionarCont(string) = 0;

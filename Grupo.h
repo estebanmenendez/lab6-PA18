@@ -39,7 +39,7 @@ public:
     void SetHora(DtHora);    
     void SetImagen(string);    
     void SetNombre(string);
-
+    Lista * getusuarios();
 private:    
        
     //Conversacion * conv;
@@ -48,7 +48,7 @@ private:
     DtFecha fecha;
     DtHora hora;    
     int creador; 
-    
+    Lista *tipo=new Lista();
 };
 
 #endif /* GRUPO_H */

@@ -24,14 +24,15 @@
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"
 #include"DtMensaje.h"
-
+#include "EstadoConv.h"
+#include"Fecha_Hora_sis.h"
 
 
 class Conversacion {
     
     
 public:
-    Conversacion();
+    Conversacion(Grupo *g);
     Conversacion(const Conversacion& orig);
     virtual ~Conversacion();
     
@@ -43,10 +44,17 @@ Lista listarMensaje(DtFechaHoraIng);
 Lista listarVistos(int);
 bool soyGrupo();
 void setEstado(bool);
-    
+void setIdConv(int idConv);
+int getIdConv() const;
+void setEstadoConv(EstadoConv* estadoC);
+void setMensaje(Mensaje* mensaje);
+void setGrupo(Grupo* grupo);
+Grupo* getGrupo() const;
+Usuario * getReceptor();    
+Lista * getReceptores();
 private:
     
-        Grupo * grupo;
+        Grupo * grupo = NULL;
         ListDicc * mensajes=new ListDicc();
         Lista * estadoConv=new Lista();
         int idConv;

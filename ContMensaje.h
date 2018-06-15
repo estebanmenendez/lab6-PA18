@@ -34,15 +34,16 @@ class ContMensaje : public iContMensaje{
     
 private: 
         Mensaje * mensaje;
-        Conversacion* conv;
+        Conversacion * conv;
         Usuario* usu;
-        
+        int idConv;
 
 public:
     
 ContMensaje();
 ~ContMensaje();
-
+int getIdConv();
+void aumentarIdConv();
 void enviarMensaje(Mensaje);
 void crearConv(Usuario,Conversacion);
 void create(Grupo);

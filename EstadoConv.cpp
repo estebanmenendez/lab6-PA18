@@ -13,23 +13,17 @@
 
 #include "EstadoConv.h"
 
-EstadoConv::EstadoConv() {
+EstadoConv::EstadoConv(Usuario * usC, Conversacion * conv) {
+    this->usuario=usC;
+    this->conv=conv;
+    
 }
 
 void EstadoConv::setEstado(bool archivada) {
     this->archivada = archivada;
 }
-
-bool EstadoConv::isArchivada() const {
-    return archivada;
-}
-
-void EstadoConv::setConversacion(Conversacion* conversacion) {
-    this->conversacion = conversacion;
-}
-
-Conversacion* EstadoConv::getConversacion() const {
-    return conversacion;
+bool EstadoConv::ConvActiva(){
+    return this->archivada;
 }
 
 void EstadoConv::setUsuario(Usuario* usuario) {
@@ -39,6 +33,21 @@ void EstadoConv::setUsuario(Usuario* usuario) {
 Usuario* EstadoConv::getUsuario() const {
     return usuario;
 }
+
+
+
+
+
+void EstadoConv::SetConv(Conversacion* conv) {
+    this->conv = conv;
+}
+
+Conversacion* EstadoConv::GetConv() const {
+    return conv;
+}
+
+
+
 
 EstadoConv::EstadoConv(const EstadoConv& orig) {
 }

@@ -16,7 +16,11 @@
 #include"ContMensaje.h"
 #include "IIterator.h"
 #include "Visto.h"
-Conversacion::Conversacion() {
+Conversacion::Conversacion(Grupo * g) {
+    if (g!=NULL){
+       setGrupo(g); 
+    }
+    this->idConv=ContMensaje.getIdConv();
 }
 
 Conversacion::Conversacion(const Conversacion& orig) {
@@ -38,10 +42,30 @@ Mensaje Conversacion::getMensaje(int idMensaje){
 void Conversacion::remueveConv(Mensaje men){
     mensajes->removeObj(men);
 }
-void Conversacion::eviarMensaje(Mensaje){
+void Conversacion::eviarMensaje(Mensaje * men){
+    if(soyGrupo()==true){
+        Lista *listaUsuG = new Lista();
+        listaUsuG=getGrupo()->getusuarios();
+        IIterator it=listaUsuG->iterator();
+        Usuario * usP;
+        while(it.hasNext()){
+            usP=dynamic_cast<Usuario*>(it.getCurrent());
+            men->SetReceptor(usP);
+            }
+    }
+    men->SetReceptor(getReceptor());
+    men->SetFechaHora(Fecha_Hora_sis.getFecha(),Fecha_Hora_sis.getHora());
+    intKey * key= new intKey(men->GetCodigo());
+    mensajes->add(men,key);
+    IIterator *it=estadoConv->iterator();
     
+    while(it->hasNext()){
+        EstadoConv *ec=dynamic_cast<EstadoConv*>it->getCurrent();
+        if(ContMensaje.getUsu()==ec->getUsuario()){
+            ec->setEstado(true);
+        }
+    }
     
-
 }
 Lista Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora){
     Conversacion conv=ContMensaje.getConversacion();
@@ -81,4 +105,42 @@ void Conversacion::setEstado(bool estado){
     }
     
 }
-    
+
+void Conversacion::setIdConv(int idConv) {
+    this->idConv = idConv;
+}
+
+int Conversacion::getIdConv() const {
+    return idConv;
+}
+void Conversacion::setEstadoConv(EstadoConv* estadoC){
+    estadoConv->add(estadoC);
+}
+void Conversacion::setMensaje(Mensaje* mensaje){
+    intKey *key = new intKey(mensaje->GetCodigo());
+    mensajes->add(mensaje,key);
+}
+
+void Conversacion::setGrupo(Grupo* grupo) {
+    this->grupo = grupo;
+}
+
+Grupo* Conversacion::getGrupo() const {
+    return grupo;
+}
+Usuario * Conversacion::getReceptor(){
+    IIterator *it= estadoConv->iterator();
+    while (it->hasNext()) {
+        Usuario * usR=dynamic_cast<Usuario*>(it->getCurrent());
+        if (usR!=ContMensaje.getUsu()) return usR;
+    }   
+}
+Lista * Conversacion::getReceptores(){
+IIterator *it= estadoConv->iterator();
+Lista *listUsuRecep=new Lista();
+    while (it->hasNext()) {
+        Usuario * usR=dynamic_cast<Usuario*>(it->getCurrent());
+        if (usR!=ContMensaje.getUsu()) listUsuRecep.add(usR);
+    } 
+return listUsuRecep;
+}
