@@ -17,7 +17,7 @@
 #include"DtHora.h"
 class DtUltCon {
 public:
-    DtUltCon();
+    DtUltCon(DtFecha,DtHora);
     DtUltCon(const DtUltCon& orig);
     virtual ~DtUltCon();
 private:

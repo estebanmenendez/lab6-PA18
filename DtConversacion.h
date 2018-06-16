@@ -16,14 +16,18 @@
 
 #include<iostream>
 
+#include "ICollectible.h"
+
 using namespace std;
 
-class DtConversacion {
+class DtConversacion : public ICollectible{
 public:
     DtConversacion();
     DtConversacion(const DtConversacion& orig);
     virtual ~DtConversacion();
-    
+    DtConversacion(string nombre,int idconv);
+    DtConversacion(int idconv, int cel_cant);
+    DtConversacion(int cel_cant);
     int GetCel_Cantidad();
     int GetIdConversa();    
     string GetNombre();

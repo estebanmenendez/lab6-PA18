@@ -12,12 +12,25 @@
  */
 
 #include "DtConversacion.h"
+#include "Conversacion.h"
 
 DtConversacion::DtConversacion() {
 }
 
 DtConversacion::DtConversacion(const DtConversacion& orig) {
 }
+DtConversacion::DtConversacion(string nombre,int idconv){
+    this->Nombre=nombre;
+    this->idConversa=idconv;
+  }
+DtConversacion::DtConversacion(int idconv, int cel_cant){
+   this->idConversa=idconv;
+   this->Cel_Cantidad=cel_cant;
+  }
+DtConversacion::DtConversacion(int cel_cant){
+   this->Nombre="Conversaciones Archivadas";
+   this->Cel_Cantidad=cel_cant;
+  }
 
 DtConversacion::~DtConversacion() {
 }

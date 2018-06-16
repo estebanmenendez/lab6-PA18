@@ -19,56 +19,59 @@
 #include"DtUltCon.h"
 #include"ICollectible.h"
 #include"Lista.h"
+#include "EstadoConv.h"
+#include "DtContacto.h"
 #include<iostream>
 
 using namespace std;
 
 class Usuario : public ICollectible {
 public:
+    //constructores:
     Usuario();
+    Usuario(string nombre,string imagenPerfil,string descripcion,int numCel,DtFecha,DtHora);
     Usuario(const Usuario& orig);
     virtual ~Usuario();
-    
+    //Setter atributos
     void SetCelular(int);
-    void SetContactos(Lista*);
+    void SetContacto(Usuario * contacto);
     void SetDescripcion(string);
-    void SetEstadoConv(Lista*);
-    void SetFechaCreacion(DtFecha);
-    void SetFecha_Registro(DtFecha);   
-    void SetFoto_Perfil(string);
-    void SetHoraCreacion(DtHora);
-
-int GetCelular();
-string GetDescripcion();
-string GetFoto_Perfil();
-string GetNombre();
-
-DtFecha GetFechaCreacion();
-DtFecha GetFecha_Registro();
-DtHora GetHoraCreacion();
-DtUltCon GetUltima_conexion();
-Lista* GetTipo();
-Lista* GetEstadoConv();
-Lista* GetContactos();
-
-
-
     void SetNombre(string);
-
-
-    void SetTipo(Lista*);
-
+    void SetFoto_Perfil(string);
+    void SetEstadoConv(EstadoConv * estado);
+    void SetFechaCreacion(DtFecha);
+    void SetHoraCreacion(DtHora);
+    void SetTipo(Tipo *);
     void SetUltima_conexion(DtUltCon);
+    //Getters atributos
+    int GetCelular();
+    string GetDescripcion();
+    string GetFoto_Perfil();
+    string GetNombre();
+    DtFecha GetFechaCreacion();
+    DtFecha GetFecha_Registro();
+    DtHora GetHoraCreacion();
+    DtUltCon GetUltima_conexion();
+    DtContacto* Usuario::GetContacto();
+    //Operaciones
+    Lista * getConversaciones();
+    Lista * getConversacionesAr();
+    Lista * GetContactos();
+    Conversacion selecionarConversacion(int);
+    void crearTipoGrupo(DtTipo,Grupo *);
+    void crearConvGrupo(Conversacion *);
+    DtFechaHoraIng * getFechaIng(Grupo);
+    Usuario * seleccionarCont(int);
+    void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
+    void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
+   
+    private:
     
-private:
-    
-    Lista * contactos;
-    Lista * estadoConv;
-    Lista * tipo;
-    
+    ListDicc * contactos= new ListDicc();
+    Lista * estadoConv=new Lista();
+    Lista * tipo=new Lista();
     int celular;
     string nombre;
-    DtFecha fecha_Registro;
     string foto_Perfil;
     string descripcion; 
     DtUltCon ultima_conexion;

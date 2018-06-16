@@ -16,6 +16,7 @@
 #include"ContMensaje.h"
 #include "IIterator.h"
 #include "Visto.h"
+#include "Fecha_Hora_sis.h"
 Conversacion::Conversacion() {
 }
 
@@ -36,20 +37,37 @@ Mensaje Conversacion::getMensaje(int idMensaje){
 }
 
 void Conversacion::remueveConv(Mensaje men){
-    mensajes->removeObj(men);
+    mensajes->removeObj(men);//incompleto
 }
-void Conversacion::eviarMensaje(Mensaje){
-    
-    
+void Conversacion::eviarMensaje(Mensaje * m){
+    if(soyGrupo()==true){
+        Lista *listaUsuG=new Lista();
+        listaUsuG=grupo->getUsuarios();
+        IIterator *it=listaUsuG->isEmpty();
+        while(it->hasNext()){
+            Usuario *usp=dynamic_cast<Usuario*>(it->getCurrent());
+            if(ContMensaje.getUsu()!=usp){
+                m->setReceptor(usp);
+            }
+        }
+    }
+    else{
+        m->setReceptor(getReceptor());
+    }
+    m->SetFechaEnv(Fecha_Hora_sis.getFecha());
+    m->SetHoraEnv(Fecha_Hora_sis.getHora());
+    intKey *key=new intKey(m->GetCodigo());
+    mensajes->add(m,key);
 
 }
-Lista Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora){
+Lista *Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora){
     Conversacion conv=ContMensaje.getConversacion();
    IIterator *it= conv.mensajes->getIteratorObj();
    Lista listDtMensaje = new Lista();
    if (fecha_hora==NULL){
     while(it->hasNext()){
-       listDtMensaje.add(it->getCurrent());
+        Mensaje *men=dynamic_cast<Mensaje*>(it->getCurrent()); 
+       listDtMensaje.add(men->getMensaje());
        Mensaje *m=dynamic_cast<Mensaje*>(it->getCurrent());
                 Visto v= m->esReceptor(ContMensaje.getUsu());
            if(v.getEstado()!=true)v.SetEstado(true);
@@ -60,7 +78,7 @@ Lista Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora){
            Mensaje *m=dynamic_cast<Mensaje*>(it->getCurrent());
            if(m->GetFechaEnv().GetAnio()>=fecha_hora->GetFecha().GetAnio()&&m->GetFechaEnv().GetDia()>=fecha_hora->GetFecha().GetDia()
               &&m->GetFechaEnv().GetMes()>=fecha_hora->GetFecha().GetMes()&& m->GetHoraEnv().GetHora()>=fecha_hora->GetHora().GetHora()&& m->GetHoraEnv().GetMinutos()>=
-                   fecha_hora->GetHora().GetMinutos()&&m->GetHoraEnv().GetSegundo()>=fecha_hora->GetHora().GetSegundo()){listDtMensaje.add(m);}
+                   fecha_hora->GetHora().GetMinutos()&&m->GetHoraEnv().GetSegundo()>=fecha_hora->GetHora().GetSegundo()){listDtMensaje.add(m->getMensaje());}
            Visto v= m->esReceptor(ContMensaje.getUsu());
            if(v.getEstado()!=true)v.SetEstado(true);
            
@@ -68,7 +86,14 @@ Lista Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora){
    }
       return listDtMensaje;
 }
-Lista Conversacion::listarVistos(int){}
+Lista *Conversacion::listarVistos(int idMen){
+    Lista *listaMensVisto=new Lista();
+    intKey *key=new intKey(idMen);
+  Mensaje *men=dynamic_cast<Mensaje*>(mensajes->find(key)); 
+  listaMensVisto=men->getVistos();
+  return listaMensVisto;
+
+}
 bool Conversacion::soyGrupo(){if (grupo!=NULL) return true;
 return false;}
 void Conversacion::setEstado(bool estado){
@@ -80,5 +105,13 @@ void Conversacion::setEstado(bool estado){
    
     }
     
+}
+
+void Conversacion::setIdConv(int idConv) {
+    this->idConv = idConv;
+}
+
+int Conversacion::getIdConv() const {
+    return idConv;
 }
     

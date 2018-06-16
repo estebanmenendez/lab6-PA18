@@ -16,6 +16,11 @@
 DtContacto::DtContacto() {
 }
 
+DtContacto::DtContacto(string nombre,int numCel) {
+    this->nombre=nombre;
+    this->numCel=numCel;
+}
+
 DtContacto::DtContacto(const DtContacto& orig) {
 }
 

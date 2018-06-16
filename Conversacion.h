@@ -43,7 +43,11 @@ Lista listarMensaje(DtFechaHoraIng);
 Lista listarVistos(int);
 bool soyGrupo();
 void setEstado(bool);
-    
+void setIdConv(int idConv);
+int getIdConv() const;
+int getCelContacto();
+string getNomGrupo();
+Usuario * getReceptor();
 private:
     
         Grupo * grupo;

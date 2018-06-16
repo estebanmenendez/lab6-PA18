@@ -12,7 +12,12 @@
  */
 
 #include "EstadoConv.h"
+#include "DtConversacion.h"
+bool EstadoConv ::sosDelUsuario(Usuario* us){
+    if (us==getUsuario())return true;
+    return false;
 
+}
 EstadoConv::EstadoConv() {
 }
 
@@ -31,6 +36,7 @@ void EstadoConv::setConversacion(Conversacion* conversacion) {
 Conversacion* EstadoConv::getConversacion() const {
     return conversacion;
 }
+
 
 void EstadoConv::setUsuario(Usuario* usuario) {
     this->usuario = usuario;

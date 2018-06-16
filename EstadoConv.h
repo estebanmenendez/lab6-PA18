@@ -15,13 +15,15 @@
 #define ESTADOCONV_H
 #include"Conversacion.h"
 #include"Lista.h"
-
+#include"Usuario.h"
+#include"Visto.h"
+#include"DtConversacion.h"
 class EstadoConv :public ICollectible{
     public:
-    EstadoConv();
+    EstadoConv(Usuario *, Conversacion *);
     EstadoConv(const EstadoConv& orig);
     virtual ~EstadoConv();
-    
+    bool sosDelUsuario(Usuario * us);
     bool ConvActiva();
     void setEstado(bool);
     void setArchivada(bool archivada);
@@ -30,7 +32,7 @@ class EstadoConv :public ICollectible{
     Conversacion* getConversacion() const;
     void setUsuario(Usuario* usuario);
     Usuario* getUsuario() const;
-
+   
     
 private:
         Usuario * usuario;

@@ -16,14 +16,16 @@
 
 #include"DtHora.h"
 #include"DtFecha.h"
+#include "ICollectible.h"
 
 #include<iostream>
 
 using namespace std;
 
-class DtContacto  {
+class DtContacto  :public ICollectible{
 public:
     DtContacto();
+    DtContacto(string,int);
     DtContacto(const DtContacto& orig);
     virtual ~DtContacto();
     
