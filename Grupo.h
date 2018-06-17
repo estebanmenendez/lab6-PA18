@@ -14,7 +14,7 @@
 #ifndef GRUPO_H
 #define GRUPO_H
 
-#include"Tipo.h"
+//#include"Tipo.h"
 #include<iostream>
 #include"DtFecha.h"
 #include"DtHora.h"

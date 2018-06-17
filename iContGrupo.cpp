@@ -13,11 +13,11 @@
 
 #include "iContGrupo.h"
 
-iContGrupo::iContGrupo() {
-}
-
-iContGrupo::iContGrupo(const iContGrupo& orig) {
-}
+//iContGrupo::iContGrupo() {
+//}
+//
+//iContGrupo::iContGrupo(const iContGrupo& orig) {
+//}
 
 iContGrupo::~iContGrupo() {
 }

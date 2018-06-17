@@ -15,8 +15,10 @@
 #define DTULTCON_H
 #include"DtFecha.h"
 #include"DtHora.h"
+
 class DtUltCon {
 public:
+    DtUltCon();
     DtUltCon(DtFecha,DtHora);
     DtUltCon(const DtUltCon& orig);
     virtual ~DtUltCon();

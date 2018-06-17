@@ -15,6 +15,7 @@
 #define DTSIMPLE_H
 
 #include "DtMensaje.h"
+#include<iostream>
 
 
 class DtSimple : public DtMensaje{
@@ -23,7 +24,7 @@ public:
     DtSimple(const DtSimple& orig);
     virtual ~DtSimple();
     void SetTexto(string texto);
-    string GetTexto() const;
+    string GetTexto();
 private:
     string texto;
 };

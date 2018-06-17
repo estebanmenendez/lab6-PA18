@@ -25,13 +25,22 @@ ContUsuario::ContUsuario(const ContUsuario& orig){}
 ContUsuario::~ContUsuario() {}
 
 void ContUsuario::create(string,string,string,int,DtFecha,DtHora){}
-void ContUsuario::setUltimaCon(){
-    DtUltCon *ultima = new DtUltCon(Fecha_Hora_sis.getFecha(),Fecha_Hora_sis.getHora());
-usu->SetUltima_conexion(ultima);}
 
-void ContUsuario::setUsuLog(Usuario){
-ContMensaje.setUsu(usu);
-ContGrupo.setUsu(usu);}
+void ContUsuario::setUltimaCon(){
+    Fecha_Hora_sis * fechora;
+    DtUltCon *ultima = new DtUltCon(fechora->getFecha(),fechora->getHora());
+    this->usu->SetUltima_conexion(ultima);
+}
+
+void ContUsuario::setUsuLog(Usuario* usu){
+ContMensaje* contMen;
+contMen->setUsu(usu);
+ContGrupo* contGrup;
+contGrup->setUsu(usu);
+
+}
+
+
 bool ContUsuario::usuarioLogueado(int numCel){
     if(usu->GetCelular()==numCel)return true;
     
@@ -44,7 +53,8 @@ bool ContUsuario::ingresarCelular(int numCel){
     return ok;
 }
 bool ContUsuario::altaUsuario(string nombre,string UrlImagen,string descripcion){
-    Usuario * nuevoUsu=new Usuario(getNumCel(),nombre,UrlImagen,descripcion,Fecha_Hora_sis.getFecha(),Fecha_Hora_sis.getHora());
+    Fecha_Hora_sis* fechora;
+    Usuario * nuevoUsu=new Usuario(nombre,UrlImagen,descripcion,usu->GetCelular(),fechora->getFecha(),fechora->getHora());
     intKey *key = new intKey(getNumCel());
     usuario->add(nuevoUsu,key);
     return true;

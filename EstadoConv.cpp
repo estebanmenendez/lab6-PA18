@@ -13,13 +13,13 @@
 
 #include "EstadoConv.h"
 #include "DtConversacion.h"
+
 bool EstadoConv ::sosDelUsuario(Usuario* us){
     if (us==getUsuario())return true;
     return false;
 
 }
-EstadoConv::EstadoConv() {
-}
+
 
 void EstadoConv::setEstado(bool archivada) {
     this->archivada = archivada;
@@ -44,6 +44,11 @@ void EstadoConv::setUsuario(Usuario* usuario) {
 
 Usuario* EstadoConv::getUsuario() const {
     return usuario;
+}
+EstadoConv::EstadoConv() {
+}
+EstadoConv::EstadoConv(Usuario * usu, Conversacion * conv) {
+    
 }
 
 EstadoConv::EstadoConv(const EstadoConv& orig) {

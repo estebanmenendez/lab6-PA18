@@ -26,9 +26,7 @@ Visto::~Visto() {
 bool Visto::getEstado() {
     return estado;
 }
-bool Visto::esReceptor(Usuario* recep){
-    if (recep==this->Receptor) return true;
-}
+
 void Visto::SetEstado(bool estado) {
     this->estado = estado;
 }
@@ -49,11 +47,14 @@ void Visto::SetHoraV(DtHora horaV) {
     this->horaV = horaV;
 }
 
-Lista* Visto::GetUsuario() {
-    return usuario;
+Usuario* Visto::GetUsuario() {
+    return receptor;
 }
 
-void Visto::SetUsuario(Lista* usuario) {
-    this->usuario = usuario;
+void Visto::SetUsuario(Usuario* usuario) {
+    this->receptor = usuario;
 }
 
+bool Visto::esReceptor(Usuario* recep){
+    if (recep==this->receptor) return true;
+}

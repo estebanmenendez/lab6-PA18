@@ -21,10 +21,11 @@ class DtMContacto : public DtMensaje{
 
     private:
         int numCel;
-        public:
-            DtMContacto();
-            virtual ~ DtMContacto();
-            void setNumCel(int);
-          void getNumCel();
+    public:
+        
+        DtMContacto();
+        virtual ~ DtMContacto();
+        void setNumCel(int);
+        int  getNumCel();
 };
 #endif /* DTMCONTACTO_H */

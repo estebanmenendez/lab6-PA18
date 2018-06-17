@@ -35,7 +35,7 @@ iContUsuario* Fabrica::getContUsuario(){
 }
 iContMensaje* Fabrica::getContMensaje(){
     if (this-> cMens ==NULL)
-            this-> cMens = new ContMensaje();
+            this->cMens = new ContMensaje();
     return this-> cMens;
 }
 

@@ -44,21 +44,19 @@ ContMensaje::~ContMensaje(){}
 
 void ContMensaje::enviarMensaje(Mensaje){}
 void ContMensaje::crearConv(Usuario,Conversacion){}
-void ContMensaje::create(Grupo){}
 void ContMensaje::agregarConv(Conversacion){}
 void ContMensaje::crear(DtSimple){}
 void ContMensaje::crearMensaje(DtMensaje){}
 void ContMensaje::seleccionarCont(string){}
 void ContMensaje::selecConversacion(string){}
 void ContMensaje::getContactos(){}
-void ContMensaje::getConversacion(){}
-DtConversacion ContMensaje::listarConv(){}
+Lista* ContMensaje::listarConv(){}
 void ContMensaje::seleccionarConv(string){}
 void ContMensaje::archivarConv(DtConversacion){}
-DtMensaje ContMensaje::seleccionarConversacion(string){}
+Lista* ContMensaje::seleccionarConversacion(string){}
 void ContMensaje::seleccionarMensaje(int){}
 void ContMensaje::eliminarMensaje(DtMensaje){}
-DtConversacion ContMensaje::listarConvArchivadas(){}
+Lista* ContMensaje::listarConvArchivadas(){}
 void ContMensaje::cuerpoMensaje(DtSimple) {}
 void ContMensaje::cuerpoMensaje(DtImagen){}
 void ContMensaje::cuerpoMensaje(DtContacto){}

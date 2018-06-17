@@ -26,7 +26,7 @@ void DtSimple::SetTexto(string texto) {
     this->texto = texto;
 }
 
-string DtSimple::GetTexto() const {
+string DtSimple::GetTexto() {
     return texto;
 }
 

@@ -41,25 +41,25 @@ private:
 public:
     
 ContMensaje();
-~ContMensaje();
+ContMensaje(const ContMensaje& orig);
+virtual ~ContMensaje();
 
 void enviarMensaje(Mensaje);
 void crearConv(Usuario,Conversacion);
-void create(Grupo);
+
 void agregarConv(Conversacion);
 void crear(DtSimple);
 void crearMensaje(DtMensaje);
 void seleccionarCont(string);
 void selecConversacion(string);
 void getContactos();
-void getConversacion();
-DtConversacion listarConv();
+Lista* listarConv();
 void seleccionarConv(string);
 void archivarConv(DtConversacion);
-DtMensaje seleccionarConversacion(string);
+Lista* seleccionarConversacion(string);
 void seleccionarMensaje(int);
 void eliminarMensaje(DtMensaje);
-DtConversacion listarConvArchivadas();
+Lista* listarConvArchivadas();
 void cuerpoMensaje(DtSimple);
 void cuerpoMensaje(DtImagen);
 void cuerpoMensaje(DtContacto);

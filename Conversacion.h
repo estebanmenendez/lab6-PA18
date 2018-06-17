@@ -24,8 +24,9 @@
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"
 #include"DtMensaje.h"
+#include"Usuario.h"
 
-
+using namespace std;
 
 class Conversacion {
     
@@ -33,21 +34,21 @@ class Conversacion {
 public:
     Conversacion();
     Conversacion(const Conversacion& orig);
-    virtual ~Conversacion();
+    virtual ~Conversacion();   
     
-bool sosConversacion(int);
-Mensaje getMensaje(int);
-void remueveConv(Mensaje);
-void eviarMensaje(Mensaje);
-Lista listarMensaje(DtFechaHoraIng);
-Lista listarVistos(int);
-bool soyGrupo();
-void setEstado(bool);
-void setIdConv(int idConv);
-int getIdConv() const;
-int getCelContacto();
-string getNomGrupo();
-Usuario * getReceptor();
+    bool sosConversacion(int);
+    Mensaje* getMensaje(int);
+    void remueveConv(Mensaje*);
+    void eviarMensaje(Mensaje*);
+    Lista* listarMensaje(DtFechaHoraIng* );
+    Lista* listarVistos(int);
+    bool soyGrupo();
+    void setEstado(bool);
+    void setIdConv(int idConv);
+    int getIdConv() const;
+    int getCelContacto();
+    string getNomGrupo();
+    Usuario * getReceptor();
 private:
     
         Grupo * grupo;

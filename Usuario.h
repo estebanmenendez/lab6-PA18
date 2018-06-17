@@ -14,13 +14,19 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 
-#include"DtFecha.h"
-#include"DtHora.h"
-#include"DtUltCon.h"
-#include"ICollectible.h"
-#include"Lista.h"
-#include "EstadoConv.h"
+#include"DtFechaHoraIng.h"
+#include "DtFecha.h"
+#include "DtHora.h"
+#include "DtUltCon.h"
+#include "ICollectible.h"
+#include "Lista.h"
+#include "DtTipo.h"
+#include "Grupo.h"
+//#include "EstadoConv.h"
 #include "DtContacto.h"
+//#include "ListaDicc.h"
+//#include "Tipo.h"
+//#include "Conversacion.h"
 #include<iostream>
 
 using namespace std;
@@ -38,11 +44,11 @@ public:
     void SetDescripcion(string);
     void SetNombre(string);
     void SetFoto_Perfil(string);
-    void SetEstadoConv(EstadoConv * estado);
+//    void SetEstadoConv(EstadoConv * estado);
     void SetFechaCreacion(DtFecha);
     void SetHoraCreacion(DtHora);
-    void SetTipo(Tipo *);
-    void SetUltima_conexion(DtUltCon);
+  //  void SetTipo(Tipo *);
+    void SetUltima_conexion(DtUltCon*);
     //Getters atributos
     int GetCelular();
     string GetDescripcion();
@@ -52,22 +58,22 @@ public:
     DtFecha GetFecha_Registro();
     DtHora GetHoraCreacion();
     DtUltCon GetUltima_conexion();
-    DtContacto* Usuario::GetContacto();
+    DtContacto* GetContacto();
     //Operaciones
     Lista * getConversaciones();
     Lista * getConversacionesAr();
     Lista * GetContactos();
-    Conversacion selecionarConversacion(int);
-    void crearTipoGrupo(DtTipo,Grupo *);
-    void crearConvGrupo(Conversacion *);
+//    Conversacion selecionarConversacion(int);
+//    void crearTipoGrupo(DtTipo,Grupo *);
+  //  void crearConvGrupo(Conversacion *);
     DtFechaHoraIng * getFechaIng(Grupo);
     Usuario * seleccionarCont(int);
-    void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
-    void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
+ //   void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
+ //   void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
    
     private:
     
-    ListDicc * contactos= new ListDicc();
+   // ListaDicc * contactos= new ListaDicc();
     Lista * estadoConv=new Lista();
     Lista * tipo=new Lista();
     int celular;
