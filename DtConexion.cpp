@@ -16,7 +16,11 @@
 DtConexion::DtConexion() {
 }
 
+DtConexion::DtConexion(string FechaHora){
+    this->FechaHora = FechaHora;
+}
 DtConexion::DtConexion(const DtConexion& orig) {
+    this->FechaHora = orig.FechaHora;
 }
 
 DtConexion::~DtConexion() {

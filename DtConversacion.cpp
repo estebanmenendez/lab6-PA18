@@ -12,11 +12,20 @@
  */
 
 #include "DtConversacion.h"
-
+/*int idConversa;
+    int Cel_Cantidad;
+    string Nombre;*/
 DtConversacion::DtConversacion() {
 }
-
+DtConversacion::DtConversacion(int idConversa, int Cel_Cantidad, string nombre){
+    this->Cel_Cantidad = Cel_Cantidad;
+    this->Nombre = nombre;
+    this->idConversa = idConversa;
+}
 DtConversacion::DtConversacion(const DtConversacion& orig) {
+    this->Cel_Cantidad = orig.Cel_Cantidad;
+    this->Nombre = orig.Nombre;
+    this->idConversa = orig.idConversa;
 }
 
 DtConversacion::~DtConversacion() {

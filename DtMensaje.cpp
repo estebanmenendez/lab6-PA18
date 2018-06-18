@@ -12,11 +12,22 @@
  */
 
 #include "DtMensaje.h"
+/*int codigo;
+    DtFecha fechaEnv;
+    DtHora horaEnv;*/
 
+DtMensaje::DtMensaje(int codigo, DtFecha fechaEnv, DtHora horaEnv){
+    this->codigo = codigo;
+    this->fechaEnv = fechaEnv;
+    this->horaEnv = horaEnv;
+}
 DtMensaje::DtMensaje() {
 }
 
 DtMensaje::DtMensaje(const DtMensaje& orig) {
+    this->codigo = orig.codigo;
+    this->fechaEnv = orig.fechaEnv;
+    this->horaEnv = orig.horaEnv;
 }
 
 DtMensaje::~DtMensaje() {

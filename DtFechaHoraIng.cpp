@@ -12,11 +12,20 @@
  */
 
 #include "DtFechaHoraIng.h"
-
+#include "DtFecha.h"
+#include "DtHora.h"
+/*DtFecha fecha;
+    DtHora hora;*/
 DtFechaHoraIng::DtFechaHoraIng() {
 }
 
 DtFechaHoraIng::DtFechaHoraIng(const DtFechaHoraIng& orig) {
+    this->fecha = orig.fecha;
+    this->hora = orig.hora;
+}
+DtFechaHoraIng::DtFechaHoraIng(DtFecha fecha, DtHora hora){
+    this->fecha = fecha;
+    this->hora = hora;
 }
 
 DtFechaHoraIng::~DtFechaHoraIng() {

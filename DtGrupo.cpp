@@ -12,11 +12,29 @@
  */
 
 #include "DtGrupo.h"
-
+/*string nombre;
+    string imagenUrl;
+    DtContacto contactos;
+    DtContacto usrCreador;
+    DtFecha fechaCreacion;
+    DtHora HoraCreacion;*/
 DtGrupo::DtGrupo() {
 }
 
+DtGrupo::DtGrupo(string imagenUrl, DtContacto contactos, DtContacto usrCreador, DtFecha fechaCreacion, DtHora horaCreacion){
+    this->imagenUrl = imagenUrl;
+    this->contactos = contactos;
+    this->usrCreador = usrCreador;
+    this->fechaCreacion = fechaCreacion;
+    this->HoraCreacion = horaCreacion;
+}
+
 DtGrupo::DtGrupo(const DtGrupo& orig) {
+    this->imagenUrl = orig.imagenUrl;
+    this->contactos = orig.contactos;
+    this->usrCreador = orig.usrCreador;
+    this->fechaCreacion = orig.fechaCreacion;
+    this->HoraCreacion = orig.HoraCreacion;
 }
 
 DtGrupo::~DtGrupo() {

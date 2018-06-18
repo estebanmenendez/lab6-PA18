@@ -12,7 +12,13 @@
  */
 
 #include "DtVideo.h"
+/*string url;
+        float duracion;*/
 
+DtVideo::DtVideo(string url, float duracion){
+    this->duracion = duracion;
+    this->url = url;
+}
 DtVideo::DtVideo() {
 
 }

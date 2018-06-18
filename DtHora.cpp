@@ -12,11 +12,22 @@
  */
 
 #include "DtHora.h"
-
+/*
+ int hora;
+    int minutos; 
+    int segundo;
+ */
 DtHora::DtHora() {
 }
-
+DtHora::DtHora(int hora, int minutos, int segundos){
+    this->hora = hora;
+    this->minutos = minutos;
+    this->segundo = segundos;
+}
 DtHora::DtHora(const DtHora& orig) {
+    this->hora = orig.hora;
+    this->minutos = orig.minutos;
+    this->segundo = orig.segundo;        
 }
 
 DtHora::~DtHora() {

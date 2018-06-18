@@ -12,13 +12,21 @@
  */
 
 #include "DtFecha.h"
-
+/*int dia,mes,anio;*/
 DtFecha::DtFecha() {
 }
 
 DtFecha::DtFecha(const DtFecha& orig) {
+    this->anio = orig.anio;
+    this->dia = orig.dia;
+    this->mes = orig.mes;
 }
 
+DtFecha::DtFecha(int dia, int mes, int anio){
+    this->anio = anio;
+    this->dia = dia;
+    this->mes = mes;
+}
 DtFecha::~DtFecha() {
 }
 

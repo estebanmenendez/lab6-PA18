@@ -12,11 +12,23 @@
  */
 
 #include "DtMensajeVisto.h"
+/*string Nombre;
+    int Celular;
+    DtFechaHoraVisto FechaHoraVisto;
+*/
 
+DtMensajeVisto::DtMensajeVisto(string nombre, int celular, DtFechaHoraVisto fhv){
+    this->Nombre = nombre;
+    this->Celular = celular;
+    this->FechaHoraVisto = fhv;
+}
 DtMensajeVisto::DtMensajeVisto() {
 }
 
 DtMensajeVisto::DtMensajeVisto(const DtMensajeVisto& orig) {
+    this->Nombre = orig.Nombre;
+    this->Celular = orig.Celular;
+    this->FechaHoraVisto = orig.FechaHoraVisto;
 }
 
 DtMensajeVisto::~DtMensajeVisto() {

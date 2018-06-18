@@ -14,8 +14,20 @@
 #include "DtContacto.h"
 
 DtContacto::DtContacto() {
+    
 }
-
+DtContacto::DtContacto(string nombre, string numCel, string tipo, DtFecha fechaIng, DtHora horaIng){
+    this->fechaIng = fechaIng;
+    this->horaIng = horaIng;
+    this->nombre = nombre;
+    this->numCel = numCel;
+    this->tipo = tipo;
+}
+/*string nombre;
+    string numCel;
+    string tipo;
+    DtFecha fechaIng;
+    DtHora horaIng;*/
 DtContacto::DtContacto(const DtContacto& orig) {
 }
 

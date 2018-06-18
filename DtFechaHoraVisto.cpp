@@ -12,13 +12,20 @@
  */
 
 #include "DtFechaHoraVisto.h"
-
+/*DtFecha fecha;
+    DtHora hora;*/
 DtFechaHoraVisto::DtFechaHoraVisto() {
 }
 
 DtFechaHoraVisto::DtFechaHoraVisto(const DtFechaHoraVisto& orig) {
+    this->fecha = orig.fecha;
+    this->hora = orig.hora;
 }
 
+DtFechaHoraVisto::DtFechaHoraVisto(DtFecha fecha, DtHora hora){
+    this->fecha = fecha;
+    this->hora = hora;
+}
 DtFechaHoraVisto::~DtFechaHoraVisto() {
    }
 

@@ -12,11 +12,15 @@
  */
 
 #include "DtSimple.h"
-
+/*string texto;*/
+DtSimple::DtSimple(string texto){
+    this->texto = texto;
+}
 DtSimple::DtSimple() {
 }
 
 DtSimple::DtSimple(const DtSimple& orig) {
+    this->texto = orig.texto;
 }
 
 DtSimple::~DtSimple() {

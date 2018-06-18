@@ -15,9 +15,25 @@
 
 DtImagen::DtImagen() {
 }
+/*int Tamanio;
+    string Formato;
+    string Texto;
+    string urlImg;*/
+
+DtImagen::DtImagen(int Tamanio, string formato, string texto, string urlImagen){
+    this->Tamanio = Tamanio;
+    this->Formato = formato;
+    this->Texto = texto;
+    this->urlImg = urlImagen;
+}
 
 DtImagen::DtImagen(const DtImagen& orig) {
+    this->Formato = orig.Formato;
+    this->Tamanio = orig.Tamanio;
+    this->Texto = orig.Texto;
+    this->urlImg = orig.urlImg;
 }
+
 
 DtImagen::~DtImagen() {
 }
