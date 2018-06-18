@@ -21,11 +21,12 @@
 #include "ICollectible.h"
 #include "Lista.h"
 #include "DtTipo.h"
-#include "Grupo.h"
-//#include "EstadoConv.h"
+#include "Mensaje.h"
+#include "Estado.h"
+#include "EstadoConv.h"
 #include "DtContacto.h"
-//#include "ListaDicc.h"
-//#include "Tipo.h"
+#include "ListaDicc.h"
+#include "Tipo.h"
 //#include "Conversacion.h"
 #include<iostream>
 
@@ -44,10 +45,10 @@ public:
     void SetDescripcion(string);
     void SetNombre(string);
     void SetFoto_Perfil(string);
-//    void SetEstadoConv(EstadoConv * estado);
+    void SetEstadoConv(EstadoConv * estado);
     void SetFechaCreacion(DtFecha);
     void SetHoraCreacion(DtHora);
-  //  void SetTipo(Tipo *);
+    void SetTipo(Tipo *);
     void SetUltima_conexion(DtUltCon*);
     //Getters atributos
     int GetCelular();
@@ -63,17 +64,17 @@ public:
     Lista * getConversaciones();
     Lista * getConversacionesAr();
     Lista * GetContactos();
-//    Conversacion selecionarConversacion(int);
-//    void crearTipoGrupo(DtTipo,Grupo *);
-  //  void crearConvGrupo(Conversacion *);
+    Conversacion selecionarConversacion(int);
+    void crearTipoGrupo(DtTipo,Grupo *);
+    void crearConvGrupo(Conversacion *);
     DtFechaHoraIng * getFechaIng(Grupo);
     Usuario * seleccionarCont(int);
- //   void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
- //   void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
+    void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
+    void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
    
     private:
     
-   // ListaDicc * contactos= new ListaDicc();
+    ListDicc * contactos= new ListDicc();
     Lista * estadoConv=new Lista();
     Lista * tipo=new Lista();
     int celular;
@@ -83,6 +84,7 @@ public:
     DtUltCon ultima_conexion;
     DtFecha fechaCreacion;
     DtHora horaCreacion; 
+    Estado* estado;
 
 };
 

@@ -12,13 +12,14 @@
  */
 
 
-#include"ContGrupo.h"
-#include"ContMensaje.h"
-#include"ContUsuario.h"
+
 
 #ifndef FABRICA_H
 #define FABRICA_H
 
+#include"ContGrupo.h"
+#include"ContMensaje.h"
+#include"ContUsuario.h"
 
 class Fabrica {
     //Fabrica es singleton

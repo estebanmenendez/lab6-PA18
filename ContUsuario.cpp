@@ -24,9 +24,11 @@ ContUsuario::ContUsuario(){}
 ContUsuario::ContUsuario(const ContUsuario& orig){}
 ContUsuario::~ContUsuario() {}
 
-void ContUsuario::create(string,string,string,int,DtFecha,DtHora){}
+//void ContUsuario::create(string,string,string,int,DtFecha,DtHora){
+//
+//}
 
-void ContUsuario::setUltimaCon(){
+void ContUsuario::setUltimaCon(DtUltCon) {
     Fecha_Hora_sis * fechora;
     DtUltCon *ultima = new DtUltCon(fechora->getFecha(),fechora->getHora());
     this->usu->SetUltima_conexion(ultima);
@@ -73,21 +75,30 @@ DtConexion ContUsuario::asignarSesion(){
        intKey *ikey=new intKey(numCel);
        Usuario * usU=dynamic_cast<Usuario*>(usuario->find(ikey));
        setUsu(usU);
-       setUltimaCon();
+//       setUltimaCon();
        setUsuLog(usu);
 }
-Lista ContUsuario::listarContactos(){}
-DtContacto ContUsuario::ingContacto(int){}
-void ContUsuario::agregaContacto(DtContacto){}
-void ContUsuario::cerrarSesion(){}
-void ContUsuario::modificarPerfil(string, string, string){}
-void ContUsuario::actualizarDatos(){}
+Lista ContUsuario::listarContactos(){
+
+}
+DtContacto ContUsuario::ingContacto(int){
+
+}
+void ContUsuario::agregaContacto(DtContacto){
+
+}
+void ContUsuario::cerrarSesion(DtConexion){
+}
+void ContUsuario::modificarPerfil(string, string, string){
+}
+void ContUsuario::actualizarDatos(){
+}
 
 void ContUsuario::setNumCel(int numCel) {
     this->numCel = numCel;
 }
 
-int ContUsuario::getNumCel() const {
+int ContUsuario::getNumCel() {
     return numCel;
 }
 
@@ -95,6 +106,6 @@ void ContUsuario::setUsu(Usuario* usu) {
     this->usu = usu;
 }
 
-Usuario* ContUsuario::getUsu() const {
+Usuario* ContUsuario::getUsu()  {
     return usu;
 }

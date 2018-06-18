@@ -13,15 +13,16 @@
 
 #ifndef MENSAJE_H
 #define MENSAJE_H
-using namespace std;
+
 #include"ICollectible.h"
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"DtMensaje.h"
 #include"Lista.h"
-#include"Usuario.h"
+//#include"Usuario.h"
 #include"Visto.h"
 
+using namespace std;
 
 class Mensaje : public ICollectible{
 public:
@@ -31,19 +32,19 @@ public:
     int GetCodigo();
     DtFecha GetFechaEnv();
     DtHora GetHoraEnv();
-    Visto* GetVisto();
+    Lista* GetVisto();
     Visto* esReceptor(Usuario*);
     void SetCodigo(int);
     void SetFechaEnv(DtFecha);    
     void SetHoraEnv(DtHora);
-    void SetVisto(Visto *);
+    void SetVisto(Lista *);
     void setReceptor(Usuario *);
     Lista *getVistos();
     DtMensaje *getMensaje();
 private:
         
         Lista* visto=new Lista();
-//        Usuario * emisor;
+        Usuario * emisor;
         int codigo;
         DtFecha fechaEnv;
         DtHora horaEnv;

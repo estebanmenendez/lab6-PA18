@@ -16,7 +16,7 @@
 
 #include"Mensaje.h"
 #include <string.h>
-#include"Grupo.h"
+//#include"Grupo.h"
 #include"Lista.h"
 #include"ListaDicc.h"
 #include"intKey.h"
@@ -24,7 +24,7 @@
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"
 #include"DtMensaje.h"
-#include"Usuario.h"
+//#include"Usuario.h"
 
 using namespace std;
 

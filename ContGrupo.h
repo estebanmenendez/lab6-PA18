@@ -15,7 +15,7 @@
 #define CONTGRUPO_H
 
 #include"iContGrupo.h"
-#include"Usuario.h"
+#include"Grupo.h"
 //#include"Lista.h"
 //#include"IDictionary.h"
 using namespace std;
@@ -23,7 +23,7 @@ using namespace std;
 
 class ContGrupo: public iContGrupo {
     private:    
-    Usuario * usu;
+    //Usuario * usu;
    
 public:
     
@@ -48,8 +48,8 @@ public:
     DtContacto seleccionarParticipante(int);
     void eliminarPartipante(DtContacto);
     void cancelar();
-    void setUsu(Usuario* usu);
-     Usuario* getUsu() const;
+    //void setUsu(Usuario* usu);
+    // Usuario* getUsu() const;
     DtGrupo altaGrupo(string, string);
     void Salir();
     

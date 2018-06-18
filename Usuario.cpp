@@ -16,13 +16,14 @@
 #include "ContUsuario.h"
 #include "ContMensaje.h"
 
-Usuario::Usuario(string nombre,string imagenPerfil,string descripcion,int numCel) {
+Usuario::Usuario(string nombre,string imagenPerfil,string descripcion,int numCel,DtFecha,DtHora) {
+    Fecha_Hora_sis* fechora;
     this->nombre=nombre;
     this->foto_Perfil=imagenPerfil;
     this->descripcion=descripcion;
     this->celular=numCel;
-    this->fechaCreacion=Fecha_Hora_sis.getFecha();
-    this->horaCreacion=Fecha_Hora_sis.getHora();
+    this->fechaCreacion=fechora->getFecha();
+    this->horaCreacion=fechora->getHora();
     }
 
 Usuario::Usuario(const Usuario& orig) {
@@ -40,12 +41,12 @@ Usuario::~Usuario() {
     }
 
     DtContacto* Usuario::GetContacto()  {
-        DtContacto DtCont=new DtContacto(nombre,celular);
+        DtContacto* DtCont=new DtContacto(nombre,celular);
            return DtCont;     
     }
 
     void Usuario::SetContacto(Usuario * contacto) {
-        this->contactos->add(contacto);
+        this->contactos-> (contacto);
     }
 
     string Usuario::GetDescripcion() {

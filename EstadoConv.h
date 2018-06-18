@@ -16,7 +16,7 @@
 
 #include"Conversacion.h"
 #include"Lista.h"
-#include"Usuario.h"
+//#include"Usuario.h"
 //#include"Visto.h"
 //#include"ICollectible.h"
 
@@ -25,22 +25,22 @@ using namespace std;
 class EstadoConv :public ICollectible{
     public:
     EstadoConv();
-    EstadoConv(Usuario*, Conversacion*);
+    //EstadoConv(Usuario*, Conversacion*);
     EstadoConv(const EstadoConv& orig);
     virtual ~EstadoConv();
-    bool sosDelUsuario(Usuario * us);
+    //bool sosDelUsuario(Usuario * us);
     bool ConvActiva();
     void setEstado(bool);
     void setArchivada(bool archivada);
     bool isArchivada() const;
     void setConversacion(Conversacion* conversacion);
     Conversacion* getConversacion() const;
-    void setUsuario(Usuario* usuario);
-    Usuario* getUsuario() const;
+    //void setUsuario(Usuario* usuario);
+    //Usuario* getUsuario() const;
    
     
 private:
-        Usuario * usuario;
+        //Usuario * usuario;
         Conversacion * conversacion; 
         bool archivada;
 };

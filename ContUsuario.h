@@ -21,18 +21,18 @@
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"IDictionary.h"
-#include"Usuario.h"
+//#include"Usuario.h"
 #include"Lista.h"
 #include "ListaDicc.h"
 
 
 using namespace std;
 
-class ContUsuario : public iContUsuario{
+class ContUsuario : public iContUsuario {
 
     
 private:
-    ListDicc * usuario=new ListDicc();
+    ListDicc * usuario;
     Usuario * usu;
     int numCel;
         
@@ -42,25 +42,24 @@ public:
     ContUsuario(const ContUsuario& orig);
     virtual ~ContUsuario();
 
-     void create(string,string,string,int,DtFecha,DtHora) ;
-    void setUltimaCon();
+//    void create(string,string,string,int,DtFecha,DtHora);
+    void setUltimaCon(DtUltCon);
     void setUsuLog(Usuario*);
-     bool usuarioLogueado(int);
-     bool ingresarCelular(int);
-     bool altaUsuario(string,string,string);
-     bool cancelaIngreso();
+    bool usuarioLogueado(int);
+    bool ingresarCelular(int);
+    bool altaUsuario(string,string,string);
+    bool cancelaIngreso();
     DtConexion asignarSesion();
-     Lista listarContactos();
-     DtContacto ingContacto(int);
-     void agregaContacto(DtContacto);
-    void cerrarSesion(); 
+    Lista listarContactos();
+    DtContacto ingContacto(int);
+    void agregaContacto(DtContacto);
+    void cerrarSesion(DtConexion); 
     void modificarPerfil(string, string, string);
     void actualizarDatos();
     void setNumCel(int numCel);
-    int getNumCel() const;
+    int getNumCel();
     void setUsu(Usuario* usu);
-    Usuario* getUsu() const;
-
+    Usuario* getUsu();
 };
 
 #endif /* CONTUSUARIO_H */

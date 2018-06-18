@@ -15,7 +15,9 @@
 #define VISTO_H
 
 #include"Usuario.h"
+
 using namespace std;
+
 class Visto {
 public:
     Visto();

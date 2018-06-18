@@ -14,13 +14,17 @@
 #ifndef ESTADO_H
 #define ESTADO_H
 
+#include "DtHora.h"
+#include "DtFecha.h"
 class Estado {
 public:
     Estado();
     Estado(const Estado& orig);
     virtual ~Estado();
 private:
-
+    string texto;
+    DtFecha* fecha;
+    DtHora* hora;
 };
 
 #endif /* ESTADO_H */

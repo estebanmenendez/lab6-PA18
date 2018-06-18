@@ -18,6 +18,7 @@
 #include<iostream>
 #include"DtFecha.h"
 #include"DtHora.h"
+#include "Lista.h"
 
 
 using namespace std;
