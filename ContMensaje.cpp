@@ -16,12 +16,12 @@
 using namespace std;
 
 ContMensaje::ContMensaje(){}
-
+/*
 void ContMensaje::setUsu(Usuario* usu) {
     this->usu = usu;
 }
 
-Usuario* ContMensaje::getUsu() const {
+Usuario* ContMensaje::getUsu()  {
     return usu;
 }
 
@@ -29,36 +29,34 @@ void ContMensaje::setConversacion(Conversacion* conversaciones) {
     this->conv = conversaciones;
 }
 
-Conversacion* ContMensaje::getConversacion() const {
+Conversacion* ContMensaje::getConversacion() {
     return conv;
 }
-
-void ContMensaje::setMensaje(Mensaje* mensaje) {
+*/
+void ContMensaje::setMensaje(DtMensaje mensaje) {
     this->mensaje = mensaje;
 }
 
-Mensaje* ContMensaje::getMensaje() const {
+DtMensaje ContMensaje::getMensaje() {
     return mensaje;
 }
 ContMensaje::~ContMensaje(){}
 
-void ContMensaje::enviarMensaje(Mensaje){}
-void ContMensaje::crearConv(Usuario,Conversacion){}
-void ContMensaje::create(Grupo){}
-void ContMensaje::agregarConv(Conversacion){}
+void ContMensaje::enviarMensaje(string){}
+void ContMensaje::crearConv(int,int){}
+//void ContMensaje::agregarConv(Conversacion){}
 void ContMensaje::crear(DtSimple){}
 void ContMensaje::crearMensaje(DtMensaje){}
 void ContMensaje::seleccionarCont(string){}
 void ContMensaje::selecConversacion(string){}
 void ContMensaje::getContactos(){}
-void ContMensaje::getConversacion(){}
-DtConversacion ContMensaje::listarConv(){}
+Lista* ContMensaje::listarConv(){}
 void ContMensaje::seleccionarConv(string){}
 void ContMensaje::archivarConv(DtConversacion){}
-DtMensaje ContMensaje::seleccionarConversacion(string){}
+Lista* ContMensaje::seleccionarConversacion(string){}
 void ContMensaje::seleccionarMensaje(int){}
 void ContMensaje::eliminarMensaje(DtMensaje){}
-DtConversacion ContMensaje::listarConvArchivadas(){}
+Lista* ContMensaje::listarConvArchivadas(){}
 void ContMensaje::cuerpoMensaje(DtSimple) {}
 void ContMensaje::cuerpoMensaje(DtImagen){}
 void ContMensaje::cuerpoMensaje(DtContacto){}

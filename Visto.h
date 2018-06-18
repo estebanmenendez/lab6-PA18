@@ -16,16 +16,17 @@
 
 #include"Usuario.h"
 
+using namespace std;
+
 class Visto {
 public:
     Visto();
     Visto(const Visto& orig);
     virtual ~Visto();
-    
-        bool getEstado();
+    bool getEstado();
     DtFecha GetFechaV();
     DtHora GetHoraV();
-  //  Lista* GetUsuario();
+    Usuario* GetUsuario();
     
     void SetFechaV(DtFecha);
     void SetUsuario(Lista*);
@@ -34,7 +35,7 @@ public:
     bool esReceptor(Usuario *recep);
 private:
     
-        Usuario * Receptor;
+        Usuario * receptor;
         bool estado; 
         DtFecha fechaV;
         DtHora horaV;

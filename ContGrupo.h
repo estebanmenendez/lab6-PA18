@@ -15,39 +15,46 @@
 #define CONTGRUPO_H
 
 #include"iContGrupo.h"
-#include"Lista.h"
-#include"IDictionary.h"
+#include"Grupo.h"
+//#include"Lista.h"
+//#include"IDictionary.h"
+using namespace std;
+
 
 class ContGrupo: public iContGrupo {
-    
+    private:    
+    //Usuario * usu;
+   
 public:
     
     ContGrupo();
     ContGrupo(const ContGrupo& orig);
     virtual ~ContGrupo();
-    
-private:    
-
-    void create(DtGrupo, Usuario);
-    void crearTipoGrupo(DtTipo, Grupo);
-    void createTipo(DtTipo, Grupo);
-    void crearConvGrupo(Grupo);
-    void getUsuario(Usuario);
+   
+    void crearTipoGrupo(DtTipo, string);
+    void createTipo(DtTipo,string);
+    void crearConvGrupo(string);
+    void getUsuario(int);
     void getContactos();
     void getDtContacto();
-    DtGrupo listarGrupos();
+    Lista* listarGrupos();
     DtContacto seleccionarGrupo(string);
     DtContacto seleccionarPart(int);
     bool agregarNuevoAdmin(int);
-    DtContacto listarContactos();
+    Lista* listarContactos();
     DtContacto seleccionarContacto(int);
     void agregarParticipante(DtContacto);
-    DtContacto listarParticipantes();
+    Lista* listarParticipantes();
     DtContacto seleccionarParticipante(int);
     void eliminarPartipante(DtContacto);
     void cancelar();
+    //void setUsu(Usuario* usu);
+    // Usuario* getUsu() const;
     DtGrupo altaGrupo(string, string);
     void Salir();
+    
+
+    
 
 
 };

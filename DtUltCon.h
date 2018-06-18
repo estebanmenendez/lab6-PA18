@@ -13,14 +13,18 @@
 
 #ifndef DTULTCON_H
 #define DTULTCON_H
+#include"DtFecha.h"
+#include"DtHora.h"
 
 class DtUltCon {
 public:
     DtUltCon();
+    DtUltCon(DtFecha,DtHora);
     DtUltCon(const DtUltCon& orig);
     virtual ~DtUltCon();
 private:
-
+    DtFecha fecha;
+    DtHora hora;
 };
 
 #endif /* DTULTCON_H */

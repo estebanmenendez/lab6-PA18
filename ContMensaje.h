@@ -21,11 +21,9 @@
 #include"DtHora.h"
 #include"DtSimple.h"
 #include"DtContacto.h"
-#include"Usuario.h"
-#include"Grupo.h"
-#include"Mensaje.h"
 #include"DtConversacion.h"
-#include"Conversacion.h"
+//#include "Mensaje.h"
+
 
 using namespace std;
 
@@ -33,43 +31,43 @@ class ContMensaje : public iContMensaje{
 
     
 private: 
-        Mensaje * mensaje;
-        Conversacion* conv;
-        Usuario* usu;
+        DtMensaje mensaje;
+        //Conversacion* conv;
+        //Usuario* usu;
         
 
 public:
     
 ContMensaje();
-~ContMensaje();
+ContMensaje(const ContMensaje& orig);
+virtual ~ContMensaje();
 
-void enviarMensaje(Mensaje);
-void crearConv(Usuario,Conversacion);
-void create(Grupo);
-void agregarConv(Conversacion);
-void crear(DtSimple);
-void crearMensaje(DtMensaje);
-void seleccionarCont(string);
-void selecConversacion(string);
-void getContactos();
-void getConversacion();
-DtConversacion listarConv();
-void seleccionarConv(string);
-void archivarConv(DtConversacion);
-DtMensaje seleccionarConversacion(string);
-void seleccionarMensaje(int);
-void eliminarMensaje(DtMensaje);
-DtConversacion listarConvArchivadas();
-void cuerpoMensaje(DtSimple);
-void cuerpoMensaje(DtImagen);
-void cuerpoMensaje(DtContacto);
-void crearMensaje();
-void setUsu(Usuario* usu);
-Usuario* getUsu() const;
-void setConversacion(Conversacion* conversaciones);
-Conversacion* getConversacion() const;
-void setMensaje(Mensaje* mensaje);
-Mensaje* getMensaje() const;
+void enviarMensaje(string);
+void crearConv(int,int) ;
+// void agregarConv(Conversacion) ;
+void crear(DtSimple) ;
+void crearMensaje(DtMensaje) ;
+void seleccionarCont(string) ;
+void selecConversacion(string) ;
+void getContactos() ;
+//void setConversacion(Conversacion*);
+//Conversacion* getConversacion() ;
+Lista* listarConv() ;
+void seleccionarConv(string) ;
+void archivarConv(DtConversacion) ;
+Lista* seleccionarConversacion(string) ;
+void seleccionarMensaje(int) ;
+void eliminarMensaje(DtMensaje) ;
+Lista* listarConvArchivadas() ;
+void cuerpoMensaje(DtSimple)  ;
+void cuerpoMensaje(DtImagen) ;
+void cuerpoMensaje(DtContacto) ;
+void crearMensaje() ;
+//void setUsu(Usuario* usu);
+//Usuario* getUsu();
+void setMensaje(DtMensaje mensaje);
+DtMensaje getMensaje();
+
 
 };
 

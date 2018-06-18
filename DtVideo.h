@@ -14,7 +14,7 @@
 #ifndef DTVIDEO_H
 #define DTVIDEO_H
 
-
+#include<iostream>
 #include "DtMultimedia.h"
 
 class DtVideo : public DtMultimedia{

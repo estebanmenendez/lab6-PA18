@@ -28,6 +28,11 @@ DtContacto::DtContacto(string nombre, string numCel, string tipo, DtFecha fechaI
     string tipo;
     DtFecha fechaIng;
     DtHora horaIng;*/
+
+DtContacto::DtContacto(string nombre,int numCel) {
+    this->nombre=nombre;
+    this->numCel=numCel;
+}
 DtContacto::DtContacto(const DtContacto& orig) {
 }
 

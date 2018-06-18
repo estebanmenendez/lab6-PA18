@@ -19,7 +19,7 @@
 #include"string.h"
 #include"DtFecha.h"
 #include"DtHora.h"
-
+#include"Grupo.h"
 using namespace std;
 
 class Tipo {
@@ -32,13 +32,14 @@ public:
     DtFecha GetFechaIng();
     DtHora GetHoraIng();
     string GetTipo();
-    
+    bool soyDelGrupo(Grupo * g);
     void SetFechaIng(DtFecha);    
     void SetHoraIng(DtHora); 
     void SetTipo(string);    
-    
+    DtFechaHoraIng * getFechaHoraIng();
 private:
-    
+    Usuario * usu;
+    Grupo * G;
         string tipo;
         DtFecha fechaIng;
         DtHora horaIng;

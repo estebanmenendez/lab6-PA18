@@ -14,10 +14,11 @@
 #ifndef GRUPO_H
 #define GRUPO_H
 
-#include"Tipo.h"
+//#include"Tipo.h"
 #include<iostream>
 #include"DtFecha.h"
 #include"DtHora.h"
+#include "Lista.h"
 
 
 using namespace std;
@@ -39,7 +40,7 @@ public:
     void SetHora(DtHora);    
     void SetImagen(string);    
     void SetNombre(string);
-
+    Lista * getUsuarios();
 private:    
        
     //Conversacion * conv;
@@ -48,7 +49,7 @@ private:
     DtFecha fecha;
     DtHora hora;    
     int creador; 
-    
+    Lista * tipo=new Lista();
 };
 
 #endif /* GRUPO_H */

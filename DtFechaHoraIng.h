@@ -15,19 +15,22 @@
 #define DTFECHAHORAING_H
 
 #include<iostream>
-
+#include "DtHora.h"
+#include "DtFecha.h"
 using namespace std;
 
 class DtFechaHoraIng {
     
 public:
     DtFechaHoraIng();
+    DtFechaHoraIng(const DtFechaHoraIng& orig);
 
     virtual ~DtFechaHoraIng();
     void SetHora(DtHora hora);
     DtHora GetHora() const;
     void SetFecha(DtFecha fecha);
     DtFecha GetFecha() const;
+    
         
 private:
     

@@ -14,31 +14,37 @@
 #ifndef MENSAJE_H
 #define MENSAJE_H
 
+#include"ICollectible.h"
 #include"DtFecha.h"
 #include"DtHora.h"
+#include"DtMensaje.h"
 #include"Lista.h"
-#include "Usuario.h"
+//#include"Usuario.h"
+#include"Visto.h"
+
+using namespace std;
 
 class Mensaje : public ICollectible{
 public:
     Mensaje();
     Mensaje(const Mensaje& orig);
-    virtual ~Mensaje();
-    
+    virtual ~Mensaje();    
     int GetCodigo();
     DtFecha GetFechaEnv();
     DtHora GetHoraEnv();
-    Visto* GetVisto();
-    Visto * esReceptor(Usuario *);
+    Lista* GetVisto();
+    Visto* esReceptor(Usuario*);
     void SetCodigo(int);
     void SetFechaEnv(DtFecha);    
     void SetHoraEnv(DtHora);
-    void SetVisto(Lista*);
-    
+    void SetVisto(Lista *);
+    void setReceptor(Usuario *);
+    Lista *getVistos();
+    DtMensaje *getMensaje();
 private:
         
-        Lista visto=new Lista;
-        Usuario * Emisor;
+        Lista* visto=new Lista();
+        Usuario * emisor;
         int codigo;
         DtFecha fechaEnv;
         DtHora horaEnv;

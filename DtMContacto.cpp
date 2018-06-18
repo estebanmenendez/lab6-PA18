@@ -23,6 +23,10 @@ DtMContacto::DtMContacto() {
 }
 DtMContacto::~DtMContacto(){}
 
-void DtMContacto::getNumCel()const {return this->numCel;}
+int DtMContacto::getNumCel() {
+    return this->numCel;
+}
 
-void DtMContacto::setNumCel(int num){this->numCel=num;}
+void DtMContacto::setNumCel(int num){
+    this->numCel=num;
+}

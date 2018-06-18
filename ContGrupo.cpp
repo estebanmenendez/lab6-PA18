@@ -22,23 +22,32 @@ ContGrupo::ContGrupo(const ContGrupo& orig) {
 ContGrupo::~ContGrupo() {
 }
 
-void ContGrupo::create(DtGrupo,Usuario){}
-void ContGrupo::crearTipoGrupo(DtTipo,Grupo){}
-void ContGrupo::createTipo(DtTipo,Grupo){}
-void ContGrupo::crearConvGrupo(Grupo){}
-void ContGrupo::getUsuario(Usuario){}
+
+void ContGrupo::crearTipoGrupo(DtTipo,string){}
+void ContGrupo::createTipo(DtTipo,string){}
+void ContGrupo::crearConvGrupo(string){}
+void ContGrupo::getUsuario(int){}
 void ContGrupo::getContactos(){}
 void ContGrupo::getDtContacto(){}
-DtGrupo ContGrupo::listarGrupos(){}
+Lista* ContGrupo::listarGrupos(){}
 DtContacto ContGrupo::seleccionarGrupo(string){}
 DtContacto ContGrupo::seleccionarParticipante(int){}
 bool ContGrupo::agregarNuevoAdmin(int){}
-DtContacto ContGrupo::listarContactos(){}
+Lista* ContGrupo::listarContactos(){}
 DtContacto ContGrupo::seleccionarContacto(int){}
 void ContGrupo::agregarParticipante(DtContacto){}
-DtContacto ContGrupo::listarParticipantes(){}
+Lista* ContGrupo::listarParticipantes(){}
 DtContacto ContGrupo::seleccionarPart(int){}
 void ContGrupo::eliminarPartipante(DtContacto){}
 void ContGrupo::cancelar(){}
 DtGrupo ContGrupo::altaGrupo(string,string){}
 void ContGrupo::Salir(){}
+
+/*void ContGrupo::setUsu(Usuario* usu) {
+    this->usu = usu;
+}
+
+Usuario* ContGrupo::getUsu() const {
+    return usu;
+}
+*/

@@ -28,13 +28,12 @@ using namespace std;
 
 class iContUsuario {
 
-private:
-    
 public:
-virtual ~iContUsuario() = 0;
-virtual void create(string,string,string,int,DtFecha,DtHora) = 0;
+
+virtual ~iContUsuario();
+//virtual void create(string,string,string,int,DtFecha,DtHora) = 0;
 virtual void setUltimaCon(DtUltCon) = 0;
-virtual void setUsuLog(Usuario) = 0;
+virtual void setUsuLog(Usuario*) = 0;
 virtual bool usuarioLogueado(int) = 0;
 virtual bool ingresarCelular(int) = 0;
 virtual bool altaUsuario(string,string,string) = 0;
@@ -46,6 +45,12 @@ virtual void agregaContacto(DtContacto) = 0;
 virtual void cerrarSesion(DtConexion) = 0; 
 virtual void modificarPerfil(string, string, string) = 0;
 virtual void actualizarDatos() = 0;
+virtual void setNumCel(int numCel)= 0;
+virtual int getNumCel()= 0;
+virtual void setUsu(Usuario* usu) = 0;
+virtual Usuario* getUsu()=0;
+
+private:
 
 };
 
