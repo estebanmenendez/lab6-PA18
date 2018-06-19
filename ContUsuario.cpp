@@ -14,11 +14,11 @@
 #include "ContUsuario.h"
 #include "intKey.h"
 #include "Fecha_Hora_sis.h"
-#include "ContMensaje.h"
-#include "ContGrupo.h"
+
 
 using namespace std;
 
+iContUsuario * ContUsuario::instance = NULL;
 
 ContUsuario::ContUsuario(){}
 ContUsuario::ContUsuario(const ContUsuario& orig){}
@@ -28,19 +28,19 @@ ContUsuario::~ContUsuario() {}
 //
 //}
 
-void ContUsuario::setUltimaCon(DtUltCon) {
-    Fecha_Hora_sis * fechora;
-    DtUltCon *ultima = new DtUltCon(fechora->getFecha(),fechora->getHora());
-    this->usu->SetUltima_conexion(ultima);
-}
+//void ContUsuario::setUltimaCon(DtUltCon) {
+//    Fecha_Hora_sis * fechora;
+//    DtUltCon *ultima = new DtUltCon(fechora->getFecha(),fechora->getHora());
+//    this->usu->SetUltima_conexion(ultima);
+//}
 
-void ContUsuario::setUsuLog(Usuario* usu){
-ContMensaje* contMen;
-contMen->setUsu(usu);
-ContGrupo* contGrup;
-contGrup->setUsu(usu);
-
-}
+//void ContUsuario::setUsuLog(Usuario* usu){
+//ContMensaje* contMen;
+//contMen->setUsu(usu);
+//ContGrupo* contGrup;
+//contGrup->setUsu(usu);
+//
+//}
 
 
 bool ContUsuario::usuarioLogueado(int numCel){
@@ -56,7 +56,7 @@ bool ContUsuario::ingresarCelular(int numCel){
 }
 bool ContUsuario::altaUsuario(string nombre,string UrlImagen,string descripcion){
     Fecha_Hora_sis* fechora;
-    Usuario * nuevoUsu=new Usuario(nombre,UrlImagen,descripcion,usu->GetCelular(),fechora->getFecha(),fechora->getHora());
+    Usuario * nuevoUsu=new Usuario(nombre,UrlImagen,descripcion,usu->GetCelular());
     intKey *key = new intKey(getNumCel());
     usuario->add(nuevoUsu,key);
     return true;
@@ -74,7 +74,7 @@ bool ContUsuario::cancelaIngreso(){
 DtConexion ContUsuario::asignarSesion(){
        intKey *ikey=new intKey(numCel);
        Usuario * usU=dynamic_cast<Usuario*>(usuario->find(ikey));
-       setUsu(usU);
+//       setUsu(usU);
 //       setUltimaCon();
        setUsuLog(usu);
 }
@@ -102,10 +102,19 @@ int ContUsuario::getNumCel() {
     return numCel;
 }
 
-void ContUsuario::setUsu(Usuario* usu) {
-    this->usu = usu;
+iContUsuario * ContUsuario::getInstance(){
+    if(instance== NULL)
+        instance = new ContUsuario();
+    return instance;
+        
 }
 
-Usuario* ContUsuario::getUsu()  {
-    return usu;
-}
+
+//
+//void ContUsuario::setUsu(Usuario* usu) {
+//    this->usu = usu;
+//}
+//
+//Usuario* ContUsuario::getUsu()  {
+//    return usu;
+//}

@@ -19,6 +19,7 @@ using namespace std;
 class DtFecha {
 public:
     DtFecha();
+    DtFecha(int , int , int );
     DtFecha(const DtFecha& orig);
     virtual ~DtFecha();
     

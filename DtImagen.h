@@ -24,6 +24,7 @@ class DtImagen :public DtMultimedia {
 public:
     
     DtImagen();
+    DtImagen(int , string , string , string );
     DtImagen(const DtImagen& orig);
     virtual ~DtImagen();
         

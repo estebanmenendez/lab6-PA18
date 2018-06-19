@@ -24,6 +24,8 @@ class DtMContacto : public DtMensaje{
     public:
         
         DtMContacto();
+        DtMContacto(int);
+        DtMContacto(const DtMContacto& orig);
         virtual ~ DtMContacto();
         void setNumCel(int);
         int  getNumCel();

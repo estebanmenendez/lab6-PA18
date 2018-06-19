@@ -15,12 +15,15 @@
 #define DTCONEXION_H
 
 #include<iostream>
+#include<string.h>
+
 
 using namespace std;
 
 class DtConexion {
 public:
     DtConexion();
+    DtConexion(string);
     DtConexion(const DtConexion& orig);
     virtual ~DtConexion();
     

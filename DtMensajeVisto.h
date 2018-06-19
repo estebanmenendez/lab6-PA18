@@ -23,6 +23,7 @@ using namespace std;
 class DtMensajeVisto {
 public:
     DtMensajeVisto();
+    DtMensajeVisto(string, int, DtFechaHoraVisto );
     DtMensajeVisto(const DtMensajeVisto& orig);
     virtual ~DtMensajeVisto();
     

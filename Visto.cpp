@@ -31,30 +31,23 @@ void Visto::SetEstado(bool estado) {
     this->estado = estado;
 }
 
-DtFecha Visto::GetFechaV() {
+DtFecha * Visto::GetFechaV() {
     return fechaV;
 }
 
-void Visto::SetFechaV(DtFecha fechaV) {
+void Visto::SetFechaV(DtFecha * fechaV) {
     this->fechaV = fechaV;
 }
 
-DtHora Visto::GetHoraV() {
+DtHora * Visto::GetHoraV() {
     return horaV;
 }
 
-void Visto::SetHoraV(DtHora horaV) {
+void Visto::SetHoraV(DtHora * horaV) {
     this->horaV = horaV;
 }
 
-Usuario* Visto::GetUsuario() {
-    return receptor;
-}
 
-void Visto::SetUsuario(Usuario* usuario) {
-    this->receptor = usuario;
-}
-
-bool Visto::esReceptor(Usuario* recep){
-    if (recep==this->receptor) return true;
-}
+bool Visto::esReceptor(int recep){
+    //if (recep==this->receptor) return true;
+}   

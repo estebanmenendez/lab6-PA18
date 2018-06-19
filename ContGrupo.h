@@ -15,7 +15,6 @@
 #define CONTGRUPO_H
 
 #include"iContGrupo.h"
-#include"Grupo.h"
 //#include"Lista.h"
 //#include"IDictionary.h"
 using namespace std;
@@ -23,12 +22,15 @@ using namespace std;
 
 class ContGrupo: public iContGrupo {
     private:    
+        static iContGrupo * instance;
+        ContGrupo();
+        
     //Usuario * usu;
    
 public:
     
-    ContGrupo();
-    ContGrupo(const ContGrupo& orig);
+    
+//    ContGrupo(const ContGrupo& orig);
     virtual ~ContGrupo();
    
     void crearTipoGrupo(DtTipo, string);
@@ -52,12 +54,7 @@ public:
     // Usuario* getUsu() const;
     DtGrupo altaGrupo(string, string);
     void Salir();
-    
-
-    
-
-
+    static iContGrupo * getInstance();
 };
-
 #endif /* CONTGRUPO_H */
 

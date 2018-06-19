@@ -23,6 +23,7 @@ class DtFechaHoraIng {
     
 public:
     DtFechaHoraIng();
+    DtFechaHoraIng(DtFecha , DtHora );
     DtFechaHoraIng(const DtFechaHoraIng& orig);
 
     virtual ~DtFechaHoraIng();

@@ -14,6 +14,7 @@
 #include"ContMensaje.h"
 
 using namespace std;
+iContMensaje * ContMensaje::instance = NULL;
 
 ContMensaje::ContMensaje(){}
 /*
@@ -61,4 +62,12 @@ void ContMensaje::cuerpoMensaje(DtSimple) {}
 void ContMensaje::cuerpoMensaje(DtImagen){}
 void ContMensaje::cuerpoMensaje(DtContacto){}
 void ContMensaje::crearMensaje(){}
+
+iContMensaje * ContMensaje::getInstance(){
+    if(instance== NULL)
+        instance = new ContMensaje();
+    return instance;
+        
+}
+
 

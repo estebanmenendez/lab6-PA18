@@ -12,14 +12,16 @@
  */
 
 #include <cstdlib>
-
+#include"Fabrica.h"
 using namespace std;
 
 /*
  * 
  */
 int main(int argc, char** argv) {
-
+    iContUsuario pepe;
+    pepe = Fabrica::getInstance()->getContUsuario();
+    Fabrica::getInstance()->getContUsuario()->listarContactos();
     return 0;
 }
 

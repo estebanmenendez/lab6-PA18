@@ -23,6 +23,7 @@ using namespace std;
 class DtConversacion : public ICollectible{
 public:
     DtConversacion();
+    DtConversacion(int, int, string );
     DtConversacion(const DtConversacion& orig);
     virtual ~DtConversacion();
     DtConversacion(string nombre,int idconv);

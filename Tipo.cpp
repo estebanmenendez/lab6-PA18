@@ -21,10 +21,10 @@ Tipo::Tipo(const Tipo& orig) {
 
 Tipo::~Tipo() {
 }
-bool Tipo::soyDelGrupo(Grupo* g){
-    if (g==this->G){return true;}
-    return false;
-}
+//bool Tipo::soyDelGrupo(Grupo* g){
+//    if (g==this->G){return true;}
+//    return false;
+//}
 
  DtFecha Tipo::GetFechaIng() {
         return fechaIng;

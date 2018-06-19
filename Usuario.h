@@ -22,11 +22,11 @@
 #include "Lista.h"
 #include "DtTipo.h"
 #include "Mensaje.h"
-#include "Estado.h"
 #include "EstadoConv.h"
 #include "DtContacto.h"
 #include "ListaDicc.h"
 #include "Tipo.h"
+//#include "Estado.h"
 //#include "Conversacion.h"
 #include<iostream>
 
@@ -36,7 +36,7 @@ class Usuario : public ICollectible {
 public:
     //constructores:
     Usuario();
-    Usuario(string nombre,string imagenPerfil,string descripcion,int numCel,DtFecha,DtHora);
+    Usuario(string nombre,string imagenPerfil,string descripcion,int numCel);
     Usuario(const Usuario& orig);
     virtual ~Usuario();
     //Setter atributos
@@ -45,9 +45,9 @@ public:
     void SetDescripcion(string);
     void SetNombre(string);
     void SetFoto_Perfil(string);
-    void SetEstadoConv(EstadoConv * estado);
-    void SetFechaCreacion(DtFecha);
-    void SetHoraCreacion(DtHora);
+    void SetEstadoConv(EstadoConv *);
+    void SetFechaCreacion(DtFecha *);
+    void SetHoraCreacion(DtHora *);
     void SetTipo(Tipo *);
     void SetUltima_conexion(DtUltCon*);
     //Getters atributos
@@ -55,19 +55,19 @@ public:
     string GetDescripcion();
     string GetFoto_Perfil();
     string GetNombre();
-    DtFecha GetFechaCreacion();
-    DtFecha GetFecha_Registro();
-    DtHora GetHoraCreacion();
-    DtUltCon GetUltima_conexion();
+    DtFecha* GetFechaCreacion();
+    DtFecha* GetFecha_Registro();
+    DtHora* GetHoraCreacion();
+    DtUltCon* GetUltima_conexion();
     DtContacto* GetContacto();
     //Operaciones
     Lista * getConversaciones();
     Lista * getConversacionesAr();
     Lista * GetContactos();
-    Conversacion selecionarConversacion(int);
-    void crearTipoGrupo(DtTipo,Grupo *);
+//    Conversacion selecionarConversacion(int);
+    //void crearTipoGrupo(DtTipo *,Grupo *);
     void crearConvGrupo(Conversacion *);
-    DtFechaHoraIng * getFechaIng(Grupo);
+//    DtFechaHoraIng * getFechaIng(Grupo);
     Usuario * seleccionarCont(int);
     void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
     void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
@@ -81,10 +81,10 @@ public:
     string nombre;
     string foto_Perfil;
     string descripcion; 
-    DtUltCon ultima_conexion;
-    DtFecha fechaCreacion;
-    DtHora horaCreacion; 
-    Estado* estado;
+    DtUltCon * ultima_conexion;
+    DtFecha * fechaCreacion;
+    DtHora * horaCreacion; 
+    //Estado* estado;
 
 };
 

@@ -29,18 +29,12 @@ Fabrica* Fabrica::getInstance(){
 }
 
 iContUsuario* Fabrica::getContUsuario(){
-    if (this->cUsu == NULL)
-            this->cUsu = new ContUsuario();
-    return this->cUsu;
+    return ContUsuario::getInstance();
 }
 iContMensaje* Fabrica::getContMensaje(){
-    if (this-> cMens ==NULL)
-            this->cMens = new ContMensaje();
-    return this-> cMens;
+    return ContMensaje::getInstance();
 }
 
 iContGrupo* Fabrica::getContGrupo(){
-    if (this-> cGru ==NULL)
-            this-> cGru = new ContGrupo();
-    return this-> cGru;
+    return ContGrupo::getInstance();
 }

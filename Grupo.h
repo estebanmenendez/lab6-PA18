@@ -14,7 +14,7 @@
 #ifndef GRUPO_H
 #define GRUPO_H
 
-//#include"Tipo.h"
+#include"Conversacion.h"
 #include<iostream>
 #include"DtFecha.h"
 #include"DtHora.h"
@@ -41,15 +41,16 @@ public:
     void SetImagen(string);    
     void SetNombre(string);
     Lista * getUsuarios();
+    
 private:    
        
-    //Conversacion * conv;
+    Conversacion * conv;
     string nombre;
     string imagen;
     DtFecha fecha;
     DtHora hora;    
     int creador; 
-    Lista * tipo=new Lista();
+
 };
 
 #endif /* GRUPO_H */

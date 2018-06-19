@@ -23,6 +23,7 @@ class DtVideo : public DtMultimedia{
         float duracion;
     public:
         DtVideo();
+        DtVideo(string , float );
         virtual ~DtVideo();
         void SetDuracion(float duracion);
         float GetDuracion() const;

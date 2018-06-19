@@ -21,6 +21,7 @@ class DtFechaHoraVisto {
 
 public:
     DtFechaHoraVisto();
+    DtFechaHoraVisto(DtFecha , DtHora );
     DtFechaHoraVisto(const DtFechaHoraVisto& orig);
     virtual ~DtFechaHoraVisto();
     

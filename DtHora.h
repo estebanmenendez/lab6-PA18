@@ -18,6 +18,7 @@ class DtHora {
 public:
     
     DtHora();
+    DtHora(int , int , int );
     DtHora(const DtHora& orig);
     virtual ~DtHora();
     

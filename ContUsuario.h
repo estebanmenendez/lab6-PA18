@@ -24,6 +24,8 @@
 //#include"Usuario.h"
 #include"Lista.h"
 #include "ListaDicc.h"
+#include "ContMensaje.h"
+#include "ContGrupo.h"
 
 
 using namespace std;
@@ -35,10 +37,11 @@ private:
     ListDicc * usuario;
     Usuario * usu;
     int numCel;
-        
+    ContUsuario();
+    static iContUsuario * instance;
+    
 public:
 
-    ContUsuario();
     ContUsuario(const ContUsuario& orig);
     virtual ~ContUsuario();
 
@@ -58,8 +61,9 @@ public:
     void actualizarDatos();
     void setNumCel(int numCel);
     int getNumCel();
-    void setUsu(Usuario* usu);
-    Usuario* getUsu();
+    static iContUsuario * getInstance();
+    //void setUsu(Usuario* usu);
+    //Usuario* getUsu();
 };
 
 #endif /* CONTUSUARIO_H */

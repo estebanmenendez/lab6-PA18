@@ -32,13 +32,16 @@ class ContMensaje : public iContMensaje{
     
 private: 
         DtMensaje mensaje;
+        ContMensaje();
+        static iContMensaje * instance;
+        
         //Conversacion* conv;
         //Usuario* usu;
         
 
 public:
     
-ContMensaje();
+
 ContMensaje(const ContMensaje& orig);
 virtual ~ContMensaje();
 
@@ -67,6 +70,7 @@ void crearMensaje() ;
 //Usuario* getUsu();
 void setMensaje(DtMensaje mensaje);
 DtMensaje getMensaje();
+static iContMensaje * getInstance();
 
 
 };

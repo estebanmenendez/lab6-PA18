@@ -14,7 +14,8 @@
 #ifndef VISTO_H
 #define VISTO_H
 
-#include"Usuario.h"
+#include"DtFecha.h"
+#include"DtHora.h"
 
 using namespace std;
 
@@ -24,21 +25,22 @@ public:
     Visto(const Visto& orig);
     virtual ~Visto();
     bool getEstado();
-    DtFecha GetFechaV();
-    DtHora GetHoraV();
-    Usuario* GetUsuario();
+    DtFecha * GetFechaV();
+    DtHora * GetHoraV();
+    //Usuario* GetUsuario();
     
-    void SetFechaV(DtFecha);
-    void SetUsuario(Lista*);
-    void SetHoraV(DtHora);
+    void SetFechaV(DtFecha *);
+    //void SetUsuario(Lista *);
+    void SetHoraV(DtHora *);
     void SetEstado(bool);
-    bool esReceptor(Usuario *recep);
+    bool esReceptor(int);
+    
 private:
     
-        Usuario * receptor;
+        int S;
         bool estado; 
-        DtFecha fechaV;
-        DtHora horaV;
+        DtFecha * fechaV;
+        DtHora * horaV;
 
 };
 

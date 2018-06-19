@@ -25,6 +25,7 @@ using namespace std;
 class DtContacto  :public ICollectible{
 public:
     DtContacto();
+    DtContacto(string , string , string , DtFecha , DtHora );
     DtContacto(string,int);
     DtContacto(const DtContacto& orig);
     virtual ~DtContacto();

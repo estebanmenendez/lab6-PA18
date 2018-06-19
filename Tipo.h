@@ -15,14 +15,13 @@
 #define TIPO_H
 
 #include<iostream>
-#include"Usuario.h"
 #include"string.h"
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"Grupo.h"
 using namespace std;
 
-class Tipo {
+class Tipo : public ICollectible {
     
 public:
     Tipo();
@@ -32,14 +31,14 @@ public:
     DtFecha GetFechaIng();
     DtHora GetHoraIng();
     string GetTipo();
-    bool soyDelGrupo(Grupo * g);
+    //bool soyDelGrupo(Grupo * g);
     void SetFechaIng(DtFecha);    
     void SetHoraIng(DtHora); 
     void SetTipo(string);    
     DtFechaHoraIng * getFechaHoraIng();
 private:
-    Usuario * usu;
-    Grupo * G;
+        
+        Grupo * grupo;
         string tipo;
         DtFecha fechaIng;
         DtHora horaIng;

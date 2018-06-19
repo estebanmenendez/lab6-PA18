@@ -24,6 +24,7 @@ using namespace std;
 class DtGrupo {
 public:
     DtGrupo();
+    DtGrupo(string, DtContacto, DtContacto , DtFecha , DtHora );
     DtGrupo(const DtGrupo& orig);
     virtual ~DtGrupo();
     

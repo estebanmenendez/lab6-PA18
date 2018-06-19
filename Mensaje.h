@@ -33,18 +33,18 @@ public:
     DtFecha GetFechaEnv();
     DtHora GetHoraEnv();
     Lista* GetVisto();
-    Visto* esReceptor(Usuario*);
+    //Visto* esReceptor(Usuario*);
     void SetCodigo(int);
     void SetFechaEnv(DtFecha);    
     void SetHoraEnv(DtHora);
     void SetVisto(Lista *);
-    void setReceptor(Usuario *);
+    //void setReceptor(Usuario *);
     Lista *getVistos();
     DtMensaje *getMensaje();
 private:
         
         Lista* visto=new Lista();
-        Usuario * emisor;
+        int emisor;
         int codigo;
         DtFecha fechaEnv;
         DtHora horaEnv;

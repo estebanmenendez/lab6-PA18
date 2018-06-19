@@ -54,9 +54,4 @@ void Mensaje::SetVisto(Lista* visto) {
     this->visto = visto;
 }
 
-Visto* Mensaje::esReceptor(Usuario*){
-    
-}
- void Mensaje::setReceptor(Usuario *){
-     
- }
+

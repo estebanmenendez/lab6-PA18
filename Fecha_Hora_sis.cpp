@@ -13,15 +13,15 @@
 
 #include "Fecha_Hora_sis.h"
 
- DtFecha Fecha_Hora_sis::getFecha(){}
- DtHora Fecha_Hora_sis::getHora(){}
- DtUltCon Fecha_Hora_sis::getUltimaConexion(){}
+ DtFecha * Fecha_Hora_sis::getFecha(){}
+ DtHora * Fecha_Hora_sis::getHora(){}
+ DtUltCon * Fecha_Hora_sis::getUltimaConexion(){}
 
-int Fecha_Hora_sis::Fecha_Hora_Sis() {
+Fecha_Hora_sis::Fecha_Hora_sis() {
 
 }
 
-int Fecha_Hora_sis::Fecha_Hora_Sis(int, int, int, int, int, int) {
+Fecha_Hora_sis::Fecha_Hora_sis(int, int, int, int, int, int) {
 
 }
 int Fecha_Hora_sis::setFecha(int, int, int){}

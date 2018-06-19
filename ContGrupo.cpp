@@ -12,12 +12,15 @@
  */
 
 #include "ContGrupo.h"
+iContGrupo * ContGrupo::instance = NULL;
+
 
 ContGrupo::ContGrupo() {
+    
 }
 
-ContGrupo::ContGrupo(const ContGrupo& orig) {
-}
+//ContGrupo::ContGrupo(const ContGrupo& orig) {
+//}
 
 ContGrupo::~ContGrupo() {
 }
@@ -42,6 +45,14 @@ void ContGrupo::eliminarPartipante(DtContacto){}
 void ContGrupo::cancelar(){}
 DtGrupo ContGrupo::altaGrupo(string,string){}
 void ContGrupo::Salir(){}
+
+iContGrupo * ContGrupo::getInstance(){
+    if(instance== NULL)
+        instance = new ContGrupo();
+    return instance;
+        
+}
+
 
 /*void ContGrupo::setUsu(Usuario* usu) {
     this->usu = usu;

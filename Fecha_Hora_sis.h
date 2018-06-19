@@ -13,6 +13,7 @@
 
 #ifndef FECHA_HORA_SIS_H
 #define FECHA_HORA_SIS_H
+
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"DtUltCon.h"
@@ -25,14 +26,14 @@ private:
     
 public:
     
-    DtFecha getFecha();
-    DtHora getHora();
+    DtFecha * getFecha();
+    DtHora * getHora();
     int setFecha(int,int,int);
     int setHora(int,int,int);
-   int  Fecha_Hora_Sis();
-     int Fecha_Hora_Sis(int,int,int,int,int,int);
+    Fecha_Hora_sis();
+    Fecha_Hora_sis(int,int,int,int,int,int);
     virtual ~Fecha_Hora_sis();
-    DtUltCon getUltimaConexion();
+    DtUltCon * getUltimaConexion();
 
    
   

@@ -16,7 +16,7 @@
 #include "ContUsuario.h"
 #include "ContMensaje.h"
 
-Usuario::Usuario(string nombre,string imagenPerfil,string descripcion,int numCel,DtFecha,DtHora) {
+Usuario::Usuario(string nombre,string imagenPerfil,string descripcion,int numCel) {
     Fecha_Hora_sis* fechora;
     this->nombre=nombre;
     this->foto_Perfil=imagenPerfil;
@@ -46,7 +46,8 @@ Usuario::~Usuario() {
     }
 
     void Usuario::SetContacto(Usuario * contacto) {
-        this->contactos-> (contacto);
+        intKey * key = new intKey(contacto->GetCelular());
+        this->contactos->add(contacto,key);
     }
 
     string Usuario::GetDescripcion() {
@@ -61,11 +62,11 @@ Usuario::~Usuario() {
         this->estadoConv->add(estado);
     }
 
-    DtFecha Usuario::GetFechaCreacion() {
+    DtFecha* Usuario::GetFechaCreacion() {
         return fechaCreacion;
     }
 
-    void Usuario::SetFechaCreacion(DtFecha fechaCreacion) {
+    void Usuario::SetFechaCreacion(DtFecha *fechaCreacion) {
         this->fechaCreacion = fechaCreacion;
     }
     
@@ -77,11 +78,11 @@ Usuario::~Usuario() {
         this->foto_Perfil = foto_Perfil;
     }
 
-    DtHora Usuario::GetHoraCreacion() {
+    DtHora* Usuario::GetHoraCreacion() {
         return horaCreacion;
     }
 
-    void Usuario::SetHoraCreacion(DtHora horaCreacion) {
+    void Usuario::SetHoraCreacion(DtHora * horaCreacion) {
         this->horaCreacion = horaCreacion;
     }
 
@@ -97,11 +98,11 @@ Usuario::~Usuario() {
         tipo->add(tip);
     }
 
-   DtUltCon Usuario::GetUltima_conexion() {
+   DtUltCon* Usuario::GetUltima_conexion() {
         return ultima_conexion;
     }
 
-    void Usuario::SetUltima_conexion(DtUltCon ultima_conexion) {
+    void Usuario::SetUltima_conexion(DtUltCon * ultima_conexion) {
         this->ultima_conexion = ultima_conexion;
     }
     
@@ -118,12 +119,12 @@ Usuario::~Usuario() {
                 conversacionesAct->add(dtConv);
             }
             DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(),ec->getConversacion()->getCelContacto());//constructor conv comun
-            conversacionesAct.add(DtConv);
+            conversacionesAct->add(DtConv);
             }
             cant++;
         }
         DtConversacion * DtConv=new DtConversacion(cant);//constructor conv archivadas
-        conversacionesAct.add(DtConv);
+        conversacionesAct->add(DtConv);
        return conversacionesAct;        
     }
     Lista * Usuario::getConversacionesAr(){
@@ -137,7 +138,7 @@ Usuario::~Usuario() {
                 conversacionesArc->add(dtConv);
             }
             DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(),ec->getConversacion()->getCelContacto());//constructor conv comun
-            conversacionesArc.add(DtConv);
+            conversacionesArc->add(DtConv);
             }}
            return conversacionesArc; 
     }
@@ -146,31 +147,33 @@ Usuario::~Usuario() {
         IIterator * it= contactos->getIteratorObj();
         while (it->hasNext()){
             Usuario *cont=dynamic_cast<Usuario*>(it->getCurrent());
-            Dtcontactos.add(cont->GetContacto());
+            Dtcontactos->add(cont->GetContacto());
         }
         return Dtcontactos;       
     }
-    Conversacion * Usuario::selecionarConversacion(int idConv){
-        IIterator *it=estadoConv->iterator();
-        while(it->hasNext()){
-            EstadoConv *ec= dynamic_cast<EstadoConv*>(it->getCurrent());
-            if(ec->getConversacion()->getIdConv()==idConv){
-                Conversacion * conv=ec->getConversacion();
-                return conv;
-            }
-        }
-    }
-    void Usuario::crearTipoGrupo(DtTipo * tip,Grupo * g){
+//    Conversacion * Usuario::selecionarConversacion(int idConv){
+//        IIterator *it=estadoConv->iterator();
+//        while(it->hasNext()){
+//            EstadoConv *ec= dynamic_cast<EstadoConv*>(it->getCurrent());
+//            if(ec->getConversacion()->getIdConv()==idConv){
+//                Conversacion * conv=ec->getConversacion();
+//                return conv;
+//            }
+//        }
+//    }
+//    void Usuario::crearTipoGrupo(DtTipo * tip,Grupo * g){
+//    
+//    }
     
-    }
     void Usuario::crearConvGrupo(Conversacion *conv){}
-    DtFechaHoraIng * Usuario::getFechaIng(Grupo *g){
-        IIterator *it=tipo->iterator();
-        while(it->hasNext()){
-            Tipo *tip=dynamic_cast<Tipo*>(it->getCurrent());
-            if(tip->soyDelGrupo(g)==true)return tip->getFechaHoraIng();
-            }
-    }
+    
+//    DtFechaHoraIng * Usuario::getFechaIng(Grupo *g){
+//        IIterator *it=tipo->iterator();
+//        while(it->hasNext()){
+//            Tipo *tip=dynamic_cast<Tipo*>(it->getCurrent());
+//            //if(tip->soyDelGrupo(g)==true)return tip->getFechaHoraIng();
+//            }
+//    }
     Usuario * Usuario::seleccionarCont(int numCel){
         intKey *key=new intKey(numCel);
         
@@ -181,8 +184,9 @@ Usuario::~Usuario() {
     void Usuario::crearConversacion(Usuario * cont, Conversacion *conv){
         EstadoConv *eC=new EstadoConv(cont,conv);
         estadoConv->add(eC);
-        crearEstadoConv(conv,cont,ContMensaje.getUsu());
+        //crearEstadoConv(conv,cont,ContMensaje.getUsu());
        }
+    
     void Usuario::crearEstadoConv(Conversacion *conv,Usuario * cont,Usuario * usuAct){
         EstadoConv *ec=new EstadoConv(usuAct,conv);
         cont->estadoConv->add(ec);

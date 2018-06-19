@@ -21,6 +21,7 @@
 class DtMensaje:public ICollectible {
 public:
     DtMensaje();
+    DtMensaje(int , DtFecha , DtHora );
     DtMensaje(const DtMensaje& orig);
     virtual ~DtMensaje();
     

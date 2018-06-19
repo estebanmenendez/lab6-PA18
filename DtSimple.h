@@ -21,6 +21,7 @@
 class DtSimple : public DtMensaje{
 public:
     DtSimple();
+    DtSimple(string);
     DtSimple(const DtSimple& orig);
     virtual ~DtSimple();
     void SetTexto(string texto);
