@@ -122,4 +122,42 @@ void Conversacion::setIdConv(int idConv) {
 int Conversacion::getIdConv() const {
     return idConv;
 }
-    
+
+void Conversacion::setIdConv(int idConv) {
+    this->idConv = idConv;
+}
+
+int Conversacion::getIdConv() const {
+    return idConv;
+}
+void Conversacion::setEstadoConv(EstadoConv* estadoC){
+    estadoConv->add(estadoC);
+}
+void Conversacion::setMensaje(Mensaje* mensaje){
+    intKey *key = new intKey(mensaje->GetCodigo());
+    mensajes->add(mensaje,key);
+}
+
+void Conversacion::setGrupo(Grupo* grupo) {
+    this->grupo = grupo;
+}
+
+Grupo* Conversacion::getGrupo() const {
+    return grupo;
+}
+Usuario * Conversacion::getReceptor(){
+    IIterator *it= estadoConv->iterator();
+    while (it->hasNext()) {
+        Usuario * usR=dynamic_cast<Usuario*>(it->getCurrent());
+        if (usR!=ContMensaje.getUsu()) return usR;
+    }   
+}
+Lista * Conversacion::getReceptores(){
+IIterator *it= estadoConv->iterator();
+Lista *listUsuRecep=new Lista();
+    while (it->hasNext()) {
+        Usuario * usR=dynamic_cast<Usuario*>(it->getCurrent());
+        if (usR!=ContMensaje.getUsu()) listUsuRecep.add(usR);
+    } 
+return listUsuRecep;
+}

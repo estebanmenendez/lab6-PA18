@@ -54,4 +54,3 @@ private:
 };
 
 #endif /* GRUPO_H */
-

@@ -48,7 +48,7 @@ private:
         int codigo;
         DtFecha fechaEnv;
         DtHora horaEnv;
-    
+        
 };
 
 #endif /* MENSAJE_H */

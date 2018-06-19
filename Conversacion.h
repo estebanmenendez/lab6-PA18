@@ -23,7 +23,8 @@
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"
 #include"DtMensaje.h"
-
+#include "EstadoConv.h"
+#include"Fecha_Hora_sis.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ class Conversacion {
     
     
 public:
-    Conversacion();
+    Conversacion(Grupo *g);
     Conversacion(const Conversacion& orig);
     virtual ~Conversacion();   
     

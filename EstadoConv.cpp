@@ -16,17 +16,8 @@
 void EstadoConv::setEstado(bool archivada) {
     this->archivada = archivada;
 }
-
-bool EstadoConv::isArchivada() const {
-    return archivada;
-}
-
-void EstadoConv::setConversacion(Conversacion* conversacion) {
-    this->conversacion = conversacion;
-}
-
-Conversacion* EstadoConv::getConversacion() const {
-    return conversacion;
+bool EstadoConv::ConvActiva(){
+    return this->archivada;
 }
 
 
@@ -38,6 +29,21 @@ EstadoConv::EstadoConv(bool estado, Conversacion * conv) {
     this->conversacion=conv;
     this->archivada=estado;
 }
+
+
+
+
+
+void EstadoConv::SetConv(Conversacion* conv) {
+    this->conv = conv;
+}
+
+Conversacion* EstadoConv::GetConv() const {
+    return conv;
+}
+
+
+
 
 EstadoConv::EstadoConv(const EstadoConv& orig) {
 }
