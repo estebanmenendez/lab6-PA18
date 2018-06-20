@@ -47,7 +47,7 @@ public:
 
 //    void create(string,string,string,int,DtFecha,DtHora);
    // void setUltimaCon(DtUltCon);
-    void setUsuLog(Usuario*);
+    //void setUsuLog(Usuario*);
     bool usuarioLogueado(int);
     bool ingresarCelular(int);
     bool altaUsuario(string,string,string);

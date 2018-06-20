@@ -51,10 +51,10 @@ void ContMensaje::crearMensaje(DtMensaje){}
 void ContMensaje::seleccionarCont(string){}
 void ContMensaje::selecConversacion(string){}
 void ContMensaje::getContactos(){}
-//Lista* ContMensaje::listarConv(){}
+Lista* ContMensaje::listarConv(){}
 void ContMensaje::seleccionarConv(string){}
 void ContMensaje::archivarConv(DtConversacion){}
-//Lista* ContMensaje::seleccionarConversacion(string){}
+Lista* ContMensaje::seleccionarConversacion(string){}
 void ContMensaje::seleccionarMensaje(int){}
 void ContMensaje::eliminarMensaje(DtMensaje){}
 Lista* ContMensaje::listarConvArchivadas(){}

@@ -33,7 +33,7 @@ public:
 virtual ~iContUsuario();
 //virtual void create(string,string,string,int,DtFecha,DtHora) = 0;
 virtual void setUltimaCon(DtUltCon) = 0;
-virtual void setUsuLog(Usuario*) = 0;
+virtual void setUsuLog(int) = 0;
 virtual bool usuarioLogueado(int) = 0;
 virtual bool ingresarCelular(int) = 0;
 virtual bool altaUsuario(string,string,string) = 0;

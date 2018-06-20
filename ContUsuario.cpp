@@ -76,7 +76,7 @@ DtConexion ContUsuario::asignarSesion(){
        Usuario * usU=dynamic_cast<Usuario*>(usuario->find(ikey));
 //       setUsu(usU);
 //       setUltimaCon();
-       setUsuLog(usu);
+       setUsuLog(usu->GetCelular());
 }
 Lista *ContUsuario::listarContactos(){
 
@@ -101,6 +101,12 @@ void ContUsuario::setNumCel(int numCel) {
 int ContUsuario::getNumCel() {
     return numCel;
 }
+void ContUsuario::setUltimaCon(DtUltCon){
+    
+}
+    void ContUsuario::setUsuLog(int){
+        
+    }
 
 /*iContUsuario * ContUsuario::getInstance(){
     if(instance== NULL)
