@@ -14,8 +14,8 @@
 #include"ContMensaje.h"
 
 using namespace std;
-iContMensaje * ContMensaje::instance = NULL;
-
+//iContMensaje * ContMensaje::instance = NULL;
+//
 ContMensaje::ContMensaje(){}
 /*
 void ContMensaje::setUsu(Usuario* usu) {
@@ -51,10 +51,10 @@ void ContMensaje::crearMensaje(DtMensaje){}
 void ContMensaje::seleccionarCont(string){}
 void ContMensaje::selecConversacion(string){}
 void ContMensaje::getContactos(){}
-Lista* ContMensaje::listarConv(){}
+//Lista* ContMensaje::listarConv(){}
 void ContMensaje::seleccionarConv(string){}
 void ContMensaje::archivarConv(DtConversacion){}
-Lista* ContMensaje::seleccionarConversacion(string){}
+//Lista* ContMensaje::seleccionarConversacion(string){}
 void ContMensaje::seleccionarMensaje(int){}
 void ContMensaje::eliminarMensaje(DtMensaje){}
 Lista* ContMensaje::listarConvArchivadas(){}
@@ -63,11 +63,11 @@ void ContMensaje::cuerpoMensaje(DtImagen){}
 void ContMensaje::cuerpoMensaje(DtContacto){}
 void ContMensaje::crearMensaje(){}
 
-iContMensaje * ContMensaje::getInstance(){
+/*iContMensaje * ContMensaje::getInstance(){
     if(instance== NULL)
         instance = new ContMensaje();
     return instance;
         
-}
+}*/
 
 

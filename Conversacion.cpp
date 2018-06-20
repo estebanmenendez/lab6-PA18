@@ -12,11 +12,7 @@
  */
 
 #include "Conversacion.h"
-#include "EstadoConv.h"
-#include"ContMensaje.h"
-#include "IIterator.h"
-#include "Visto.h"
-#include "Fecha_Hora_sis.h"
+
 Conversacion::Conversacion() {
 }
 
@@ -94,7 +90,7 @@ Lista *Conversacion::listarVistos(int idMen){
     Lista *listaMensVisto=new Lista();
     intKey *key=new intKey(idMen);
   Mensaje *men=dynamic_cast<Mensaje*>(mensajes->find(key)); 
-  listaMensVisto=men->getVistos();
+//  listaMensVisto=men->getVistos();
   return listaMensVisto;
 
 }
@@ -115,11 +111,9 @@ void Conversacion::setEstado(bool estado){
 //    
 }
 
-void Conversacion::setIdConv(int idConv) {
-    this->idConv = idConv;
-}
 
-int Conversacion::getIdConv() const {
+
+int Conversacion::getIdConv() {
     return idConv;
 }
 
@@ -127,37 +121,34 @@ void Conversacion::setIdConv(int idConv) {
     this->idConv = idConv;
 }
 
-int Conversacion::getIdConv() const {
-    return idConv;
-}
-void Conversacion::setEstadoConv(EstadoConv* estadoC){
-    estadoConv->add(estadoC);
-}
+//void Conversacion::setEstadoConv(EstadoConv* estadoC){
+//    estadoConv->add(estadoC);
+//}
 void Conversacion::setMensaje(Mensaje* mensaje){
     intKey *key = new intKey(mensaje->GetCodigo());
     mensajes->add(mensaje,key);
 }
 
-void Conversacion::setGrupo(Grupo* grupo) {
-    this->grupo = grupo;
-}
-
-Grupo* Conversacion::getGrupo() const {
-    return grupo;
-}
-Usuario * Conversacion::getReceptor(){
+//    void Conversacion::setGrupo(Grupo* grupo) {
+//    this->grupo = grupo;
+//    }
+//
+//    Grupo* Conversacion::getGrupo() const {
+//    return grupo;
+//    }
+/*Usuario * Conversacion::getReceptor(){
     IIterator *it= estadoConv->iterator();
     while (it->hasNext()) {
         Usuario * usR=dynamic_cast<Usuario*>(it->getCurrent());
         if (usR!=ContMensaje.getUsu()) return usR;
     }   
-}
-Lista * Conversacion::getReceptores(){
-IIterator *it= estadoConv->iterator();
+}*/
+/*Lista * Conversacion::getReceptores(){
+//IIterator *it= estadoConv->iterator();
 Lista *listUsuRecep=new Lista();
     while (it->hasNext()) {
         Usuario * usR=dynamic_cast<Usuario*>(it->getCurrent());
-        if (usR!=ContMensaje.getUsu()) listUsuRecep.add(usR);
+  //      if (usR!=ContMensaje.getUsu()) listUsuRecep.add(usR);
     } 
 return listUsuRecep;
-}
+}*/

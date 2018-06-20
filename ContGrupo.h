@@ -22,13 +22,13 @@ using namespace std;
 
 class ContGrupo: public iContGrupo {
     private:    
-        static iContGrupo * instance;
-        ContGrupo();
+        //static iContGrupo * instance;
+        
         
     //Usuario * usu;
    
 public:
-    
+    ContGrupo();
     
 //    ContGrupo(const ContGrupo& orig);
     virtual ~ContGrupo();
@@ -54,7 +54,7 @@ public:
     // Usuario* getUsu() const;
     DtGrupo altaGrupo(string, string);
     void Salir();
-    static iContGrupo * getInstance();
+    //static iContGrupo * getInstance();
 };
 #endif /* CONTGRUPO_H */
 

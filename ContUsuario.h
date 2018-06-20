@@ -37,11 +37,11 @@ private:
     ListDicc * usuario;
     Usuario * usu;
     int numCel;
-    ContUsuario();
-    static iContUsuario * instance;
+   
+    //static iContUsuario * instance;
     
 public:
-
+ ContUsuario();
     ContUsuario(const ContUsuario& orig);
     virtual ~ContUsuario();
 

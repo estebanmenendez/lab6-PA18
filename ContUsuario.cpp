@@ -18,7 +18,7 @@
 
 using namespace std;
 
-iContUsuario * ContUsuario::instance = NULL;
+//iContUsuario * ContUsuario::instance = NULL;
 
 ContUsuario::ContUsuario(){}
 ContUsuario::ContUsuario(const ContUsuario& orig){}
@@ -102,13 +102,13 @@ int ContUsuario::getNumCel() {
     return numCel;
 }
 
-iContUsuario * ContUsuario::getInstance(){
+/*iContUsuario * ContUsuario::getInstance(){
     if(instance== NULL)
         instance = new ContUsuario();
     return instance;
         
 }
-
+*/
 
 //
 //void ContUsuario::setUsu(Usuario* usu) {

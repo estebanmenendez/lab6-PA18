@@ -23,7 +23,7 @@
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"
 #include"DtMensaje.h"
-#include "EstadoConv.h"
+//#include "EstadoConv.h"
 #include"Fecha_Hora_sis.h"
 
 using namespace std;
@@ -32,10 +32,10 @@ class Conversacion {
     
     
 public:
-    Conversacion(Grupo *g);
+    Conversacion();
     Conversacion(const Conversacion& orig);
     virtual ~Conversacion();   
-    
+    void setMensaje(Mensaje *);
     bool sosConversacion(int);
     Mensaje* getMensaje(int);
     void remueveConv(Mensaje*);
@@ -44,8 +44,8 @@ public:
     Lista* listarVistos(int);
     bool soyGrupo();
     void setEstado(bool);
-    void setIdConv(int idConv);
-    int getIdConv() const;
+    void setIdConv(int);
+    int getIdConv();
     int getCelContacto();
     string getNomGrupo();
     //Usuario * getReceptor();

@@ -34,12 +34,12 @@ EstadoConv::EstadoConv(bool estado, Conversacion * conv) {
 
 
 
-void EstadoConv::SetConv(Conversacion* conv) {
-    this->conv = conv;
+void EstadoConv::setConversacion(Conversacion* conv) {
+    this->conversacion = conv;
 }
 
-Conversacion* EstadoConv::GetConv() const {
-    return conv;
+Conversacion* EstadoConv::getConversacion() const {
+    return this->conversacion;
 }
 
 

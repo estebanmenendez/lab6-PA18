@@ -29,12 +29,18 @@ Fabrica* Fabrica::getInstance(){
 }
 
 iContUsuario* Fabrica::getContUsuario(){
-    return ContUsuario::getInstance();
+   // return ContUsuario::getInstance();
+    if(cUsu==NULL)this->cUsu=new ContUsuario();
+    return this->cUsu;            
 }
 iContMensaje* Fabrica::getContMensaje(){
-    return ContMensaje::getInstance();
+    if(this->cMens==NULL)this->cMens=new ContMensaje();
+    return this->cMens;
+    //return ContMensaje::getInstance();
 }
 
 iContGrupo* Fabrica::getContGrupo(){
-    return ContGrupo::getInstance();
+    //return ContGrupo::getInstance();
+    if(cGru==NULL)this->cGru=new ContGrupo();
+    return this->cGru;
 }

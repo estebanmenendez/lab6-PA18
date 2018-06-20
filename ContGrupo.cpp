@@ -12,7 +12,7 @@
  */
 
 #include "ContGrupo.h"
-iContGrupo * ContGrupo::instance = NULL;
+//iContGrupo * ContGrupo::instance = NULL;
 
 
 ContGrupo::ContGrupo() {
@@ -46,12 +46,12 @@ void ContGrupo::cancelar(){}
 DtGrupo ContGrupo::altaGrupo(string,string){}
 void ContGrupo::Salir(){}
 
-iContGrupo * ContGrupo::getInstance(){
+/*iContGrupo * ContGrupo::getInstance(){
     if(instance== NULL)
         instance = new ContGrupo();
     return instance;
         
-}
+}*/
 
 
 /*void ContGrupo::setUsu(Usuario* usu) {

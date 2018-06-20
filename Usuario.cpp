@@ -115,11 +115,11 @@ Usuario::~Usuario() {
             EstadoConv *ec=dynamic_cast<EstadoConv*>(it->getCurrent());
             if(ec->ConvActiva()==true){
             if(ec->getConversacion()->soyGrupo()==true){
-                DtConversacion * dtConv=new DtConversacion(ec->getConversacion()->getNomGrupo(),ec->getConversacion()->getIdConv());//copntructor grupo
-                conversacionesAct->add(dtConv);
+//                DtConversacion * dtConv=new DtConversacion(ec->getConversacion()->getNomGrupo(),ec->getConversacion()->getIdConv());//copntructor grupo
+//                conversacionesAct->add(dtConv);
             }
-            DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(),ec->getConversacion()->getCelContacto());//constructor conv comun
-            conversacionesAct->add(DtConv);
+         //   DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(),ec->getConversacion()->getCelContacto());//constructor conv comun
+          //  conversacionesAct->add(DtConv);
             }
             cant++;
         }
@@ -132,14 +132,14 @@ Usuario::~Usuario() {
         IIterator *it=estadoConv->iterator();
          while (it->hasNext()){
             EstadoConv *ec=dynamic_cast<EstadoConv*>(it->getCurrent());
-            if(ec->isArchivada()==true){
+//            if(ec->isArchivada()==true){
             if(ec->getConversacion()->soyGrupo()==true){
-                DtConversacion * dtConv=new DtConversacion(ec->getConversacion()->getNomGrupo(),ec->getConversacion()->getIdConv());//copntructor grupo
-                conversacionesArc->add(dtConv);
+//                DtConversacion * dtConv=new DtConversacion(ec->getConversacion()->getNomGrupo(),ec->getConversacion()->getIdConv());//copntructor grupo
+  //              conversacionesArc->add(dtConv);
             }
-            DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(),ec->getConversacion()->getCelContacto());//constructor conv comun
-            conversacionesArc->add(DtConv);
-            }}
+    //        DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(),ec->getConversacion()->getCelContacto());//constructor conv comun
+      //      conversacionesArc->add(DtConv);
+            }
            return conversacionesArc; 
     }
     Lista * Usuario::GetContactos(){

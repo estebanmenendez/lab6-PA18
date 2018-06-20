@@ -23,25 +23,19 @@
 #include"DtContacto.h"
 #include"DtConversacion.h"
 //#include "Mensaje.h"
-
+#include"Lista.h"
 
 using namespace std;
 
-class ContMensaje : public iContMensaje{
+class ContMensaje : public iContMensaje {
 
     
 private: 
         DtMensaje mensaje;
-        ContMensaje();
-        static iContMensaje * instance;
-        
-        //Conversacion* conv;
-        //Usuario* usu;
-        
-
+       //  static iContMensaje * instance;
+      
 public:
-    
-
+ContMensaje();
 ContMensaje(const ContMensaje& orig);
 virtual ~ContMensaje();
 
@@ -70,7 +64,7 @@ void crearMensaje() ;
 //Usuario* getUsu();
 void setMensaje(DtMensaje mensaje);
 DtMensaje getMensaje();
-static iContMensaje * getInstance();
+//static iContMensaje * getInstance();
 
 
 };

@@ -19,7 +19,7 @@
 #include "DtConversacion.h"
 //#include"Usuario.h"
 //#include"Visto.h"
-//#include"ICollectible.h"
+#include"ICollectible.h"
 
 
 using namespace std;
