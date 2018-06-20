@@ -49,7 +49,7 @@ void selecConversacion(string) ;
 void getContactos() ;
 //void setConversacion(Conversacion*);
 //Conversacion* getConversacion() ;
-Lista* listarConv() ;
+Lista* listarConv();
 void seleccionarConv(string) ;
 void archivarConv(DtConversacion) ;
 Lista* seleccionarConversacion(string) ;

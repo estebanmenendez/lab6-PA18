@@ -46,14 +46,14 @@ public:
     virtual ~ContUsuario();
 
 //    void create(string,string,string,int,DtFecha,DtHora);
-    void setUltimaCon(DtUltCon);
+   // void setUltimaCon(DtUltCon);
     void setUsuLog(Usuario*);
     bool usuarioLogueado(int);
     bool ingresarCelular(int);
     bool altaUsuario(string,string,string);
     bool cancelaIngreso();
     DtConexion asignarSesion();
-    Lista listarContactos();
+    Lista * listarContactos();
     DtContacto ingContacto(int);
     void agregaContacto(DtContacto);
     void cerrarSesion(DtConexion); 
@@ -61,9 +61,11 @@ public:
     void actualizarDatos();
     void setNumCel(int numCel);
     int getNumCel();
-    static iContUsuario * getInstance();
+   // static iContUsuario * getInstance();
     //void setUsu(Usuario* usu);
     //Usuario* getUsu();
+    void setUltimaCon(DtUltCon);
+    void setUsuLog(int);
 };
 
 #endif /* CONTUSUARIO_H */

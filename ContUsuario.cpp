@@ -78,7 +78,7 @@ DtConexion ContUsuario::asignarSesion(){
 //       setUltimaCon();
        setUsuLog(usu);
 }
-Lista ContUsuario::listarContactos(){
+Lista *ContUsuario::listarContactos(){
 
 }
 DtContacto ContUsuario::ingContacto(int){
