@@ -26,6 +26,9 @@
 #include "DtContacto.h"
 #include "ListaDicc.h"
 #include "Tipo.h"
+#include "Fecha_Hora_sis.h"
+//#include "ContUsuario.h"
+#include "ContMensaje.h"
 //#include "Estado.h"
 //#include "Conversacion.h"
 #include<iostream>

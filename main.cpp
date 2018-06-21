@@ -14,14 +14,79 @@
 #include <cstdlib>
 #include"Fabrica.h"
 using namespace std;
-
+bool registrarUsuario();
 /*
  * 
  */
+iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
 int main(int argc, char** argv) {
-//  iContUsuario pepe;
-  //  pepe = Fabrica::getInstance()->getContUsuario();
-    Fabrica::getInstance()->getContUsuario()->listarContactos();
+    
+    int optMenu = 0, numCelular;
+    bool flagCelular = false, flagFirstSubMenu = false, flagInitMenu = false, newUser = true;
+    /*RECORDAR QUE LO PRIMERO QUE HAY QUE HACER ES DAR LA OPCIÓN DE CARGAR LOS DATOS DE PRUEBA*/
+    do{ 
+        do{
+            cout<<"----- Bienvenido a TELETIP ----- \n";
+            do{
+                cout<<"Ingrese su número de celular: \n";
+                cin>>numCelular;
+                if(cin.fail()){
+                    cin.clear();
+                    cin.ignore();
+                    cout<<"Por favor ingrese un número\n";
+                }
+                else{
+                    flagCelular = true;
+                }
+            }while(!flagCelular);
+
+        }while(!flagCelular);
+
+        if(ContUsu->ingresarCelular(numCelular)){
+            ContUsu->asignarSesion();
+        }
+        else{
+            do{
+                cout<<"El número ingresado no existe. Por favor, ingrese una de las siguientes opciones:\n1- Registrarse.\n2- Ingresar un nuevo número de celular\n3- Salir\n";
+                cin>>optMenu;
+                if(cin.fail()){
+                    cin.clear();
+                    cin.ignore();
+                    cout<<"Por favor ingrese un número\n";
+                }
+                else{
+                    flagFirstSubMenu = true;
+                }
+            }while(!flagFirstSubMenu);
+            switch(optMenu){
+                case 1:
+                    newUser = registrarUsuario();
+                    flagInitMenu = true;
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    flagInitMenu = true;
+                    break;
+                default:
+                    cout<<"Opción incorrecta. Por favor intente nuevamente.";
+                    break;
+            }
+        }
+    }while(!flagInitMenu);
     return 0;
 }
-
+bool registrarUsuario(){
+    string nombre, urlImagen, descripcion;
+    bool flag = false;
+    cout<<"Ingrese su nombre: ";
+    cin>>nombre;
+    cout<<"\nIngrese la URL de su imagen de perfil: ";
+    cin>>urlImagen;
+    cout<<"\nIngrese la descripción de la imagen: ";
+    cin>>descripcion;
+    if(ContUsu->altaUsuario(nombre,urlImagen,descripcion)){
+        DtConexion* p = ContUsu->asignarSesion();
+    }
+    return true;
+}

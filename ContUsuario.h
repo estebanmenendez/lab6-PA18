@@ -26,6 +26,8 @@
 #include "ListaDicc.h"
 #include "ContMensaje.h"
 #include "ContGrupo.h"
+#include "intKey.h"
+#include "Fecha_Hora_sis.h"
 
 
 using namespace std;
@@ -34,14 +36,14 @@ class ContUsuario : public iContUsuario {
 
     
 private:
-    ListDicc * usuario;
+    ListDicc * usuario = new ListDicc();
     Usuario * usu;
     int numCel;
    
     //static iContUsuario * instance;
     
 public:
- ContUsuario();
+    ContUsuario();
     ContUsuario(const ContUsuario& orig);
     virtual ~ContUsuario();
 
@@ -49,10 +51,10 @@ public:
    // void setUltimaCon(DtUltCon);
     //void setUsuLog(Usuario*);
     bool usuarioLogueado(int);
-    bool ingresarCelular(int);
+    bool ingresarCelular(int); // Chequea que el celular esté en la lista de usuarios del sistema.
     bool altaUsuario(string,string,string);
     bool cancelaIngreso();
-    DtConexion asignarSesion();
+    DtConexion* asignarSesion();
     Lista * listarContactos();
     DtContacto ingContacto(int);
     void agregaContacto(DtContacto);
@@ -61,7 +63,7 @@ public:
     void actualizarDatos();
     void setNumCel(int numCel);
     int getNumCel();
-   // static iContUsuario * getInstance();
+    //static iContUsuario * getInstance();
     //void setUsu(Usuario* usu);
     //Usuario* getUsu();
     void setUltimaCon(DtUltCon);

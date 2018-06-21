@@ -15,7 +15,10 @@
 
  DtFecha * Fecha_Hora_sis::getFecha(){}
  DtHora * Fecha_Hora_sis::getHora(){}
- DtUltCon * Fecha_Hora_sis::getUltimaConexion(){}
+ DtUltCon* Fecha_Hora_sis::getUltimaConexion(){
+     DtUltCon* dtuc = new DtUltCon();
+     return dtuc;
+ }
 
 Fecha_Hora_sis::Fecha_Hora_sis() {
 

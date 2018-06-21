@@ -12,9 +12,7 @@
  */
 
 #include "Usuario.h"
-#include "Fecha_Hora_sis.h"
-#include "ContUsuario.h"
-#include "ContMensaje.h"
+
 
 Usuario::Usuario(string nombre,string imagenPerfil,string descripcion,int numCel) {
     Fecha_Hora_sis* fechora;
@@ -24,6 +22,7 @@ Usuario::Usuario(string nombre,string imagenPerfil,string descripcion,int numCel
     this->celular=numCel;
     this->fechaCreacion=fechora->getFecha();
     this->horaCreacion=fechora->getHora();
+    this->SetUltima_conexion(fechora->getUltimaConexion());
     }
 
 Usuario::Usuario(const Usuario& orig) {
@@ -102,7 +101,7 @@ Usuario::~Usuario() {
         return ultima_conexion;
     }
 
-    void Usuario::SetUltima_conexion(DtUltCon * ultima_conexion) {
+    void Usuario::SetUltima_conexion(DtUltCon* ultima_conexion) {
         this->ultima_conexion = ultima_conexion;
     }
     

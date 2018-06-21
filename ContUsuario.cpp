@@ -12,8 +12,6 @@
  */
 
 #include "ContUsuario.h"
-#include "intKey.h"
-#include "Fecha_Hora_sis.h"
 
 
 using namespace std;
@@ -49,16 +47,17 @@ bool ContUsuario::usuarioLogueado(int numCel){
     return false;
 }
 bool ContUsuario::ingresarCelular(int numCel){
-    intKey *ikey=new intKey(numCel);
-    bool ok= usuario->member(ikey);
-    if(ok==true)setNumCel(numCel);
+    intKey* ikey = new intKey(numCel);
+    bool ok = this->usuario->member(ikey);
+    //if(ok == true) Guarda el número de cédula aunque no sea miembro
+    setNumCel(numCel);
     return ok;
 }
 bool ContUsuario::altaUsuario(string nombre,string UrlImagen,string descripcion){
-    Fecha_Hora_sis* fechora;
-    Usuario * nuevoUsu=new Usuario(nombre,UrlImagen,descripcion,usu->GetCelular());
-    intKey *key = new intKey(getNumCel());
-    usuario->add(nuevoUsu,key);
+    //Fecha_Hora_sis* fechora; No se usa para nada????
+    Usuario* nuevoUsu = new Usuario(nombre,UrlImagen,descripcion,this->getNumCel());
+    intKey* key = new intKey(this->getNumCel());
+    usuario->add(nuevoUsu,key);//Agrego al usuario a la lista de usuarios
     return true;
 }
 bool ContUsuario::cancelaIngreso(){
@@ -71,12 +70,15 @@ bool ContUsuario::cancelaIngreso(){
    
     
 }
-DtConexion ContUsuario::asignarSesion(){
-       intKey *ikey=new intKey(numCel);
-       Usuario * usU=dynamic_cast<Usuario*>(usuario->find(ikey));
-//       setUsu(usU);
-//       setUltimaCon();
-       setUsuLog(usu->GetCelular());
+DtConexion* ContUsuario::asignarSesion(){
+       intKey *ikey = new intKey(this->numCel);
+       Usuario * usU = dynamic_cast<Usuario*>(usuario->find(ikey));
+       /*Asignar al usuario usU fecha y hora del sistema*/
+       Fecha_Hora_sis* a;
+       //usU->SetUltima_conexion(a->getUltimaConexion()); Esto tiene error y no tenog ni puta idea de que es!
+       //setUsuLog(usu->GetCelular()); No hace nada? No sé como pensamos controlar el usuario que está logeado
+       DtConexion* r = new DtConexion();
+       return r;
 }
 Lista *ContUsuario::listarContactos(){
 
@@ -104,15 +106,14 @@ int ContUsuario::getNumCel() {
 void ContUsuario::setUltimaCon(DtUltCon){
     
 }
-    void ContUsuario::setUsuLog(int){
-        
-    }
+void ContUsuario::setUsuLog(int){
+
+}
 
 /*iContUsuario * ContUsuario::getInstance(){
     if(instance== NULL)
         instance = new ContUsuario();
-    return instance;
-        
+    return instance;   
 }
 */
 
