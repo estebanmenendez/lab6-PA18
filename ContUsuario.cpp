@@ -75,7 +75,7 @@ DtConexion* ContUsuario::asignarSesion(){
        Usuario * usU = dynamic_cast<Usuario*>(usuario->find(ikey));
        /*Asignar al usuario usU fecha y hora del sistema*/
        Fecha_Hora_sis* a;
-       //usU->SetUltima_conexion(a->getUltimaConexion()); Esto tiene error y no tenog ni puta idea de que es!
+       usU->SetUltima_conexion(a->getUltimaConexion());// Esto tiene error y no tenog ni puta idea de que es!
        //setUsuLog(usu->GetCelular()); No hace nada? No sé como pensamos controlar el usuario que está logeado
        DtConexion* r = new DtConexion();
        return r;

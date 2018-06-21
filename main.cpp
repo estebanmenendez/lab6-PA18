@@ -21,8 +21,8 @@ bool registrarUsuario();
 iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
 int main(int argc, char** argv) {
     
-    int optMenu = 0, numCelular;
-    bool flagCelular = false, flagFirstSubMenu = false, flagInitMenu = false, newUser = true;
+    int optMenu = 0, numCelular, optMenuPrincipal = 0;
+    bool flagCelular = false, flagFirstSubMenu = false, flagInitMenu = false, newUser = true, flagMenuPrincipal = false, salir = false;
     /*RECORDAR QUE LO PRIMERO QUE HAY QUE HACER ES DAR LA OPCIÓN DE CARGAR LOS DATOS DE PRUEBA*/
     do{ 
         do{
@@ -67,6 +67,7 @@ int main(int argc, char** argv) {
                     break;
                 case 3:
                     flagInitMenu = true;
+                    salir = true;
                     break;
                 default:
                     cout<<"Opción incorrecta. Por favor intente nuevamente.";
@@ -74,6 +75,27 @@ int main(int argc, char** argv) {
             }
         }
     }while(!flagInitMenu);
+    do{
+        if(!salir){
+            cout<<"Ha iniciado sesión en TELETIP\n";
+            cout<<"Ingrese una opción\n";
+            cout<<"1-\n2-\n3-\n0- Salir\n";
+            cin>>optMenuPrincipal;
+            switch(optMenuPrincipal){
+                case 0:
+                    salir = true;
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default: 
+                    break;
+            }
+        }
+    }while(!salir);
     return 0;
 }
 bool registrarUsuario(){
