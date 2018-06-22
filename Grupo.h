@@ -35,7 +35,7 @@ public:
     int GetCreador();
     string GetImagen();
     string GetNombre();
-       
+    Conversacion * getConversacion();
     void SetFecha(DtFecha);    
     void SetHora(DtHora);    
     void SetImagen(string);    

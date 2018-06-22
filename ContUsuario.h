@@ -37,7 +37,7 @@ class ContUsuario : public iContUsuario {
     
 private:
     ListDicc * usuario = new ListDicc();
-    Usuario * usu;
+    int usu;
     int numCel;
    
     //static iContUsuario * instance;
@@ -49,7 +49,7 @@ public:
 
 //    void create(string,string,string,int,DtFecha,DtHora);
    // void setUltimaCon(DtUltCon);
-    //void setUsuLog(Usuario*);
+//    void setUsuLog(int);
     bool usuarioLogueado(int);
     bool ingresarCelular(int); // Chequea que el celular esté en la lista de usuarios del sistema.
     bool altaUsuario(string,string,string);
@@ -68,6 +68,8 @@ public:
     //Usuario* getUsu();
     void setUltimaCon(DtUltCon);
     void setUsuLog(int);
+    int getNumContacto(int idConv);
+    int getUsu();
 };
 
 #endif /* CONTUSUARIO_H */

@@ -15,6 +15,7 @@
 #define SIMPLE_H
 
 #include"Mensaje.h"
+#include "DtSimple.h"
 
 class Simple : public Mensaje {
 public:
@@ -24,7 +25,7 @@ public:
     
     string getTexto();
     void setTexto(string);
-    
+    DtSimple *getMensaje();
     
     
 private:

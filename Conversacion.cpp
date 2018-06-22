@@ -12,6 +12,7 @@
  */
 
 #include "Conversacion.h"
+#include "ContUsuario.h"
 
 Conversacion::Conversacion() {
 }
@@ -60,31 +61,30 @@ void Conversacion::eviarMensaje(Mensaje* m){
 }
 
 Lista* Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora){
-//    ContMensaje* contMen;
-//    Conversacion* conv = contMen->getConversacion();
-//   IIterator *it= conv->mensajes->getIteratorObj();
-//   Lista* listDtMensaje = new Lista();
-//   if (fecha_hora==NULL){
-//    while(it->hasNext()){
-//        Mensaje *men=dynamic_cast<Mensaje*>(it->getCurrent()); 
-//       listDtMensaje->add(men->getMensaje());
-//       Mensaje *m=dynamic_cast<Mensaje*>(it->getCurrent());
-//                Visto* v= m->esReceptor(contMen->getUsu());
-//           if(v->getEstado()!=true)v->SetEstado(true);
-//   }
-//   }
-//   else{
-//       while(it->hasNext()){
-//           Mensaje *m=dynamic_cast<Mensaje*>(it->getCurrent());
-//           if(m->GetFechaEnv().GetAnio()>=fecha_hora->GetFecha().GetAnio()&&m->GetFechaEnv().GetDia()>=fecha_hora->GetFecha().GetDia()
-//              &&m->GetFechaEnv().GetMes()>=fecha_hora->GetFecha().GetMes()&& m->GetHoraEnv().GetHora()>=fecha_hora->GetHora().GetHora()&& m->GetHoraEnv().GetMinutos()>=
-//                   fecha_hora->GetHora().GetMinutos()&&m->GetHoraEnv().GetSegundo()>=fecha_hora->GetHora().GetSegundo()){listDtMensaje->add(m->getMensaje());}
-//           Visto* v= m->esReceptor(contMen->getUsu());
-//           if(v->getEstado()!=true)v->SetEstado(true);
-//           
-//       }
-//   }
-//      return listDtMensaje;
+    ContUsuario *contUsu;
+  IIterator *it=mensajes->getIteratorObj();
+  Lista* listDtMensaje = new Lista();
+  if (fecha_hora==NULL){
+   while(it->hasNext()){
+        Mensaje *men=dynamic_cast<Mensaje*>(it->getCurrent()); 
+        men->esReceptor(contUsu->getNumCel());
+        listDtMensaje->add(men->getMensaje());
+     
+               
+   }
+   }
+   else{
+       while(it->hasNext()){
+           Mensaje *m=dynamic_cast<Mensaje*>(it->getCurrent());
+           if(m->GetFechaEnv().GetAnio()>=fecha_hora->GetFecha().GetAnio()&&m->GetFechaEnv().GetDia()>=fecha_hora->GetFecha().GetDia()
+              &&m->GetFechaEnv().GetMes()>=fecha_hora->GetFecha().GetMes()&& m->GetHoraEnv().GetHora()>=fecha_hora->GetHora().GetHora()&& m->GetHoraEnv().GetMinutos()>=
+              fecha_hora->GetHora().GetMinutos()&&m->GetHoraEnv().GetSegundo()>=fecha_hora->GetHora().GetSegundo()){
+            listDtMensaje->add(m->getMensaje());              
+            m->esReceptor(contUsu->getUsu());}
+            }
+        
+        }
+      return listDtMensaje;
 }
 Lista *Conversacion::listarVistos(int idMen){
     Lista *listaMensVisto=new Lista();
@@ -94,10 +94,7 @@ Lista *Conversacion::listarVistos(int idMen){
   return listaMensVisto;
 
 }
-bool Conversacion::soyGrupo(){
-//    if (grupo!=NULL) return true;
-//return false;
-}
+
 
 void Conversacion::setEstado(bool estado){
 //    ContMensaje* contMen;
@@ -152,3 +149,7 @@ Lista *listUsuRecep=new Lista();
     } 
 return listUsuRecep;
 }*/
+int Conversacion::getCelContacto(){
+    ContUsuario *contusu;
+    return contusu->getNumContacto(this->idConv);
+}

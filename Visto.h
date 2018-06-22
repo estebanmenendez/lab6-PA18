@@ -13,7 +13,7 @@
 
 #ifndef VISTO_H
 #define VISTO_H
-
+//#include"Usuario.h"
 #include"DtFecha.h"
 #include"DtHora.h"
 
@@ -37,7 +37,7 @@ public:
     
 private:
     
-        int S;
+       int Receptor;
         bool estado; 
         DtFecha * fechaV;
         DtHora * horaV;

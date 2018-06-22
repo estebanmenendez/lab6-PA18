@@ -21,6 +21,7 @@ Lista::~Lista() {
 void Lista::add(ICollectible *o) {
   Nodo *nuevo = new Nodo(first->getNext(), o);
   first->setNext(nuevo);
+  tam++;
 }
 
 void Lista::remove(ICollectible *o) {
@@ -36,6 +37,7 @@ void Lista::remove(ICollectible *o) {
     }
   }
   delete iter;
+  tam--;
 }
 
 bool Lista::member(ICollectible *o) {
@@ -51,7 +53,9 @@ bool Lista::member(ICollectible *o) {
   delete iter;
   return encontre;
 }
-
+unsigned int Lista:: size(){
+	return(this->tam);
+}
 
 IIterator *Lista::iterator() {
   return new ListaIterator(first);

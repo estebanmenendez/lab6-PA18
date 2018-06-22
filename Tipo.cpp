@@ -49,3 +49,10 @@ Tipo::~Tipo() {
     void Tipo::SetTipo(string tipo) {
         this->tipo = tipo;
     }
+    Grupo * Tipo::getGrupo(){
+    return this->grupo;}
+    
+    DtFechaHoraIng* Tipo::getFechaHoraIng(){
+        DtFechaHoraIng *dtFech=new DtFechaHoraIng(this->fechaIng,this->horaIng);
+        return dtFech;
+    }

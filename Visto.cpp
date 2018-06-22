@@ -49,5 +49,5 @@ void Visto::SetHoraV(DtHora * horaV) {
 
 
 bool Visto::esReceptor(int recep){
-    //if (recep==this->receptor) return true;
+    if (recep==this->Receptor) return true;
 }   

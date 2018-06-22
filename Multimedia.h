@@ -15,13 +15,14 @@
 #define MULTIMEDIA_H
 
 #include"Mensaje.h"
+#include "DtMultimedia.h"
 
 class Multimedia : public Mensaje {
 public:
     Multimedia();
     Multimedia(const Multimedia& orig);
     virtual ~Multimedia();
-    
+    DtMultimedia* getMensaje();
 private:
 
 };

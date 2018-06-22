@@ -32,6 +32,7 @@ public:
     DtHora GetHoraIng();
     string GetTipo();
     //bool soyDelGrupo(Grupo * g);
+    Grupo * getGrupo();
     void SetFechaIng(DtFecha);    
     void SetHoraIng(DtHora); 
     void SetTipo(string);    

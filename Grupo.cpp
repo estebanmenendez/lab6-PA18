@@ -64,3 +64,6 @@ void Grupo::SetNombre(string nombre) {
     this->nombre = nombre;
 }
 
+Conversacion * Grupo::getConversacion(){
+    return this->conv;
+}

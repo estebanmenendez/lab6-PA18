@@ -15,7 +15,7 @@
 class Lista: public ICollection {
 private:
   Nodo *first;
-
+unsigned int tam;
 public:
   Lista();
   ~Lista();
@@ -24,7 +24,7 @@ public:
   void remove(ICollectible *);
   bool member(ICollectible *);
   IIterator *iterator();
-
+unsigned int size();
   bool isEmpty();
 };
 

@@ -37,10 +37,9 @@ public:
     void SetCodigo(int);
     void SetFechaEnv(DtFecha);    
     void SetHoraEnv(DtHora);
-    void SetVisto(Lista *);
-    //void setReceptor(Usuario *);
-    Lista *getVistos();
     DtMensaje *getMensaje();
+    bool esReceptor(int);
+    
 private:
         
         Lista* visto=new Lista();

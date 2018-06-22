@@ -42,8 +42,7 @@ ContUsuario::~ContUsuario() {}
 
 
 bool ContUsuario::usuarioLogueado(int numCel){
-    if(usu->GetCelular()==numCel)return true;
-    
+    if(usu==numCel)return true;
     return false;
 }
 bool ContUsuario::ingresarCelular(int numCel){
@@ -76,9 +75,22 @@ DtConexion* ContUsuario::asignarSesion(){
        /*Asignar al usuario usU fecha y hora del sistema*/
        Fecha_Hora_sis* a;
        usU->SetUltima_conexion(a->getUltimaConexion());// Esto tiene error y no tenog ni puta idea de que es!
-       //setUsuLog(usu->GetCelular()); No hace nada? No sé como pensamos controlar el usuario que está logeado
+       setUsuLog(usU->GetCelular()); 
        DtConexion* r = new DtConexion();
        return r;
+}
+int ContUsuario::getUsu(){
+    return this->usu;
+}
+int ContUsuario::getNumContacto(int idConv){
+    IIterator *it=usuario->getIteratorObj();
+    while(it->hasNext()){
+        Usuario* usu=dynamic_cast<Usuario*>(it->getCurrent());
+        if(usu->GetCelular()!=this->numCel){
+            if(usu->sosElOtro(idConv)==true){return usu->GetCelular();}
+        }
+    }
+    
 }
 Lista *ContUsuario::listarContactos(){
 
@@ -106,8 +118,9 @@ int ContUsuario::getNumCel() {
 void ContUsuario::setUltimaCon(DtUltCon){
     
 }
-void ContUsuario::setUsuLog(int){
-
+void ContUsuario::setUsuLog(int idUsu){
+    this->usu=idUsu;
+            
 }
 
 /*iContUsuario * ContUsuario::getInstance(){

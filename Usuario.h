@@ -32,7 +32,7 @@
 //#include "Estado.h"
 //#include "Conversacion.h"
 #include<iostream>
-
+#include "DtConversacion.h"
 using namespace std;
 
 class Usuario : public ICollectible {
@@ -67,14 +67,14 @@ public:
     Lista * getConversaciones();
     Lista * getConversacionesAr();
     Lista * GetContactos();
-//    Conversacion selecionarConversacion(int);
-    //void crearTipoGrupo(DtTipo *,Grupo *);
     void crearConvGrupo(Conversacion *);
-//    DtFechaHoraIng * getFechaIng(Grupo);
     Usuario * seleccionarCont(int);
     void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
     void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
-   
+    bool convGrupal(int);
+    DtConversacion * getConvGrupo(int);
+    bool sosElOtro(int idConv);
+    Lista * listarMensajes(int codConv);
     private:
     
     ListDicc * contactos= new ListDicc();

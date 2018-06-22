@@ -29,9 +29,10 @@ using namespace std;
 class iContUsuario {
 
 public:
-
+    
 virtual ~iContUsuario();
-//virtual void create(string,string,string,int,DtFecha,DtHora) = 0;
+//virtual void create(string,string,string,int,DtFecha,DtHora) = 0;al 
+virtual int getNumContacto(int)=0;
 virtual void setUltimaCon(DtUltCon) = 0;
 virtual void setUsuLog(int) = 0;
 virtual bool usuarioLogueado(int) = 0;
@@ -48,7 +49,7 @@ virtual void actualizarDatos() = 0;
 virtual void setNumCel(int numCel)= 0;
 virtual int getNumCel()= 0;
 //virtual void setUsu(Usuario* usu) = 0;
-//virtual Usuario* getUsu()=0;
+virtual int getUsu()=0;
 
 private:
 

@@ -33,7 +33,7 @@ class EstadoConv :public ICollectible{
     bool ConvActiva();
     void setEstado(bool);
     void setArchivada(bool archivada);
-    bool isArchivada() const;
+    bool esArchivada() const;
     void setConversacion(Conversacion* conversacion);
     Conversacion* getConversacion() const;
     //void setUsuario(Usuario* usuario);

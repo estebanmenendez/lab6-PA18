@@ -12,6 +12,7 @@
  */
 
 #include "Mensaje.h"
+#include "Multimedia.h"
 
 Mensaje::Mensaje() {
 }
@@ -45,13 +46,19 @@ DtHora Mensaje::GetHoraEnv() {
 void Mensaje::SetHoraEnv(DtHora horaEnv) {
     this->horaEnv = horaEnv;
 }
-
-Lista* Mensaje::GetVisto() {
-    return visto;
+bool Mensaje::esReceptor(int numCel){
+    if (this->emisor!=numCel){
+        IIterator *it=visto->iterator();
+        while(it->hasNext()){
+            Visto *v=dynamic_cast<Visto*>(it->getCurrent());
+            if(v->esReceptor(numCel)==true){
+                if(v->getEstado()!=true)v->SetEstado(true);
+            }
+        }
+    }
 }
 
-void Mensaje::SetVisto(Lista* visto) {
-    this->visto = visto;
+DtMensaje * Mensaje::getMensaje(){
+    DtMensaje * men=new DtMensaje(this->codigo,this->fechaEnv,this->horaEnv);
+    return men;
 }
-
-
