@@ -162,10 +162,12 @@ void altaGrupo(){
     DtContacto* dte = new DtContacto();
     cout<<"\nCreación de Grupo\n\n";
      do{
-        if(ltCont->isEmpty()){
-            cout<<"No tiene contactos\n";
-        }
-        else{
+        if(ltCont->isEmpty())
+//        {
+//            cout<<"No tiene contactos\n";
+//        }
+//        else
+        {
             cout<<"\nContactos Seleccionados:\n ";
 
             IIterator* j = ltElegido->iterator();
