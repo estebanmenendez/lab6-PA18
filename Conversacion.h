@@ -13,7 +13,8 @@
 
 #ifndef CONVERSACION_H
 #define CONVERSACION_H
-#include "iContUsuario.h"
+//#include "iContUsuario.h"
+#include"Fabrica.h"
 #include"Mensaje.h"
 #include <string.h>
 #include"Lista.h"

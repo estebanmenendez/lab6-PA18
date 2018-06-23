@@ -17,6 +17,7 @@
 using namespace std;
 //iContMensaje * ContMensaje::instance = NULL;
 //
+
 ContMensaje::ContMensaje(){}
 /*
 void ContMensaje::setUsu(Usuario* usu) {
@@ -35,11 +36,11 @@ Conversacion* ContMensaje::getConversacion() {
     return conv;
 }
 */
-void ContMensaje::setMensaje(DtMensaje mensaje) {
+void ContMensaje::setMensaje(DtMensaje *mensaje) {
     this->mensaje = mensaje;
 }
 
-DtMensaje ContMensaje::getMensaje() {
+DtMensaje* ContMensaje::getMensaje() {
     return mensaje;
 }
 ContMensaje::~ContMensaje(){}
@@ -65,7 +66,13 @@ void ContMensaje::cuerpoMensaje(DtSimple) {}
 void ContMensaje::cuerpoMensaje(DtImagen){}
 void ContMensaje::cuerpoMensaje(DtContacto){}
 void ContMensaje::crearMensaje(){}
-
+Lista * ContMensaje::listarConversaciones(){
+    iContUsuario* contUsu=Fabrica::getInstance()->getContUsuario();
+    Lista * convAct;
+    convAct=contUsu->listaConversacion();
+    return convAct;
+   // contUsu.getUsu
+}
 /*iContMensaje * ContMensaje::getInstance(){
     if(instance== NULL)
         instance = new ContMensaje();

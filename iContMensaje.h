@@ -59,8 +59,10 @@ virtual void crearMensaje() = 0;
 //virtual void setUsu(Usuario* usu)= 0;
 //virtual Usuario* getUsu() = 0;
 virtual void setMensaje(DtMensaje mensaje)= 0;
-virtual DtMensaje getMensaje() = 0;
+virtual DtMensaje *getMensaje() = 0;
 virtual void setIdConv(int id)=0;
+virtual Lista * listarConversaciones()=0;
+virtual Lista * listarConversacionesArch()=0;
 };
 
 #endif /* ICONTMENSAJE_H */

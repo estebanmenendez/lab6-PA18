@@ -49,7 +49,8 @@ virtual void actualizarDatos() = 0;
 virtual void setNumCel(int numCel)= 0;
 virtual int getNumCel()= 0;
 //virtual void setUsu(Usuario* usu) = 0;
-virtual Usuario* getUsu()=0;
+virtual Lista* listaConversacion()=0;
+virtual Lista* listaConversacionArc()=0;
 virtual  Lista * seleccionarConversacion(int idconv)=0;
 virtual string getNombreCont(int receptor)=0;
 private:

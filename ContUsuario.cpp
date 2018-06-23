@@ -130,3 +130,15 @@ void ContUsuario::setUsuLog(Usuario* usu){
      return usu->nombreUsu(receptor); //tre el nombre del receptor
  
  }
+ Lista* ContUsuario::listaConversacion(){
+     Usuario* usuLog= getUsu();
+     Lista *listConv;
+     listConv=usuLog->getConversaciones();
+     return listConv; 
+ }
+ Lista* ContUsuario::listaConversacionArc(){
+     Usuario* usuLog=getUsu();
+     Lista* listConvArch;
+     listConvArch=usuLog->getConversacionesAr();
+     return listConvArch;
+ }

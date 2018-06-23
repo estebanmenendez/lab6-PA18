@@ -17,7 +17,7 @@
 #include"iContMensaje.h"
 #include"DtFecha.h"
 #include"DtImagen.h"
-#include"DtMensaje.h"
+//#include"DtMensaje.h"
 #include"DtHora.h"
 #include"DtSimple.h"
 #include"DtContacto.h"
@@ -33,9 +33,11 @@ class ContMensaje : public iContMensaje {
 private: 
         DtMensaje *mensaje;
         int idConv;
+        
        //  static iContMensaje * instance;
       
 public:
+    
 ContMensaje();
 ContMensaje(const ContMensaje& orig);
 virtual ~ContMensaje();
@@ -46,7 +48,7 @@ void crearMensaje(DtMensaje) ;
 void seleccionarCont(string) ;
 void selecConversacion(string) ;
 void getContactos() ;
-Lista* listarConv();
+Lista* listarConv();//otro listar es
 void seleccionarConv(string) ;
 void archivarConv(DtConversacion) ;
 Lista* seleccionarConversacion(int idConv) ;
@@ -57,10 +59,12 @@ void cuerpoMensaje(DtSimple)  ;
 void cuerpoMensaje(DtImagen) ;
 void cuerpoMensaje(DtContacto) ;
 void crearMensaje() ;
-void setMensaje(DtMensaje mensaje);
-DtMensaje getMensaje();
+void setMensaje(DtMensaje *mensaje);
+DtMensaje *getMensaje();
 void setIdConv(int id);
 Lista *infromacionAdicional(int idMens);
+Lista * listarConversaciones();
+Lista * listarConversacionesArch();
 };
 
 #endif /* CONTMENSAJE_H */

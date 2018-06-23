@@ -21,7 +21,7 @@
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"IDictionary.h"
-//#include"Usuario.h"
+#include"Usuario.h"
 #include"Lista.h"
 #include "ListaDicc.h"
 #include "ContMensaje.h"
@@ -65,12 +65,14 @@ public:
     int getNumCel();
     //static iContUsuario * getInstance();
     //void setUsu(Usuario* usu);
-    //Usuario* getUsu();
+    Usuario* getUsu();
     void setUltimaCon(DtUltCon);
     void setUsuLog(Usuario*);
     int getNumContacto(int idConv);
     Usuario* getUsu();
     string getNombreCont(int receptor);
+    Lista* listaConversacion();
+    Lista* listaConversacionArc();
 };
 
 #endif /* CONTUSUARIO_H */

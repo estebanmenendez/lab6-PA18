@@ -12,6 +12,8 @@
  */
 
 #include "Conversacion.h"
+#include "iContUsuario.h"
+#include "Usuario.h"
 
 Conversacion::Conversacion() {
 }
@@ -78,7 +80,7 @@ iContUsuario *contUsu=Fabrica::getInstance()->getContUsuario();
               &&m->GetFechaEnv().GetMes()>=fecha_hora->GetFecha().GetMes()&& m->GetHoraEnv().GetHora()>=fecha_hora->GetHora().GetHora()&& m->GetHoraEnv().GetMinutos()>=
               fecha_hora->GetHora().GetMinutos()&&m->GetHoraEnv().GetSegundo()>=fecha_hora->GetHora().GetSegundo()){
             listDtMensaje->add(m->getMensaje());              
-            m->esReceptor(contUsu->g);}
+            m->esReceptor(contUsu->getUsu()->GetCelular());}
             }
         
         }
