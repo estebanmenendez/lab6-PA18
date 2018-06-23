@@ -35,7 +35,9 @@ void ContGrupo::getDtContacto(){}
 Lista* ContGrupo::listarGrupos(){}
 DtContacto ContGrupo::seleccionarGrupo(string){}
 DtContacto ContGrupo::seleccionarParticipante(int){}
-bool ContGrupo::agregarNuevoAdmin(int){}
+bool ContGrupo::agregarNuevoAdmin(int){
+
+}
 Lista* ContGrupo::listarContactos(){}
 DtContacto ContGrupo::seleccionarContacto(int){}
 void ContGrupo::agregarParticipante(DtContacto){}
@@ -45,7 +47,11 @@ Lista* ContGrupo::listarParticipantes(){
 DtContacto ContGrupo::seleccionarPart(int){}
 void ContGrupo::eliminarPartipante(DtContacto){}
 void ContGrupo::cancelar(){}
-DtGrupo ContGrupo::altaGrupo(string,string){}
+DtGrupo ContGrupo::altaGrupo(string imagen,string nombre){
+    Grupo * grupo = new Grupo();
+    grupo->SetImagen(imagen);
+    grupo->SetNombre(nombre);
+}
 void ContGrupo::Salir(){}
 
 /*iContGrupo * ContGrupo::getInstance(){

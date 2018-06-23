@@ -211,6 +211,10 @@ void altaGrupo(){
         }
         cout<<"Desea seguir agregando contactos al Grupo ? s/n\n";
         cin>>salir;
+        if (!ltElegido->isEmpty()){
+            ContGru->altaGrupo()
+            ContGru->agregarNuevoAdmin(ContUsu->getUsuLog()->GetCelular());
+        }
     }while(salir == 's');
     
     
