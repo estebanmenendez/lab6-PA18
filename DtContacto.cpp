@@ -29,9 +29,10 @@ DtContacto::DtContacto(string nombre, string numCel, string tipo, DtFecha fechaI
     DtFecha fechaIng;
     DtHora horaIng;*/
 
-DtContacto::DtContacto(string nombre,int numCel) {
+DtContacto::DtContacto(string nombre,int numCel, string urlImagen) {
     this->nombre=nombre;
-    this->numCel=numCel;
+    this->numCel= std::to_string(numCel);
+    this->urlImagen = urlImagen;
 }
 DtContacto::DtContacto(const DtContacto& orig) {
 }
@@ -78,4 +79,12 @@ string DtContacto::GetTipo() {
 
 void DtContacto::SetTipo(string tipo) {
     this->tipo = tipo;
+}
+
+string DtContacto::getUrlImagen(){
+    return this->urlImagen;
+}
+
+void DtContacto::setUrlImagen(string urlImagen){
+    this->urlImagen = urlImagen;
 }

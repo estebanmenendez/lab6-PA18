@@ -41,8 +41,13 @@ ContUsuario::~ContUsuario() {}
 //}
 
 
+Usuario* ContUsuario::getUsuLog() {
+    return this->usuLog;
+}
+
+
 bool ContUsuario::usuarioLogueado(int numCel){
-    if(usu->GetCelular()==numCel)return true;
+    if(usuLog->GetCelular()==numCel)return true;
     
     return false;
 }
@@ -73,6 +78,7 @@ bool ContUsuario::cancelaIngreso(){
 DtConexion* ContUsuario::asignarSesion(){
        intKey *ikey = new intKey(this->numCel);
        Usuario * usU = dynamic_cast<Usuario*>(usuario->find(ikey));
+       this->usuLog = usU;
        /*Asignar al usuario usU fecha y hora del sistema*/
        Fecha_Hora_sis* a;
        usU->SetUltima_conexion(a->getUltimaConexion());// Esto tiene error y no tenog ni puta idea de que es!
@@ -81,13 +87,44 @@ DtConexion* ContUsuario::asignarSesion(){
        return r;
 }
 Lista *ContUsuario::listarContactos(){
-
+    Lista* listDtContacto = new Lista();
+    intKey* ikey = new intKey(this->numCel);
+    Usuario* u = dynamic_cast<Usuario*>(this->usuario->find(ikey));
+    Lista* contactos = u->GetContactos();
+    if(contactos->isEmpty()){
+        return listDtContacto;
+    }
+    else{
+        IIterator* i = contactos->iterator();
+        while(i->hasNext()){
+            u = dynamic_cast<Usuario*>(i->getCurrent());
+            DtContacto* dtc = new DtContacto();
+            dtc = u->GetContacto();
+            listDtContacto->add(dtc);
+        }
+    }
+    return listDtContacto;
 }
-DtContacto ContUsuario::ingContacto(int){
-
+DtContacto* ContUsuario::ingContacto(int numCelular){
+    intKey* ikey = new intKey(numCelular);
+    Usuario* usu = dynamic_cast<Usuario*>(this->usuario->find(ikey)); 
+    DtContacto* dtc = NULL;
+    if(usu != NULL){
+        if(usu->GetCelular() == this->usuLog->GetCelular()){
+           // throw std::invalid_argument("No puedes agregarte como contacto a vos mismo.\n");
+        }
+        dtc = new DtContacto();
+        dtc = usu->GetContacto();
+    }
+    else{
+        //throw std::invalid_argument("No existe un usuario con ese celular\n");
+    }
+    return dtc;
 }
-void ContUsuario::agregaContacto(DtContacto){
-
+void ContUsuario::agregaContacto(DtContacto*  dtc){
+    intKey* ikey = new intKey(atoi(dtc->GetNumCel().c_str()));
+    Usuario* usu = dynamic_cast<Usuario*>(this->usuario->find(ikey));
+    this->usuLog->GetContactos()->add(usu);
 }
 void ContUsuario::cerrarSesion(DtConexion){
 }

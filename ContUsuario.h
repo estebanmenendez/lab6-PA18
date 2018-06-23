@@ -37,7 +37,7 @@ class ContUsuario : public iContUsuario {
     
 private:
     ListDicc * usuario = new ListDicc();
-    Usuario * usu;
+    Usuario * usuLog;
     int numCel;
    
     //static iContUsuario * instance;
@@ -56,16 +56,16 @@ public:
     bool cancelaIngreso();
     DtConexion* asignarSesion();
     Lista * listarContactos();
-    DtContacto ingContacto(int);
-    void agregaContacto(DtContacto);
+    DtContacto* ingContacto(int);
+    void agregaContacto(DtContacto*);
     void cerrarSesion(DtConexion); 
     void modificarPerfil(string, string, string);
     void actualizarDatos();
     void setNumCel(int numCel);
     int getNumCel();
     //static iContUsuario * getInstance();
-    //void setUsu(Usuario* usu);
-    //Usuario* getUsu();
+    void setUsuLog(Usuario* usu);
+    Usuario* getUsuLog();
     void setUltimaCon(DtUltCon);
     void setUsuLog(int);
 };

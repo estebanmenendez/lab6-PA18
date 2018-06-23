@@ -40,15 +40,15 @@ virtual bool altaUsuario(string,string,string) = 0;
 virtual bool cancelaIngreso() = 0;
 virtual DtConexion* asignarSesion() = 0;
 virtual Lista * listarContactos() = 0;
-virtual DtContacto ingContacto(int) = 0;
-virtual void agregaContacto(DtContacto) = 0;
+virtual DtContacto* ingContacto(int) = 0;
+virtual void agregaContacto(DtContacto*) = 0;
 virtual void cerrarSesion(DtConexion) = 0; 
 virtual void modificarPerfil(string, string, string) = 0;
 virtual void actualizarDatos() = 0;
 virtual void setNumCel(int numCel)= 0;
 virtual int getNumCel()= 0;
 //virtual void setUsu(Usuario* usu) = 0;
-//virtual Usuario* getUsu()=0;
+virtual Usuario* getUsuLog()=0;
 
 private:
 

@@ -15,100 +15,131 @@
 #include"Fabrica.h"
 using namespace std;
 bool registrarUsuario();
+void agregarContacto();
 /*
  * 
  */
 iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
 int main(int argc, char** argv) {
-    
-    int optMenu = 0, numCelular, optMenuPrincipal = 0;
-    bool flagCelular = false, flagFirstSubMenu = false, flagInitMenu = false, newUser = true, flagMenuPrincipal = false, salir = false;
-    /*RECORDAR QUE LO PRIMERO QUE HAY QUE HACER ES DAR LA OPCIÓN DE CARGAR LOS DATOS DE PRUEBA*/
-    do{ 
-        do{
-            cout<<"----- Bienvenido a TELETIP ----- \n";
-            do{
-                cout<<"Ingrese su número de celular: \n";
-                cin>>numCelular;
-                if(cin.fail()){
-                    cin.clear();
-                    cin.ignore();
-                    cout<<"Por favor ingrese un número\n";
-                }
-                else{
-                    flagCelular = true;
-                }
-            }while(!flagCelular);
-
-        }while(!flagCelular);
-
-        if(ContUsu->ingresarCelular(numCelular)){
-            ContUsu->asignarSesion();
-        }
-        else{
-            do{
-                cout<<"El número ingresado no existe. Por favor, ingrese una de las siguientes opciones:\n1- Registrarse.\n2- Ingresar un nuevo número de celular\n3- Salir\n";
-                cin>>optMenu;
-                if(cin.fail()){
-                    cin.clear();
-                    cin.ignore();
-                    cout<<"Por favor ingrese un número\n";
-                }
-                else{
-                    flagFirstSubMenu = true;
-                }
-            }while(!flagFirstSubMenu);
-            switch(optMenu){
-                case 1:
-                    newUser = registrarUsuario();
-                    flagInitMenu = true;
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    flagInitMenu = true;
-                    salir = true;
-                    break;
-                default:
-                    cout<<"Opción incorrecta. Por favor intente nuevamente.";
-                    break;
-            }
-        }
-    }while(!flagInitMenu);
+    int numCel = 0, optNoCel, optMenuPrincipal;
+    bool salirTotal = false, ingresarCel = false, firstMenu = false; 
     do{
-        if(!salir){
-            cout<<"Ha iniciado sesión en TELETIP\n";
-            cout<<"Ingrese una opción\n";
-            cout<<"1-\n2-\n3-\n0- Salir\n";
-            cin>>optMenuPrincipal;
-            switch(optMenuPrincipal){
-                case 0:
-                    salir = true;
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                default: 
-                    break;
+        try{
+            if(!firstMenu){
+                do{
+                    cout<<"----- Bienvenido a TELETIP -----" << endl;
+                    cout<<" Ingrese un número de celular: " << endl;
+                    cin>>numCel;
+                    if(ContUsu->ingresarCelular(numCel)){
+                        DtConexion* con = ContUsu->asignarSesion();
+                        ingresarCel = true;
+                    }
+                    else{
+                        cout<<"1- Registrarse\n2- Seguir ingresando números\n3- Salir\n";
+                        cin>>optNoCel;
+                        switch(optNoCel){
+                            case 1:
+                                if(registrarUsuario()){
+                                    ingresarCel = true;
+                                }
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                ingresarCel = true;
+                                salirTotal = true;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }while(!ingresarCel);
+            }
+            firstMenu = true;
+            if(!salirTotal){
+                cout<< "1- Agregar contactos\n2- Cerrar sesión\n0- Salir\n";
+                cin>>optMenuPrincipal;
+                switch(optMenuPrincipal){
+                    case 1:
+                        agregarContacto();
+                        break;
+                    case 2: 
+                        break;
+                    case 0:
+                        salirTotal = true;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
-    }while(!salir);
+        catch(invalid_argument& ia){
+            cout<< ia.what();
+        }
+    }while(!salirTotal);
+    
     return 0;
 }
 bool registrarUsuario(){
+    cin.ignore();
     string nombre, urlImagen, descripcion;
     bool flag = false;
     cout<<"Ingrese su nombre: ";
-    cin>>nombre;
+    getline(cin, nombre);
     cout<<"\nIngrese la URL de su imagen de perfil: ";
-    cin>>urlImagen;
+    getline(cin, urlImagen);
     cout<<"\nIngrese la descripción de la imagen: ";
-    cin>>descripcion;
+    getline(cin, descripcion);
     if(ContUsu->altaUsuario(nombre,urlImagen,descripcion)){
         DtConexion* p = ContUsu->asignarSesion();
+        return true;
     }
-    return true;
+    else{
+        return false;
+    }
+    
+}
+
+void agregarContacto(){
+    Lista* ltCont = ContUsu->listarContactos();
+    int numCel;
+    char confirmar, salir='n';
+    DtContacto* dtc = new DtContacto();
+    do{
+        if(ltCont->isEmpty()){
+            cout<<"No tiene contactos\n";
+        }
+        else{
+            IIterator* i = ltCont->iterator();
+            while(i->hasNext()){
+                dtc = dynamic_cast<DtContacto*>(i->getCurrent());
+                cout<< dtc->GetNombre() << endl;
+                cout<< dtc->GetNumCel() << endl;
+                cout<< dtc->getUrlImagen() << endl;
+            }
+        }
+        cout<<"Ingrese un número de celular: ";
+        cin>>numCel;
+        dtc = ContUsu->ingContacto(numCel);
+        if(dtc != NULL){
+            if(dtc->GetNumCel() == std::to_string(ContUsu->getUsuLog()->GetCelular())){
+                cout<<"No puedes agregarte como contacto a vos mismo.\n";
+            }
+            else{
+                cout<< dtc->GetNombre() << endl;
+                cout<< dtc->GetNumCel() << endl;
+                cout<< dtc->getUrlImagen() << endl;
+                cout<< "¿Confirmar el ingreso? s/n\n";
+                cin>>confirmar;
+                if(confirmar == 's'){
+                    ContUsu->agregaContacto(dtc);
+                }
+            }
+        }
+        else{
+            cout<<"No existe un usuario con ese celular\n";
+        }
+        cout<<"Desea seguir agregando contactos? s/n\n";
+        cin>>salir;
+    }while(salir == 's');
 }

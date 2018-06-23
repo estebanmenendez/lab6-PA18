@@ -26,7 +26,7 @@ class DtContacto  :public ICollectible{
 public:
     DtContacto();
     DtContacto(string , string , string , DtFecha , DtHora );
-    DtContacto(string,int);
+    DtContacto(string,int, string);
     DtContacto(const DtContacto& orig);
     virtual ~DtContacto();
     
@@ -35,18 +35,21 @@ public:
     string GetNumCel();
     string GetTipo();
     string GetNombre();
+    string getUrlImagen();
 
     void SetFechaIng(DtFecha);
     void SetHoraIng(DtHora);   
     void SetNombre(string);
     void SetNumCel(string);
     void SetTipo(string);
+    void setUrlImagen(string);
     
 private:
     
     string nombre;
     string numCel;
     string tipo;
+    string urlImagen;
     DtFecha fechaIng;
     DtHora horaIng;
 

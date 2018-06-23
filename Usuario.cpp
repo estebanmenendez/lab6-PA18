@@ -40,7 +40,7 @@ Usuario::~Usuario() {
     }
 
     DtContacto* Usuario::GetContacto()  {
-        DtContacto* DtCont=new DtContacto(nombre,celular);
+        DtContacto* DtCont=new DtContacto(this->nombre,this->celular,this->foto_Perfil );
            return DtCont;     
     }
 
