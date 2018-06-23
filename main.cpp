@@ -16,6 +16,7 @@
 using namespace std;
 bool registrarUsuario();
 void agregarContacto();
+void crSes();
 /*
  * 
  */
@@ -44,6 +45,7 @@ int main(int argc, char** argv) {
                                 }
                                 break;
                             case 2:
+                                crSes();
                                 break;
                             case 3:
                                 ingresarCel = true;
@@ -64,6 +66,9 @@ int main(int argc, char** argv) {
                         agregarContacto();
                         break;
                     case 2: 
+                        crSes();
+                        ingresarCel = false;
+                        firstMenu = false;
                         break;
                     case 0:
                         salirTotal = true;
@@ -79,6 +84,10 @@ int main(int argc, char** argv) {
     }while(!salirTotal);
     
     return 0;
+}
+
+void crSes(){
+    ContUsu->cerrarSesion(new DtConexion());
 }
 bool registrarUsuario(){
     cin.ignore();
@@ -97,7 +106,6 @@ bool registrarUsuario(){
     else{
         return false;
     }
-    
 }
 
 void agregarContacto(){

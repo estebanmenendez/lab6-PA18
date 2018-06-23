@@ -17,7 +17,7 @@
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"DtUltCon.h"
-
+#include<string>
 class Fecha_Hora_sis{
 private:
     
@@ -26,6 +26,7 @@ private:
     
 public:
     
+    string currentDateTime();
     DtFecha * getFecha();
     DtHora * getHora();
     int setFecha(int,int,int);
@@ -34,8 +35,5 @@ public:
     Fecha_Hora_sis(int,int,int,int,int,int);
     virtual ~Fecha_Hora_sis();
     DtUltCon * getUltimaConexion();
-
-   
-  
 };
 #endif /* FECHA_HORA_SIS_H */

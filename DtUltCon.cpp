@@ -22,3 +22,26 @@ DtUltCon::DtUltCon(const DtUltCon& orig) {
 DtUltCon::~DtUltCon() {
 }
 
+
+DtFecha* DtUltCon::getFecha(){
+    return this->fecha;
+}
+
+void DtUltCon::setFecha(DtFecha* fecha){
+    this->fecha = fecha;
+}
+
+DtHora* DtUltCon::getHora(){
+    return this->hora;
+}
+void DtUltCon::setHora(DtHora* hora){
+    this->hora = hora;
+}
+
+DtUltCon::DtUltCon(DtFecha* fecha, DtHora* hora) {
+    this->hora = hora;
+    this->fecha = fecha;
+}
+
+
+

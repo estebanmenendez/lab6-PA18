@@ -67,9 +67,11 @@ public:
     Lista * getConversaciones();
     Lista * getConversacionesAr();
     Lista * GetContactos();
+    ListDicc* getListaContactos();
 //    Conversacion selecionarConversacion(int);
     //void crearTipoGrupo(DtTipo *,Grupo *);
     void crearConvGrupo(Conversacion *);
+    void addContacto(Usuario*);
 //    DtFechaHoraIng * getFechaIng(Grupo);
     Usuario * seleccionarCont(int);
     void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
@@ -77,7 +79,7 @@ public:
    
     private:
     
-    ListDicc * contactos= new ListDicc();
+    ListDicc * contactos = new ListDicc();
     Lista * estadoConv=new Lista();
     Lista * tipo=new Lista();
     int celular;
