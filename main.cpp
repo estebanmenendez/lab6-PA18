@@ -16,10 +16,15 @@
 using namespace std;
 bool registrarUsuario();
 void agregarContacto();
+void altaGrupo();
+
 /*
  * 
  */
 iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
+iContGrupo * ContGru = Fabrica::getInstance()->getContGrupo();
+iContMensaje * ContMen = Fabrica::getInstance()->getContMensaje();
+
 int main(int argc, char** argv) {
     int numCel = 0, optNoCel, optMenuPrincipal;
     bool salirTotal = false, ingresarCel = false, firstMenu = false; 
@@ -57,13 +62,16 @@ int main(int argc, char** argv) {
             }
             firstMenu = true;
             if(!salirTotal){
-                cout<< "1- Agregar contactos\n2- Cerrar sesión\n0- Salir\n";
+                cout<< "1- Agregar contactos\n2- Cerrar sesión\n3 - Crear Grupo\n0- Salir\n";
                 cin>>optMenuPrincipal;
                 switch(optMenuPrincipal){
                     case 1:
                         agregarContacto();
                         break;
                     case 2: 
+                        break;
+                    case 3: 
+                        altaGrupo();
                         break;
                     case 0:
                         salirTotal = true;
@@ -80,6 +88,7 @@ int main(int argc, char** argv) {
     
     return 0;
 }
+
 bool registrarUsuario(){
     cin.ignore();
     string nombre, urlImagen, descripcion;
@@ -142,4 +151,65 @@ void agregarContacto(){
         cout<<"Desea seguir agregando contactos? s/n\n";
         cin>>salir;
     }while(salir == 's');
+}
+
+void altaGrupo(){
+    Lista* ltCont = ContUsu->listarContactos();
+    char salir='n',confirmar ;
+    int  numCel;
+    Lista* ltElegido = new Lista();
+    DtContacto* dtc = new DtContacto();
+    DtContacto* dte = new DtContacto();
+    cout<<"\nCreación de Grupo\n\n";
+     do{
+        if(ltCont->isEmpty()){
+            cout<<"No tiene contactos\n";
+        }
+        else{
+            cout<<"\nContactos Seleccionados:\n ";
+
+            IIterator* j = ltElegido->iterator();
+            while(j->hasNext()){
+                dte = dynamic_cast<DtContacto*>(j->getCurrent());
+                cout<< dte->GetNombre() << endl;
+                cout<< dte->GetNumCel() << endl;
+                cout<< dte->getUrlImagen() << endl;
+            }
+            cout<<"\nContactos:\n ";
+
+            IIterator* i = ltCont->iterator();
+            while(i->hasNext()){
+                dtc = dynamic_cast<DtContacto*>(i->getCurrent());
+                cout<< dtc->GetNombre() << endl;
+                cout<< dtc->GetNumCel() << endl;
+                cout<< dtc->getUrlImagen() << endl;
+            }
+        
+            cout<<"Ingrese celular para agregar: ";
+            cin>>numCel;
+            dtc = ContUsu->ingContacto(numCel);
+            if(dtc != NULL){
+                if(dtc->GetNumCel() == std::to_string(ContUsu->getUsuLog()->GetCelular())){
+                    cout<<"No puedes agregarte como contacto a vos mismo.\n";
+                }
+                else{
+                    cout<< dtc->GetNombre() << endl;
+                    cout<< dtc->GetNumCel() << endl;
+                    cout<< dtc->getUrlImagen() << endl;
+                    cout<< "¿Confirmar el ingreso al Grupo? s/n\n";
+                    cin>>confirmar;
+                    if(confirmar == 's'){
+                        ltElegido->add(dtc);
+                    }
+                }
+            }
+            else{
+                cout<<"No existe un usuario con ese celular\n";
+            }
+        }
+        cout<<"Desea seguir agregando contactos al Grupo ? s/n\n";
+        cin>>salir;
+    }while(salir == 's');
+    
+    
 }

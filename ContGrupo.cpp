@@ -39,7 +39,9 @@ bool ContGrupo::agregarNuevoAdmin(int){}
 Lista* ContGrupo::listarContactos(){}
 DtContacto ContGrupo::seleccionarContacto(int){}
 void ContGrupo::agregarParticipante(DtContacto){}
-Lista* ContGrupo::listarParticipantes(){}
+Lista* ContGrupo::listarParticipantes(){
+ 
+}
 DtContacto ContGrupo::seleccionarPart(int){}
 void ContGrupo::eliminarPartipante(DtContacto){}
 void ContGrupo::cancelar(){}
