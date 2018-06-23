@@ -13,6 +13,9 @@
 
 #include "Mensaje.h"
 #include "Multimedia.h"
+#include "DtMensajeVisto.h"
+#include "iContUsuario.h"
+#include "Fabrica.h"
 
 Mensaje::Mensaje() {
 }
@@ -61,4 +64,17 @@ bool Mensaje::esReceptor(int numCel){
 DtMensaje * Mensaje::getMensaje(){
     DtMensaje * men=new DtMensaje(this->codigo,this->fechaEnv,this->horaEnv);
     return men;
+}
+Lista * Mensaje::GetVistos(){
+    Lista *listaVistos;
+    IIterator *it=visto->iterator();
+    while(it->hasNext()){
+        Visto * vis=dynamic_cast<Visto*>(it->getCurrent());
+        iContUsuario *contUsu=Fabrica::getInstance()->getContUsuario();
+        DtMensajeVisto* DtMVisto=new DtMensajeVisto(contUsu->getNombreCont(vis->getReceptor()),vis->getReceptor()
+                vis->getFechaHoraVisto());
+        listaVistos->add(DtMVisto);
+    }
+    return listaVistos;
+    //string nombre, int celular, DtFechaHoraVisto *fhv
 }

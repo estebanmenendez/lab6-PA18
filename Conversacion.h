@@ -13,7 +13,7 @@
 
 #ifndef CONVERSACION_H
 #define CONVERSACION_H
-
+#include "iContUsuario.h"
 #include"Mensaje.h"
 #include <string.h>
 #include"Lista.h"
@@ -41,13 +41,13 @@ public:
     void remueveConv(Mensaje*);
     void eviarMensaje(Mensaje*);
     Lista* listarMensaje(DtFechaHoraIng* );
-    Lista* listarVistos(int);
+    Lista* listarVistos(int codMens);
     void setEstado(bool);
     void setIdConv(int);
     int getIdConv();
     int getCelContacto();
     string getNomGrupo();
-    //Usuario * getReceptor();
+   ;
 private:
     
         //Grupo * grupo;

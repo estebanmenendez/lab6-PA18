@@ -32,14 +32,14 @@ public:
     int GetCodigo();
     DtFecha GetFechaEnv();
     DtHora GetHoraEnv();
-    Lista* GetVisto();
+    Lista* GetVistos();
     //Visto* esReceptor(Usuario*);
     void SetCodigo(int);
     void SetFechaEnv(DtFecha);    
     void SetHoraEnv(DtHora);
     DtMensaje *getMensaje();
     bool esReceptor(int);
-    
+    Lista *listarVistos();
 private:
         
         Lista* visto=new Lista();

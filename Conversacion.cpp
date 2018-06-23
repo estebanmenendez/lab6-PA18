@@ -12,7 +12,6 @@
  */
 
 #include "Conversacion.h"
-#include "ContUsuario.h"
 
 Conversacion::Conversacion() {
 }
@@ -61,16 +60,15 @@ void Conversacion::eviarMensaje(Mensaje* m){
 }
 
 Lista* Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora){
-    ContUsuario *contUsu;
+iContUsuario *contUsu=Fabrica::getInstance()->getContUsuario();
   IIterator *it=mensajes->getIteratorObj();
   Lista* listDtMensaje = new Lista();
   if (fecha_hora==NULL){
    while(it->hasNext()){
         Mensaje *men=dynamic_cast<Mensaje*>(it->getCurrent()); 
-        men->esReceptor(contUsu->getNumCel());
+        men->esReceptor(contUsu->getUsu().);
         listDtMensaje->add(men->getMensaje());
-     
-               
+                  
    }
    }
    else{
@@ -80,32 +78,19 @@ Lista* Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora){
               &&m->GetFechaEnv().GetMes()>=fecha_hora->GetFecha().GetMes()&& m->GetHoraEnv().GetHora()>=fecha_hora->GetHora().GetHora()&& m->GetHoraEnv().GetMinutos()>=
               fecha_hora->GetHora().GetMinutos()&&m->GetHoraEnv().GetSegundo()>=fecha_hora->GetHora().GetSegundo()){
             listDtMensaje->add(m->getMensaje());              
-            m->esReceptor(contUsu->getUsu());}
+            m->esReceptor(contUsu->g);}
             }
         
         }
       return listDtMensaje;
 }
 Lista *Conversacion::listarVistos(int idMen){
-    Lista *listaMensVisto=new Lista();
+    Lista *listaMensVisto;
     intKey *key=new intKey(idMen);
-  Mensaje *men=dynamic_cast<Mensaje*>(mensajes->find(key)); 
-//  listaMensVisto=men->getVistos();
-  return listaMensVisto;
+    Mensaje *men=dynamic_cast<Mensaje*>(mensajes->find(key)); 
+    listaMensVisto=men->GetVistos();
+    return listaMensVisto;
 
-}
-
-
-void Conversacion::setEstado(bool estado){
-//    ContMensaje* contMen;
-//    IIterator *it=estadoConv->iterator();
-//    while(it->hasNext()){
-//    EstadoConv *ec= (dynamic_cast<EstadoConv*>(it->getCurrent()));
-//    if(ec->getUsuario()== contMen->getUsu())
-//    {ec->setEstado(estado);} 
-//   
-//    }
-//    
 }
 
 

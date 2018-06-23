@@ -75,8 +75,9 @@ public:
     DtConversacion * getConvGrupo(int);
     bool sosElOtro(int idConv);
     Lista * listarMensajes(int codConv);
-    private:
-    
+    Lista * listarVistos(int idMens);
+    string nombreUsu(int numCel);
+private:
     ListDicc * contactos= new ListDicc();
     Lista * estadoConv=new Lista();
     Lista * tipo=new Lista();

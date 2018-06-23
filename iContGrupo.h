@@ -20,7 +20,7 @@
 #include"DtTipo.h"
 #include"DtContacto.h"
 //#include"Usuario.h"
-#include"Grupo.h"
+//#include"Grupo.h"
 
 
 using namespace std;

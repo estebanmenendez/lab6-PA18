@@ -17,12 +17,13 @@
     DtFechaHoraVisto FechaHoraVisto;
 */
 
-DtMensajeVisto::DtMensajeVisto(string nombre, int celular, DtFechaHoraVisto fhv){
+DtMensajeVisto::DtMensajeVisto(string nombre, int celular, DtFechaHoraVisto *fhv){
     this->Nombre = nombre;
     this->Celular = celular;
     this->FechaHoraVisto = fhv;
 }
 DtMensajeVisto::DtMensajeVisto() {
+    
 }
 
 DtMensajeVisto::DtMensajeVisto(const DtMensajeVisto& orig) {

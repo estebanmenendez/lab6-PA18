@@ -42,7 +42,7 @@ ContUsuario::~ContUsuario() {}
 
 
 bool ContUsuario::usuarioLogueado(int numCel){
-    if(usu==numCel)return true;
+    if(usu->GetCelular()==numCel)return true;
     return false;
 }
 bool ContUsuario::ingresarCelular(int numCel){
@@ -75,11 +75,11 @@ DtConexion* ContUsuario::asignarSesion(){
        /*Asignar al usuario usU fecha y hora del sistema*/
        Fecha_Hora_sis* a;
        usU->SetUltima_conexion(a->getUltimaConexion());// Esto tiene error y no tenog ni puta idea de que es!
-       setUsuLog(usU->GetCelular()); 
+       setUsuLog(usU); 
        DtConexion* r = new DtConexion();
        return r;
 }
-int ContUsuario::getUsu(){
+Usuario* ContUsuario::getUsu(){
     return this->usu;
 }
 int ContUsuario::getNumContacto(int idConv){
@@ -118,23 +118,15 @@ int ContUsuario::getNumCel() {
 void ContUsuario::setUltimaCon(DtUltCon){
     
 }
-void ContUsuario::setUsuLog(int idUsu){
-    this->usu=idUsu;
+void ContUsuario::setUsuLog(Usuario* usu){
+    this->usu=usu;
             
 }
 
-/*iContUsuario * ContUsuario::getInstance(){
-    if(instance== NULL)
-        instance = new ContUsuario();
-    return instance;   
-}
-*/
-
-//
-//void ContUsuario::setUsu(Usuario* usu) {
-//    this->usu = usu;
-//}
-//
-//Usuario* ContUsuario::getUsu()  {
-//    return usu;
-//}
+ Lista * ContUsuario::seleccionarConversacion(int idconv){
+ 
+ }
+ string ContUsuario::getNombreCont(int receptor){
+     return usu->nombreUsu(receptor); //tre el nombre del receptor
+ 
+ }

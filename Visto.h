@@ -16,6 +16,7 @@
 //#include"Usuario.h"
 #include"DtFecha.h"
 #include"DtHora.h"
+#include "DtFechaHoraVisto.h"
 
 using namespace std;
 
@@ -34,10 +35,11 @@ public:
     void SetHoraV(DtHora *);
     void SetEstado(bool);
     bool esReceptor(int);
-    
+    int getReceptor();
+    DtFechaHoraVisto * getFechaHoraVisto();
 private:
     
-       int Receptor;
+        int Receptor;
         bool estado; 
         DtFecha * fechaV;
         DtHora * horaV;

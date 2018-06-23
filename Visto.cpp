@@ -51,3 +51,10 @@ void Visto::SetHoraV(DtHora * horaV) {
 bool Visto::esReceptor(int recep){
     if (recep==this->Receptor) return true;
 }   
+int Visto::getReceptor(){
+    return Receptor;
+}
+DtFechaHoraVisto * Visto::getFechaHoraVisto(){
+    DtFechaHoraVisto* dtFecha=new DtFechaHoraVisto(fechaV,horaV);
+    return dtFecha;
+}

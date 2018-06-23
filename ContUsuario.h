@@ -37,7 +37,7 @@ class ContUsuario : public iContUsuario {
     
 private:
     ListDicc * usuario = new ListDicc();
-    int usu;
+    Usuario* usu;
     int numCel;
    
     //static iContUsuario * instance;
@@ -46,7 +46,7 @@ public:
     ContUsuario();
     ContUsuario(const ContUsuario& orig);
     virtual ~ContUsuario();
-
+    Lista * seleccionarConversacion(int idconv);
 //    void create(string,string,string,int,DtFecha,DtHora);
    // void setUltimaCon(DtUltCon);
 //    void setUsuLog(int);
@@ -67,9 +67,10 @@ public:
     //void setUsu(Usuario* usu);
     //Usuario* getUsu();
     void setUltimaCon(DtUltCon);
-    void setUsuLog(int);
+    void setUsuLog(Usuario*);
     int getNumContacto(int idConv);
-    int getUsu();
+    Usuario* getUsu();
+    string getNombreCont(int receptor);
 };
 
 #endif /* CONTUSUARIO_H */

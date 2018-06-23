@@ -12,6 +12,7 @@
  */
 
 #include"ContMensaje.h"
+#include "Fabrica.h"
 
 using namespace std;
 //iContMensaje * ContMensaje::instance = NULL;
@@ -54,7 +55,9 @@ void ContMensaje::getContactos(){}
 Lista* ContMensaje::listarConv(){}
 void ContMensaje::seleccionarConv(string){}
 void ContMensaje::archivarConv(DtConversacion){}
-Lista* ContMensaje::seleccionarConversacion(string){}
+Lista* ContMensaje::seleccionarConversacion(int idConv){
+   
+}
 void ContMensaje::seleccionarMensaje(int){}
 void ContMensaje::eliminarMensaje(DtMensaje){}
 Lista* ContMensaje::listarConvArchivadas(){}

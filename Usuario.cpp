@@ -245,3 +245,18 @@ Lista * Usuario::getConversaciones(){
                     
         }
     }
+    
+    Lista * Usuario::listarVistos(int idMens){
+        Lista *vistos;
+        IIterator *it=estadoConv->iterator();
+        while(it->hasNext()){
+            EstadoConv *ec=dynamic_cast<EstadoConv*>(it->getCurrent());
+            
+        }
+        
+    }
+     string Usuario::nombreUsu(int numCel){
+         intKey *iKey=new intKey(numCel);
+         Usuario *us=dynamic_cast<Usuario*>(contactos->find(iKey));
+         return us->GetNombre();
+     }

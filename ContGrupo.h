@@ -15,6 +15,7 @@
 #define CONTGRUPO_H
 
 #include"iContGrupo.h"
+#include"Grupo.h"
 //#include"Lista.h"
 //#include"IDictionary.h"
 using namespace std;

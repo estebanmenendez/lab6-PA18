@@ -60,7 +60,7 @@ virtual void crearMensaje() = 0;
 //virtual Usuario* getUsu() = 0;
 virtual void setMensaje(DtMensaje mensaje)= 0;
 virtual DtMensaje getMensaje() = 0;
-
+virtual void setIdConv(int id)=0;
 };
 
 #endif /* ICONTMENSAJE_H */
