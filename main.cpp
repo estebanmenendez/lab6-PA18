@@ -119,11 +119,12 @@ bool registrarUsuario(){
 }
 
 void agregarContacto(){
-    Lista* ltCont = ContUsu->listarContactos();
-    int numCel;
     char confirmar, salir='n';
-    DtContacto* dtc = new DtContacto();
     do{
+        Lista* ltCont = ContUsu->listarContactos();
+        int numCel;
+        DtContacto* dtc = new DtContacto();
+        bool existe = false;
         if(ltCont->isEmpty()){
             cout<<"No tiene contactos\n";
         }
@@ -134,14 +135,25 @@ void agregarContacto(){
                 cout<< dtc->GetNombre() << endl;
                 cout<< dtc->GetNumCel() << endl;
                 cout<< dtc->getUrlImagen() << endl;
+                i->next();
             }
         }
         cout<<"Ingrese un número de celular: ";
         cin>>numCel;
+        IIterator* i = ltCont->iterator();
+        while(i->hasNext()){
+            DtContacto* dtc = dynamic_cast<DtContacto*>(i->getCurrent());
+            if(atoi(dtc->GetNumCel().c_str()) == numCel)
+                existe = true;
+            i->next();
+        }
         dtc = ContUsu->ingContacto(numCel);
         if(dtc != NULL){
             if(dtc->GetNumCel() == std::to_string(ContUsu->getUsuLog()->GetCelular())){
                 cout<<"No puedes agregarte como contacto a vos mismo.\n";
+            }
+            else if(existe){
+                cout<<"Ya tienes a este contacto agregado\n";
             }
             else{
                 cout<< dtc->GetNombre() << endl;

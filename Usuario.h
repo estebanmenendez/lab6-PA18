@@ -79,7 +79,7 @@ public:
    
     private:
     
-    ListDicc * contactos = new ListDicc();
+    ListDicc* contactos = new ListDicc();
     Lista * estadoConv=new Lista();
     Lista * tipo=new Lista();
     int celular;
