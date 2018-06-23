@@ -48,7 +48,7 @@ public:
     virtual DtContacto seleccionarParticipante(int) = 0;
     virtual void eliminarPartipante(DtContacto) = 0;
     virtual void cancelar() = 0;
-    virtual DtGrupo altaGrupo(string,string) = 0;
+    virtual DtGrupo altaGrupo(string ,string ) = 0;
     virtual void Salir() = 0;
 private:
     

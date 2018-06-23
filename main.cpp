@@ -16,7 +16,9 @@
 using namespace std;
 bool registrarUsuario();
 void agregarContacto();
+
 void altaGrupo();
+void crSes();
 
 /*
  * 
@@ -49,6 +51,7 @@ int main(int argc, char** argv) {
                                 }
                                 break;
                             case 2:
+                                crSes();
                                 break;
                             case 3:
                                 ingresarCel = true;
@@ -69,6 +72,9 @@ int main(int argc, char** argv) {
                         agregarContacto();
                         break;
                     case 2: 
+                        crSes();
+                        ingresarCel = false;
+                        firstMenu = false;
                         break;
                     case 3: 
                         altaGrupo();
@@ -89,6 +95,10 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+void crSes(){
+    ContUsu->cerrarSesion(new DtConexion());
+}
+
 bool registrarUsuario(){
     cin.ignore();
     string nombre, urlImagen, descripcion;
@@ -106,7 +116,6 @@ bool registrarUsuario(){
     else{
         return false;
     }
-    
 }
 
 void agregarContacto(){
@@ -154,7 +163,7 @@ void agregarContacto(){
 }
 
 void altaGrupo(){
-    Lista* ltCont = ContUsu->listarContactos();
+   //Lista* ltCont = ContUsu->listarContactos();
     char salir='n',confirmar ;
     int  numCel;
     Lista* ltElegido = new Lista();
@@ -162,11 +171,12 @@ void altaGrupo(){
     DtContacto* dte = new DtContacto();
     cout<<"\nCreación de Grupo\n\n";
      do{
+        Lista* ltCont = ContUsu->listarContactos();
         if(ltCont->isEmpty())
-//        {
-//            cout<<"No tiene contactos\n";
-//        }
-//        else
+        {
+            cout<<"No tiene contactos\n";
+        }
+        else
         {
             cout<<"\nContactos Seleccionados:\n ";
 
@@ -176,6 +186,7 @@ void altaGrupo(){
                 cout<< dte->GetNombre() << endl;
                 cout<< dte->GetNumCel() << endl;
                 cout<< dte->getUrlImagen() << endl;
+                j->next();
             }
             cout<<"\nContactos:\n ";
 
@@ -185,9 +196,10 @@ void altaGrupo(){
                 cout<< dtc->GetNombre() << endl;
                 cout<< dtc->GetNumCel() << endl;
                 cout<< dtc->getUrlImagen() << endl;
+                i->next();
             }
         
-            cout<<"Ingrese celular para agregar: ";
+            cout<<"Ingrese celular para agregar al grupo: ";
             cin>>numCel;
             dtc = ContUsu->ingContacto(numCel);
             if(dtc != NULL){
@@ -211,9 +223,17 @@ void altaGrupo(){
         }
         cout<<"Desea seguir agregando contactos al Grupo ? s/n\n";
         cin>>salir;
-        if (!ltElegido->isEmpty()){
-            ContGru->altaGrupo()
-            ContGru->agregarNuevoAdmin(ContUsu->getUsuLog()->GetCelular());
+        if (salir == 'n'){
+            if (!ltElegido->isEmpty()){
+                ContGru->altaGrupo(" " ," ");
+                cout<<"\nSe dio de alta al grupo";
+                ContGru->agregarNuevoAdmin(ContUsu->getUsuLog()->GetCelular());
+                salir = 'n';
+            }else{
+                cout<<"\nDebe ingresar por lo menos 1 contacto\n";
+                cout<<"\nDesea seguir agregando contactos al Grupo ? s/n\n";
+                cin>>salir;
+            }
         }
     }while(salir == 's');
     

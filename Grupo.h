@@ -30,25 +30,25 @@ public:
     virtual ~Grupo();
         
     void SetCreador(int);
-    DtFecha GetFecha();
-    DtHora GetHora();
+    DtFecha* GetFecha();
+    DtHora* GetHora();
     int GetCreador();
     string GetImagen();
     string GetNombre();
        
-    void SetFecha(DtFecha);    
-    void SetHora(DtHora);    
+    void SetFecha(DtFecha*);    
+    void SetHora(DtHora*);    
     void SetImagen(string);    
     void SetNombre(string);
-    Lista * getUsuarios();
+//    Lista * getUsuarios();
     
 private:    
        
     Conversacion * conv;
     string nombre;
     string imagen;
-    DtFecha fecha;
-    DtHora hora;    
+    DtFecha* fecha;
+    DtHora* hora;    
     int creador; 
 
 };

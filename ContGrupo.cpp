@@ -47,6 +47,7 @@ Lista* ContGrupo::listarParticipantes(){
 DtContacto ContGrupo::seleccionarPart(int){}
 void ContGrupo::eliminarPartipante(DtContacto){}
 void ContGrupo::cancelar(){}
+
 DtGrupo ContGrupo::altaGrupo(string imagen,string nombre){
     Grupo * grupo = new Grupo();
     grupo->SetImagen(imagen);

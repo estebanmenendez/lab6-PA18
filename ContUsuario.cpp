@@ -86,23 +86,8 @@ DtConexion* ContUsuario::asignarSesion(){
        DtConexion* r = new DtConexion();
        return r;
 }
-Lista *ContUsuario::listarContactos(){
-    Lista* listDtContacto = new Lista();
-    intKey* ikey = new intKey(this->numCel);
-    Usuario* u = dynamic_cast<Usuario*>(this->usuario->find(ikey));
-    Lista* contactos = u->GetContactos();
-    if(contactos->isEmpty()){
-        return listDtContacto;
-    }
-    else{
-        IIterator* i = contactos->iterator();
-        while(i->hasNext()){
-            u = dynamic_cast<Usuario*>(i->getCurrent());
-            DtContacto* dtc = new DtContacto();
-            dtc = u->GetContacto();
-            listDtContacto->add(dtc);
-        }
-    }
+Lista* ContUsuario::listarContactos(){
+    Lista* listDtContacto = this->usuLog->GetContactos();
     return listDtContacto;
 }
 DtContacto* ContUsuario::ingContacto(int numCelular){
@@ -124,9 +109,13 @@ DtContacto* ContUsuario::ingContacto(int numCelular){
 void ContUsuario::agregaContacto(DtContacto*  dtc){
     intKey* ikey = new intKey(atoi(dtc->GetNumCel().c_str()));
     Usuario* usu = dynamic_cast<Usuario*>(this->usuario->find(ikey));
-    this->usuLog->GetContactos()->add(usu);
+    this->usuLog->addContacto(usu);
 }
-void ContUsuario::cerrarSesion(DtConexion){
+void ContUsuario::cerrarSesion(DtConexion*){
+    Fecha_Hora_sis* fhs;
+    DtUltCon* ultc = fhs->getUltimaConexion();
+    this->usuLog->SetUltima_conexion(ultc);
+    this->usuLog = NULL;
 }
 void ContUsuario::modificarPerfil(string, string, string){
 }

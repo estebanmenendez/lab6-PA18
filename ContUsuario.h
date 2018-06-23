@@ -58,7 +58,7 @@ public:
     Lista * listarContactos();
     DtContacto* ingContacto(int);
     void agregaContacto(DtContacto*);
-    void cerrarSesion(DtConexion); 
+    void cerrarSesion(DtConexion*); 
     void modificarPerfil(string, string, string);
     void actualizarDatos();
     void setNumCel(int numCel);
