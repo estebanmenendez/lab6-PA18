@@ -73,11 +73,6 @@ Lista * ContMensaje::listarConversaciones(){
     return convAct;
    // contUsu.getUsu
 }
-/*iContMensaje * ContMensaje::getInstance(){
-    if(instance== NULL)
-        instance = new ContMensaje();
-    return instance;
-        
-}*/
+
 
 
