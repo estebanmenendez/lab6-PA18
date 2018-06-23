@@ -79,10 +79,8 @@ DtConexion* ContUsuario::asignarSesion(){
        intKey *ikey = new intKey(this->numCel);
        Usuario * usU = dynamic_cast<Usuario*>(usuario->find(ikey));
        this->usuLog = usU;
-       /*Asignar al usuario usU fecha y hora del sistema*/
        Fecha_Hora_sis* a;
        usU->SetUltima_conexion(a->getUltimaConexion());// Esto tiene error y no tenog ni puta idea de que es!
-       //setUsuLog(usu->GetCelular()); No hace nada? No sé como pensamos controlar el usuario que está logeado
        DtConexion* r = new DtConexion();
        return r;
 }
@@ -95,14 +93,8 @@ DtContacto* ContUsuario::ingContacto(int numCelular){
     Usuario* usu = dynamic_cast<Usuario*>(this->usuario->find(ikey)); 
     DtContacto* dtc = NULL;
     if(usu != NULL){
-        if(usu->GetCelular() == this->usuLog->GetCelular()){
-           // throw std::invalid_argument("No puedes agregarte como contacto a vos mismo.\n");
-        }
         dtc = new DtContacto();
         dtc = usu->GetContacto();
-    }
-    else{
-        //throw std::invalid_argument("No existe un usuario con ese celular\n");
     }
     return dtc;
 }

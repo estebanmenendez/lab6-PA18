@@ -158,6 +158,7 @@ Lista * Usuario::GetContactos() {
     while (it->hasNext()) {
         Usuario* cont = dynamic_cast<Usuario*> (it->getCurrent());
         Dtcontactos->add(cont->GetContacto());
+        it->next();
     }
     return Dtcontactos;
 }
