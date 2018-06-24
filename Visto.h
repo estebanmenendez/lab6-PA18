@@ -16,10 +16,11 @@
 
 #include"DtFecha.h"
 #include"DtHora.h"
+#include"ICollectible.h"
 
 using namespace std;
 
-class Visto {
+class Visto : public ICollectible {
 public:
     Visto();
     Visto(const Visto& orig);
@@ -37,7 +38,7 @@ public:
     
 private:
     
-        int S;
+        int receptor;
         bool estado; 
         DtFecha * fechaV;
         DtHora * horaV;

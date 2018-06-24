@@ -20,6 +20,9 @@ void agregarContacto();
  * 
  */
 iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
+iContMensaje* ContMen = Fabrica::getInstance()->getContMensaje();
+iContGrupo* ContGru = Fabrica::getInstance()->getContGrupo();
+
 int main(int argc, char** argv) {
     int numCel = 0, optNoCel, optMenuPrincipal;
     bool salirTotal = false, ingresarCel = false, firstMenu = false; 
@@ -57,7 +60,7 @@ int main(int argc, char** argv) {
             }
             firstMenu = true;
             if(!salirTotal){
-                cout<< "1- Agregar contactos\n2- Cerrar sesión\n0- Salir\n";
+                cout<< "1- Agregar contactos\n2- Cerrar sesión\n0- Salir\n";//Aca los casos de uso
                 cin>>optMenuPrincipal;
                 switch(optMenuPrincipal){
                     case 1:

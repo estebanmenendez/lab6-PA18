@@ -25,10 +25,11 @@
 #include"DtMensaje.h"
 //#include "EstadoConv.h"
 #include"Fecha_Hora_sis.h"
+#include"ICollectible.h"
 
 using namespace std;
 
-class Conversacion {
+class Conversacion: public ICollectible {
     
     
 public:
@@ -39,6 +40,7 @@ public:
     bool sosConversacion(int);
     Mensaje* getMensaje(int);
     void remueveConv(Mensaje*);
+    void remueveMens(int);
     void eviarMensaje(Mensaje*);
     Lista* listarMensaje(DtFechaHoraIng* );
     Lista* listarVistos(int);

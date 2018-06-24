@@ -180,6 +180,11 @@ Usuario::~Usuario() {
         return cont;
     }
     
+    Lista * Usuario::seleccionarConversacion(int){
+    
+    }
+    
+    
     void Usuario::crearConversacion(Usuario * cont, Conversacion *conv){
         EstadoConv *eC=new EstadoConv(cont,conv);
         estadoConv->add(eC);
@@ -191,3 +196,12 @@ Usuario::~Usuario() {
         cont->estadoConv->add(ec);
     }
     
+    Lista * Usuario::eliminarMensConv(int idConv, int mens){
+        IIterator *it= estadoConv->iterator();
+        while (it->hasNext()){
+            EstadoConv *ec=dynamic_cast<EstadoConv*>(it->getCurrent());
+            if(ec->getConversacion()->getIdConv()==idConv){
+                ec->getConversacion()->remueveMens(mens); 
+            }it->next();
+        }
+    }
