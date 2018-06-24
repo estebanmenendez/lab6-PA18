@@ -175,18 +175,24 @@ void agregarContacto(){
 }
 
 void altaGrupo(){
+    cin.ignore();
    //Lista* ltCont = ContUsu->listarContactos();
-    char salir='n',confirmar ;
+    char salir='n',confirmar,removido ='n';
+    string urlI,nombreG ;
     int  numCel;
     Lista* ltElegido = new Lista();
     DtContacto* dtc = new DtContacto();
     DtContacto* dte = new DtContacto();
+    DtContacto* dtn = new DtContacto();
+    
     cout<<"\nCreación de Grupo\n\n";
      do{
         Lista* ltCont = ContUsu->listarContactos();
+        removido ='n';
         if(ltCont->isEmpty())
         {
             cout<<"No tiene contactos\n";
+            salir = 'n';
         }
         else
         {
@@ -195,30 +201,41 @@ void altaGrupo(){
             IIterator* j = ltElegido->iterator();
             while(j->hasNext()){
                 dte = dynamic_cast<DtContacto*>(j->getCurrent());
-                cout<< dte->GetNombre() << endl;
-                cout<< dte->GetNumCel() << endl;
-                cout<< dte->getUrlImagen() << endl;
+                cout<< dte->GetNombre()<<" -"<< dte->GetNumCel()<<" -"<<dte->getUrlImagen()<<"\n\n";
                 j->next();
             }
-            cout<<"\nContactos:\n ";
+            cout<<"\nContactos existentes:\n ";
 
             IIterator* i = ltCont->iterator();
             while(i->hasNext()){
                 dtc = dynamic_cast<DtContacto*>(i->getCurrent());
-                cout<< dtc->GetNombre() << endl;
-                cout<< dtc->GetNumCel() << endl;
-                cout<< dtc->getUrlImagen() << endl;
+                cout<< dtc->GetNombre()<<" -"<<dtc->GetNumCel()<<" -"<<dtc->getUrlImagen()<<"\n\n";
                 i->next();
             }
         
-            cout<<"Ingrese celular para agregar al grupo: ";
+            cout<<"\nIngrese celular para agregar al grupo: ";
             cin>>numCel;
             dtc = ContUsu->ingContacto(numCel);
-            if(dtc != NULL){
-                if(dtc->GetNumCel() == std::to_string(ContUsu->getUsuLog()->GetCelular())){
+            if(dtc == NULL){
+                 cout<<"No existe un usuario con ese celular\n";
+            }
+            else{     
+                if (dtc->GetNumCel() == std::to_string(ContUsu->getUsuLog()->GetCelular())){
                     cout<<"No puedes agregarte como contacto a vos mismo.\n";
+                    removido = 's';
                 }
-                else{
+    
+                IIterator* h = ltElegido->iterator();
+                while(h->hasNext()){
+                    dtn = dynamic_cast<DtContacto*>(h->getCurrent());
+                    if (dtn->GetNumCel() == dtc->GetNumCel()){
+                        ltElegido->remove(dtn);
+                        removido = 's';
+                        break;
+                    }
+                    h->next();
+                }
+                if(removido == 'n') {
                     cout<< dtc->GetNombre() << endl;
                     cout<< dtc->GetNumCel() << endl;
                     cout<< dtc->getUrlImagen() << endl;
@@ -226,18 +243,22 @@ void altaGrupo(){
                     cin>>confirmar;
                     if(confirmar == 's'){
                         ltElegido->add(dtc);
+                        cout<<"Usuario: "<<dtc->GetNombre()<<" ingresado al grupo\n";
                     }
-                }
+                }else{
+                    removido = 'n';
+                }             
             }
-            else{
-                cout<<"No existe un usuario con ese celular\n";
-            }
-        }
+        
         cout<<"Desea seguir agregando contactos al Grupo ? s/n\n";
         cin>>salir;
         if (salir == 'n'){
             if (!ltElegido->isEmpty()){
-                ContGru->altaGrupo(" " ," ");
+                cout<<"\nIngrese Nombre:\n";
+                getline(cin,nombreG);
+                cout<<"\nIngrese URL Imagen:\n";
+                getline(cin, urlI);
+                ContGru->altaGrupo(urlI,nombreG);
                 cout<<"\nSe dio de alta al grupo";
                 ContGru->agregarNuevoAdmin(ContUsu->getUsuLog()->GetCelular());
                 salir = 'n';
@@ -246,6 +267,8 @@ void altaGrupo(){
                 cout<<"\nDesea seguir agregando contactos al Grupo ? s/n\n";
                 cin>>salir;
             }
+        }
+        
         }
     }while(salir == 's');
     
