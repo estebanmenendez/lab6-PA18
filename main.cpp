@@ -21,11 +21,20 @@
 #include <random>
 
 using namespace std;
-bool registrarUsuario();
-void agregarContacto();
+bool registrarUsuario(); // Abrir teletipo
+void agregarContacto(); // Agregar contacto
 
-void altaGrupo();
-void crSes();
+void altaGrupo(); // Crear grupo
+void crSes(); // Cerrar sesión
+void enviarMensaje(); // Enviar mensaje
+void verMensajes(); // Ver mensajes
+void archivarConversaciones(); // Archivar Conversación
+void modUsuario(); // Modificar usuario 
+void eliMensaje(); // Eliminar mensajes
+void agregarPartGrupo(); // Agregar participantes al grupo
+void cambiarFechaSist(); // Cambiar ficha de sistema
+void consultFechaSistema(); // Consultar fecha del sistema
+//cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11-Consultar fecha del sistema\n0- Salir\n";
 
 iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
 iContMensaje* ContMen = Fabrica::getInstance()->getContMensaje();
@@ -54,7 +63,6 @@ int main(int argc, char** argv) {
                                 }
                                 break;
                             case 2:
-                                crSes();
                                 break;
                             case 3:
                                 ingresarCel = true;
@@ -68,7 +76,7 @@ int main(int argc, char** argv) {
             }
             firstMenu = true;
             if (!salirTotal) {
-                cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n0- Salir\n";
+                cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11-Consultar fecha del sistema\n0- Salir\n";
                 cin>>optMenuPrincipal;
                 switch (optMenuPrincipal) {
                     case 1:
@@ -81,6 +89,20 @@ int main(int argc, char** argv) {
                         break;
                     case 3:
                         altaGrupo();
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                    case 8:
+                        break;
+                    case 9:
+                        break;
+                    case 10:
                         break;
                     case 0:
                         salirTotal = true;
