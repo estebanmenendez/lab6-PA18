@@ -13,11 +13,11 @@
 #include "NodoDicc.h"
 #include "ICollectible.h"
 
-class ListDiccIteratorKey: public ListDiccIterator{
-	public:
-		ListDiccIteratorKey(NodoDicc* nodo);
-		virtual~ ListDiccIteratorKey();
-		ICollectible* getCurrent();
+class ListDiccIteratorKey : public ListDiccIterator {
+public:
+    ListDiccIteratorKey(NodoDicc* nodo);
+    virtual~ListDiccIteratorKey();
+    ICollectible* getCurrent();
 };
 
 #endif /* LISTDICCITERATORKEY_H_ */

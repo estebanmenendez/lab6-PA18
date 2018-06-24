@@ -14,35 +14,31 @@
 #include "DtContacto.h"
 
 DtContacto::DtContacto() {
-    
+
 }
-DtContacto::DtContacto(string nombre, string numCel, string tipo, DtFecha fechaIng, DtHora horaIng){
+
+DtContacto::DtContacto(string nombre, string numCel, string tipo, DtFecha fechaIng, DtHora horaIng) {
     this->fechaIng = fechaIng;
     this->horaIng = horaIng;
     this->nombre = nombre;
     this->numCel = numCel;
     this->tipo = tipo;
 }
-/*string nombre;
-    string numCel;
-    string tipo;
-    DtFecha fechaIng;
-    DtHora horaIng;*/
 
-DtContacto::DtContacto(string nombre,int numCel, string urlImagen) {
-    this->nombre=nombre;
-    this->numCel= std::to_string(numCel);
+DtContacto::DtContacto(string nombre, int numCel, string urlImagen) {
+    this->nombre = nombre;
+    this->numCel = std::to_string(numCel);
     this->urlImagen = urlImagen;
 }
+
 DtContacto::DtContacto(const DtContacto& orig) {
 }
 
 DtContacto::~DtContacto() {
 }
 
-
 DtFecha DtContacto::GetFechaIng() {
-        return fechaIng;
+    return fechaIng;
 }
 
 void DtContacto::SetFechaIng(DtFecha fechaIng) {
@@ -81,10 +77,10 @@ void DtContacto::SetTipo(string tipo) {
     this->tipo = tipo;
 }
 
-string DtContacto::getUrlImagen(){
+string DtContacto::getUrlImagen() {
     return this->urlImagen;
 }
 
-void DtContacto::setUrlImagen(string urlImagen){
+void DtContacto::setUrlImagen(string urlImagen) {
     this->urlImagen = urlImagen;
 }

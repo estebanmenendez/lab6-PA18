@@ -21,16 +21,12 @@
 #include "ICollectible.h"
 #include "Lista.h"
 #include "DtTipo.h"
-#include "Mensaje.h"
 #include "EstadoConv.h"
 #include "DtContacto.h"
 #include "ListaDicc.h"
 #include "Tipo.h"
 #include "Fecha_Hora_sis.h"
-//#include "ContUsuario.h"
-//#include "ContMensaje.h"
-//#include "Estado.h"
-//#include "Conversacion.h"
+#include "DtConversacion.h"
 #include<iostream>
 
 using namespace std;
@@ -39,9 +35,10 @@ class Usuario : public ICollectible {
 public:
     //constructores:
     Usuario();
-    Usuario(string nombre,string imagenPerfil,string descripcion,int numCel);
+    Usuario(string nombre, string imagenPerfil, string descripcion, int numCel);
     Usuario(const Usuario& orig);
     virtual ~Usuario();
+
     //Setter atributos
     void SetCelular(int);
     void SetContacto(Usuario * contacto);
@@ -53,6 +50,8 @@ public:
     void SetHoraCreacion(DtHora *);
     void SetTipo(Tipo *);
     void SetUltima_conexion(DtUltCon*);
+    void addContacto(Usuario*);
+
     //Getters atributos
     int GetCelular();
     string GetDescripcion();
@@ -63,36 +62,37 @@ public:
     DtHora* GetHoraCreacion();
     DtUltCon* GetUltima_conexion();
     DtContacto* GetContacto();
+
     //Operaciones
     Lista * getConversaciones();
     Lista * getConversacionesAr();
     Lista * GetContactos();
     ListDicc* getListaContactos();
-//    Conversacion selecionarConversacion(int);
-    //void crearTipoGrupo(DtTipo *,Grupo *);
     void crearConvGrupo(Conversacion *);
-    void addContacto(Usuario*);
-//    DtFechaHoraIng * getFechaIng(Grupo);
     Usuario * seleccionarCont(int);
     Lista * seleccionarConversacion(int);
-    void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
-    void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
-   
+    void crearConversacion(Usuario *, Conversacion *); //para el usuario actual
+    void crearEstadoConv(Conversacion *conv, Usuario * usu, Usuario * usu2); //para el contacto
     Lista * eliminarMensConv(int, int);
-    
-    private:
-    
+    bool convGrupal(int);
+    DtConversacion * getConvGrupo(int);
+    bool sosElOtro(int idConv);
+    Lista * listarMensajes(int codConv);
+    Lista * listarVistos(int idMens);
+    string nombreUsu(int numCel);
+
+private:
+
     ListDicc* contactos = new ListDicc();
-    Lista * estadoConv=new Lista();
-    Lista * tipo=new Lista();
+    Lista * estadoConv = new Lista();
+    Lista * tipo = new Lista();
     int celular;
     string nombre;
     string foto_Perfil;
-    string descripcion; 
+    string descripcion;
     DtUltCon * ultima_conexion;
     DtFecha * fechaCreacion;
-    DtHora * horaCreacion; 
-    //Estado* estado;
+    DtHora * horaCreacion;
 
 };
 

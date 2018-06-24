@@ -15,20 +15,21 @@
 #define SIMPLE_H
 
 #include"Mensaje.h"
+#include"DtSimple.h"
 
 class Simple : public Mensaje {
 public:
     Simple();
     Simple(const Simple& orig);
     virtual ~Simple();
-    
+
     string getTexto();
     void setTexto(string);
-    
-    
-    
+    DtSimple *getMensaje();
+
+
 private:
-    string texto; 
+    string texto;
 
 };
 

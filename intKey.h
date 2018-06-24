@@ -16,8 +16,8 @@
 #include"IKey.h"
 using namespace std;
 
-class intKey: public IKey{
-    public:
+class intKey : public IKey {
+public:
 
     intKey();
     intKey(int value);
@@ -25,9 +25,9 @@ class intKey: public IKey{
     bool equals(IKey* key);
     virtual ~intKey();
 
-    
-    private:
-        int value;
+
+private:
+    int value;
 };
 
 

@@ -16,13 +16,14 @@
 #include <string>
 #include "IKey.h"
 using namespace std;
-class StringKey: public IKey {
+
+class StringKey : public IKey {
 public:
-    
+
     StringKey();
     StringKey(string value);
     string getString();
-    bool equals(IKey* key);		
+    bool equals(IKey* key);
     virtual ~StringKey();
 
 private:

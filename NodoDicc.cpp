@@ -9,43 +9,46 @@
 #include "stdio.h"
 
 //constructores
-NodoDicc::NodoDicc(){
-	this->par=NULL;
-	this->next=NULL;
+
+NodoDicc::NodoDicc() {
+    this->par = NULL;
+    this->next = NULL;
 }
 
-NodoDicc::NodoDicc(NodoDicc* next, Par* par){
-	this->par=par;
-	this->next=next;
+NodoDicc::NodoDicc(NodoDicc* next, Par* par) {
+    this->par = par;
+    this->next = next;
 }
 
 //operaciones
-void NodoDicc::setNext(NodoDicc* next){
-	this->next=next;
+
+void NodoDicc::setNext(NodoDicc* next) {
+    this->next = next;
 }
 
-bool NodoDicc:: hasNext(){
-	return(this->next!=NULL);
+bool NodoDicc::hasNext() {
+    return (this->next != NULL);
 }
 
-NodoDicc* NodoDicc:: getNext(){
-	return(this->next);
+NodoDicc* NodoDicc::getNext() {
+    return (this->next);
 }
 
-Par* NodoDicc::getPar(){
-	return(this->par);
+Par* NodoDicc::getPar() {
+    return (this->par);
 }
 
-void NodoDicc::setPar(Par* par){
-	this->par=par;
+void NodoDicc::setPar(Par* par) {
+    this->par = par;
 }
 
 //destructor
-NodoDicc:: ~NodoDicc(){
-	if(this->par!=NULL)
-		delete(par);
-	if(this->hasNext())
-		delete(this->next);
+
+NodoDicc::~NodoDicc() {
+    if (this->par != NULL)
+        delete(par);
+    if (this->hasNext())
+        delete(this->next);
 }
 
 

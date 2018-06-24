@@ -7,11 +7,13 @@
 
 #include "ListDiccIteratorKey.h"
 
-ListDiccIteratorKey::ListDiccIteratorKey(NodoDicc* nodo): ListDiccIterator(nodo){}
+ListDiccIteratorKey::ListDiccIteratorKey(NodoDicc* nodo) : ListDiccIterator(nodo) {
+}
 
-ListDiccIteratorKey::~ListDiccIteratorKey(){}
+ListDiccIteratorKey::~ListDiccIteratorKey() {
+}
 
-ICollectible* ListDiccIteratorKey:: getCurrent(){
-	Par* p=(Par*)ListDiccIterator::getCurrent();
-	return(p->getKey());
+ICollectible* ListDiccIteratorKey::getCurrent() {
+    Par* p = (Par*) ListDiccIterator::getCurrent();
+    return (p->getKey());
 }

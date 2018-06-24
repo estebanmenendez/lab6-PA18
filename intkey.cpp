@@ -9,17 +9,18 @@
 intKey::intKey() {
 }
 
-intKey::intKey(int value){
-	this->value=value;
+intKey::intKey(int value) {
+    this->value = value;
 }
 
-int intKey::getInt(){
-	return(this->value);
+int intKey::getInt() {
+    return (this->value);
 }
 
-bool intKey::equals(IKey* key){
-	intKey* aux = (intKey*) (key);
-	return(this->value == aux->value);
+bool intKey::equals(IKey* key) {
+    intKey* aux = (intKey*) (key);
+    return (this->value == aux->value);
 }
+
 intKey::~intKey() {
 }

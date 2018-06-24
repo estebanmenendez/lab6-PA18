@@ -11,11 +11,11 @@
 #include "ListDiccIterator.h"
 #include "NodoDicc.h"
 
-class ListDiccIteratorObj : public ListDiccIterator{
-	public:
-		ListDiccIteratorObj(NodoDicc* nodo);
-		virtual~ ListDiccIteratorObj();
-		ICollectible* getCurrent();
+class ListDiccIteratorObj : public ListDiccIterator {
+public:
+    ListDiccIteratorObj(NodoDicc* nodo);
+    virtual~ListDiccIteratorObj();
+    ICollectible* getCurrent();
 };
 
 

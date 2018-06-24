@@ -12,90 +12,105 @@
  */
 
 #include"ContMensaje.h"
-#include"Fabrica.h"
-
-
+////<<<<<<< HEAD
+//#include"Fabrica.h"
+//
+//
+//=======
+#include "iContUsuario.h"
+#include "Fabrica.h"
 
 using namespace std;
-//iContMensaje * ContMensaje::instance = NULL;
-//
-ContMensaje::ContMensaje(){}
-/*
-void ContMensaje::setUsu(Usuario* usu) {
-    this->usu = usu;
+
+ContMensaje::ContMensaje() {
 }
 
-Usuario* ContMensaje::getUsu()  {
-    return usu;
+void ContMensaje::setMensaje(DtMensaje *mensaje) {
+    this->mensaje = mensaje;
 }
 
-void ContMensaje::setConversacion(Conversacion* conversaciones) {
-    this->conv = conversaciones;
+DtMensaje* ContMensaje::getMensaje() {
+    return mensaje;
 }
 
-Conversacion* ContMensaje::getConversacion() {
-    return conv;
-}
-*/
-void ContMensaje::setMensaje(DtMensaje mensaje) {
-    mensaje = mensaje;
+void ContMensaje::seleccionarConv(int) {
 }
 
-DtMensaje ContMensaje::getMensaje() {
-    return * mensaje;
+ContMensaje::~ContMensaje() {
 }
 
-void ContMensaje::seleccionarConv(int){}
+void ContMensaje::enviarMensaje() {
+}
 
-ContMensaje::~ContMensaje(){}
+void ContMensaje::crearConv(int, int) {
+}
 
-void ContMensaje::enviarMensaje(int){}
-void ContMensaje::crearConv(int,int){}
-//void ContMensaje::agregarConv(Conversacion){}
-void ContMensaje::crear(DtSimple){}
-void ContMensaje::crearMensaje(DtMensaje){}
-void ContMensaje::seleccionarCont(string){}
-void ContMensaje::selecConversacion(int){}
-void ContMensaje::getContactos(){}
+void ContMensaje::crear(DtSimple*) {
+}
 
-Lista* ContMensaje::listarConv(){
+void ContMensaje::crearMensaje(DtMensaje*) {
+}
+
+void ContMensaje::selecConversacion(int) {
+}
+
+void ContMensaje::getContactos() {
+}
+
+void ContMensaje::archivarConv(DtConversacion*) {
+}
+
+void ContMensaje::seleccionarMensaje(int) {
+}
+
+Lista* ContMensaje::listarConvArchivadas() {
+}
+
+void ContMensaje::seleccionarCont(int) {
+}
+
+void ContMensaje::cuerpoMensaje(DtSimple*) {
+}
+
+void ContMensaje::cuerpoMensaje(DtImagen*) {
+}
+
+void ContMensaje::cuerpoMensaje(DtContacto*) {
+}
+
+void ContMensaje::crearMensaje() {
+}
+
+Lista * ContMensaje::infromacionAdicional(int idMens) {
+}
+
+void ContMensaje::setIdConv(int id) {
+}
+
+Lista * ContMensaje::listarConversacionesArch() {
+}
+
+Lista* ContMensaje::listarConv() {
     iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
     Lista * retorno;
     retorno = usuLog->listarConversacion();
-
 }
 
-Lista* ContMensaje::seleccionarConversacion(int idConv){
+Lista* ContMensaje::seleccionarConversacion(int idConv) {
     iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
     Lista * retorno;
     retorno = usuLog->seleccionarConversacion(idConv);
 }
 
-void ContMensaje::archivarConv(DtConversacion){}
-
-void ContMensaje::seleccionarMensaje(int){
-
+void ContMensaje::eliminarMensaje(int idConv, DtMensaje* dtMen) {
+    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+    usuLog->eliminarMensConv(idConv, dtMen->GetCodigo());
 }
 
-void ContMensaje::eliminarMensaje(int idConv,DtMensaje dtMen){
-    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
-    usuLog->eliminarMensConv(idConv, dtMen.GetCodigo());
-    
-
-}    
-
-Lista* ContMensaje::listarConvArchivadas(){}
-
-void ContMensaje::cuerpoMensaje(DtSimple) {}
-void ContMensaje::cuerpoMensaje(DtImagen){}
-void ContMensaje::cuerpoMensaje(DtContacto){}
-void ContMensaje::crearMensaje(){}
-
-/*iContMensaje * ContMensaje::getInstance(){
-    if(instance== NULL)
-        instance = new ContMensaje();
-    return instance;
-        
-}*/
-
+Lista * ContMensaje::listarConversaciones() {
+    iContUsuario* contUsu = Fabrica::getInstance()->getContUsuario();
+    Lista * convAct;
+    convAct = contUsu->listaConversacion();
+    return convAct;
+}
 

@@ -12,15 +12,13 @@
  */
 
 #include "DtMensaje.h"
-/*int codigo;
-    DtFecha fechaEnv;
-    DtHora horaEnv;*/
 
-DtMensaje::DtMensaje(int codigo, DtFecha fechaEnv, DtHora horaEnv){
+DtMensaje::DtMensaje(int codigo, DtFecha *fechaEnv, DtHora *horaEnv) {
     this->codigo = codigo;
     this->fechaEnv = fechaEnv;
     this->horaEnv = horaEnv;
 }
+
 DtMensaje::DtMensaje() {
 }
 
@@ -34,25 +32,25 @@ DtMensaje::~DtMensaje() {
 }
 
 int DtMensaje::GetCodigo() {
-        return codigo;
-    }
+    return codigo;
+}
 
-    void DtMensaje::SetCodigo(int codigo) {
-        this->codigo = codigo;
-    }
+void DtMensaje::SetCodigo(int codigo) {
+    this->codigo = codigo;
+}
 
-    DtFecha DtMensaje::GetFechaEnv() {
-        return fechaEnv;
-    }
+DtFecha* DtMensaje::GetFechaEnv() {
+    return fechaEnv;
+}
 
-    void DtMensaje::SetFechaEnv(DtFecha fechaEnv) {
-        this->fechaEnv = fechaEnv;
-    }
+void DtMensaje::SetFechaEnv(DtFecha *fechaEnv) {
+    this->fechaEnv = fechaEnv;
+}
 
-    DtHora DtMensaje::GetHoraEnv() {
-        return horaEnv;
-    }
+DtHora* DtMensaje::GetHoraEnv() {
+    return horaEnv;
+}
 
-    void DtMensaje::SetHoraEnv(DtHora horaEnv) {
-        this->horaEnv = horaEnv;
-    }
+void DtMensaje::SetHoraEnv(DtHora *horaEnv) {
+    this->horaEnv = horaEnv;
+}

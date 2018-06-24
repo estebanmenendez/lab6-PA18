@@ -12,33 +12,36 @@
  */
 
 #include "DtConversacion.h"
-/*int idConversa;
-    int Cel_Cantidad;
-    string Nombre;*/
+
 DtConversacion::DtConversacion() {
 }
-DtConversacion::DtConversacion(int idConversa, int Cel_Cantidad, string nombre){
+
+DtConversacion::DtConversacion(int idConversa, int Cel_Cantidad, string nombre) {
     this->Cel_Cantidad = Cel_Cantidad;
     this->Nombre = nombre;
     this->idConversa = idConversa;
 }
+
 DtConversacion::DtConversacion(const DtConversacion& orig) {
     this->Cel_Cantidad = orig.Cel_Cantidad;
     this->Nombre = orig.Nombre;
     this->idConversa = orig.idConversa;
 }
-DtConversacion::DtConversacion(string nombre,int idconv){
-    this->Nombre=nombre;
-    this->idConversa=idconv;
-  }
-DtConversacion::DtConversacion(int idconv, int cel_cant){
-   this->idConversa=idconv;
-   this->Cel_Cantidad=cel_cant;
-  }
-DtConversacion::DtConversacion(int cel_cant){
-   this->Nombre="Conversaciones Archivadas";
-   this->Cel_Cantidad=cel_cant;
-  }
+
+DtConversacion::DtConversacion(string nombre, int idconv) {
+    this->Nombre = nombre;
+    this->idConversa = idconv;
+}
+
+DtConversacion::DtConversacion(int idconv, int cel_cant) {
+    this->idConversa = idconv;
+    this->Cel_Cantidad = cel_cant;
+}
+
+DtConversacion::DtConversacion(int cel_cant) {
+    this->Nombre = "Conversaciones Archivadas";
+    this->Cel_Cantidad = cel_cant;
+}
 
 DtConversacion::~DtConversacion() {
 }

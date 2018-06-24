@@ -19,20 +19,20 @@ using namespace std;
 class DtFecha {
 public:
     DtFecha();
-    DtFecha(int , int , int );
+    DtFecha(int, int, int);
     DtFecha(const DtFecha& orig);
     virtual ~DtFecha();
-    
+
     int GetAnio();
-    int GetDia();  
+    int GetDia();
     int GetMes();
 
     void SetAnio(int);
     void SetDia(int);
     void SetMes(int);
-    
+
 private:
-     int dia,mes,anio;
+    int dia, mes, anio;
 
 };
 

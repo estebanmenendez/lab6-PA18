@@ -16,18 +16,17 @@
 
 #include "DtMensaje.h"
 
-class DtMContacto : public DtMensaje{
+class DtMContacto : public DtMensaje {
+private:
+    int numCel;
 
+public:
 
-    private:
-        int numCel;
-    public:
-        
-        DtMContacto();
-        DtMContacto(int);
-        DtMContacto(const DtMContacto& orig);
-        virtual ~ DtMContacto();
-        void setNumCel(int);
-        int  getNumCel();
+    DtMContacto();
+    DtMContacto(int);
+    DtMContacto(const DtMContacto& orig);
+    virtual ~DtMContacto();
+    void setNumCel(int);
+    int getNumCel();
 };
 #endif /* DTMCONTACTO_H */

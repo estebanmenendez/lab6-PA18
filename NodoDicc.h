@@ -11,22 +11,22 @@
 #include "ICollectible.h"
 #include "Par.h"
 
-class NodoDicc: public ICollectible {
+class NodoDicc : public ICollectible {
 private:
-  NodoDicc *next;
-  Par *par;
+    NodoDicc *next;
+    Par *par;
 
 public:
-	NodoDicc();
-	NodoDicc(NodoDicc *, Par *);
-	virtual ~NodoDicc();
+    NodoDicc();
+    NodoDicc(NodoDicc *, Par *);
+    virtual ~NodoDicc();
 
-	void setNext(NodoDicc *);
-	NodoDicc *getNext();
-	bool hasNext();
+    void setNext(NodoDicc *);
+    NodoDicc *getNext();
+    bool hasNext();
 
-	Par* getPar();
-	void setPar(Par* par);
+    Par* getPar();
+    void setPar(Par* par);
 };
 
 #endif /* NodoDicc_H_ */

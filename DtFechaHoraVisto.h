@@ -18,24 +18,22 @@
 #include"DtFecha.h"
 
 class DtFechaHoraVisto {
-
 public:
     DtFechaHoraVisto();
-    DtFechaHoraVisto(DtFecha , DtHora );
+    DtFechaHoraVisto(DtFecha*, DtHora*);
     DtFechaHoraVisto(const DtFechaHoraVisto& orig);
     virtual ~DtFechaHoraVisto();
-    
-    DtFecha GetFecha();
-    DtHora GetHora();
 
-    void SetFecha(DtFecha);
-    void SetHora(DtHora);
+    DtFecha* GetFecha();
+    DtHora* GetHora();
+
+    void SetFecha(DtFecha*);
+    void SetHora(DtHora*);
 
 private:
-    
-    DtFecha fecha;
-    DtHora hora; 
-    
+    DtFecha *fecha;
+    DtHora *hora;
+
 };
 
 #endif /* DTFECHAHORAVISTO_H */

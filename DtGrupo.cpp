@@ -12,16 +12,11 @@
  */
 
 #include "DtGrupo.h"
-/*string nombre;
-    string imagenUrl;
-    DtContacto contactos;
-    DtContacto usrCreador;
-    DtFecha fechaCreacion;
-    DtHora HoraCreacion;*/
+
 DtGrupo::DtGrupo() {
 }
 
-DtGrupo::DtGrupo(string imagenUrl, DtContacto contactos, DtContacto usrCreador, DtFecha fechaCreacion, DtHora horaCreacion){
+DtGrupo::DtGrupo(string imagenUrl, DtContacto* contactos, DtContacto* usrCreador, DtFecha* fechaCreacion, DtHora* horaCreacion) {
     this->imagenUrl = imagenUrl;
     this->contactos = contactos;
     this->usrCreador = usrCreador;
@@ -40,27 +35,27 @@ DtGrupo::DtGrupo(const DtGrupo& orig) {
 DtGrupo::~DtGrupo() {
 }
 
-DtHora DtGrupo::GetHoraCreacion() {
+DtHora* DtGrupo::GetHoraCreacion() {
     return HoraCreacion;
 }
 
-void DtGrupo::SetHoraCreacion(DtHora HoraCreacion) {
+void DtGrupo::SetHoraCreacion(DtHora* HoraCreacion) {
     this->HoraCreacion = HoraCreacion;
 }
 
-DtContacto DtGrupo::GetContactos() {
+DtContacto* DtGrupo::GetContactos() {
     return contactos;
 }
 
-void DtGrupo::SetContactos(DtContacto contactos) {
+void DtGrupo::SetContactos(DtContacto* contactos) {
     this->contactos = contactos;
 }
 
-DtFecha DtGrupo::GetFechaCreacion() {
+DtFecha* DtGrupo::GetFechaCreacion() {
     return fechaCreacion;
 }
 
-void DtGrupo::SetFechaCreacion(DtFecha fechaCreacion) {
+void DtGrupo::SetFechaCreacion(DtFecha* fechaCreacion) {
     this->fechaCreacion = fechaCreacion;
 }
 
@@ -80,10 +75,10 @@ void DtGrupo::SetNombre(string nombre) {
     this->nombre = nombre;
 }
 
-DtContacto DtGrupo::GetUsrCreador() {
+DtContacto *DtGrupo::GetUsrCreador() {
     return usrCreador;
 }
 
-void DtGrupo::SetUsrCreador(DtContacto usrCreador) {
+void DtGrupo::SetUsrCreador(DtContacto* usrCreador) {
     this->usrCreador = usrCreador;
 }

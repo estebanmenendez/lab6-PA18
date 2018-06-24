@@ -21,6 +21,7 @@ Imagen::Imagen(const Imagen& orig) {
 
 Imagen::~Imagen() {
 }
+
 string Imagen::GetFormato() {
     return Formato;
 }
@@ -53,3 +54,7 @@ void Imagen::SetUrlImg(string urlImg) {
     this->urlImg = urlImg;
 }
 
+DtImagen* Imagen::getMensaje() {
+    DtImagen * mI = new DtImagen(this->Tamanio, this->Formato, this->Texto, this->urlImg);
+    return mI;
+}

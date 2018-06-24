@@ -17,18 +17,19 @@
 #include<iostream>
 #include "DtMultimedia.h"
 
-class DtVideo : public DtMultimedia{
-    private: 
-        string url;
-        float duracion;
-    public:
-        DtVideo();
-        DtVideo(string , float );
-        virtual ~DtVideo();
-        void SetDuracion(float duracion);
-        float GetDuracion() const;
-        void SetUrl(string url);
-        string GetUrl() const;
-        
+class DtVideo : public DtMultimedia {
+private:
+    string url;
+    float duracion;
+    
+public:
+    
+    DtVideo();
+    DtVideo(string, float);
+    virtual ~DtVideo();
+    void SetDuracion(float duracion);
+    float GetDuracion() const;
+    void SetUrl(string url);
+    string GetUrl() const;
 };
 #endif /* DTVIDEO_H */

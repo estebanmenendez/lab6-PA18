@@ -16,18 +16,19 @@
 StringKey::StringKey() {
 }
 
-StringKey::StringKey(string value){
-	this->value=value;
+StringKey::StringKey(string value) {
+    this->value = value;
 }
 
-string StringKey::getString(){
-	return(this->value);
+string StringKey::getString() {
+    return (this->value);
 }
 
-bool StringKey::equals(IKey* key){
-	StringKey* aux = (StringKey*) (key);
-	return(this->value == aux->value);
+bool StringKey::equals(IKey* key) {
+    StringKey* aux = (StringKey*) (key);
+    return (this->value == aux->value);
 }
+
 StringKey::~StringKey() {
 }
 

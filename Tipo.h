@@ -22,26 +22,26 @@
 using namespace std;
 
 class Tipo : public ICollectible {
-    
 public:
     Tipo();
     Tipo(const Tipo& orig);
     virtual ~Tipo();
-    
-    DtFecha GetFechaIng();
-    DtHora GetHoraIng();
+
+    DtFecha* GetFechaIng();
+    DtHora* GetHoraIng();
     string GetTipo();
-    //bool soyDelGrupo(Grupo * g);
-    void SetFechaIng(DtFecha);    
-    void SetHoraIng(DtHora); 
-    void SetTipo(string);    
+    void SetFechaIng(DtFecha*);
+    void SetHoraIng(DtHora*);
+    void SetTipo(string);
     DtFechaHoraIng * getFechaHoraIng();
+    Grupo * getGrupo();
+    
 private:
-        
-        Grupo * grupo;
-        string tipo;
-        DtFecha fechaIng;
-        DtHora horaIng;
+
+    Grupo * grupo;
+    string tipo;
+    DtFecha *fechaIng;
+    DtHora *horaIng;
 
 };
 

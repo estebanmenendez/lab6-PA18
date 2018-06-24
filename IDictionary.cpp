@@ -7,4 +7,5 @@
 
 #include "IDictionary.h"
 
-IDictionary::~IDictionary(){}
+IDictionary::~IDictionary() {
+}

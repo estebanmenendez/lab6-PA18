@@ -12,10 +12,11 @@
  */
 
 #include "DtSimple.h"
-/*string texto;*/
-DtSimple::DtSimple(string texto){
+
+DtSimple::DtSimple(string texto) {
     this->texto = texto;
 }
+
 DtSimple::DtSimple() {
 }
 

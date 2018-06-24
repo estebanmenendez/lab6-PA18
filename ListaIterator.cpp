@@ -9,33 +9,32 @@
 #include "stdio.h"
 
 ListaIterator::ListaIterator(Nodo *nodo)
-  :actual(nodo) {
+: actual(nodo) {
 }
 
 bool ListaIterator::hasNext() {
-  return actual->hasNext();
+    return actual->hasNext();
 }
 
 ICollectible *ListaIterator::next() {
-  ICollectible *res = getCurrent();
-  actual = actual->getNext();
-  return res;
+    ICollectible *res = getCurrent();
+    actual = actual->getNext();
+    return res;
 }
 
 ICollectible *ListaIterator::getCurrent() {
-  return actual->getNext()->getICollectible();
+    return actual->getNext()->getICollectible();
 }
 
 void ListaIterator::remove() {
-  Nodo *temp = actual->getNext();
-  if (temp->hasNext()) {
-    actual->setNext(temp->getNext());
-  }
-  else {
-    actual->setNext(NULL);
-  }
-  temp->setNext(NULL);
-  delete temp;
+    Nodo *temp = actual->getNext();
+    if (temp->hasNext()) {
+        actual->setNext(temp->getNext());
+    } else {
+        actual->setNext(NULL);
+    }
+    temp->setNext(NULL);
+    delete temp;
 }
 
 

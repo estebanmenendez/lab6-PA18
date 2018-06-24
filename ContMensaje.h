@@ -13,7 +13,6 @@
 
 #ifndef CONTMENSAJE_H
 #define CONTMENSAJE_H
-
 #include"iContMensaje.h"
 #include"ContUsuario.h"
 #include"DtFecha.h"
@@ -23,53 +22,43 @@
 #include"DtSimple.h"
 #include"DtContacto.h"
 #include"DtConversacion.h"
-//#include "Mensaje.h"
 #include"Lista.h"
-
-
 
 using namespace std;
 
 class ContMensaje : public iContMensaje {
+private:
+    DtMensaje *mensaje;
+    int idConv;
 
-    
-private: 
-        DtMensaje* mensaje;
-       //  static iContMensaje * instance;
-      
 public:
-ContMensaje();
-ContMensaje(const ContMensaje& orig);
-virtual ~ContMensaje();
-
-void enviarMensaje(int);
-void crearConv(int,int);
-// void agregarConv(Conversacion) ;
-void crear(DtSimple);
-void crearMensaje(DtMensaje);
-void seleccionarCont(string);
-void selecConversacion(int);
-void getContactos();
-//void setConversacion(Conversacion*);
-//Conversacion* getConversacion() ;
-Lista* listarConv();
-void seleccionarConv(int);
-void archivarConv(DtConversacion);
-Lista* seleccionarConversacion(int);
-void seleccionarMensaje(int);
-void eliminarMensaje(int, DtMensaje);
-Lista* listarConvArchivadas();
-void cuerpoMensaje(DtSimple);
-void cuerpoMensaje(DtImagen);
-void cuerpoMensaje(DtContacto);
-void crearMensaje();
-//void setUsu(Usuario* usu);
-//Usuario* getUsu();
-void setMensaje(DtMensaje mensaje);
-DtMensaje getMensaje();
-//static iContMensaje * getInstance();
-
-
+    ContMensaje();
+    ContMensaje(const ContMensaje& orig);
+    virtual ~ContMensaje();
+    void enviarMensaje();
+    void crearConv(int, int);
+    void crear(DtSimple*);
+    void crearMensaje(DtMensaje*);
+    void seleccionarCont(int);
+    void selecConversacion(int);
+    void getContactos();
+    Lista* listarConv(); //otro listar es
+    void seleccionarConv(int);
+    void archivarConv(DtConversacion*);
+    Lista* seleccionarConversacion(int idConv);
+    void seleccionarMensaje(int);
+    void eliminarMensaje(int, DtMensaje*);
+    Lista* listarConvArchivadas();
+    void cuerpoMensaje(DtSimple*);
+    void cuerpoMensaje(DtImagen*);
+    void cuerpoMensaje(DtContacto*);
+    void crearMensaje();
+    void setMensaje(DtMensaje *mensaje);
+    DtMensaje *getMensaje();
+    void setIdConv(int id);
+    Lista *infromacionAdicional(int idMens);
+    Lista * listarConversaciones();
+    Lista * listarConversacionesArch();
 };
 
 #endif /* CONTMENSAJE_H */

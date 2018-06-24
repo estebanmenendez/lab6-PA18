@@ -41,7 +41,6 @@ private:
     int idConversa;
     int Cel_Cantidad;
     string Nombre;
-
 };
 
 #endif /* DTCONVERSACION_H */

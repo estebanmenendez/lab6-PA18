@@ -19,50 +19,43 @@
 #include "IKey.h"
 #include "Lista.h"
 #include "Mensaje.h"
-//#include "Conversacion.h"
 #include "DtMensaje.h"
 #include "DtSimple.h"
 #include "DtImagen.h"
 #include "DtContacto.h"
 #include "DtConversacion.h"
-//#include "Grupo.h"
-//#include "Usuario.h"
-
 
 using namespace std;
 
 class iContMensaje {
-    
 private:
-                
-public:
-virtual ~iContMensaje();
-virtual void enviarMensaje(int) = 0;
-virtual void crearConv(int,int) = 0;
- //virtual void agregarConv(Conversacion) = 0;
-virtual void crear(DtSimple) = 0;
-virtual void crearMensaje(DtMensaje) = 0;
-virtual void seleccionarCont(string) = 0;
-virtual void selecConversacion(int) = 0;
-virtual void getContactos() = 0;
-//virtual void setConversacion(Conversacion*)= 0;
-//virtual Conversacion* getConversacion() = 0;
-virtual Lista* listarConv() = 0;
-virtual void seleccionarConv(int) = 0;
-virtual void archivarConv(DtConversacion) = 0;
-virtual Lista* seleccionarConversacion(int) = 0;
-virtual void seleccionarMensaje(int) = 0;
-virtual void eliminarMensaje(int, DtMensaje) = 0;
-virtual Lista* listarConvArchivadas() = 0;
-virtual void cuerpoMensaje(DtSimple)  = 0;
-virtual void cuerpoMensaje(DtImagen) = 0;
-virtual void cuerpoMensaje(DtContacto) = 0;
-virtual void crearMensaje() = 0;
-//virtual void setUsu(Usuario* usu)= 0;
-//virtual Usuario* getUsu() = 0;
-virtual void setMensaje(DtMensaje)= 0;
-virtual DtMensaje getMensaje() = 0;
 
+public:
+    virtual ~iContMensaje();
+    virtual void enviarMensaje() = 0;
+    virtual void crearConv(int, int) = 0;
+    virtual void crear(DtSimple*) = 0;
+    virtual void crearMensaje(DtMensaje*) = 0;
+    virtual void seleccionarCont(int) = 0;
+    virtual void selecConversacion(int) = 0;
+    virtual void getContactos() = 0;
+    virtual Lista* listarConv() = 0;
+    virtual void seleccionarConv(int) = 0;
+    virtual void archivarConv(DtConversacion*) = 0;
+    virtual Lista* seleccionarConversacion(int) = 0;
+    virtual void seleccionarMensaje(int) = 0;
+    virtual void eliminarMensaje(int, DtMensaje*) = 0;
+    virtual Lista* listarConvArchivadas() = 0;
+    virtual void cuerpoMensaje(DtSimple*) = 0;
+    virtual void cuerpoMensaje(DtImagen*) = 0;
+    virtual void cuerpoMensaje(DtContacto*) = 0;
+    virtual void crearMensaje() = 0;
+    virtual void setMensaje(DtMensaje* mensaje) = 0;
+    virtual DtMensaje *getMensaje() = 0;
+    virtual void setIdConv(int id) = 0;
+    virtual Lista * listarConversaciones() = 0;
+    virtual Lista * listarConversacionesArch() = 0;
+    virtual Lista* infromacionAdicional(int) = 0;
 };
 
 #endif /* ICONTMENSAJE_H */

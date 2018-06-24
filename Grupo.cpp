@@ -13,10 +13,7 @@
 
 #include "Grupo.h"
 
-
-
 Grupo::Grupo() {
-        
 }
 
 Grupo::Grupo(const Grupo& orig) {
@@ -63,7 +60,7 @@ void Grupo::SetImagen(string imagen) {
     this->imagen = imagen;
 }
 
-string Grupo::GetNombre()  {
+string Grupo::GetNombre() {
     return nombre;
 }
 
@@ -71,3 +68,6 @@ void Grupo::SetNombre(string nombre) {
     this->nombre = nombre;
 }
 
+Conversacion * Grupo::getConversacion() {
+    return this->conv;
+}

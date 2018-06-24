@@ -15,20 +15,18 @@
 #define CONTACTO_H
 
 #include"Mensaje.h"
-
+#include "DtMContacto.h"
 class Contacto : public Mensaje {
 public:
     Contacto();
     Contacto(const Contacto& orig);
     virtual ~Contacto();
-    
+    DtMContacto* getMensaje();
     int GetNumCel();
     void SetNumCel(int);
     
 private:
-    
     int numCel;
-
 };
 
 #endif /* CONTACTO_H */

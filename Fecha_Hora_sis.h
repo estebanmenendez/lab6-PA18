@@ -18,21 +18,22 @@
 #include"DtHora.h"
 #include"DtUltCon.h"
 #include<string>
-class Fecha_Hora_sis{
+
+class Fecha_Hora_sis {
 private:
-    
+
     int dia, mes, anio;
     int HH, MM, SS;
-    
+
 public:
-    
+
     string currentDateTime();
     DtFecha * getFecha();
     DtHora * getHora();
-    int setFecha(int,int,int);
-    int setHora(int,int,int);
+    int setFecha(int, int, int);
+    int setHora(int, int, int);
     Fecha_Hora_sis();
-    Fecha_Hora_sis(int,int,int,int,int,int);
+    Fecha_Hora_sis(int, int, int, int, int, int);
     virtual ~Fecha_Hora_sis();
     DtUltCon * getUltimaConexion();
 };

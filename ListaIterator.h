@@ -10,17 +10,16 @@
 #include "IIterator.h"
 #include "Nodo.h"
 
-class ListaIterator: public IIterator {
+class ListaIterator : public IIterator {
 private:
-  Nodo *actual;
+    Nodo *actual;
 
 public:
-  ListaIterator(Nodo *);
-
-  bool hasNext();
-  ICollectible *next();
-  ICollectible *getCurrent();
-  void remove();
+    ListaIterator(Nodo *);
+    bool hasNext();
+    ICollectible *next();
+    ICollectible *getCurrent();
+    void remove();
 };
 
 #endif /* LISTAITERATOR_H_ */

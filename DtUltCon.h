@@ -18,18 +18,19 @@
 
 class DtUltCon {
 public:
+
     DtUltCon();
-    DtUltCon(DtFecha*,DtHora*);
+    DtUltCon(DtFecha*, DtHora*);
     DtUltCon(const DtUltCon& orig);
     virtual ~DtUltCon();
-    
+
     DtFecha* getFecha();
     DtHora* getHora();
     void setHora(DtHora*);
     void setFecha(DtFecha*);
-    
-    
+
 private:
+
     DtFecha* fecha;
     DtHora* hora;
 };

@@ -13,49 +13,37 @@
 
 #ifndef CONTGRUPO_H
 #define CONTGRUPO_H
-
 #include"iContGrupo.h"
-//#include"Lista.h"
-//#include"IDictionary.h"
+#include"Grupo.h"
 using namespace std;
 
-
-class ContGrupo: public iContGrupo {
-    private:    
-       Lista* ltElegidos = new Lista();
-       ListDicc* lUsuarios = new ListDicc();
-        
-        
-    //Usuario * usu;
-   
+class ContGrupo : public iContGrupo {
+private:
+    Lista* ltElegidos = new Lista();
+    ListDicc* lUsuarios = new ListDicc();
+    Lista * listaUsuPart = new Lista();
 public:
     ContGrupo();
-    
-//    ContGrupo(const ContGrupo& orig);
     virtual ~ContGrupo();
-   
-    void crearTipoGrupo(DtTipo, string);
-    void createTipo(DtTipo,string);
+    void crearTipoGrupo(DtTipo*, string);
+    void createTipo(DtTipo*, string);
     void crearConvGrupo(string);
     void getUsuario(int);
     void getContactos();
     void getDtContacto();
     Lista* listarGrupos();
-    DtContacto seleccionarGrupo(string);
-    DtContacto seleccionarPart(int);
+    DtContacto* seleccionarGrupo(string);
+    DtContacto* seleccionarPart(int);
     bool agregarNuevoAdmin(int);
     Lista* listarContactos();
-    DtContacto seleccionarContacto(int);
+    DtContacto *seleccionarContacto(int);
     void agregarParticipante(DtContacto*);
     Lista* listarParticipantes();
-    DtContacto seleccionarParticipante(int);
+    DtContacto *seleccionarParticipante(int);
     void eliminarParticipante(DtContacto*);
     void cancelar();
-    //void setUsu(Usuario* usu);
-    // Usuario* getUsu() const;
     DtGrupo* altaGrupo(string, string);
     void Salir();
-    //static iContGrupo * getInstance();
 };
 #endif /* CONTGRUPO_H */
 

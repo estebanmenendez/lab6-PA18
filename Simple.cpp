@@ -22,9 +22,15 @@ Simple::Simple(const Simple& orig) {
 Simple::~Simple() {
 }
 
-string Simple::getTexto() {    
+string Simple::getTexto() {
     return this->texto;
 }
-    void Simple::setTexto(string texto){
+
+void Simple::setTexto(string texto) {
     this->texto = texto;
-    }
+}
+
+DtSimple* Simple::getMensaje() {
+    DtSimple * mS = new DtSimple(this->texto);
+    return mS;
+}

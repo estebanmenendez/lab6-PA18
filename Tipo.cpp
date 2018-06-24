@@ -21,31 +21,36 @@ Tipo::Tipo(const Tipo& orig) {
 
 Tipo::~Tipo() {
 }
-//bool Tipo::soyDelGrupo(Grupo* g){
-//    if (g==this->G){return true;}
-//    return false;
-//}
 
- DtFecha Tipo::GetFechaIng() {
-        return fechaIng;
-    }
+DtFecha* Tipo::GetFechaIng() {
+    return fechaIng;
+}
 
-    void Tipo::SetFechaIng(DtFecha fechaIng) {
-        this->fechaIng = fechaIng;
-    }
+void Tipo::SetFechaIng(DtFecha* fechaIng) {
+    this->fechaIng = fechaIng;
+}
 
-    DtHora Tipo::GetHoraIng() {
-        return horaIng;
-    }
+DtHora* Tipo::GetHoraIng() {
+    return horaIng;
+}
 
-    void Tipo::SetHoraIng(DtHora horaIng) {
-        this->horaIng = horaIng;
-    }
+void Tipo::SetHoraIng(DtHora* horaIng) {
+    this->horaIng = horaIng;
+}
 
-    string Tipo::GetTipo() {
-        return tipo;
-    }
+string Tipo::GetTipo() {
+    return tipo;
+}
 
-    void Tipo::SetTipo(string tipo) {
-        this->tipo = tipo;
-    }
+void Tipo::SetTipo(string tipo) {
+    this->tipo = tipo;
+}
+
+Grupo * Tipo::getGrupo() {
+    return this->grupo;
+}
+
+DtFechaHoraIng* Tipo::getFechaHoraIng() {
+    DtFechaHoraIng *dtFech = new DtFechaHoraIng(this->fechaIng, this->horaIng);
+    return dtFech;
+}

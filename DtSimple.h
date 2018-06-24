@@ -17,8 +17,8 @@
 #include "DtMensaje.h"
 #include<iostream>
 
-
-class DtSimple : public DtMensaje{
+class DtSimple : public DtMensaje {
+    
 public:
     DtSimple();
     DtSimple(string);
@@ -26,6 +26,7 @@ public:
     virtual ~DtSimple();
     void SetTexto(string texto);
     string GetTexto();
+    
 private:
     string texto;
 };

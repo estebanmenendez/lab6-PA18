@@ -13,5 +13,4 @@
 
 #include "iContMensaje.h"
 
-
 iContMensaje::~iContMensaje(){}

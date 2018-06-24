@@ -12,20 +12,20 @@
 
 class Nodo {
 private:
-  Nodo *next;
-  ICollectible *elem;
+    Nodo *next;
+    ICollectible *elem;
 
 public:
-  Nodo();
-  Nodo(Nodo *, ICollectible *);
-  virtual ~Nodo();
+    Nodo();
+    Nodo(Nodo *, ICollectible *);
+    virtual ~Nodo();
 
-  virtual void setNext(Nodo *);
-  virtual Nodo *getNext();
-  virtual bool hasNext();
+    virtual void setNext(Nodo *);
+    virtual Nodo *getNext();
+    virtual bool hasNext();
 
-  virtual ICollectible *getICollectible();
-  virtual void setICollectible(ICollectible *);
+    virtual ICollectible *getICollectible();
+    virtual void setICollectible(ICollectible *);
 };
 
 #endif /* NODO_H_ */

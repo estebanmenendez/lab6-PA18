@@ -23,14 +23,12 @@
 #include"DtFechaHoraIng.h"
 #include"DtMensajeVisto.h"
 #include"DtMensaje.h"
-//#include "EstadoConv.h"
 #include"Fecha_Hora_sis.h"
 #include"ICollectible.h"
 
 using namespace std;
 
 class Conversacion: public ICollectible {
-    
     
 public:
     Conversacion();
@@ -43,21 +41,16 @@ public:
     void remueveMens(int);
     void eviarMensaje(Mensaje*);
     Lista* listarMensaje(DtFechaHoraIng* );
-    Lista* listarVistos(int);
-    bool soyGrupo();
+    Lista* listarVistos(int codMens);
     void setEstado(bool);
     void setIdConv(int);
     int getIdConv();
     int getCelContacto();
     string getNomGrupo();
-    //Usuario * getReceptor();
-private:
     
-        //Grupo * grupo;
-        ListDicc * mensajes=new ListDicc();
-        //Lista * estadoConv=new Lista();
-        int idConv;
-
+private:
+    ListDicc * mensajes=new ListDicc();
+    int idConv;
 };
 
 #endif /* CONVERSACION_H */

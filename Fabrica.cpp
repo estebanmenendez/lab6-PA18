@@ -21,29 +21,27 @@ Fabrica::Fabrica() {
 Fabrica::~Fabrica() {
 }
 
-Fabrica* Fabrica::getInstance(){
-    if (fabrica==NULL){
+Fabrica* Fabrica::getInstance() {
+    if (fabrica == NULL) {
         fabrica = new Fabrica();
     }
     return fabrica;
 }
 
-iContUsuario* Fabrica::getContUsuario(){
-    //return ContUsuario::getInstance();
-    if(cUsu==NULL)
-        this->cUsu=new ContUsuario();
-    return this->cUsu;            
-}
-iContMensaje* Fabrica::getContMensaje(){
-    if(this->cMens==NULL)
-        this->cMens=new ContMensaje();
-    return this->cMens;
-    //return ContMensaje::getInstance();
+iContUsuario* Fabrica::getContUsuario() {
+    if (cUsu == NULL)
+        this->cUsu = new ContUsuario();
+    return this->cUsu;
 }
 
-iContGrupo* Fabrica::getContGrupo(){
-    //return ContGrupo::getInstance();
-    if(cGru==NULL)
-        this->cGru=new ContGrupo();
+iContMensaje* Fabrica::getContMensaje() {
+    if (this->cMens == NULL)
+        this->cMens = new ContMensaje();
+    return this->cMens;
+}
+
+iContGrupo* Fabrica::getContGrupo() {
+    if (cGru == NULL)
+        this->cGru = new ContGrupo();
     return this->cGru;
 }

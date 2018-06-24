@@ -12,20 +12,19 @@
 #include "Nodo.h"
 #include "ListaIterator.h"
 
-class Lista: public ICollection {
+class Lista : public ICollection {
 private:
-  Nodo *first;
+    Nodo *first;
 
 public:
-  Lista();
-  ~Lista();
+    Lista();
+    ~Lista();
 
-  void add(ICollectible *);
-  void remove(ICollectible *);
-  bool member(ICollectible *);
-  IIterator *iterator();
-
-  bool isEmpty();
+    void add(ICollectible *);
+    void remove(ICollectible *);
+    bool member(ICollectible *);
+    IIterator *iterator();
+    bool isEmpty();
 };
 
 #endif /* LISTA_H_ */

@@ -15,31 +15,30 @@
 #define IMAGEN_H
 
 #include"Multimedia.h"
+#include"DtImagen.h"
 
 class Imagen : public Multimedia {
 public:
     Imagen();
     Imagen(const Imagen& orig);
     virtual ~Imagen();
-    
+
     int GetTamanio();
     string GetFormato();
     string GetUrlImg();
     string GetTexto();
-    
+    DtImagen * getMensaje();
     void SetTexto(string);
     void SetTamanio(int);
     void SetFormato(string);
     void SetUrlImg(string);
 
-        
-    
 private:
+    
     int Tamanio;
     string Formato;
     string Texto;
     string urlImg;
-
 };
 
 #endif /* IMAGEN_H */

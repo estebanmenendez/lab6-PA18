@@ -19,41 +19,38 @@
 #include"DtHora.h"
 #include"DtMensaje.h"
 #include"Lista.h"
-//#include"Usuario.h"
 #include"Visto.h"
-
+#include"DtMensajeVisto.h"
 using namespace std;
 
-class Mensaje : public ICollectible{
+class Mensaje : public ICollectible {
 public:
     Mensaje();
     Mensaje(const Mensaje& orig);
-    virtual ~Mensaje();    
+    virtual ~Mensaje();
     int GetCodigo();
-    DtFecha GetFechaEnv();
-    DtHora GetHoraEnv();
-    Lista* GetVisto();
     int getEmisor();
-    //Visto* esReceptor(Usuario*);
-    void SetCodigo(int);
-    void SetFechaEnv(DtFecha);    
-    void SetHoraEnv(DtHora);
-    void SetVisto(Lista *); 
     void setEmisor(int);
-    //void setReceptor(Usuario *);
-    Lista *getVistos();
-    DtMensaje *getMensaje();
+    Lista * GetVistos();
+    DtFecha *GetFechaEnv();
+    DtHora *GetHoraEnv();
+    Visto* GetVisto();
+
+    void SetCodigo(int);
+    void SetFechaEnv(DtFecha*);
+    void SetHoraEnv(DtHora*);
+    void SetVisto(Visto *);
+    DtMensaje* getMensaje();
+    bool esReceptor(int);
     bool remueveVistos();
-        
-    
+
 private:
-        
-        Lista* visto=new Lista();
-        int emisor;
-        int codigo;
-        DtFecha fechaEnv;
-        DtHora horaEnv;
-        
+
+    Lista* visto = new Lista();
+    int emisor;
+    int codigo;
+    DtFecha *fechaEnv;
+    DtHora *horaEnv;
 };
 
 #endif /* MENSAJE_H */

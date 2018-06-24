@@ -8,13 +8,15 @@
 #include "ListDiccIteratorObj.h"
 #include "Par.h"
 
-ListDiccIteratorObj::ListDiccIteratorObj(NodoDicc* nodo): ListDiccIterator(nodo){}
+ListDiccIteratorObj::ListDiccIteratorObj(NodoDicc* nodo) : ListDiccIterator(nodo) {
+}
 
-ListDiccIteratorObj::~ListDiccIteratorObj(){}
+ListDiccIteratorObj::~ListDiccIteratorObj() {
+}
 
-ICollectible* ListDiccIteratorObj::getCurrent(){
-	Par* p=(Par*)ListDiccIterator::getCurrent();
-	return(p->getObject());
+ICollectible* ListDiccIteratorObj::getCurrent() {
+    Par* p = (Par*) ListDiccIterator::getCurrent();
+    return (p->getObject());
 }
 
 

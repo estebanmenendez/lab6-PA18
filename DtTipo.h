@@ -15,12 +15,13 @@
 #define DTTIPO_H
 
 class DtTipo {
+    
 public:
     DtTipo();
     DtTipo(const DtTipo& orig);
     virtual ~DtTipo();
+    
 private:
-
 };
 
 #endif /* DTTIPO_H */

@@ -33,44 +33,39 @@
 using namespace std;
 
 class ContUsuario : public iContUsuario {
-
-    
 private:
     ListDicc * usuario = new ListDicc();
     Usuario * usuLog;
     int numCel;
-   
-    //static iContUsuario * instance;
-    
+
 public:
     ContUsuario();
     ContUsuario(const ContUsuario& orig);
     virtual ~ContUsuario();
-
-//    void create(string,string,string,int,DtFecha,DtHora);
-   // void setUltimaCon(DtUltCon);
-    //void setUsuLog(Usuario*);
+    Lista * seleccionarConversacion(int idconv);
     bool usuarioLogueado(int);
     bool ingresarCelular(int); // Chequea que el celular esté en la lista de usuarios del sistema.
-    bool altaUsuario(string,string,string);
+    bool altaUsuario(string, string, string);
     bool cancelaIngreso();
     DtConexion* asignarSesion();
     Lista * listarContactos();
     Lista * listarConversacion();
-    Lista * seleccionarConversacion(int);
     void eliminarMensConv(int, int);
     DtContacto* ingContacto(int);
     void agregaContacto(DtContacto*);
-    void cerrarSesion(DtConexion*); 
+    void cerrarSesion(DtConexion*);
     void modificarPerfil(string, string, string);
     void actualizarDatos();
     void setNumCel(int numCel);
     int getNumCel();
-    //static iContUsuario * getInstance();
-    void setUsuLog(Usuario* usu);
-    Usuario* getUsuLog();
-    void setUltimaCon(DtUltCon);
-    void setUsuLog(int);
+    Usuario* getUsu();
+    void setUltimaCon(DtUltCon*);
+    void setUsuLog(Usuario*);
+    int getNumContacto(int idConv);
+    string getNombreCont(int receptor);
+    Lista* listaConversacion();
+    Lista* listaConversacionArc();
+    int getNumUsuLog();
 };
 
 #endif /* CONTUSUARIO_H */

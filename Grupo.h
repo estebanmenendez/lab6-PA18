@@ -20,7 +20,6 @@
 #include"DtHora.h"
 #include "Lista.h"
 
-
 using namespace std;
 
 class Grupo {
@@ -28,28 +27,28 @@ public:
     Grupo();
     Grupo(const Grupo& orig);
     virtual ~Grupo();
-        
+
     void SetCreador(int);
     DtFecha* GetFecha();
     DtHora* GetHora();
     int GetCreador();
     string GetImagen();
     string GetNombre();
-       
-    void SetFecha(DtFecha*);    
-    void SetHora(DtHora*);    
-    void SetImagen(string);    
+    Conversacion * getConversacion();
+
+    void SetFecha(DtFecha*);
+    void SetHora(DtHora*);
+    void SetImagen(string);
     void SetNombre(string);
-//    Lista * getUsuarios();
-    
-private:    
-       
+
+private:
+
     Conversacion * conv;
     string nombre;
     string imagen;
     DtFecha* fecha;
-    DtHora* hora;    
-    int creador; 
+    DtHora* hora;
+    int creador;
 
 };
 

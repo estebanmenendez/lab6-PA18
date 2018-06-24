@@ -16,31 +16,27 @@
 
 #include"DtMensajeVisto.h"
 #include"DtFechaHoraVisto.h"
+#include "ICollectible.h"
 #include<iostream>
 
 using namespace std;
 
-class DtMensajeVisto {
+class DtMensajeVisto : public ICollectible {
 public:
     DtMensajeVisto();
-    DtMensajeVisto(string, int, DtFechaHoraVisto );
+    DtMensajeVisto(string, int, DtFechaHoraVisto*);
     DtMensajeVisto(const DtMensajeVisto& orig);
     virtual ~DtMensajeVisto();
-    
+
     int GetCelular();
     string GetNombre();
-    DtFechaHoraVisto GetFechaHoraVisto();
-    
-    void SetCelular(int);
-    void SetFechaHoraVisto(DtFechaHoraVisto);
-    void SetNombre(string);    
-    
+
+    DtFechaHoraVisto* GetFechaHoraVisto();
+
 private:
-    
     string Nombre;
     int Celular;
-    DtFechaHoraVisto FechaHoraVisto;
-
+    DtFechaHoraVisto *FechaHoraVisto;
 };
 
 #endif /* DTMENSAJEVISTO_H */

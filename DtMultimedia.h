@@ -16,13 +16,11 @@
 
 #include "DtMensaje.h"
 
-class DtMultimedia : public DtMensaje{
-    private:
-        
-    public:
-        DtMultimedia();
-        virtual ~DtMultimedia();
-        
+class DtMultimedia : public DtMensaje {
+private:
 
+public:
+    DtMultimedia();
+    virtual ~DtMultimedia();
 };
 #endif /* DTMULTIMEDIA_H */

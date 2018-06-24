@@ -9,39 +9,38 @@
 #include "stdio.h"
 
 Nodo::Nodo()
-  :next(NULL), elem(NULL) {
+: next(NULL), elem(NULL) {
 }
 
 Nodo::Nodo(Nodo *next, ICollectible *ICollectible)
-  :next(next), elem(ICollectible) {
+: next(next), elem(ICollectible) {
 }
 
 Nodo::~Nodo() {
-  if (next != NULL) {
-    delete next;
-  }
-  elem = NULL;
+    if (next != NULL) {
+        delete next;
+    }
+    elem = NULL;
 }
 
-
 void Nodo::setNext(Nodo *next) {
-  this->next = next;
+    this->next = next;
 }
 
 Nodo *Nodo::getNext() {
-  return next;
+    return next;
 }
 
 bool Nodo::hasNext() {
-  return next != NULL;
+    return next != NULL;
 }
 
 ICollectible *Nodo::getICollectible() {
-  return elem;
+    return elem;
 }
 
 void Nodo::setICollectible(ICollectible *ICollectible) {
-  this->elem = ICollectible;
+    this->elem = ICollectible;
 }
 
 

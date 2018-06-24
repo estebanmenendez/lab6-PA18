@@ -26,7 +26,6 @@ public:
     DtConexion(string);
     DtConexion(const DtConexion& orig);
     virtual ~DtConexion();
-    
     string GetFechaHora();
     void SetFechaHora(string);   
     

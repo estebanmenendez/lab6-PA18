@@ -12,21 +12,25 @@
  */
 
 #include "DtMContacto.h"
-/*int numCel;*/
-DtMContacto::DtMContacto(const DtMContacto& orig){
+
+DtMContacto::DtMContacto(const DtMContacto& orig) {
     this->numCel = orig.numCel;
 }
-DtMContacto::DtMContacto(int numCel){
+
+DtMContacto::DtMContacto(int numCel) {
     this->numCel = numCel;
 }
+
 DtMContacto::DtMContacto() {
 }
-DtMContacto::~DtMContacto(){}
+
+DtMContacto::~DtMContacto() {
+}
 
 int DtMContacto::getNumCel() {
     return this->numCel;
 }
 
-void DtMContacto::setNumCel(int num){
-    this->numCel=num;
+void DtMContacto::setNumCel(int num) {
+    this->numCel = num;
 }

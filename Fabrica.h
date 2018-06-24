@@ -39,6 +39,7 @@ public:
 
     //destructor
     virtual ~Fabrica();
+    
 private:
 
 };

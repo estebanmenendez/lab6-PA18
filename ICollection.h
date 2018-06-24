@@ -18,11 +18,11 @@ using namespace std;
 
 class ICollection {
 public:
-  virtual void add(ICollectible *o) = 0;
-  virtual void remove(ICollectible *o) = 0;
-  virtual bool member(ICollectible *o) = 0;
-  virtual IIterator *iterator() = 0;
-  virtual bool isEmpty() = 0;
+    virtual void add(ICollectible *o) = 0;
+    virtual void remove(ICollectible *o) = 0;
+    virtual bool member(ICollectible *o) = 0;
+    virtual IIterator *iterator() = 0;
+    virtual bool isEmpty() = 0;
 };
 
 #endif

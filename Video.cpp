@@ -22,20 +22,23 @@ Video::Video(const Video& orig) {
 Video::~Video() {
 }
 
-
 float Video::GetDuracion() {
-        return Duracion;
-    }
+    return Duracion;
+}
 
-    void Video::SetDuracion(float Duracion) {
-        this->Duracion = Duracion;
-    }
+void Video::SetDuracion(float Duracion) {
+    this->Duracion = Duracion;
+}
 
-    string Video::GetUrl() {
-        return url;
-    }
+string Video::GetUrl() {
+    return url;
+}
 
-    void Video::SetUrl(string url) {
-        this->url = url;
-    }
+void Video::SetUrl(string url) {
+    this->url = url;
+}
 
+DtVideo* Video::getMensaje() {
+    DtVideo *mV = new DtVideo(this->url, this->Duracion);
+    return mV;
+}

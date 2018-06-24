@@ -17,33 +17,27 @@
 #include"Conversacion.h"
 #include"Lista.h"
 #include "DtConversacion.h"
-//#include"Usuario.h"
-//#include"Visto.h"
 #include"ICollectible.h"
 
-
 using namespace std;
-class EstadoConv :public ICollectible{
-    public:
+
+class EstadoConv : public ICollectible {
+public:
     EstadoConv();
     EstadoConv(bool, Conversacion*);
     EstadoConv(const EstadoConv& orig);
     virtual ~EstadoConv();
-    //bool sosDelUsuario(Usuario * us);
     bool ConvActiva();
     void setEstado(bool);
     void setArchivada(bool archivada);
     bool isArchivada() const;
     void setConversacion(Conversacion* conversacion);
     Conversacion* getConversacion() const;
-    //void setUsuario(Usuario* usuario);
-    //Usuario* getUsuario() const;
-   
-    
+
 private:
-        //Usuario * usuario;
-        Conversacion * conversacion; 
-        bool archivada;
+
+    Conversacion * conversacion;
+    bool archivada;
 };
 
 #endif /* ESTADOCONV_H */
