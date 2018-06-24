@@ -22,7 +22,8 @@ using namespace std;
 
 class ContGrupo: public iContGrupo {
     private:    
-        //static iContGrupo * instance;
+       Lista* ltElegidos = new Lista();
+       ListDicc* lUsuarios = new ListDicc();
         
         
     //Usuario * usu;
@@ -45,14 +46,14 @@ public:
     bool agregarNuevoAdmin(int);
     Lista* listarContactos();
     DtContacto seleccionarContacto(int);
-    void agregarParticipante(DtContacto);
+    void agregarParticipante(DtContacto*);
     Lista* listarParticipantes();
     DtContacto seleccionarParticipante(int);
-    void eliminarPartipante(DtContacto);
+    void eliminarParticipante(DtContacto*);
     void cancelar();
     //void setUsu(Usuario* usu);
     // Usuario* getUsu() const;
-    DtGrupo altaGrupo(string, string);
+    DtGrupo* altaGrupo(string, string);
     void Salir();
     //static iContGrupo * getInstance();
 };

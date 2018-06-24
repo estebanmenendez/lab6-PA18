@@ -43,12 +43,12 @@ public:
     virtual bool agregarNuevoAdmin(int) = 0;
     virtual Lista* listarContactos() = 0;
     virtual DtContacto seleccionarContacto(int) = 0;
-    virtual void agregarParticipante(DtContacto) = 0;
+    virtual void agregarParticipante(DtContacto*) = 0;
     virtual Lista* listarParticipantes() = 0;
     virtual DtContacto seleccionarParticipante(int) = 0;
-    virtual void eliminarPartipante(DtContacto) = 0;
+    virtual void eliminarParticipante(DtContacto*) = 0;
     virtual void cancelar() = 0;
-    virtual DtGrupo altaGrupo(string ,string ) = 0;
+    virtual DtGrupo* altaGrupo(string ,string ) = 0;
     virtual void Salir() = 0;
 private:
     

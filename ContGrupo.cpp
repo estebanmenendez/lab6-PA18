@@ -12,6 +12,7 @@
  */
 
 #include "ContGrupo.h"
+#include "Fabrica.h"
 //iContGrupo * ContGrupo::instance = NULL;
 
 
@@ -38,20 +39,48 @@ DtContacto ContGrupo::seleccionarParticipante(int){}
 bool ContGrupo::agregarNuevoAdmin(int){
 
 }
-Lista* ContGrupo::listarContactos(){}
-DtContacto ContGrupo::seleccionarContacto(int){}
-void ContGrupo::agregarParticipante(DtContacto){}
-Lista* ContGrupo::listarParticipantes(){
- 
+Lista* ContGrupo::listarContactos(){
+    Usuario * usuLog = Fabrica::getInstance()->getContUsuario()->getUsuLog();
+    Lista* listDtContacto = usuLog->GetContactos();
+    return listDtContacto;
 }
-DtContacto ContGrupo::seleccionarPart(int){}
-void ContGrupo::eliminarPartipante(DtContacto){}
+DtContacto ContGrupo::seleccionarContacto(int){}
+void ContGrupo::agregarParticipante(DtContacto* dtc){
+    this->ltElegidos->add(dtc);
+
+}
+
+
+Lista* ContGrupo::listarParticipantes(){
+    Lista* listPart = this->ltElegidos;
+    return listPart;
+}
+
+DtContacto ContGrupo::seleccionarPart(int){
+    
+}
+
+void ContGrupo::eliminarParticipante (DtContacto* dtc){
+    DtContacto* dtn = new DtContacto(); 
+    IIterator* h =   this->ltElegidos->iterator();
+    while(h->hasNext()){
+        dtn = dynamic_cast<DtContacto*>(h->getCurrent());
+        if (dtn->GetNumCel() == dtc->GetNumCel()){
+            this->ltElegidos->remove(dtn);
+            break;
+        }
+        h->next();
+    }
+}
+
 void ContGrupo::cancelar(){}
 
-DtGrupo ContGrupo::altaGrupo(string imagen,string nombre){
-    Grupo * grupo = new Grupo();
+DtGrupo* ContGrupo::altaGrupo(string imagen,string nombre){
+    DtGrupo* dtGrupo;
+    Grupo* grupo = new Grupo();
     grupo->SetImagen(imagen);
     grupo->SetNombre(nombre);
+    return dtGrupo= new DtGrupo();
 }
 void ContGrupo::Salir(){}
 
