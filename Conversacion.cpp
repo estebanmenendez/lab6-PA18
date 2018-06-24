@@ -26,6 +26,7 @@ Conversacion::~Conversacion() {
 bool Conversacion::sosConversacion(int idConv){
     if(this->idConv==idConv)return true;
     return false;}
+
 Mensaje* Conversacion::getMensaje(int idMensaje){
    intKey *key=new intKey(idMensaje);
     Mensaje *men=(dynamic_cast<Mensaje*>(mensajes->find(key)));
@@ -35,6 +36,17 @@ Mensaje* Conversacion::getMensaje(int idMensaje){
 void Conversacion::remueveConv(Mensaje* men){
     mensajes->removeObj(men);//incompleto
 }
+
+void Conversacion::remueveMens(int men){
+    intKey * key = new intKey(men);
+    IIterator *it=mensajes->getIteratorKey();    
+    Mensaje *mens=dynamic_cast<Mensaje*>(mensajes->find(key));
+    bool ok = mens->remueveVistos();
+    if(ok==true){
+        remueveConv(mens);
+    }
+}
+
 void Conversacion::eviarMensaje(Mensaje* m){
 //    ContMensaje* contMen;
 //    Fecha_Hora_sis* fechora;

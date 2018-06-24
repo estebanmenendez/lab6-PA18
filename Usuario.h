@@ -28,7 +28,7 @@
 #include "Tipo.h"
 #include "Fecha_Hora_sis.h"
 //#include "ContUsuario.h"
-#include "ContMensaje.h"
+//#include "ContMensaje.h"
 //#include "Estado.h"
 //#include "Conversacion.h"
 #include<iostream>
@@ -74,9 +74,12 @@ public:
     void addContacto(Usuario*);
 //    DtFechaHoraIng * getFechaIng(Grupo);
     Usuario * seleccionarCont(int);
+    Lista * seleccionarConversacion(int);
     void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
     void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
    
+    Lista * eliminarMensConv(int, int);
+    
     private:
     
     ListDicc* contactos = new ListDicc();

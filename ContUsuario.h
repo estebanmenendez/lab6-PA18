@@ -21,7 +21,7 @@
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"IDictionary.h"
-//#include"Usuario.h"
+#include"Usuario.h"
 #include"Lista.h"
 #include "ListaDicc.h"
 #include "ContMensaje.h"
@@ -56,6 +56,9 @@ public:
     bool cancelaIngreso();
     DtConexion* asignarSesion();
     Lista * listarContactos();
+    Lista * listarConversacion();
+    Lista * seleccionarConversacion(int);
+    void eliminarMensConv(int, int);
     DtContacto* ingContacto(int);
     void agregaContacto(DtContacto*);
     void cerrarSesion(DtConexion*); 

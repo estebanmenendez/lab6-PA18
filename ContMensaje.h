@@ -15,6 +15,7 @@
 #define CONTMENSAJE_H
 
 #include"iContMensaje.h"
+#include"ContUsuario.h"
 #include"DtFecha.h"
 #include"DtImagen.h"
 #include"DtMensaje.h"
@@ -25,13 +26,15 @@
 //#include "Mensaje.h"
 #include"Lista.h"
 
+
+
 using namespace std;
 
 class ContMensaje : public iContMensaje {
 
     
 private: 
-        DtMensaje mensaje;
+        DtMensaje* mensaje;
        //  static iContMensaje * instance;
       
 public:
@@ -39,27 +42,27 @@ ContMensaje();
 ContMensaje(const ContMensaje& orig);
 virtual ~ContMensaje();
 
-void enviarMensaje(string);
-void crearConv(int,int) ;
+void enviarMensaje(int);
+void crearConv(int,int);
 // void agregarConv(Conversacion) ;
-void crear(DtSimple) ;
-void crearMensaje(DtMensaje) ;
-void seleccionarCont(string) ;
-void selecConversacion(string) ;
-void getContactos() ;
+void crear(DtSimple);
+void crearMensaje(DtMensaje);
+void seleccionarCont(string);
+void selecConversacion(int);
+void getContactos();
 //void setConversacion(Conversacion*);
 //Conversacion* getConversacion() ;
 Lista* listarConv();
-void seleccionarConv(string) ;
-void archivarConv(DtConversacion) ;
-Lista* seleccionarConversacion(string) ;
-void seleccionarMensaje(int) ;
-void eliminarMensaje(DtMensaje) ;
-Lista* listarConvArchivadas() ;
-void cuerpoMensaje(DtSimple)  ;
-void cuerpoMensaje(DtImagen) ;
-void cuerpoMensaje(DtContacto) ;
-void crearMensaje() ;
+void seleccionarConv(int);
+void archivarConv(DtConversacion);
+Lista* seleccionarConversacion(int);
+void seleccionarMensaje(int);
+void eliminarMensaje(int, DtMensaje);
+Lista* listarConvArchivadas();
+void cuerpoMensaje(DtSimple);
+void cuerpoMensaje(DtImagen);
+void cuerpoMensaje(DtContacto);
+void crearMensaje();
 //void setUsu(Usuario* usu);
 //Usuario* getUsu();
 void setMensaje(DtMensaje mensaje);

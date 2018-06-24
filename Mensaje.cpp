@@ -50,8 +50,22 @@ Lista* Mensaje::GetVisto() {
     return visto;
 }
 
+Lista* Mensaje::getVistos() {
+    return visto;
+}
+
 void Mensaje::SetVisto(Lista* visto) {
     this->visto = visto;
 }
 
+bool Mensaje::remueveVistos(){
+    IIterator * it= visto->iterator();
+    while(it->hasNext()){
+        Visto * v= dynamic_cast<Visto*> (it->getCurrent());
+        visto->remove(v);
+        delete visto;
+        it->next();   
+   }
+    return true;
+}
 

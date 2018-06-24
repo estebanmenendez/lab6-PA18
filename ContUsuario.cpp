@@ -88,6 +88,20 @@ Lista* ContUsuario::listarContactos(){
     Lista* listDtContacto = this->usuLog->GetContactos();
     return listDtContacto;
 }
+
+Lista * ContUsuario::listarConversacion(){
+    Lista * listaConv = this->usuLog->getConversaciones();
+    return listaConv; 
+}
+
+Lista * ContUsuario::seleccionarConversacion(int idConv){
+    Lista * selecConv = this->usuLog->seleccionarConversacion(idConv);
+}
+
+void ContUsuario::eliminarMensConv(int idConv, int codMen){
+    this->usuLog->eliminarMensConv(idConv, codMen);    
+}
+
 DtContacto* ContUsuario::ingContacto(int numCelular){
     intKey* ikey = new intKey(numCelular);
     Usuario* usu = dynamic_cast<Usuario*>(this->usuario->find(ikey)); 

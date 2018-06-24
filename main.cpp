@@ -34,8 +34,9 @@ void crSes();
  * 
  */
 iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
-iContGrupo * ContGru = Fabrica::getInstance()->getContGrupo();
-iContMensaje * ContMen = Fabrica::getInstance()->getContMensaje();
+iContMensaje* ContMen = Fabrica::getInstance()->getContMensaje();
+iContGrupo* ContGru = Fabrica::getInstance()->getContGrupo();
+
 
 int main(int argc, char** argv) {
     int numCel = 0, optNoCel, optMenuPrincipal;
