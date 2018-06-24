@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="97">
+<configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>ContFecha.h</itemPath>
       <itemPath>ContGrupo.h</itemPath>
       <itemPath>ContMensaje.h</itemPath>
       <itemPath>ContUsuario.h</itemPath>
@@ -53,6 +54,7 @@
       <itemPath>Usuario.h</itemPath>
       <itemPath>Video.h</itemPath>
       <itemPath>Visto.h</itemPath>
+      <itemPath>iContFecha.h</itemPath>
       <itemPath>iContGrupo.h</itemPath>
       <itemPath>iContMensaje.h</itemPath>
       <itemPath>iContUsuario.h</itemPath>
@@ -65,6 +67,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>ContFecha.cpp</itemPath>
       <itemPath>ContGrupo.cpp</itemPath>
       <itemPath>ContMensaje.cpp</itemPath>
       <itemPath>ContUsuario.cpp</itemPath>
@@ -129,8 +132,20 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
   </logicalFolder>
   <sourceRootList>
+    <Elem>../../Descargas/ColeccionesG</Elem>
     <Elem>../../Descargas/ColeccionesG</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
@@ -146,6 +161,10 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
+      <item path="ContFecha.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ContFecha.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">
@@ -337,6 +356,8 @@
       <item path="Visto.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Visto.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="iContFecha.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="iContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -377,6 +398,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="ContFecha.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ContFecha.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ContGrupo.h" ex="false" tool="3" flavor2="0">
@@ -568,6 +593,8 @@
       <item path="Visto.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Visto.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="iContFecha.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="iContGrupo.cpp" ex="false" tool="1" flavor2="0">
       </item>

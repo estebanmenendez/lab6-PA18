@@ -39,8 +39,9 @@ void consultFechaSistema(); // Consultar fecha del sistema
 iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
 iContMensaje* ContMen = Fabrica::getInstance()->getContMensaje();
 iContGrupo* ContGru = Fabrica::getInstance()->getContGrupo();
-
+iContFecha* ContFec = Fabrica::getInstance()->getContFecha();
 int main(int argc, char** argv) {
+    ContFec->setFechaHoraSistema(0,0,1000,0,0);
     int numCel = 0, optNoCel, optMenuPrincipal;
     bool salirTotal = false, ingresarCel = false, firstMenu = false;
     do {
@@ -76,7 +77,7 @@ int main(int argc, char** argv) {
             }
             firstMenu = true;
             if (!salirTotal) {
-                cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11-Consultar fecha del sistema\n0- Salir\n";
+                cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11- Consultar fecha del sistema\n0- Salir\n";
                 cin>>optMenuPrincipal;
                 switch (optMenuPrincipal) {
                     case 1:
@@ -103,7 +104,11 @@ int main(int argc, char** argv) {
                     case 9:
                         break;
                     case 10:
+                        cambiarFechaSist();
                         break;
+                    case 11:
+                       consultFechaSistema();
+                       break;
                     case 0:
                         salirTotal = true;
                         break;
@@ -119,6 +124,36 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+
+void cambiarFechaSist() {
+    int dia=0, mes=0, anio=0, hora=0, min=0;
+    cout<< "---- CAMBIAR FECHA Y HORA DEL SISTEMA ---- \n";
+    do{
+        cout<< "Ingrese el día: ";
+        cin>> dia;
+    }while(dia < 1 || dia > 31);
+    do{
+        cout<< "Ingrese el mes: ";
+        cin>> mes;
+    }while(mes < 1 || mes > 12);
+    do{
+        cout<< "Ingrese el anio (Mayor a 1900): ";
+        cin>> anio;
+    }while(anio < 1900);
+    do{   
+        cout<< "Ingrese la hora: ";
+        cin>> hora;
+    }while(hora < 0 || hora > 23);
+    do{
+        cout<< "Ingrese los minutos: ";
+        cin>> min;
+    }while(min < 0 || min > 59);
+    ContFec->setFechaHoraSistema(dia, mes, anio, min, hora);
+}
+
+void consultFechaSistema() {
+    cout<< Fabrica::getInstance()->getContFecha()->getFechaHoraSistema();
+}
 void crSes() {
     ContUsu->cerrarSesion(new DtConexion());
 }

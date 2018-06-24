@@ -28,7 +28,7 @@ public:
     DtHora* getHora();
     void setHora(DtHora*);
     void setFecha(DtFecha*);
-
+    
 private:
 
     DtFecha* fecha;

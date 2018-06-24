@@ -45,3 +45,9 @@ iContGrupo* Fabrica::getContGrupo() {
         this->cGru = new ContGrupo();
     return this->cGru;
 }
+
+iContFecha* Fabrica::getContFecha(){
+    if(this->cFec == NULL)
+        this->cFec = new ContFecha();
+    return this->cFec;
+}
