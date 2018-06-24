@@ -24,32 +24,32 @@ using namespace std;
 class DtGrupo {
 public:
     DtGrupo();
-    DtGrupo(string, DtContacto, DtContacto , DtFecha , DtHora );
+    DtGrupo(string, DtContacto*, DtContacto* , DtFecha* , DtHora* );
     DtGrupo(const DtGrupo& orig);
     virtual ~DtGrupo();
     
     string GetImagenUrl();
     string GetNombre();
-    DtHora GetHoraCreacion();
-    DtFecha GetFechaCreacion();
-    DtContacto GetContactos();   
-    DtContacto GetUsrCreador();
+    DtHora *GetHoraCreacion();
+    DtFecha *GetFechaCreacion();
+    DtContacto *GetContactos();   
+    DtContacto* GetUsrCreador();
     
-    void SetHoraCreacion(DtHora);
-    void SetContactos(DtContacto);
-    void SetFechaCreacion(DtFecha);   
+    void SetHoraCreacion(DtHora*);
+    void SetContactos(DtContacto*);
+    void SetFechaCreacion(DtFecha*);   
     void SetImagenUrl(string);
     void SetNombre(string);
-    void SetUsrCreador(DtContacto);
+    void SetUsrCreador(DtContacto*);
     
 private:
     
     string nombre;
     string imagenUrl;
-    DtContacto contactos;
-    DtContacto usrCreador;
-    DtFecha fechaCreacion;
-    DtHora HoraCreacion;    
+    DtContacto *contactos;
+    DtContacto *usrCreador;
+    DtFecha *fechaCreacion;
+    DtHora *HoraCreacion;    
 
     
 };

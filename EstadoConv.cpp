@@ -17,7 +17,9 @@ void EstadoConv::setEstado(bool archivada) {
     this->archivada = archivada;
 }
 bool EstadoConv::ConvActiva(){
-    return this->archivada;
+    if(this->archivada==false)return true;
+    
+    return false;
 }
 
 

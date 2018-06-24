@@ -28,20 +28,20 @@ public:
     Tipo(const Tipo& orig);
     virtual ~Tipo();
     
-    DtFecha GetFechaIng();
-    DtHora GetHoraIng();
+    DtFecha* GetFechaIng();
+    DtHora* GetHoraIng();
     string GetTipo();
-    //bool soyDelGrupo(Grupo * g);
-    void SetFechaIng(DtFecha);    
-    void SetHoraIng(DtHora); 
+    void SetFechaIng(DtFecha*);    
+    void SetHoraIng(DtHora*); 
     void SetTipo(string);    
     DtFechaHoraIng * getFechaHoraIng();
+    Grupo * getGrupo();
 private:
         
         Grupo * grupo;
         string tipo;
-        DtFecha fechaIng;
-        DtHora horaIng;
+        DtFecha *fechaIng;
+        DtHora *horaIng;
 
 };
 

@@ -16,7 +16,7 @@
     DtFecha fechaEnv;
     DtHora horaEnv;*/
 
-DtMensaje::DtMensaje(int codigo, DtFecha fechaEnv, DtHora horaEnv){
+DtMensaje::DtMensaje(int codigo, DtFecha *fechaEnv, DtHora *horaEnv){
     this->codigo = codigo;
     this->fechaEnv = fechaEnv;
     this->horaEnv = horaEnv;
@@ -41,18 +41,18 @@ int DtMensaje::GetCodigo() {
         this->codigo = codigo;
     }
 
-    DtFecha DtMensaje::GetFechaEnv() {
+    DtFecha* DtMensaje::GetFechaEnv() {
         return fechaEnv;
     }
 
-    void DtMensaje::SetFechaEnv(DtFecha fechaEnv) {
+    void DtMensaje::SetFechaEnv(DtFecha *fechaEnv) {
         this->fechaEnv = fechaEnv;
     }
 
-    DtHora DtMensaje::GetHoraEnv() {
+    DtHora* DtMensaje::GetHoraEnv() {
         return horaEnv;
     }
 
-    void DtMensaje::SetHoraEnv(DtHora horaEnv) {
+    void DtMensaje::SetHoraEnv(DtHora *horaEnv) {
         this->horaEnv = horaEnv;
     }

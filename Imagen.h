@@ -15,7 +15,7 @@
 #define IMAGEN_H
 
 #include"Multimedia.h"
-
+#include"DtImagen.h"
 class Imagen : public Multimedia {
 public:
     Imagen();
@@ -26,7 +26,7 @@ public:
     string GetFormato();
     string GetUrlImg();
     string GetTexto();
-    
+    DtImagen * getMensaje();
     void SetTexto(string);
     void SetTamanio(int);
     void SetFormato(string);

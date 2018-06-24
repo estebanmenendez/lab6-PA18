@@ -23,7 +23,7 @@ DtFechaHoraIng::DtFechaHoraIng(const DtFechaHoraIng& orig) {
     this->fecha = orig.fecha;
     this->hora = orig.hora;
 }
-DtFechaHoraIng::DtFechaHoraIng(DtFecha fecha, DtHora hora){
+DtFechaHoraIng::DtFechaHoraIng(DtFecha* fecha, DtHora* hora){
     this->fecha = fecha;
     this->hora = hora;
 }
@@ -31,19 +31,19 @@ DtFechaHoraIng::DtFechaHoraIng(DtFecha fecha, DtHora hora){
 DtFechaHoraIng::~DtFechaHoraIng() {
 }
 
-void DtFechaHoraIng::SetHora(DtHora hora) {
+void DtFechaHoraIng::SetHora(DtHora* hora) {
     this->hora = hora;
 }
 
-DtHora DtFechaHoraIng::GetHora() const {
+DtHora *DtFechaHoraIng::GetHora() const {
     return hora;
 }
 
-void DtFechaHoraIng::SetFecha(DtFecha fecha) {
+void DtFechaHoraIng::SetFecha(DtFecha* fecha) {
     this->fecha = fecha;
 }
 
-DtFecha DtFechaHoraIng::GetFecha() const {
+DtFecha *DtFechaHoraIng::GetFecha() const {
     return fecha;
 }
 

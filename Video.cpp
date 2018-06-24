@@ -39,3 +39,7 @@ float Video::GetDuracion() {
         this->url = url;
     }
 
+ DtVideo* Video::getMensaje(){
+        DtVideo *mV=new DtVideo(this->url,this->Duracion);
+        return mV;
+    }

@@ -15,9 +15,9 @@
 
 
 using namespace std;
-
+int ContUsuario::getNumContacto(int idConv){}
 //iContUsuario * ContUsuario::instance = NULL;
-
+Lista * ContUsuario::seleccionarConversacion(int idconv){}
 ContUsuario::ContUsuario(){}
 ContUsuario::ContUsuario(const ContUsuario& orig){}
 ContUsuario::~ContUsuario() {}
@@ -41,9 +41,7 @@ ContUsuario::~ContUsuario() {}
 //}
 
 
-Usuario* ContUsuario::getUsuLog() {
-    return this->usuLog;
-}
+
 
 
 bool ContUsuario::usuarioLogueado(int numCel){
@@ -83,8 +81,12 @@ DtConexion* ContUsuario::asignarSesion(){
        Fecha_Hora_sis* a;
        usU->SetUltima_conexion(a->getUltimaConexion());// Esto tiene error y no tenog ni puta idea de que es!
        //setUsuLog(usu->GetCelular()); No hace nada? No sé como pensamos controlar el usuario que está logeado
+        setUsuLog(usU); 
        DtConexion* r = new DtConexion();
        return r;
+}
+Usuario* ContUsuario::getUsu(){
+    return this->usuLog;
 }
 Lista *ContUsuario::listarContactos(){
     Lista* listDtContacto = new Lista();
@@ -126,7 +128,10 @@ void ContUsuario::agregaContacto(DtContacto*  dtc){
     Usuario* usu = dynamic_cast<Usuario*>(this->usuario->find(ikey));
     this->usuLog->GetContactos()->add(usu);
 }
-void ContUsuario::cerrarSesion(DtConexion){
+int ContUsuario::getNumUsuLog(){
+    return this->usuLog->GetCelular();
+}
+void ContUsuario::cerrarSesion(DtConexion*){
 }
 void ContUsuario::modificarPerfil(string, string, string){
 }
@@ -140,25 +145,30 @@ void ContUsuario::setNumCel(int numCel) {
 int ContUsuario::getNumCel() {
     return numCel;
 }
-void ContUsuario::setUltimaCon(DtUltCon){
+void ContUsuario::setUltimaCon(DtUltCon*){
     
 }
-void ContUsuario::setUsuLog(int){
-
+void ContUsuario::setUsuLog(Usuario * usu){
+    this->usuLog=usu;
+            
 }
-
-/*iContUsuario * ContUsuario::getInstance(){
-    if(instance== NULL)
-        instance = new ContUsuario();
-    return instance;   
+Lista * ContUsuario::listarConversacion(){
+    Lista * listaConv = this->usuLog->getConversaciones();
+    return listaConv;    
 }
-*/
-
-//
-//void ContUsuario::setUsu(Usuario* usu) {
-//    this->usu = usu;
-//}
-//
-//Usuario* ContUsuario::getUsu()  {
-//    return usu;
-//}
+string ContUsuario::getNombreCont(int receptor){
+     return usuLog->nombreUsu(receptor); //tre el nombre del receptor
+ 
+ }
+ Lista* ContUsuario::listaConversacion(){
+     Usuario* usuLog= getUsu();
+     Lista *listConv;
+     listConv=usuLog->getConversaciones();
+     return listConv; 
+ }
+ Lista* ContUsuario::listaConversacionArc(){
+     Usuario* usuLog=getUsu();
+     Lista* listConvArch;
+     listConvArch=usuLog->getConversacionesAr();
+     return listConvArch;
+ }

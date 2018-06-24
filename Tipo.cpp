@@ -26,19 +26,19 @@ Tipo::~Tipo() {
 //    return false;
 //}
 
- DtFecha Tipo::GetFechaIng() {
+ DtFecha* Tipo::GetFechaIng() {
         return fechaIng;
     }
 
-    void Tipo::SetFechaIng(DtFecha fechaIng) {
+    void Tipo::SetFechaIng(DtFecha* fechaIng) {
         this->fechaIng = fechaIng;
     }
 
-    DtHora Tipo::GetHoraIng() {
+    DtHora* Tipo::GetHoraIng() {
         return horaIng;
     }
 
-    void Tipo::SetHoraIng(DtHora horaIng) {
+    void Tipo::SetHoraIng(DtHora* horaIng) {
         this->horaIng = horaIng;
     }
 
@@ -48,4 +48,11 @@ Tipo::~Tipo() {
 
     void Tipo::SetTipo(string tipo) {
         this->tipo = tipo;
+    }
+   Grupo * Tipo::getGrupo(){
+    return this->grupo;}
+    
+    DtFechaHoraIng* Tipo::getFechaHoraIng(){
+        DtFechaHoraIng *dtFech=new DtFechaHoraIng(this->fechaIng,this->horaIng);
+        return dtFech;
     }

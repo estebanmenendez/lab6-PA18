@@ -23,20 +23,20 @@ class DtFechaHoraIng {
     
 public:
     DtFechaHoraIng();
-    DtFechaHoraIng(DtFecha , DtHora );
+    DtFechaHoraIng(DtFecha* , DtHora* );
     DtFechaHoraIng(const DtFechaHoraIng& orig);
 
     virtual ~DtFechaHoraIng();
-    void SetHora(DtHora hora);
-    DtHora GetHora() const;
-    void SetFecha(DtFecha fecha);
-    DtFecha GetFecha() const;
+    void SetHora(DtHora* hora);
+    DtHora* GetHora() const;
+    void SetFecha(DtFecha* fecha);
+    DtFecha* GetFecha() const;
     
         
 private:
     
-    DtFecha fecha;
-    DtHora hora;
+    DtFecha *fecha;
+    DtHora *hora;
 
 };
 

@@ -23,8 +23,8 @@ public:
     DtUltCon(const DtUltCon& orig);
     virtual ~DtUltCon();
 private:
-    DtFecha fecha;
-    DtHora hora;
+    DtFecha *fecha;
+    DtHora *hora;
 };
 
 #endif /* DTULTCON_H */

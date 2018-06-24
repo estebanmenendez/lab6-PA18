@@ -122,7 +122,7 @@ void agregarContacto(){
         cin>>numCel;
         dtc = ContUsu->ingContacto(numCel);
         if(dtc != NULL){
-            if(dtc->GetNumCel() == std::to_string(ContUsu->getUsuLog()->GetCelular())){
+            if(dtc->GetNumCel() == std::to_string(ContUsu->getNumUsuLog())){
                 cout<<"No puedes agregarte como contacto a vos mismo.\n";
             }
             else{

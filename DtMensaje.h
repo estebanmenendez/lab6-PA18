@@ -21,23 +21,23 @@
 class DtMensaje:public ICollectible {
 public:
     DtMensaje();
-    DtMensaje(int , DtFecha , DtHora );
+    DtMensaje(int , DtFecha* , DtHora* );
     DtMensaje(const DtMensaje& orig);
     virtual ~DtMensaje();
     
     int GetCodigo();
-    DtHora GetHoraEnv();
-    DtFecha GetFechaEnv();
+    DtHora* GetHoraEnv();
+    DtFecha *GetFechaEnv();
 
     void SetCodigo(int);
-    void SetFechaEnv(DtFecha);
-    void SetHoraEnv(DtHora);
+    void SetFechaEnv(DtFecha*);
+    void SetHoraEnv(DtHora*);
 
 private:
     
     int codigo;
-    DtFecha fechaEnv;
-    DtHora horaEnv;
+    DtFecha *fechaEnv;
+    DtHora *horaEnv;
 
 };
 

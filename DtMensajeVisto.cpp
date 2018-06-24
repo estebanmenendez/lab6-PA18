@@ -17,7 +17,7 @@
     DtFechaHoraVisto FechaHoraVisto;
 */
 
-DtMensajeVisto::DtMensajeVisto(string nombre, int celular, DtFechaHoraVisto fhv){
+DtMensajeVisto::DtMensajeVisto(string nombre, int celular, DtFechaHoraVisto* fhv){
     this->Nombre = nombre;
     this->Celular = celular;
     this->FechaHoraVisto = fhv;
@@ -34,18 +34,12 @@ DtMensajeVisto::DtMensajeVisto(const DtMensajeVisto& orig) {
 DtMensajeVisto::~DtMensajeVisto() {
 }
 
-  DtFechaHoraVisto DtMensajeVisto::GetFechaHoraVisto()  {
+  DtFechaHoraVisto* DtMensajeVisto::GetFechaHoraVisto()  {
         return FechaHoraVisto;
     }
-
-    void DtMensajeVisto::SetFechaHoraVisto(DtFechaHoraVisto FechaHoraVisto) {
-        this->FechaHoraVisto = FechaHoraVisto;
-    }
-
+   
     string DtMensajeVisto::GetNombre() {
         return Nombre;
     }
 
-    void DtMensajeVisto::SetNombre(string Nombre) {
-        this->Nombre = Nombre;
-    }
+   

@@ -30,3 +30,7 @@ int Contacto::GetNumCel(){
 void Contacto::SetNumCel(int numCel){
     this->numCel = numCel;
 }
+DtMContacto* Contacto::getMensaje(){
+    DtMContacto* mC=new DtMContacto(this->numCel);
+    return mC;
+}

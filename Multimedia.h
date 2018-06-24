@@ -21,7 +21,7 @@ public:
     Multimedia();
     Multimedia(const Multimedia& orig);
     virtual ~Multimedia();
-    
+        //DtMultimedia* getMensaje();
 private:
 
 };

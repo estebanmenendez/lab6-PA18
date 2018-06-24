@@ -15,16 +15,15 @@
 #define VIDEO_H
 
 #include"Multimedia.h"
-
+#include "DtVideo.h"
 class Video : public Multimedia {
 public:
     Video();
     Video(const Video& orig);
     virtual ~Video();
-    
+    DtVideo* getMensaje();
     float GetDuracion();
     string GetUrl();
-
     void SetDuracion(float);
     void SetUrl(string);
 

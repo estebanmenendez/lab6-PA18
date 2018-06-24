@@ -21,7 +21,7 @@
 #include"Lista.h"
 //#include"Usuario.h"
 #include"Visto.h"
-
+#include"DtMensajeVisto.h"
 using namespace std;
 
 class Mensaje : public ICollectible{
@@ -30,24 +30,23 @@ public:
     Mensaje(const Mensaje& orig);
     virtual ~Mensaje();    
     int GetCodigo();
-    DtFecha GetFechaEnv();
-    DtHora GetHoraEnv();
-    Lista* GetVisto();
-    //Visto* esReceptor(Usuario*);
+    DtFecha *GetFechaEnv();
+    DtHora *GetHoraEnv();
+    Visto* GetVisto();
     void SetCodigo(int);
-    void SetFechaEnv(DtFecha);    
-    void SetHoraEnv(DtHora);
-    void SetVisto(Lista *);
-    //void setReceptor(Usuario *);
-    Lista *getVistos();
-    DtMensaje *getMensaje();
+    void SetFechaEnv(DtFecha*);    
+    void SetHoraEnv(DtHora*);
+    void SetVisto(Visto *);
+    DtMensaje* getMensaje();
+    bool esReceptor(int);
+    Lista * GetVistos();
 private:
         
         Lista* visto=new Lista();
         int emisor;
         int codigo;
-        DtFecha fechaEnv;
-        DtHora horaEnv;
+        DtFecha *fechaEnv;
+        DtHora *horaEnv;
         
 };
 

@@ -13,13 +13,14 @@
 
 #ifndef VISTO_H
 #define VISTO_H
-
+#include "DtFechaHoraVisto.h"
 #include"DtFecha.h"
 #include"DtHora.h"
+#include "ICollectible.h"
 
 using namespace std;
 
-class Visto {
+class Visto: public ICollectible {
 public:
     Visto();
     Visto(const Visto& orig);
@@ -27,17 +28,15 @@ public:
     bool getEstado();
     DtFecha * GetFechaV();
     DtHora * GetHoraV();
-    //Usuario* GetUsuario();
-    
     void SetFechaV(DtFecha *);
-    //void SetUsuario(Lista *);
     void SetHoraV(DtHora *);
     void SetEstado(bool);
     bool esReceptor(int);
-    
+    int getReceptor();
+    DtFechaHoraVisto * getFechaHoraVisto();
 private:
     
-        int S;
+        int Receptor;
         bool estado; 
         DtFecha * fechaV;
         DtHora * horaV;

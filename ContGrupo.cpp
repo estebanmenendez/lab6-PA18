@@ -26,24 +26,24 @@ ContGrupo::~ContGrupo() {
 }
 
 
-void ContGrupo::crearTipoGrupo(DtTipo,string){}
-void ContGrupo::createTipo(DtTipo,string){}
+void ContGrupo::crearTipoGrupo(DtTipo*,string){}
+void ContGrupo::createTipo(DtTipo*,string){}
 void ContGrupo::crearConvGrupo(string){}
 void ContGrupo::getUsuario(int){}
 void ContGrupo::getContactos(){}
 void ContGrupo::getDtContacto(){}
 Lista* ContGrupo::listarGrupos(){}
-DtContacto ContGrupo::seleccionarGrupo(string){}
-DtContacto ContGrupo::seleccionarParticipante(int){}
+DtContacto* ContGrupo::seleccionarGrupo(string){}
+DtContacto* ContGrupo::seleccionarParticipante(int){}
 bool ContGrupo::agregarNuevoAdmin(int){}
 Lista* ContGrupo::listarContactos(){}
-DtContacto ContGrupo::seleccionarContacto(int){}
-void ContGrupo::agregarParticipante(DtContacto){}
+DtContacto* ContGrupo::seleccionarContacto(int){}
+void ContGrupo::agregarParticipante(DtContacto*){}
 Lista* ContGrupo::listarParticipantes(){}
-DtContacto ContGrupo::seleccionarPart(int){}
-void ContGrupo::eliminarPartipante(DtContacto){}
+DtContacto* ContGrupo::seleccionarPart(int){}
+void ContGrupo::eliminarPartipante(DtContacto*){}
 void ContGrupo::cancelar(){}
-DtGrupo ContGrupo::altaGrupo(string,string){}
+DtGrupo* ContGrupo::altaGrupo(string,string){}
 void ContGrupo::Salir(){}
 
 /*iContGrupo * ContGrupo::getInstance(){

@@ -31,9 +31,8 @@ class iContUsuario {
 public:
 
 virtual ~iContUsuario();
-//virtual void create(string,string,string,int,DtFecha,DtHora) = 0;
-virtual void setUltimaCon(DtUltCon) = 0;
-virtual void setUsuLog(int) = 0;
+virtual void setUltimaCon(DtUltCon*) = 0;
+virtual void setUsuLog(Usuario*) = 0;
 virtual bool usuarioLogueado(int) = 0;
 virtual bool ingresarCelular(int) = 0;
 virtual bool altaUsuario(string,string,string) = 0;
@@ -42,14 +41,17 @@ virtual DtConexion* asignarSesion() = 0;
 virtual Lista * listarContactos() = 0;
 virtual DtContacto* ingContacto(int) = 0;
 virtual void agregaContacto(DtContacto*) = 0;
-virtual void cerrarSesion(DtConexion) = 0; 
+virtual void cerrarSesion(DtConexion*) = 0; 
 virtual void modificarPerfil(string, string, string) = 0;
 virtual void actualizarDatos() = 0;
 virtual void setNumCel(int numCel)= 0;
 virtual int getNumCel()= 0;
-//virtual void setUsu(Usuario* usu) = 0;
-virtual Usuario* getUsuLog()=0;
-
+virtual Lista* listaConversacion()=0;
+virtual Lista* listaConversacionArc()=0;
+virtual  Lista * seleccionarConversacion(int idconv)=0;
+virtual string getNombreCont(int receptor)=0;
+virtual int getNumContacto(int idConv)=0;
+virtual int getNumUsuLog()=0;
 private:
 
 };

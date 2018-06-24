@@ -28,3 +28,7 @@ string Simple::getTexto() {
     void Simple::setTexto(string texto){
     this->texto = texto;
     }
+DtSimple* Simple::getMensaje() {
+    DtSimple * mS=new DtSimple(this->texto);
+    return mS;
+}

@@ -21,16 +21,16 @@
 #include "ICollectible.h"
 #include "Lista.h"
 #include "DtTipo.h"
-#include "Mensaje.h"
+//#include "Mensaje.h"
 #include "EstadoConv.h"
 #include "DtContacto.h"
 #include "ListaDicc.h"
 #include "Tipo.h"
 #include "Fecha_Hora_sis.h"
 //#include "ContUsuario.h"
-#include "ContMensaje.h"
-//#include "Estado.h"
-//#include "Conversacion.h"
+//#include "ContMensaje.h"
+#include "DtConversacion.h"
+
 #include<iostream>
 
 using namespace std;
@@ -67,14 +67,16 @@ public:
     Lista * getConversaciones();
     Lista * getConversacionesAr();
     Lista * GetContactos();
-//    Conversacion selecionarConversacion(int);
-    //void crearTipoGrupo(DtTipo *,Grupo *);
     void crearConvGrupo(Conversacion *);
-//    DtFechaHoraIng * getFechaIng(Grupo);
     Usuario * seleccionarCont(int);
     void crearConversacion(Usuario *, Conversacion *);//para el usuario actual
     void crearEstadoConv(Conversacion *conv,Usuario * usu,Usuario * usu2);//para el contacto
-   
+    bool convGrupal(int);
+    DtConversacion * getConvGrupo(int);
+    bool sosElOtro(int idConv);
+    Lista * listarMensajes(int codConv);
+    Lista * listarVistos(int idMens);
+    string nombreUsu(int numCel);
     private:
     
     ListDicc * contactos= new ListDicc();

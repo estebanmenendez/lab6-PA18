@@ -31,42 +31,38 @@ class ContMensaje : public iContMensaje {
 
     
 private: 
-        DtMensaje mensaje;
+        DtMensaje *mensaje;
+        int idConv;
        //  static iContMensaje * instance;
       
 public:
 ContMensaje();
 ContMensaje(const ContMensaje& orig);
 virtual ~ContMensaje();
-
-void enviarMensaje(string);
+void enviarMensaje();
 void crearConv(int,int) ;
-// void agregarConv(Conversacion) ;
-void crear(DtSimple) ;
-void crearMensaje(DtMensaje) ;
-void seleccionarCont(string) ;
-void selecConversacion(string) ;
+void crear(DtSimple*) ;
+void crearMensaje(DtMensaje*) ;
+void seleccionarCont(int) ;
+void selecConversacion(int) ;
 void getContactos() ;
-//void setConversacion(Conversacion*);
-//Conversacion* getConversacion() ;
-Lista* listarConv();
-void seleccionarConv(string) ;
-void archivarConv(DtConversacion) ;
-Lista* seleccionarConversacion(string) ;
+Lista* listarConv();//otro listar es
+void seleccionarConv(int) ;
+void archivarConv(DtConversacion*) ;
+Lista* seleccionarConversacion(int idConv) ;
 void seleccionarMensaje(int) ;
-void eliminarMensaje(DtMensaje) ;
+void eliminarMensaje(DtMensaje*) ;
 Lista* listarConvArchivadas() ;
-void cuerpoMensaje(DtSimple)  ;
-void cuerpoMensaje(DtImagen) ;
-void cuerpoMensaje(DtContacto) ;
+void cuerpoMensaje(DtSimple*)  ;
+void cuerpoMensaje(DtImagen*) ;
+void cuerpoMensaje(DtContacto*) ;
 void crearMensaje() ;
-//void setUsu(Usuario* usu);
-//Usuario* getUsu();
-void setMensaje(DtMensaje mensaje);
-DtMensaje getMensaje();
-//static iContMensaje * getInstance();
-
-
+void setMensaje(DtMensaje *mensaje);
+DtMensaje *getMensaje();
+void setIdConv(int id);
+Lista *infromacionAdicional(int idMens);
+Lista * listarConversaciones();
+Lista * listarConversacionesArch();
 };
 
 #endif /* CONTMENSAJE_H */
