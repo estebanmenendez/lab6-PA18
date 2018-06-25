@@ -98,3 +98,4 @@ Lista * Mensaje::GetVistos() {
     }
     return listaVistos;
 }
+

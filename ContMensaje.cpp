@@ -12,11 +12,6 @@
  */
 
 #include"ContMensaje.h"
-////<<<<<<< HEAD
-//#include"Fabrica.h"
-//
-//
-//=======
 #include "iContUsuario.h"
 #include "Fabrica.h"
 
@@ -93,7 +88,7 @@ Lista * ContMensaje::listarConversacionesArch() {
 Lista* ContMensaje::listarConv() {
     iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
     Lista * retorno;
-    retorno = usuLog->listarConversacion();
+    return retorno = usuLog->listarConversacion();
 }
 
 Lista* ContMensaje::seleccionarConversacion(int idConv) {

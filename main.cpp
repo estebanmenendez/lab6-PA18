@@ -99,6 +99,7 @@ int main(int argc, char** argv) {
                     case 7:
                         break;
                     case 8:
+                        eliMensaje();
                         break;
                     case 9:
                         break;
@@ -279,6 +280,33 @@ void altaGrupo() {
         } while (salir == 's');
 
     } catch (std::invalid_argument &ia) {
+        cout << ia.what() << endl;
+    }
+}
+
+void eliMensaje(){
+    
+    char confirmar, salir = 'n';
+    DtMensaje* dtm = new DtMensaje();
+    DtConversacion * dtc = new DtConversacion();   
+    
+    try{
+        cout<<"\nEliminar Mensaje\n\n";
+        
+        cout << "Conversaciones del usuario:";
+        do{
+        Lista * ltConv = ContMen->listarConv(); 
+        
+        IIterator* i = ltConv->iterator();
+        
+            while (i->hasNext()) {
+                dtc = dynamic_cast<DtConversacion*> (i->getCurrent());
+                
+                cout << dtc->GetIdConversa()<<  " - " << dtc->GetNombre() << " - " << dtc->GetCel_Cantidad()<< "\n";
+                i->next();
+            }
+        }while(salir == 's');
+        }catch (std::invalid_argument &ia) {
         cout << ia.what() << endl;
     }
 }

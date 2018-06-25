@@ -114,13 +114,15 @@ void Usuario::SetUltima_conexion(DtUltCon* ultima_conexion) {
 }
 
 Lista * Usuario::getConversaciones() {
-    if (estadoConv->isEmpty() == true) {
-        throw "No tiene conversaciones";
-    }
+    
+//    if (this->estadoConv->isEmpty() == true) {
+//        throw invalid_argument("No tiene conversaciones\n");
+//    }    
+            
     Lista *conversacionesAct;
-    IIterator *it = estadoConv->iterator();
+    IIterator *it = this->estadoConv->iterator();
     int cant = 0, cont = 0;
-
+    
     while (it->hasNext()) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->ConvActiva() == true) {
@@ -252,16 +254,6 @@ Lista * Usuario::listarMensajes(int codConv) {
         }
 
     }
-}
-
-Lista * Usuario::listarVistos(int idMens) {
-    Lista *vistos;
-    IIterator *it = estadoConv->iterator();
-    while (it->hasNext()) {
-        EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
-
-    }
-
 }
 
 string Usuario::nombreUsu(int numCel) {
