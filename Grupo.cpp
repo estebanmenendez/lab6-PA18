@@ -12,11 +12,12 @@
  */
 
 #include "Grupo.h"
+#include "Fabrica.h"
 
 Grupo::Grupo() {
     this->conv = new Conversacion();
-    this->fecha = new DtFecha();
-    this->hora = new DtHora();
+    this->fecha = Fabrica::getInstance()->getContFecha()->getFechaHora()->getFecha();
+    this->hora = Fabrica::getInstance()->getContFecha()->getFechaHora()->getHora();
     
 }
 

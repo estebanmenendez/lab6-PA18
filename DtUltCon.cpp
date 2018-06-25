@@ -44,4 +44,3 @@ DtUltCon::DtUltCon(DtFecha* fecha, DtHora* hora) {
 }
 
 
-

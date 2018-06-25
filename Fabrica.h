@@ -20,6 +20,7 @@
 #include"ContGrupo.h"
 #include"ContMensaje.h"
 #include"ContUsuario.h"
+#include "ContFecha.h"
 
 class Fabrica {
     //Fabrica es singleton
@@ -27,6 +28,7 @@ private:
     ContUsuario * cUsu;
     ContMensaje * cMens;
     ContGrupo * cGru;
+    ContFecha* cFec;
     Fabrica();
     static Fabrica* fabrica;
     
@@ -36,7 +38,7 @@ public:
     iContUsuario* getContUsuario();
     iContMensaje* getContMensaje();
     iContGrupo* getContGrupo();
-
+    iContFecha* getContFecha();
     //destructor
     virtual ~Fabrica();
     
