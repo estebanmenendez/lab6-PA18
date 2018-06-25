@@ -22,7 +22,7 @@ using namespace std;
 
 class Visto : public ICollectible {
 public:
-    Visto();
+    Visto(int);
     Visto(const Visto& orig);
     virtual ~Visto();
     bool getEstado();

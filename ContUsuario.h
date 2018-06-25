@@ -66,6 +66,7 @@ public:
     Lista* listaConversacion();
     Lista* listaConversacionArc();
     int getNumUsuLog();
+    void crearGrupoUsuario(Grupo*,string,int);
 };
 
 #endif /* CONTUSUARIO_H */

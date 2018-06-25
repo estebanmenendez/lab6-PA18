@@ -170,3 +170,20 @@ Lista* ContUsuario::listaConversacionArc() {
     listConvArch = usuLog->getConversacionesAr();
     return listConvArch;
 }
+
+ void ContUsuario::crearGrupoUsuario(Grupo* grupo,string celular,int mensaje){
+    //crea un visto para cada usuario ##ver la fecha del Visto.
+    Visto * visto = new Visto(atoi(celular.c_str()));
+    //busca el usuario en la lista por su celular
+    intKey *ikey = new intKey(atoi(celular.c_str()));
+    Usuario * usU = dynamic_cast<Usuario*> (this->usuario->find(ikey));
+    if (usU != NULL){
+        //si lo encuentra  crea el estado de Conversacion y le setea la conversacion.
+        usU->crearEstadoConversacion(grupo->getConversacion());
+        //crea el Tipo y le setea el grupo
+        usU->crearTipo(grupo);
+        //con el id del Mensaje le agrega el visto del usuario.
+        grupo->getConversacion()->getMensaje(mensaje)->GetVistos()->add(visto);
+    } 
+     
+ }

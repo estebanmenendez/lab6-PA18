@@ -13,7 +13,11 @@
 
 #include "Visto.h"
 
-Visto::Visto() {
+Visto::Visto(int celular) {
+    this->Receptor = celular;
+    this->estado = false;
+    this->fechaV = new DtFecha();
+    this->horaV = new DtHora();
 }
 
 Visto::Visto(const Visto& orig) {

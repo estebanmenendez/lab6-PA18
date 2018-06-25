@@ -44,6 +44,7 @@ public:
     void cancelar();
     DtGrupo* altaGrupo(string, string);
     void Salir();
+    bool estaElegido(string);
 };
 #endif /* CONTGRUPO_H */
 

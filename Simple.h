@@ -19,7 +19,7 @@
 
 class Simple : public Mensaje {
 public:
-    Simple();
+    Simple(int,string);
     Simple(const Simple& orig);
     virtual ~Simple();
 
