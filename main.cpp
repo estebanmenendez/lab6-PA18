@@ -21,20 +21,22 @@
 #include <random>
 
 using namespace std;
-bool registrarUsuario(); // Abrir teletipo
-void agregarContacto(); // Agregar contacto
 
-void altaGrupo(); // Crear grupo
-void crSes(); // Cerrar sesión
-void enviarMensaje(); // Enviar mensaje
-void verMensajes(); // Ver mensajes
+bool registrarUsuario(); // Abrir teletipo Mauro
+void agregarContacto(); // Agregar contacto Mauro
+
+void altaGrupo(); // Crear grupo Ernesto
+void crSes(); // Cerrar sesión Mauro
+void enviarMensaje(); // Enviar mensaje 
+void verMensajes(); // Ver mensajes JP
 void archivarConversaciones(); // Archivar Conversación
 void modUsuario(); // Modificar usuario 
-void eliMensaje(); // Eliminar mensajes
-void agregarPartGrupo(); // Agregar participantes al grupo
-void cambiarFechaSist(); // Cambiar ficha de sistema
-void consultFechaSistema(); // Consultar fecha del sistema
+void eliMensaje(); // Eliminar mensajes Esteban
+void agregarPartGrupo(); // Agregar participantes al grupo **Ernesto
+void cambiarFechaSist(); // Cambiar ficha de sistema Mauro 
+void consultFechaSistema(); // Consultar fecha del sistema Mauro 
 //cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11-Consultar fecha del sistema\n0- Salir\n";
+
 
 iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
 iContMensaje* ContMen = Fabrica::getInstance()->getContMensaje();
@@ -229,8 +231,8 @@ void altaGrupo() {
                     cout << dtc->GetNumCel() << " -" << dtc->GetNombre() << " -" << dtc->getUrlImagen() << "\n";
                     i->next();
                 }
-
-                cout << "\nIngrese celular para agregar al grupo: ";
+            
+                cout << "\nIngrese celular para agregar al grupo:\n ";
                 cin>>numCel;
                 dtc = ContUsu->ingContacto(numCel);
                 if (dtc == NULL) {
@@ -240,8 +242,10 @@ void altaGrupo() {
                         cout << "No puedes agregarte como contacto a vos mismo.\n";
                         removido = 's';
                     }
+                    if ( ContGru->estaElegido(dtc->GetNumCel())){
                     ContGru->eliminarParticipante(dtc);
                     removido = 's';
+                    }
                 }
                 if (removido == 'n') {
                     cout << dtc->GetNumCel() << " - " << dtc->GetNombre() << " - " << dtc->getUrlImagen() << endl;
@@ -254,19 +258,23 @@ void altaGrupo() {
                 } else {
                     removido = 'n';
                 }
-            }
-
+//            
+        
             cout << "Desea seguir agregando contactos al Grupo ? s/n\n";
             cin>>salir;
             if (salir == 'n') {
                 if (!ContGru->listarParticipantes()->isEmpty()) {
                     cout << "\nIngrese Nombre:\n";
+                    cin.clear();
                     getline(cin, nombreG);
+                    
                     cout << "\nIngrese URL Imagen:\n";
+                    cin.clear();
                     getline(cin, urlI);
+                    
                     dtGrupo = ContGru->altaGrupo(urlI, nombreG);
-                    cout << "\nSe dio de alta al grupo";
-                    ContGru->agregarNuevoAdmin(ContUsu->getUsu()->GetCelular());
+                    cout << "\nSe dio de alta al grupo "<<dtGrupo->GetNombre()<<"\n";
+                    //ContGru->agregarNuevoAdmin(ContUsu->getUsu()->GetCelular());
                     salir = 'n';
                 } else {
                     cout << "\nDebe ingresar por lo menos 1 contacto\n";
@@ -274,7 +282,7 @@ void altaGrupo() {
                     cin>>salir;
                 }
             }
-
+            }
 
         } while (salir == 's');
 

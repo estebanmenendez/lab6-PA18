@@ -23,7 +23,7 @@ using namespace std;
 
 class Tipo : public ICollectible {
 public:
-    Tipo();
+    Tipo(Grupo*);
     Tipo(const Tipo& orig);
     virtual ~Tipo();
 

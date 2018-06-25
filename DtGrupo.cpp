@@ -13,7 +13,8 @@
 
 #include "DtGrupo.h"
 
-DtGrupo::DtGrupo() {
+DtGrupo::DtGrupo(string nombre) {
+    this->nombre = nombre;
 }
 
 DtGrupo::DtGrupo(string imagenUrl, DtContacto* contactos, DtContacto* usrCreador, DtFecha* fechaCreacion, DtHora* horaCreacion) {

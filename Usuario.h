@@ -71,7 +71,7 @@ public:
     void crearConvGrupo(Conversacion *);
     Usuario * seleccionarCont(int);
     Lista * seleccionarConversacion(int);
-    void crearConversacion(Usuario *, Conversacion *); //para el usuario actual
+    void crearConversacion( Conversacion *); //para el usuario actual
     void crearEstadoConv(Conversacion *conv, Usuario * usu, Usuario * usu2); //para el contacto
     Lista * eliminarMensConv(int, int);
     bool convGrupal(int);
@@ -80,6 +80,8 @@ public:
     Lista * listarMensajes(int codConv);
     Lista * listarVistos(int idMens);
     string nombreUsu(int numCel);
+    void crearTipo(Grupo*);
+    void crearEstadoConversacion(Conversacion *conv);
 
 private:
 

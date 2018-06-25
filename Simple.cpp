@@ -13,7 +13,9 @@
 
 #include "Simple.h"
 
-Simple::Simple() {
+Simple::Simple(int idMens,string mensaje) {
+    this->texto = mensaje;
+    this->SetCodigo(idMens);
 }
 
 Simple::Simple(const Simple& orig) {

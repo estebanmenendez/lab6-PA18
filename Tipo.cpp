@@ -13,7 +13,8 @@
 
 #include "Tipo.h"
 
-Tipo::Tipo() {
+Tipo::Tipo(Grupo* grupo) {
+    this->grupo = grupo;
 }
 
 Tipo::Tipo(const Tipo& orig) {

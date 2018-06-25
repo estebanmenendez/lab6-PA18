@@ -56,6 +56,7 @@ public:
     virtual Lista * listarConversaciones() = 0;
     virtual Lista * listarConversacionesArch() = 0;
     virtual Lista* infromacionAdicional(int) = 0;
+    virtual Mensaje* crearMensajeGrupo(string) = 0;
 };
 
 #endif /* ICONTMENSAJE_H */

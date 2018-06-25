@@ -14,15 +14,14 @@
 #include "Grupo.h"
 
 Grupo::Grupo() {
+    this->conv = new Conversacion();
+    this->fecha = new DtFecha();
+    this->hora = new DtHora();
+    
 }
 
 Grupo::Grupo(const Grupo& orig) {
-    this->conv = orig.conv;
-    this->creador = orig.creador;
-    this->fecha = new DtFecha();
-    this->hora = new DtHora();
-    this->imagen = orig.imagen;
-    this->nombre = orig.nombre;
+   
 }
 
 Grupo::~Grupo() {

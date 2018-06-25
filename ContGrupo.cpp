@@ -85,11 +85,30 @@ void ContGrupo::cancelar() {
 }
 
 DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
-    DtGrupo* dtGrupo;
+    
+    iContUsuario* contUsu = Fabrica::getInstance()->getContUsuario();
+    //se crea el grupo y se setean los atributos urlImagen, nombre y usuario creador.
     Grupo* grupo = new Grupo();
     grupo->SetImagen(imagen);
     grupo->SetNombre(nombre);
-    return dtGrupo = new DtGrupo();
+    grupo->SetCreador(contUsu->getUsu()->GetCelular());
+    DtGrupo* dtGrupo = new DtGrupo(nombre);
+        
+    iContMensaje* contMen = Fabrica::getInstance()->getContMensaje();
+    //crea el mensaje que se le envía a cada uno de los participantes del grupo
+    Mensaje* mens = contMen->crearMensajeGrupo("Te has unido al Grupo "+grupo->GetNombre());
+    //setea el mensaje a la conversacion del grupo.
+    grupo->getConversacion()->setMensaje(mens);
+    //Por cada usuario elegido para el grupo le pide a ContUsuario que crea el Tipo, el EstConv.
+    DtContacto* dtn = new DtContacto();
+    IIterator* h = this->ltElegidos->iterator();
+    while (h->hasNext()) {
+        dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+        contUsu->crearGrupoUsuario(grupo,dtn->GetNumCel(),mens->GetCodigo());
+        h->next();
+    }
+    //retorna un DtGrupo 
+    return dtGrupo; 
 }
 
 DtContacto* ContGrupo::seleccionarGrupo(string) {
@@ -97,3 +116,16 @@ DtContacto* ContGrupo::seleccionarGrupo(string) {
 
 void ContGrupo::Salir() {
 }
+
+ bool ContGrupo::estaElegido(string  celular){
+    DtContacto* dtn = new DtContacto();
+    IIterator* h = this->ltElegidos->iterator();
+    while (h->hasNext()) {
+        dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+        if (dtn->GetNumCel()== celular ){ 
+            return true;
+        }
+        h->next();
+    }
+    return false;
+ }
