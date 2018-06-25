@@ -197,7 +197,7 @@ void agregarContacto() {
 
 void altaGrupo() {
     char salir = 'n', confirmar, removido = 'n';
-    string urlI, nombreG;
+    string urlI= "", nombreG="";
     int numCel;
 
     DtContacto* dtc = new DtContacto();
@@ -205,7 +205,7 @@ void altaGrupo() {
     DtContacto* dtn = new DtContacto();
     DtGrupo * dtGrupo;
 
-
+    cin.ignore();
     try {
         cout << "\nCreación de Grupo\n\n";
         do {
@@ -264,14 +264,13 @@ void altaGrupo() {
             cin>>salir;
             if (salir == 'n') {
                 if (!ContGru->listarParticipantes()->isEmpty()) {
-                    cout << "\nIngrese Nombre:\n";
-                    cin.clear();
+                    cin.ignore();
+                    cout << "\nIngrese Nombre: ";
+                    
                     getline(cin, nombreG);
                     
-                    cout << "\nIngrese URL Imagen:\n";
-                    cin.clear();
+                    cout << "\nIngrese URL Imagen: ";
                     getline(cin, urlI);
-                    
                     dtGrupo = ContGru->altaGrupo(urlI, nombreG);
                     cout << "\nSe dio de alta al grupo "<<dtGrupo->GetNombre()<<"\n";
                     //ContGru->agregarNuevoAdmin(ContUsu->getUsu()->GetCelular());
