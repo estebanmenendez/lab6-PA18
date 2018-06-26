@@ -88,7 +88,7 @@ DtMensaje * Mensaje::getMensaje() {
 }
 
 Lista * Mensaje::GetVistos() {
-    Lista *listaVistos;
+    Lista *listaVistos = new Visto();
     IIterator *it = visto->iterator();
     while (it->hasNext()) {
         Visto * vis = dynamic_cast<Visto*> (it->getCurrent());
