@@ -66,6 +66,7 @@ public:
     Lista* listaConversacion();
     Lista* listaConversacionArc();
     int getNumUsuLog();
+    Lista*  listarInfoVisto(int idConv,int idMensaje);
 };
 
 #endif /* CONTUSUARIO_H */

@@ -34,7 +34,7 @@ public:
     bool esReceptor(int);
     int getReceptor();
     DtFechaHoraVisto * getFechaHoraVisto();
-
+    void setReceptor(int);
 private:
 
     int Receptor;
