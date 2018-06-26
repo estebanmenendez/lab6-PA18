@@ -141,3 +141,14 @@ void ContGrupo::Salir() {
     }
     return false;
  }
+ 
+ void ContGrupo::vaciaListaParticipantes() {
+    DtContacto* dtn = new DtContacto();
+    IIterator* h = this->ltElegidos->iterator();
+    while (h->hasNext()) {
+        dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+        this->ltElegidos->remove(dtn);
+        h->next();
+    }
+    this->ltElegidos = NULL;
+}

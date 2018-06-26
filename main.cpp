@@ -19,7 +19,7 @@
 #include <string>
 #include<sstream>
 #include <random>
-#include "DtContactoGrupo.h"
+//#include "DtContactoGrupo.h"
 
 using namespace std;
 
@@ -239,7 +239,7 @@ void altaGrupo() {
     char salir = 'n', confirmar, removido = 'n';
     string urlI= "", nombreG="";
     int numCel;
-
+    //ContGru->vaciaListaParticipantes();
     DtContacto* dtc = new DtContacto();
     DtContacto* dte = new DtContacto();
     //DtContacto* dtn = new DtContacto();
@@ -334,7 +334,10 @@ void altaGrupo() {
 void agregarPartGrupo(){
     char salir = 'n', confirmar, removido = 'n';
     string urlI= "", nombreG="";
-    DtContactoGrupo* dtc = new DtContactoGrupo();
+    //ContGru->vaciaListaParticipantes();
+    DtContactoGrupo* dtcg = new DtContactoGrupo();
+    DtContacto* dtc = new DtContacto(); 
+    int numCel;
     DtGrupo* dtg = new DtGrupo("");
     
     try{
@@ -359,16 +362,63 @@ void agregarPartGrupo(){
             getline(cin, nombreG);
             
             cout << "\nUsuarios del Grupo : "<<nombreG<<"\n";
-            Lista* ltCont = ContGru->seleccionarGrupo(nombreG);
-            IIterator* h = ltCont->iterator();
+            Lista* ltContGru = ContGru->seleccionarGrupo(nombreG);
+            IIterator* h = ltContGru->iterator();
                 while (h->hasNext()) {
-                    dtc = dynamic_cast<DtContactoGrupo*> (h->getCurrent());  
-                    string fechaLin = std::to_string(dtc->getFecha()->GetDia())+"/"+std::to_string(dtc->getFecha()->GetMes())+"/"+std::to_string(dtc->getFecha()->GetAnio())+" "+std::to_string(dtc->getHora()->GetHora())+":"+std::to_string(dtc->getHora()->GetMinutos())+":"+std::to_string(dtc->getHora()->GetSegundo());
-                    cout << std::to_string(dtc->getCelular())<<" - "<<dtc->getnombre()<<" - "<<dtc->getipoEnGrupo()<<" - "<<fechaLin<< "\n";
+                    dtcg = dynamic_cast<DtContactoGrupo*> (h->getCurrent());  
+                    string fechaLin = std::to_string(dtcg->getFecha()->GetDia())+"/"+std::to_string(dtcg->getFecha()->GetMes())+"/"+std::to_string(dtcg->getFecha()->GetAnio())+" "+std::to_string(dtcg->getHora()->GetHora())+":"+std::to_string(dtcg->getHora()->GetMinutos())+":"+std::to_string(dtcg->getHora()->GetSegundo());
+                    cout << std::to_string(dtcg->getCelular())<<" - "<</*dtcg->getnombre()<<*/" - "<<dtcg->getipoEnGrupo()<<" - "<<fechaLin<< "\n";
                     h->next();
                 }
+            Lista* ltCont = ContGru->listarContactos();
+            cout << "\nContactos existentes:\n ";
+
+                IIterator* i = ltCont->iterator();
+                while (i->hasNext()) {
+                    dtc = dynamic_cast<DtContacto*> (i->getCurrent());
+                    cout << dtc->GetNumCel() << " -" << dtc->GetNombre() << " -" << dtc->getUrlImagen() << "\n";
+                    i->next();
+                }
             
+                cout << "\nIngrese celular para agregar al grupo:\n ";
+                cin>>numCel;
+                dtc = ContUsu->ingContacto(numCel);
+                if (dtc == NULL) {
+                    cout << "No existe un usuario con ese celular\n";
+                } else {
+                    if (dtc->GetNumCel() == std::to_string(ContUsu->getUsu()->GetCelular())) {
+                        cout << "No puedes agregarte como contacto a vos mismo.\n";
+                        removido = 's';
+                    }
+                    if ( ContGru->estaElegido(dtc->GetNumCel())){
+                    ContGru->eliminarParticipante(dtc);
+                    removido = 's';
+                    }
+                }
+                if (removido == 'n') {
+                    cout << dtc->GetNumCel() << " - " << dtc->GetNombre() << " - " << dtc->getUrlImagen() << endl;
+                    cout << "¿Confirmar el ingreso al Grupo? s/n\n";
+                    cin>>confirmar;
+                    if (confirmar == 's') {
+                        ContGru->agregarParticipante(dtc);
+                        cout << "Usuario: " << dtc->GetNombre() << " ingresado al grupo\n";
+                    }
+                } else {
+                    removido = 'n';
+                }
+                cout << "Desea seguir agregando contactos al Grupo ? s/n\n";
+                cin>>salir;
+            if (salir == 'n') {
+                if (!ContGru->listarParticipantes()->isEmpty()) {
+                    
+                    salir = 'n';
+                } else {
+                    cout << "\nDebe ingresar por lo menos 1 contacto\n";
+                    cout << "\nDesea seguir agregando contactos al Grupo ? s/n\n";
+                    cin>>salir;
+                }
             
+            }
             }//
         } while (salir == 's');
     }catch(std::invalid_argument &ia) {

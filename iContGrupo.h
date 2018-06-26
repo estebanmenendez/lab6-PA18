@@ -46,6 +46,7 @@ public:
     virtual DtGrupo* altaGrupo(string, string) = 0;
     virtual void Salir() = 0;
     virtual bool estaElegido(string )=0;
+    virtual void vaciaListaParticipantes()= 0;
 private:
 
 };
