@@ -54,6 +54,7 @@ public:
     virtual int getNumContacto(int idConv) = 0;
     virtual int getNumUsuLog() = 0;
     virtual Usuario* getUsu() = 0;
+    virtual Lista*  listarInfoVisto(int idConv,int idMensaje)=0;
     virtual void crearGrupoUsuario(Grupo*,string,int )= 0;
 private:
 

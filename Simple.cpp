@@ -14,6 +14,9 @@
 #include "Simple.h"
 #include "Fabrica.h"
 
+Simple::Simple() {
+    
+}
 Simple::Simple(int idMens,string mensaje) {
     this->texto = mensaje;
     this->SetCodigo(idMens);

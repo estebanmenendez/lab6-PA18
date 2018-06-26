@@ -23,17 +23,20 @@ using namespace std;
 
 class DtMensajeVisto : public ICollectible {
 public:
+    
     DtMensajeVisto();
-    DtMensajeVisto(string, int, DtFechaHoraVisto*);
+    DtMensajeVisto(string, int, DtFechaHoraVisto*,bool);
     DtMensajeVisto(const DtMensajeVisto& orig);
     virtual ~DtMensajeVisto();
-
+    bool getVisto();
     int GetCelular();
     string GetNombre();
 
     DtFechaHoraVisto* GetFechaHoraVisto();
 
 private:
+    
+    bool visto;
     string Nombre;
     int Celular;
     DtFechaHoraVisto *FechaHoraVisto;

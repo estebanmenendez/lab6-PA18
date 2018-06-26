@@ -79,8 +79,9 @@ public:
     DtConversacion * getConvGrupo(int);
     bool sosElOtro(int idConv);
     Lista * listarMensajes(int codConv);
-    Lista * listarVistos(int idMens);
+    Lista * listarVistos(int idMens,int idConv);
     string nombreUsu(int numCel);
+    int getNumContacto(int);
     void crearTipo(Grupo*,string);
     void crearEstadoConversacion(Conversacion *conv);
     Lista * getTipos();

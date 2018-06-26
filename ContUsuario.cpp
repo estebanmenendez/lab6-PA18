@@ -16,6 +16,7 @@
 using namespace std;
 
 int ContUsuario::getNumContacto(int idConv) {
+    return this->usuLog->getNumContacto(idConv);
 }
 
 ContUsuario::ContUsuario() {
@@ -26,7 +27,11 @@ ContUsuario::ContUsuario(const ContUsuario& orig) {
 
 ContUsuario::~ContUsuario() {
 }
-
+Lista*  ContUsuario::listarInfoVisto(int idConv,int idMensaje){
+   Lista* lMen=new Lista();
+   lMen=this->usuLog->listarVistos(idMensaje,idConv);
+   return lMen;
+}
 bool ContUsuario::usuarioLogueado(int numCel) {
     if (usuLog->GetCelular() == numCel)return true;
     return false;

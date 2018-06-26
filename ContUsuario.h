@@ -67,6 +67,7 @@ public:
     Lista* listaConversacion();
     Lista* listaConversacionArc();
     int getNumUsuLog();
+    Lista*  listarInfoVisto(int idConv,int idMensaje);
     void crearGrupoUsuario(Grupo*,string,int);
 };
 

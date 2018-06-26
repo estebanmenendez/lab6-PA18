@@ -29,7 +29,9 @@ int Mensaje::GetCodigo() {
 void Mensaje::SetCodigo(int codigo) {
     this->codigo = codigo;
 }
-
+void Mensaje::setEmisor(int emi){
+    this->emisor=emi;
+}
 DtFecha* Mensaje::GetFechaEnv() {
     return fechaEnv;
 }
@@ -88,13 +90,15 @@ DtMensaje * Mensaje::getMensaje() {
 }
 
 Lista * Mensaje::GetVistos() {
-    Lista *listaVistos = new Lista();
+    Lista *listaVistos =new Lista();
     IIterator *it = visto->iterator();
     while (it->hasNext()) {
         Visto * vis = dynamic_cast<Visto*> (it->getCurrent());
         iContUsuario *contUsu = Fabrica::getInstance()->getContUsuario();
-        DtMensajeVisto* DtMVisto = new DtMensajeVisto(contUsu->getNombreCont(vis->getReceptor()), vis->getReceptor(), vis->getFechaHoraVisto());
+        DtMensajeVisto* DtMVisto = new DtMensajeVisto(contUsu->getNombreCont(vis->getReceptor()), vis->getReceptor(), vis->getFechaHoraVisto(),vis->getEstado());
+        if(vis->getEstado()!=true){vis->SetEstado(true);}
         listaVistos->add(DtMVisto);
+        
     }
     return listaVistos;
 }
