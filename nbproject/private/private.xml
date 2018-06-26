@@ -7,20 +7,33 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ListaDicc.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtContacto.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/IKey.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/EstadoConv.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtContactoGrupo.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContFecha.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContFecha.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContUsuario.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Grupo.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ICollectible.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Mensaje.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContGrupo.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Conversacion.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/main.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Tipo.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Tipo.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtTipo.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContMensaje.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Usuario.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtContacto.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContUsuario.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtTipo.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtContacto.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtContactoGrupo.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/EstadoConv.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContGrupo.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Grupo.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Mensaje.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Usuario.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Lista.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/iContUsuario.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContGrupo.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtGrupo.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/main.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/iContFecha.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/iContGrupo.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Fabrica.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/intkey.cpp</file>
         </group>
     </open-files>
 </project-private>

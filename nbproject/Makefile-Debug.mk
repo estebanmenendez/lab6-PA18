@@ -43,6 +43,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Conversacion.o \
 	${OBJECTDIR}/DtConexion.o \
 	${OBJECTDIR}/DtContacto.o \
+	${OBJECTDIR}/DtContactoGrupo.o \
 	${OBJECTDIR}/DtConversacion.o \
 	${OBJECTDIR}/DtFecha.o \
 	${OBJECTDIR}/DtFechaHoraIng.o \
@@ -153,6 +154,11 @@ ${OBJECTDIR}/DtContacto.o: DtContacto.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtContacto.o DtContacto.cpp
+
+${OBJECTDIR}/DtContactoGrupo.o: DtContactoGrupo.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DtContactoGrupo.o DtContactoGrupo.cpp
 
 ${OBJECTDIR}/DtConversacion.o: DtConversacion.cpp 
 	${MKDIR} -p ${OBJECTDIR}

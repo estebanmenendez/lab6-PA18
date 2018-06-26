@@ -119,8 +119,10 @@ DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
 Lista* ContGrupo::seleccionarGrupo(string grupo) {
      Usuario * usuLog = Fabrica::getInstance()->getContUsuario()->getUsu();
     Lista* listDtContacto = usuLog->getContactosGrupo(grupo);
+    
 //    if (listDtContacto->isEmpty())
 //       return throw std::invalid_argument("No existen el grupo "+grupo); 
+    
     return listDtContacto;
 }
 

@@ -56,6 +56,7 @@ DtFechaHoraIng* Tipo::getFechaHoraIng() {
     DtFechaHoraIng *dtFech = new DtFechaHoraIng(this->fechaIng, this->horaIng);
     return dtFech;
 }
+
 DtGrupo* Tipo::getGrupos(){
     
     DtGrupo* dtGrupo= new DtGrupo(this->grupo->GetNombre());

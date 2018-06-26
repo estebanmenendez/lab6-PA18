@@ -280,11 +280,12 @@ void Usuario::crearEstadoConversacion(Conversacion *conv) {
     this->estadoConv->add(eC);
 }
 Lista * Usuario::getTipos() {
+    
     Lista* dtTipo = new Lista();
     IIterator * it = tipo->iterator();
     while (it->hasNext()) {
         Tipo* cont = dynamic_cast<Tipo*> (it->getCurrent());
-        dtTipo->add(cont->getGrupos());
+       dtTipo->add(cont->getGrupos());
         it->next();
     }
     return dtTipo;
@@ -294,21 +295,22 @@ Lista * Usuario::getContactosGrupo(string grupo) {
     Lista* Dtcontactos = new Lista();
     bool esDelGrupo; 
     IIterator * it = contactos->getIteratorObj();
+    
     while (it->hasNext()) {
         Usuario* cont = dynamic_cast<Usuario*> (it->getCurrent());
         
-        Lista* listaTipo = cont->getTipos();
-        IIterator * itt = listaTipo->iterator();
+        //Lista* listaTipo = cont->tipo;
+        IIterator * itt = cont->tipo->iterator();
         while (itt->hasNext()) {
             Tipo* tip = dynamic_cast<Tipo*> (itt->getCurrent());
             if (tip->getGrupo()->GetNombre() == grupo){
                 esDelGrupo = true;
+                DtContactoGrupo* contGrup = new DtContactoGrupo(cont->celular,cont->nombre,tip->GetTipo(),tip->GetFechaIng(),tip->GetHoraIng());
+                Dtcontactos->add(contGrup);
                 break;
             }
             itt->next();
         }
-        if (esDelGrupo)
-            Dtcontactos->add(cont->GetContacto());
         it->next();
     }
     return Dtcontactos;

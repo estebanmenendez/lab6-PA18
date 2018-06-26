@@ -27,6 +27,7 @@
 #include "Tipo.h"
 #include "Fecha_Hora_sis.h"
 #include "DtConversacion.h"
+#include "DtContactoGrupo.h"
 #include<iostream>
 
 using namespace std;

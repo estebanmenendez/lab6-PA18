@@ -19,6 +19,7 @@
 #include <string>
 #include<sstream>
 #include <random>
+#include "DtContactoGrupo.h"
 
 using namespace std;
 
@@ -44,6 +45,7 @@ iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
 iContMensaje* ContMen = Fabrica::getInstance()->getContMensaje();
 iContGrupo* ContGru = Fabrica::getInstance()->getContGrupo();
 iContFecha* ContFec = Fabrica::getInstance()->getContFecha();
+
 int main(int argc, char** argv) {
     ContFec->setFechaHoraSistema(0,0,1000,0,0);
     int numCel = 0, optNoCel, optMenuPrincipal;
@@ -330,9 +332,9 @@ void altaGrupo() {
 
 
 void agregarPartGrupo(){
-     char salir = 'n', confirmar, removido = 'n';
+    char salir = 'n', confirmar, removido = 'n';
     string urlI= "", nombreG="";
-    DtContacto* dtc = new DtContacto();
+    DtContactoGrupo* dtc = new DtContactoGrupo();
     DtGrupo* dtg = new DtGrupo("");
     
     try{
@@ -345,7 +347,7 @@ void agregarPartGrupo(){
                 cin.ignore().get();
             } else {
                 
-             cout << "\nGrupos Del Usuario :\n ";
+            cout << "\nGrupos Del Usuario :\n ";
                 IIterator* j = ltGru->iterator();
                 while (j->hasNext()) {
                     dtg = dynamic_cast<DtGrupo*> (j->getCurrent());
@@ -355,11 +357,14 @@ void agregarPartGrupo(){
             cout << "\nIngrese Nombre del Grupo:\n ";
             cin.ignore();     
             getline(cin, nombreG);
-            Lista* ltContactos = ContGru->seleccionarGrupo(nombreG);
-             IIterator* h = ltContactos->iterator();
+            
+            cout << "\nUsuarios del Grupo : "<<nombreG<<"\n";
+            Lista* ltCont = ContGru->seleccionarGrupo(nombreG);
+            IIterator* h = ltCont->iterator();
                 while (h->hasNext()) {
-                    dtc = dynamic_cast<DtContacto*> (h->getCurrent());
-                    cout << dtc->GetNumCel()<<" - "<<dtc->GetNombre()<< "\n";
+                    dtc = dynamic_cast<DtContactoGrupo*> (h->getCurrent());  
+                    string fechaLin = std::to_string(dtc->getFecha()->GetDia())+"/"+std::to_string(dtc->getFecha()->GetMes())+"/"+std::to_string(dtc->getFecha()->GetAnio())+" "+std::to_string(dtc->getHora()->GetHora())+":"+std::to_string(dtc->getHora()->GetMinutos())+":"+std::to_string(dtc->getHora()->GetSegundo());
+                    cout << std::to_string(dtc->getCelular())<<" - "<<dtc->getnombre()<<" - "<<dtc->getipoEnGrupo()<<" - "<<fechaLin<< "\n";
                     h->next();
                 }
             
