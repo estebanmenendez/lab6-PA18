@@ -13,7 +13,9 @@
 
 #include "Tipo.h"
 
-Tipo::Tipo() {
+Tipo::Tipo(Grupo* grupo,string tipo) {
+    this->grupo = grupo;
+    this->tipo = tipo;
 }
 
 Tipo::Tipo(const Tipo& orig) {
@@ -53,4 +55,10 @@ Grupo * Tipo::getGrupo() {
 DtFechaHoraIng* Tipo::getFechaHoraIng() {
     DtFechaHoraIng *dtFech = new DtFechaHoraIng(this->fechaIng, this->horaIng);
     return dtFech;
+}
+
+DtGrupo* Tipo::getGrupos(){
+    
+    DtGrupo* dtGrupo= new DtGrupo(this->grupo->GetNombre());
+    return dtGrupo;
 }

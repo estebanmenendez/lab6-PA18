@@ -13,7 +13,9 @@
 
 #include "DtTipo.h"
 
-DtTipo::DtTipo() {
+DtTipo::DtTipo(string grupo) {
+    this->grupo = grupo;
+    
 }
 
 DtTipo::DtTipo(const DtTipo& orig) {
@@ -22,3 +24,6 @@ DtTipo::DtTipo(const DtTipo& orig) {
 DtTipo::~DtTipo() {
 }
 
+//string DtTipo::getGrupo(){
+//    return this->grupo;
+//}

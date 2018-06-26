@@ -22,6 +22,7 @@
 #include "DtConexion.h"
 #include "DtUltCon.h"
 #include "Usuario.h"
+//#include "DtContactoGrupo.h"
 
 using namespace std;
 
@@ -53,6 +54,7 @@ public:
     virtual int getNumContacto(int idConv) = 0;
     virtual int getNumUsuLog() = 0;
     virtual Usuario* getUsu() = 0;
+    virtual void crearGrupoUsuario(Grupo*,string,int )= 0;
 private:
 
 };

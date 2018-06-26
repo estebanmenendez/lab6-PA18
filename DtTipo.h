@@ -13,15 +13,24 @@
 
 #ifndef DTTIPO_H
 #define DTTIPO_H
-
-class DtTipo {
+#include <iostream>
+#include"DtGrupo.h"
+#include"DtHora.h"
+#include"DtFecha.h"
+class DtTipo : public ICollectible {
     
 public:
-    DtTipo();
+    DtTipo(string);
     DtTipo(const DtTipo& orig);
     virtual ~DtTipo();
+    string getGrupo();
     
 private:
+    string grupo;
+    string tipo;
+    DtFecha *fechaIng;
+    DtHora *horaIng;
+    
 };
 
 #endif /* DTTIPO_H */

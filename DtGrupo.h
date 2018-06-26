@@ -21,9 +21,9 @@
 
 using namespace std;
 
-class DtGrupo {
+class DtGrupo:public ICollectible {
 public:
-    DtGrupo();
+    DtGrupo(string);
     DtGrupo(string, DtContacto*, DtContacto*, DtFecha*, DtHora*);
     DtGrupo(const DtGrupo& orig);
     virtual ~DtGrupo();

@@ -114,3 +114,8 @@ Lista * ContMensaje::listarConversaciones() {
     return convAct;
 }
 
+Mensaje* ContMensaje::crearMensajeGrupo(string mensaje){
+    this->idMensaje++;
+    Mensaje* mens = new Simple(this->idMensaje,mensaje);
+    return mens;    
+}

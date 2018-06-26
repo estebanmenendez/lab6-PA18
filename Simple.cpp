@@ -12,8 +12,13 @@
  */
 
 #include "Simple.h"
+#include "Fabrica.h"
 
-Simple::Simple() {
+Simple::Simple(int idMens,string mensaje) {
+    this->texto = mensaje;
+    this->SetCodigo(idMens);
+    this->SetFechaEnv(Fabrica::getInstance()->getContFecha()->getFechaHora()->getFecha());    
+    this->SetHoraEnv(Fabrica::getInstance()->getContFecha()->getFechaHora()->getHora());
 }
 
 Simple::Simple(const Simple& orig) {

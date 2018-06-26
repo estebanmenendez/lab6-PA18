@@ -32,7 +32,7 @@ public:
     void getContactos();
     void getDtContacto();
     Lista* listarGrupos();
-    DtContacto* seleccionarGrupo(string);
+    Lista* seleccionarGrupo(string);
     DtContacto* seleccionarPart(int);
     bool agregarNuevoAdmin(int);
     Lista* listarContactos();
@@ -44,6 +44,8 @@ public:
     void cancelar();
     DtGrupo* altaGrupo(string, string);
     void Salir();
+    bool estaElegido(string);
+    void vaciaListaParticipantes();
 };
 #endif /* CONTGRUPO_H */
 

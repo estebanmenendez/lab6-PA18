@@ -19,11 +19,12 @@
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"Grupo.h"
+#include"DtGrupo.h"
 using namespace std;
 
 class Tipo : public ICollectible {
 public:
-    Tipo();
+    Tipo(Grupo*,string);
     Tipo(const Tipo& orig);
     virtual ~Tipo();
 
@@ -35,6 +36,7 @@ public:
     void SetTipo(string);
     DtFechaHoraIng * getFechaHoraIng();
     Grupo * getGrupo();
+    DtGrupo* getGrupos();
     
 private:
 

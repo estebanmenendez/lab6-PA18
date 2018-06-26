@@ -39,6 +39,9 @@ void ContGrupo::getDtContacto() {
 }
 
 Lista* ContGrupo::listarGrupos() {
+    Usuario * usuLog = Fabrica::getInstance()->getContUsuario()->getUsu();
+    Lista * listDtGrupo = usuLog->getTipos();    
+    return listDtGrupo;
 }
 
 DtContacto* ContGrupo::seleccionarParticipante(int) {
@@ -85,15 +88,67 @@ void ContGrupo::cancelar() {
 }
 
 DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
-    DtGrupo* dtGrupo;
+    
+    iContUsuario* contUsu = Fabrica::getInstance()->getContUsuario();
+    //se crea el grupo y se setean los atributos urlImagen, nombre y usuario creador.
     Grupo* grupo = new Grupo();
     grupo->SetImagen(imagen);
     grupo->SetNombre(nombre);
-    return dtGrupo = new DtGrupo();
+    grupo->SetCreador(contUsu->getUsu()->GetCelular());
+    DtGrupo* dtGrupo = new DtGrupo(nombre);
+        
+    iContMensaje* contMen = Fabrica::getInstance()->getContMensaje();
+    //crea el mensaje que se le envía a cada uno de los participantes del grupo
+    Mensaje* mens = contMen->crearMensajeGrupo("Te has unido al Grupo "+grupo->GetNombre());
+    //setea el mensaje a la conversacion del grupo.
+    grupo->getConversacion()->setMensaje(mens);
+    //para el usuario que crea el grupo crea el tipo y el estado Conv.
+    contUsu->crearGrupoUsuario(grupo,std::to_string(grupo->GetCreador()),mens->GetCodigo());
+    //Por cada usuario elegido para el grupo le pide a ContUsuario que crea el Tipo, el EstConv.
+    DtContacto* dtn = new DtContacto();
+    IIterator* h = this->ltElegidos->iterator();
+    while (h->hasNext()) {
+        dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+        contUsu->crearGrupoUsuario(grupo,dtn->GetNumCel(),mens->GetCodigo());
+        h->next();
+    }
+    //retorna un DtGrupo 
+    return dtGrupo; 
 }
 
-DtContacto* ContGrupo::seleccionarGrupo(string) {
+Lista* ContGrupo::seleccionarGrupo(string grupo) {
+     Usuario * usuLog = Fabrica::getInstance()->getContUsuario()->getUsu();
+    Lista* listDtContacto = usuLog->getContactosGrupo(grupo);
+    
+//    if (listDtContacto->isEmpty())
+//       return throw std::invalid_argument("No existen el grupo "+grupo); 
+    
+    return listDtContacto;
 }
 
 void ContGrupo::Salir() {
+}
+
+ bool ContGrupo::estaElegido(string  celular){
+    DtContacto* dtn = new DtContacto();
+    IIterator* h = this->ltElegidos->iterator();
+    while (h->hasNext()) {
+        dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+        if (dtn->GetNumCel()== celular ){ 
+            return true;
+        }
+        h->next();
+    }
+    return false;
+ }
+ 
+ void ContGrupo::vaciaListaParticipantes() {
+    DtContacto* dtn = new DtContacto();
+    IIterator* h = this->ltElegidos->iterator();
+    while (h->hasNext()) {
+        dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+        this->ltElegidos->remove(dtn);
+        h->next();
+    }
+    this->ltElegidos = NULL;
 }

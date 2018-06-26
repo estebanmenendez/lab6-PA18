@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="100">
+<configurationDescriptor version="97">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -12,6 +12,7 @@
       <itemPath>Conversacion.h</itemPath>
       <itemPath>DtConexion.h</itemPath>
       <itemPath>DtContacto.h</itemPath>
+      <itemPath>DtContactoGrupo.h</itemPath>
       <itemPath>DtConversacion.h</itemPath>
       <itemPath>DtFecha.h</itemPath>
       <itemPath>DtFechaHoraIng.h</itemPath>
@@ -75,6 +76,7 @@
       <itemPath>Conversacion.cpp</itemPath>
       <itemPath>DtConexion.cpp</itemPath>
       <itemPath>DtContacto.cpp</itemPath>
+      <itemPath>DtContactoGrupo.cpp</itemPath>
       <itemPath>DtConversacion.cpp</itemPath>
       <itemPath>DtFecha.cpp</itemPath>
       <itemPath>DtFechaHoraIng.cpp</itemPath>
@@ -143,8 +145,80 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
   </logicalFolder>
   <sourceRootList>
+    <Elem>../../Descargas/ColeccionesG</Elem>
+    <Elem>../../Descargas/ColeccionesG</Elem>
+    <Elem>../../Descargas/ColeccionesG</Elem>
+    <Elem>../../Descargas/ColeccionesG</Elem>
+    <Elem>../../Descargas/ColeccionesG</Elem>
+    <Elem>../../Descargas/ColeccionesG</Elem>
     <Elem>../../Descargas/ColeccionesG</Elem>
     <Elem>../../Descargas/ColeccionesG</Elem>
   </sourceRootList>
@@ -192,6 +266,10 @@
       <item path="DtContacto.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtContacto.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtContactoGrupo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtContactoGrupo.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DtConversacion.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -429,6 +507,10 @@
       <item path="DtContacto.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DtContacto.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DtContactoGrupo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DtContactoGrupo.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DtConversacion.cpp" ex="false" tool="1" flavor2="0">
       </item>

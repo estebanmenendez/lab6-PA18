@@ -202,9 +202,9 @@ Lista * Usuario::seleccionarConversacion(int) {
 
 }
 
-void Usuario::crearConversacion(Usuario * cont, Conversacion *conv) {
-    EstadoConv *eC = new EstadoConv(cont, conv);
-    estadoConv->add(eC);
+void Usuario::crearConversacion(Conversacion *conv) {
+    EstadoConv *eC = new EstadoConv(true, conv);
+    this->estadoConv->add(eC);
 }
 
 void Usuario::crearEstadoConv(Conversacion *conv, Usuario * cont, Usuario * usuAct) {
@@ -268,4 +268,50 @@ string Usuario::nombreUsu(int numCel) {
     intKey *iKey = new intKey(numCel);
     Usuario *us = dynamic_cast<Usuario*> (contactos->find(iKey));
     return us->GetNombre();
+}
+
+void Usuario::crearTipo(Grupo* grupo,string tipo){
+    Tipo * tipos = new Tipo(grupo,tipo);
+    this->SetTipo(tipos);
+}
+
+void Usuario::crearEstadoConversacion(Conversacion *conv) {
+    EstadoConv *eC = new EstadoConv(true, conv);
+    this->estadoConv->add(eC);
+}
+Lista * Usuario::getTipos() {
+    
+    Lista* dtTipo = new Lista();
+    IIterator * it = tipo->iterator();
+    while (it->hasNext()) {
+        Tipo* cont = dynamic_cast<Tipo*> (it->getCurrent());
+       dtTipo->add(cont->getGrupos());
+        it->next();
+    }
+    return dtTipo;
+}
+
+Lista * Usuario::getContactosGrupo(string grupo) {
+    Lista* Dtcontactos = new Lista();
+    bool esDelGrupo; 
+    IIterator * it = contactos->getIteratorObj();
+    
+    while (it->hasNext()) {
+        Usuario* cont = dynamic_cast<Usuario*> (it->getCurrent());
+        
+        //Lista* listaTipo = cont->tipo;
+        IIterator * itt = cont->tipo->iterator();
+        while (itt->hasNext()) {
+            Tipo* tip = dynamic_cast<Tipo*> (itt->getCurrent());
+            if (tip->getGrupo()->GetNombre() == grupo){
+                esDelGrupo = true;
+                DtContactoGrupo* contGrup = new DtContactoGrupo(cont->celular,cont->nombre,tip->GetTipo(),tip->GetFechaIng(),tip->GetHoraIng());
+                Dtcontactos->add(contGrup);
+                break;
+            }
+            itt->next();
+        }
+        it->next();
+    }
+    return Dtcontactos;
 }

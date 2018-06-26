@@ -23,6 +23,8 @@
 #include"DtContacto.h"
 #include"DtConversacion.h"
 #include"Lista.h"
+#include"Mensaje.h"
+#include"Simple.h"
 
 using namespace std;
 
@@ -30,6 +32,8 @@ class ContMensaje : public iContMensaje {
 private:
     DtMensaje *mensaje;
     int idConv;
+    int idMensaje= 0;
+    
 
 public:
     ContMensaje();
@@ -59,6 +63,7 @@ public:
     Lista *infromacionAdicional(int idMens);
     Lista * listarConversaciones();
     Lista * listarConversacionesArch();
+    Mensaje* crearMensajeGrupo(string);
 };
 
 #endif /* CONTMENSAJE_H */

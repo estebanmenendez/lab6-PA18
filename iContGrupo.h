@@ -33,7 +33,7 @@ public:
     virtual void getContactos() = 0;
     virtual void getDtContacto() = 0;
     virtual Lista* listarGrupos() = 0;
-    virtual DtContacto* seleccionarGrupo(string) = 0;
+    virtual Lista* seleccionarGrupo(string) = 0;
     virtual DtContacto* seleccionarPart(int) = 0;
     virtual bool agregarNuevoAdmin(int) = 0;
     virtual Lista* listarContactos() = 0;
@@ -45,7 +45,8 @@ public:
     virtual void cancelar() = 0;
     virtual DtGrupo* altaGrupo(string, string) = 0;
     virtual void Salir() = 0;
-
+    virtual bool estaElegido(string )=0;
+    virtual void vaciaListaParticipantes()= 0;
 private:
 
 };

@@ -17,11 +17,12 @@
 #include"iContUsuario.h"
 #include"DtUltCon.h"
 #include"DtContacto.h"
+#include "DtContactoGrupo.h"
 #include"DtConexion.h"
 #include"DtFecha.h"
 #include"DtHora.h"
 #include"IDictionary.h"
-#include"Usuario.h"
+//#include"Usuario.h"
 #include"Lista.h"
 #include "ListaDicc.h"
 #include "ContMensaje.h"
@@ -66,6 +67,7 @@ public:
     Lista* listaConversacion();
     Lista* listaConversacionArc();
     int getNumUsuLog();
+    void crearGrupoUsuario(Grupo*,string,int);
 };
 
 #endif /* CONTUSUARIO_H */

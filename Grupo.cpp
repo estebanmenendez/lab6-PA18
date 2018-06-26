@@ -12,17 +12,17 @@
  */
 
 #include "Grupo.h"
+#include "Fabrica.h"
 
 Grupo::Grupo() {
+    this->conv = new Conversacion();
+    this->fecha = Fabrica::getInstance()->getContFecha()->getFechaHora()->getFecha();
+    this->hora = Fabrica::getInstance()->getContFecha()->getFechaHora()->getHora();
+    
 }
 
 Grupo::Grupo(const Grupo& orig) {
-    this->conv = orig.conv;
-    this->creador = orig.creador;
-    this->fecha = new DtFecha();
-    this->hora = new DtHora();
-    this->imagen = orig.imagen;
-    this->nombre = orig.nombre;
+   
 }
 
 Grupo::~Grupo() {
