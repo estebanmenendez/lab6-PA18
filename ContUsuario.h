@@ -46,6 +46,7 @@ public:
     bool usuarioLogueado(int);
     bool ingresarCelular(int); // Chequea que el celular esté en la lista de usuarios del sistema.
     bool altaUsuario(string, string, string);
+    bool altaPrecargaUsuario(int, string, string, string);
     bool cancelaIngreso();
     DtConexion* asignarSesion();
     Lista * listarContactos();

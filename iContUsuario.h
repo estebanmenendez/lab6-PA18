@@ -34,6 +34,7 @@ public:
     virtual bool usuarioLogueado(int) = 0;
     virtual bool ingresarCelular(int) = 0;
     virtual bool altaUsuario(string, string, string) = 0;
+    virtual bool altaPrecargaUsuario(int, string, string, string) = 0;
     virtual bool cancelaIngreso() = 0;
     virtual DtConexion* asignarSesion() = 0;
     virtual Lista * listarContactos() = 0;

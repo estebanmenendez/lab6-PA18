@@ -36,6 +36,7 @@ public:
     //constructores:
     Usuario();
     Usuario(string nombre, string imagenPerfil, string descripcion, int numCel);
+    Usuario(int celUsu,string nombre,string UrlImagen,string descripcion);
     Usuario(const Usuario& orig);
     virtual ~Usuario();
 

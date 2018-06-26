@@ -34,6 +34,7 @@ void eliMensaje(); // Eliminar mensajes
 void agregarPartGrupo(); // Agregar participantes al grupo
 void cambiarFechaSist(); // Cambiar ficha de sistema
 void consultFechaSistema(); // Consultar fecha del sistema
+
 //cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11-Consultar fecha del sistema\n0- Salir\n";
 
 iContUsuario* ContUsu = Fabrica::getInstance()->getContUsuario();
@@ -284,7 +285,7 @@ void altaGrupo() {
 }
 
 void eliMensaje() {
-    int opcion;
+    int opcion=1;
     char confirmar, salir = 'n';
     DtMensaje* dtm = new DtMensaje();
     DtConversacion * dtc = new DtConversacion();
@@ -302,8 +303,8 @@ void eliMensaje() {
                 i->next();
             }
             do {
-                cout << "1 - Seleccionar una conversacion activa\n";
-                cout << "2 - Ver las conversaciones archivadas\n";
+                cout << "\n1 - Seleccionar una conversacion activa";
+                cout << "\n2 - Ver las conversaciones archivadas";
                 cin>>opcion;
 
                 if (opcion == 1) {
@@ -322,10 +323,43 @@ void eliMensaje() {
                 }
             } while (opcion != 1 || opcion != 2);
 
-
-
         } while (salir == 's');
     } catch (std::invalid_argument &ia) {
         cout << ia.what() << endl;
     }
 }
+
+
+    
+    void cargarUsu(){
+        
+        iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+        string nombre, imagenPerfil, descripcion;
+        int numCel;
+        usuLog->altaPrecargaUsuario(90123654, 'Juan Pérez' , 'home/img/perfil/juan.png', 'Cómo andan?');
+        usuLog->altaPrecargaUsuario(90765432, 'María Fernández ' , 'home/img/perfil/maria.png ', 'Disponible');
+        usuLog->altaPrecargaUsuario(90246810, 'Pablo Iglesias' , 'home/img/perfil/pablo.png', 'En el Gym');
+        usuLog->altaPrecargaUsuario(90666777, 'Sara Ruiz' , 'home/img/perfil/sara.png', 'Estoy usando TeleTIP');
+    }
+    
+    
+    void cargarContactos(){
+        iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+        
+        
+    }
+    
+    void cargarConversaciones(){
+    
+    }
+    
+    void cargarMensajes(){
+        iContMensaje * mens = Fabrica::getInstance()->getContMensaje();
+    }
+    
+    
+    
+    
+    
+    
+

@@ -46,6 +46,13 @@ bool ContUsuario::altaUsuario(string nombre, string UrlImagen, string descripcio
     return true;
 }
 
+bool ContUsuario::altaPrecargaUsuario(int celUsu, string nombre, string UrlImagen, string descripcion){
+    Usuario* nuevoUsu = new Usuario(celUsu, nombre, UrlImagen, descripcion);
+    intKey* key = new intKey(celUsu);
+    usuario->add(nuevoUsu, key); //Agrego al usuario a la lista de usuarios
+    return true;
+}
+
 bool ContUsuario::cancelaIngreso() {
     intKey *ikey = new intKey(getNumCel());
     Usuario *usuR = dynamic_cast<Usuario*> (usuario->find(ikey));

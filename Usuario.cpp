@@ -29,6 +29,17 @@ Usuario::Usuario(string nombre, string imagenPerfil, string descripcion, int num
     this->SetUltima_conexion(fechora->getUltimaConexion());
 }
 
+Usuario::Usuario(int celUsu,string nombre,string UrlImagen,string descripcion){
+    Fecha_Hora_sis* fechora;
+    this->nombre = nombre;
+    this->foto_Perfil = UrlImagen;
+    this->descripcion = descripcion;
+    this->celular = celUsu;
+    this->fechaCreacion = fechora->getFecha();
+    this->horaCreacion = fechora->getHora();
+    this->SetUltima_conexion(fechora->getUltimaConexion());
+}
+
 ListDicc* Usuario::getListaContactos() {
     return this->contactos;
 }
@@ -119,7 +130,7 @@ Lista * Usuario::getConversaciones() {
 //        throw invalid_argument("No tiene conversaciones\n");
 //    }    
             
-    Lista *conversacionesAct;
+    Lista *conversacionesAct= new Lista;
     IIterator *it = this->estadoConv->iterator();
     int cant = 0, cont = 0;
     
