@@ -47,7 +47,7 @@ public:
     void archivarConv(DtConversacion*);
     Lista* seleccionarConversacion(int idConv);
     void seleccionarMensaje(int);
-    void eliminarMensaje(int, DtMensaje*);
+    void eliminarMensaje(int, DtMensaje*,int);
     Lista* listarConvArchivadas();
     void cuerpoMensaje(DtSimple*);
     void cuerpoMensaje(DtImagen*);

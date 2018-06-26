@@ -38,7 +38,7 @@ public:
     bool sosConversacion(int);
     Mensaje* getMensaje(int);
     void remueveMensConv(Mensaje*);
-    void remueveMens(int);
+    void remueveMens(int,int);
     void eviarMensaje(Mensaje*);
     Lista* listarMensaje(DtFechaHoraIng* );
     Lista* listarVistos(int codMens);

@@ -97,8 +97,8 @@ Lista * ContUsuario::seleccionarConversacion(int idConv) {
     Lista * selecConv = this->usuLog->seleccionarConversacion(idConv);
 }
 
-void ContUsuario::eliminarMensConv(int idConv, int codMen) {
-    this->usuLog->eliminarMensConv(idConv, codMen);
+void ContUsuario::eliminarMensConv(int idConv, int codMen, int celUsu) {
+    this->usuLog->eliminarMensConv(idConv, codMen,celUsu);
 }
 
 DtContacto* ContUsuario::ingContacto(int numCelular) {

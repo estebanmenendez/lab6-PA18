@@ -276,7 +276,6 @@ void altaGrupo() {
                 }
             }
 
-
         } while (salir == 's');
 
     } catch (std::invalid_argument &ia) {
@@ -284,29 +283,49 @@ void altaGrupo() {
     }
 }
 
-void eliMensaje(){
-    
+void eliMensaje() {
+    int opcion;
     char confirmar, salir = 'n';
     DtMensaje* dtm = new DtMensaje();
-    DtConversacion * dtc = new DtConversacion();   
-    
-    try{
-        cout<<"\nEliminar Mensaje\n\n";
-        
-        cout << "Conversaciones del usuario:";
-        do{
-        Lista * ltConv = ContMen->listarConv(); 
-        
-        IIterator* i = ltConv->iterator();
-        
+    DtConversacion * dtc = new DtConversacion();
+
+    try {
+        cout << "\nEliminar Mensaje\n\n";
+
+        cout << "Conversaciones del usuario\n";
+        do {
+            Lista * ltConv = ContMen->listarConv();
+            IIterator* i = ltConv->iterator();
             while (i->hasNext()) {
                 dtc = dynamic_cast<DtConversacion*> (i->getCurrent());
-                
-                cout << dtc->GetIdConversa()<<  " - " << dtc->GetNombre() << " - " << dtc->GetCel_Cantidad()<< "\n";
+                cout << dtc->GetIdConversa() << " - " << dtc->GetNombre() << " - " << dtc->GetCel_Cantidad() << "\n";
                 i->next();
             }
-        }while(salir == 's');
-        }catch (std::invalid_argument &ia) {
+            do {
+                cout << "1 - Seleccionar una conversacion activa\n";
+                cout << "2 - Ver las conversaciones archivadas\n";
+                cin>>opcion;
+
+                if (opcion == 1) {
+                    int conv;
+                    cout << "Ingrese el codigo de la conversacion que desea seleccionar: ";
+                    cin>>conv;
+                    ContMen->seleccionarConv(conv);
+                }
+                if (opcion == 2) {
+                    int conv;
+                    cout << "\nConversaciones archivadas: \n";
+                    Lista * lisConvArch = ContMen->listarConversacionesArch();
+                    cout << "\nIngrese el codigo de la conversacion que desea seleccionar: ";
+                    cin>>conv;
+                    ContMen->seleccionarConv(conv);
+                }
+            } while (opcion != 1 || opcion != 2);
+
+
+
+        } while (salir == 's');
+    } catch (std::invalid_argument &ia) {
         cout << ia.what() << endl;
     }
 }

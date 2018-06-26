@@ -214,12 +214,12 @@ void Usuario::crearEstadoConv(Conversacion *conv, Usuario * cont, Usuario * usuA
     cont->estadoConv->add(ec);
 }
 
-Lista * Usuario::eliminarMensConv(int idConv, int mens) {
+Lista * Usuario::eliminarMensConv(int idConv, int mens, int celUsu) {
     IIterator *it = estadoConv->iterator();
     while (it->hasNext()) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->getConversacion()->getIdConv() == idConv) {
-            ec->getConversacion()->remueveMens(mens);
+            ec->getConversacion()->remueveMens(mens, celUsu);
         }
         it->next();
     }

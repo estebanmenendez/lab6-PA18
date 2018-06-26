@@ -15,7 +15,7 @@
 #include "Fabrica.h"
 
 Conversacion::Conversacion(int conv) {
-    this->idConv=conv;
+    this->idConv = conv;
 }
 
 Conversacion::Conversacion(const Conversacion& orig) {
@@ -38,14 +38,18 @@ Mensaje* Conversacion::getMensaje(int idMensaje) {
 void Conversacion::remueveMensConv(Mensaje* men) {
     mensajes->removeObj(men);
 }
- 
-void Conversacion::remueveMens(int men) {
+
+void Conversacion::remueveMens(int men, int celUsu) {
     intKey * key = new intKey(men);
     IIterator *it = mensajes->getIteratorKey();
     Mensaje *mens = dynamic_cast<Mensaje*> (mensajes->find(key));
-    bool ok = mens->remueveVistos();
-    if (ok == true) {
-        remueveMensConv(mens);
+    if (mens->esReceptor(celUsu)) {
+        mens->remueveVistos();
+    } else {
+        bool ok = mens->remueveVistos();
+        if (ok == true) {
+            remueveMensConv(mens);
+        }
     }
 }
 

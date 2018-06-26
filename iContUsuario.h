@@ -39,7 +39,7 @@ public:
     virtual Lista * listarContactos() = 0;
     virtual Lista * listarConversacion() = 0;
     virtual Lista * seleccionarConversacion(int) = 0;
-    virtual void eliminarMensConv(int, int) = 0;
+    virtual void eliminarMensConv(int, int,int) = 0;
     virtual DtContacto* ingContacto(int) = 0;
     virtual void agregaContacto(DtContacto*) = 0;
     virtual void cerrarSesion(DtConexion*) = 0;

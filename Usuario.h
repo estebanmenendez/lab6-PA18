@@ -73,7 +73,7 @@ public:
     Lista * seleccionarConversacion(int);
     void crearConversacion(Usuario *, Conversacion *); //para el usuario actual
     void crearEstadoConv(Conversacion *conv, Usuario * usu, Usuario * usu2); //para el contacto
-    Lista * eliminarMensConv(int, int);
+    Lista * eliminarMensConv(int, int,int);
     bool convGrupal(int);
     DtConversacion * getConvGrupo(int);
     bool sosElOtro(int idConv);
