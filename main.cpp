@@ -34,7 +34,7 @@ void verMensajes(); // Ver mensajes JP
 void archivarConversaciones(); // Archivar Conversación
 void modUsuario(); // Modificar usuario 
 void eliMensaje(); // Eliminar mensajes Esteban
-void agregarPartGrupo(); // Agregar participantes al grupo **Ernesto
+void agregarPartGrupo(); // Agregar participantes al grupo Ernesto
 void cambiarFechaSist(); // Cambiar ficha de sistema Mauro 
 void consultFechaSistema(); // Consultar fecha del sistema Mauro 
 //cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11-Consultar fecha del sistema\n0- Salir\n";
@@ -98,14 +98,19 @@ int main(int argc, char** argv) {
                         altaGrupo();
                         break;
                     case 4:
+//                        enviarMensaje();
                         break;
                     case 5:
+//                        verMensajes(); 
                         break;
                     case 6:
+                        archivarConversaciones();
                         break;
                     case 7:
+                        modUsuario();
                         break;
                     case 8:
+//                        eliMensaje();
                         break;
                     case 9:
                         agregarPartGrupo();
@@ -425,5 +430,40 @@ void agregarPartGrupo(){
         cout << ia.what() << endl;
     } 
     
+    
+}
+
+void  modUsuario(){
+    Usuario * usuLog = ContUsu->getUsu();
+    string nombre="", urlImagen="", descrip="";
+    char guarda;
+     try{
+         cin.ignore();
+         cout<<"El Usuario logeado es: \nNombre: "<<usuLog->GetNombre()<<"\nURL Imagen: "<<usuLog->GetFoto_Perfil()<<"\nDescripcion: "<<usuLog->GetDescripcion()<<"\n";
+         cout<<"Ingrese Nombre: ";
+         getline(cin,nombre);
+         cout<<"Ingrese URL Imagen: ";
+         getline(cin,urlImagen);
+         cout<<"Ingrese Descripción: ";
+         getline(cin,descrip);
+         cout<<"\nGuarda los cambios (s/n): ";
+         cin>>guarda;
+         
+         if (guarda == 's'){
+             
+             usuLog->SetNombre(nombre);
+             usuLog->SetFoto_Perfil(urlImagen);
+             usuLog->SetDescripcion(descrip);
+            cout<<"El Usuario logeado Se Modificó : \nNombre: "<<usuLog->GetNombre()<<"\nURL Imagen: "<<usuLog->GetFoto_Perfil()<<"\nDescripcion: "<<usuLog->GetDescripcion()<<"\n";
+            cout<<"\nPulse una ENTER para continuar...";
+            cin.ignore().get();
+         }
+         
+     }catch(std::invalid_argument &ia) {
+        cout << ia.what() << endl;
+    } 
+}
+
+void archivarConversaciones(){
     
 }
