@@ -80,8 +80,11 @@ public:
     Lista * listarMensajes(int codConv);
     Lista * listarVistos(int idMens);
     string nombreUsu(int numCel);
-    void crearTipo(Grupo*);
+    void crearTipo(Grupo*,string);
     void crearEstadoConversacion(Conversacion *conv);
+    Lista * getTipos();
+    Lista * getContactosGrupo(string);
+   
 
 private:
 

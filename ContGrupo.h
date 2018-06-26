@@ -32,7 +32,7 @@ public:
     void getContactos();
     void getDtContacto();
     Lista* listarGrupos();
-    DtContacto* seleccionarGrupo(string);
+    Lista* seleccionarGrupo(string);
     DtContacto* seleccionarPart(int);
     bool agregarNuevoAdmin(int);
     Lista* listarContactos();

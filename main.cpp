@@ -106,6 +106,7 @@ int main(int argc, char** argv) {
                     case 8:
                         break;
                     case 9:
+                        agregarPartGrupo();
                         break;
                     case 10:
                         cambiarFechaSist();
@@ -239,7 +240,7 @@ void altaGrupo() {
 
     DtContacto* dtc = new DtContacto();
     DtContacto* dte = new DtContacto();
-    DtContacto* dtn = new DtContacto();
+    //DtContacto* dtn = new DtContacto();
     DtGrupo * dtGrupo;
 
     cin.ignore();
@@ -325,4 +326,49 @@ void altaGrupo() {
     } catch (std::invalid_argument &ia) {
         cout << ia.what() << endl;
     }
+}
+
+
+void agregarPartGrupo(){
+     char salir = 'n', confirmar, removido = 'n';
+    string urlI= "", nombreG="";
+    DtContacto* dtc = new DtContacto();
+    DtGrupo* dtg = new DtGrupo("");
+    
+    try{
+        do {
+        Lista* ltGru = ContGru->listarGrupos();
+            removido = 'n';
+            if (ltGru->isEmpty()) {
+                cout << "No tiene Grupos\n";
+                salir = 'n';
+                cin.ignore().get();
+            } else {
+                
+             cout << "\nGrupos Del Usuario :\n ";
+                IIterator* j = ltGru->iterator();
+                while (j->hasNext()) {
+                    dtg = dynamic_cast<DtGrupo*> (j->getCurrent());
+                    cout << dtg->GetNombre() << "\n";
+                    j->next();
+                }
+            cout << "\nIngrese Nombre del Grupo:\n ";
+            cin.ignore();     
+            getline(cin, nombreG);
+            Lista* ltContactos = ContGru->seleccionarGrupo(nombreG);
+             IIterator* h = ltContactos->iterator();
+                while (h->hasNext()) {
+                    dtc = dynamic_cast<DtContacto*> (h->getCurrent());
+                    cout << dtc->GetNumCel()<<" - "<<dtc->GetNombre()<< "\n";
+                    h->next();
+                }
+            
+            
+            }//
+        } while (salir == 's');
+    }catch(std::invalid_argument &ia) {
+        cout << ia.what() << endl;
+    } 
+    
+    
 }

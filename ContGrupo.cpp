@@ -39,6 +39,9 @@ void ContGrupo::getDtContacto() {
 }
 
 Lista* ContGrupo::listarGrupos() {
+    Usuario * usuLog = Fabrica::getInstance()->getContUsuario()->getUsu();
+    Lista * listDtGrupo = usuLog->getTipos();    
+    return listDtGrupo;
 }
 
 DtContacto* ContGrupo::seleccionarParticipante(int) {
@@ -99,6 +102,8 @@ DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
     Mensaje* mens = contMen->crearMensajeGrupo("Te has unido al Grupo "+grupo->GetNombre());
     //setea el mensaje a la conversacion del grupo.
     grupo->getConversacion()->setMensaje(mens);
+    //para el usuario que crea el grupo crea el tipo y el estado Conv.
+    contUsu->crearGrupoUsuario(grupo,std::to_string(grupo->GetCreador()),mens->GetCodigo());
     //Por cada usuario elegido para el grupo le pide a ContUsuario que crea el Tipo, el EstConv.
     DtContacto* dtn = new DtContacto();
     IIterator* h = this->ltElegidos->iterator();
@@ -111,7 +116,12 @@ DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
     return dtGrupo; 
 }
 
-DtContacto* ContGrupo::seleccionarGrupo(string) {
+Lista* ContGrupo::seleccionarGrupo(string grupo) {
+     Usuario * usuLog = Fabrica::getInstance()->getContUsuario()->getUsu();
+    Lista* listDtContacto = usuLog->getContactosGrupo(grupo);
+//    if (listDtContacto->isEmpty())
+//       return throw std::invalid_argument("No existen el grupo "+grupo); 
+    return listDtContacto;
 }
 
 void ContGrupo::Salir() {
