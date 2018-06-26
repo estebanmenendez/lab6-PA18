@@ -31,6 +31,17 @@ Usuario::Usuario(string nombre, string imagenPerfil, string descripcion, int num
     this->SetUltima_conexion(fechora->getUltimaConexion());
 }
 
+Usuario::Usuario(int celUsu,string nombre,string UrlImagen,string descripcion){
+    Fecha_Hora_sis* fechora;
+    this->nombre = nombre;
+    this->foto_Perfil = UrlImagen;
+    this->descripcion = descripcion;
+    this->celular = celUsu;
+    this->fechaCreacion = fechora->getFecha();
+    this->horaCreacion = fechora->getHora();
+    this->SetUltima_conexion(fechora->getUltimaConexion());
+}
+
 ListDicc* Usuario::getListaContactos() {
     return this->contactos;
 }
@@ -122,7 +133,7 @@ Lista * Usuario::getConversaciones() {
     Lista *conversacionesAct = new Lista();
     IIterator *it = estadoConv->iterator();
     int cant = 0, cont = 0;
-
+    
     while (it->hasNext()) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->ConvActiva() == true) {
@@ -222,12 +233,12 @@ void Usuario::crearEstadoConv(Conversacion *conv, Usuario * cont, Usuario * usuA
     cont->estadoConv->add(ec);
 }
 
-Lista * Usuario::eliminarMensConv(int idConv, int mens) {
+Lista * Usuario::eliminarMensConv(int idConv, int mens, int celUsu) {
     IIterator *it = estadoConv->iterator();
     while (it->hasNext()) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->getConversacion()->getIdConv() == idConv) {
-            ec->getConversacion()->remueveMens(mens);
+            ec->getConversacion()->remueveMens(mens, celUsu);
         }
         it->next();
     }

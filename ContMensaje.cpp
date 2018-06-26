@@ -12,11 +12,6 @@
  */
 
 #include"ContMensaje.h"
-////<<<<<<< HEAD
-//#include"Fabrica.h"
-//
-//
-//=======
 #include "iContUsuario.h"
 #include "Fabrica.h"
 
@@ -33,7 +28,10 @@ DtMensaje* ContMensaje::getMensaje() {
     return mensaje;
 }
 
-void ContMensaje::seleccionarConv(int) {
+void ContMensaje::seleccionarConv(int idConv) {
+    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+    Lista * retorno;
+    retorno = usuLog->seleccionarConversacion(idConv);
 }
 
 ContMensaje::~ContMensaje() {
@@ -52,6 +50,7 @@ void ContMensaje::crearMensaje(DtMensaje*) {
 }
 
 void ContMensaje::selecConversacion(int) {
+    
 }
 
 void ContMensaje::getContactos() {
@@ -88,12 +87,15 @@ void ContMensaje::setIdConv(int id) {
 }
 
 Lista * ContMensaje::listarConversacionesArch() {
+    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+    Lista * retorno;
+    return retorno = usuLog->listaConversacionArc();
 }
 
 Lista* ContMensaje::listarConv() {
     iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
     Lista * retorno;
-    retorno = usuLog->listarConversacion();
+    return retorno = usuLog->listarConversacion();
 }
 
 Lista* ContMensaje::seleccionarConversacion(int idConv) {
@@ -102,9 +104,9 @@ Lista* ContMensaje::seleccionarConversacion(int idConv) {
     retorno = usuLog->seleccionarConversacion(idConv);
 }
 
-void ContMensaje::eliminarMensaje(int idConv, DtMensaje* dtMen) {
+void ContMensaje::eliminarMensaje(int idConv, DtMensaje* dtMen,int celUsu) {
     iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
-    usuLog->eliminarMensConv(idConv, dtMen->GetCodigo());
+    usuLog->eliminarMensConv(idConv, dtMen->GetCodigo(), celUsu);
 }
 
 Lista * ContMensaje::listarConversaciones() {

@@ -37,6 +37,7 @@ public:
     //constructores:
     Usuario();
     Usuario(string nombre, string imagenPerfil, string descripcion, int numCel);
+    Usuario(int celUsu,string nombre,string UrlImagen,string descripcion);
     Usuario(const Usuario& orig);
     virtual ~Usuario();
 
@@ -74,7 +75,7 @@ public:
     Lista * seleccionarConversacion(int);
     void crearConversacion( Conversacion *); //para el usuario actual
     void crearEstadoConv(Conversacion *conv, Usuario * usu, Usuario * usu2); //para el contacto
-    Lista * eliminarMensConv(int, int);
+    Lista * eliminarMensConv(int, int,int);
     bool convGrupal(int);
     DtConversacion * getConvGrupo(int);
     bool sosElOtro(int idConv);

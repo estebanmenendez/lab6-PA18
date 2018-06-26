@@ -32,13 +32,14 @@ class Conversacion: public ICollectible {
     
 public:
     Conversacion();
+    Conversacion(int);
     Conversacion(const Conversacion& orig);
     virtual ~Conversacion();   
     void setMensaje(Mensaje *);
     bool sosConversacion(int);
     Mensaje* getMensaje(int);
-    void remueveConv(Mensaje*);
-    void remueveMens(int);
+    void remueveMensConv(Mensaje*);
+    void remueveMens(int,int);
     void eviarMensaje(Mensaje*);
     Lista* listarMensaje(DtFechaHoraIng* );
     Lista* listarVistos(int codMens);

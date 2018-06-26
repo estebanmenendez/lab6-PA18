@@ -108,6 +108,7 @@ int main(int argc, char** argv) {
                     case 7:
                         break;
                     case 8:
+                        eliMensaje();
                         break;
                     case 9:
                         agregarPartGrupo();
@@ -565,3 +566,82 @@ void agregarPartGrupo(){
     
     
 }
+void eliMensaje() {
+    int opcion=1;
+    char confirmar, salir = 'n';
+    DtMensaje* dtm = new DtMensaje();
+    DtConversacion * dtc = new DtConversacion();
+
+    try {
+        cout << "\nEliminar Mensaje\n\n";
+
+        cout << "Conversaciones del usuario\n";
+        do {
+            Lista * ltConv = ContMen->listarConv();
+            IIterator* i = ltConv->iterator();
+            while (i->hasNext()) {
+                dtc = dynamic_cast<DtConversacion*> (i->getCurrent());
+                cout << dtc->GetIdConversa() << " - " << dtc->GetNombre() << " - " << dtc->GetCel_Cantidad() << "\n";
+                i->next();
+            }
+            do {
+                cout << "\n1 - Seleccionar una conversacion activa";
+                cout << "\n2 - Ver las conversaciones archivadas";
+                cin>>opcion;
+
+                if (opcion == 1) {
+                    int conv;
+                    cout << "Ingrese el codigo de la conversacion que desea seleccionar: ";
+                    cin>>conv;
+                    ContMen->seleccionarConv(conv);
+                }
+                if (opcion == 2) {
+                    int conv;
+                    cout << "\nConversaciones archivadas: \n";
+                    Lista * lisConvArch = ContMen->listarConversacionesArch();
+                    cout << "\nIngrese el codigo de la conversacion que desea seleccionar: ";
+                    cin>>conv;
+                    ContMen->seleccionarConv(conv);
+                }
+            } while (opcion != 1 || opcion != 2);
+
+        } while (salir == 's');
+    } catch (std::invalid_argument &ia) {
+        cout << ia.what() << endl;
+    }
+}
+
+
+    
+    void cargarUsu(){
+        
+        iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+        string nombre, imagenPerfil, descripcion;
+        int numCel;
+        usuLog->altaPrecargaUsuario(90123654, "Juan Pérez" , "home/img/perfil/juan.png", "Cómo andan?");
+        usuLog->altaPrecargaUsuario(90765432, "María Fernández" , "home/img/perfil/maria.png", "Disponible");
+        usuLog->altaPrecargaUsuario(90246810, "Pablo Iglesias" , "home/img/perfil/pablo.png", "En el Gym");
+        usuLog->altaPrecargaUsuario(90666777, "Sara Ruiz" , "home/img/perfil/sara.png", "Estoy usando TeleTIP");
+    }
+    
+    
+    void cargarContactos(){
+        iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+        
+        
+    }
+    
+    void cargarConversaciones(){
+    
+    }
+    
+    void cargarMensajes(){
+        iContMensaje * mens = Fabrica::getInstance()->getContMensaje();
+    }
+    
+    
+    
+    
+    
+    
+
