@@ -16,6 +16,7 @@
 using namespace std;
 
 int ContUsuario::getNumContacto(int idConv) {
+    return this->usuLog->getNumContacto(idConv);
 }
 
 ContUsuario::ContUsuario() {
@@ -26,7 +27,11 @@ ContUsuario::ContUsuario(const ContUsuario& orig) {
 
 ContUsuario::~ContUsuario() {
 }
-
+Lista*  ContUsuario::listarInfoVisto(int idConv,int idMensaje){
+   Lista* lMen=new Lista();
+   lMen=this->usuLog->listarVistos(idMensaje,idConv);
+   return lMen;
+}
 bool ContUsuario::usuarioLogueado(int numCel) {
     if (usuLog->GetCelular() == numCel)return true;
     return false;
@@ -42,6 +47,13 @@ bool ContUsuario::ingresarCelular(int numCel) {
 bool ContUsuario::altaUsuario(string nombre, string UrlImagen, string descripcion) {
     Usuario* nuevoUsu = new Usuario(nombre, UrlImagen, descripcion, this->getNumCel());
     intKey* key = new intKey(this->getNumCel());
+    usuario->add(nuevoUsu, key); //Agrego al usuario a la lista de usuarios
+    return true;
+}
+
+bool ContUsuario::altaPrecargaUsuario(int celUsu, string nombre, string UrlImagen, string descripcion){
+    Usuario* nuevoUsu = new Usuario(celUsu, nombre, UrlImagen, descripcion);
+    intKey* key = new intKey(celUsu);
     usuario->add(nuevoUsu, key); //Agrego al usuario a la lista de usuarios
     return true;
 }
@@ -104,8 +116,8 @@ Lista * ContUsuario::seleccionarConversacion(int idConv) {
     Lista * selecConv = this->usuLog->seleccionarConversacion(idConv);
 }
 
-void ContUsuario::eliminarMensConv(int idConv, int codMen) {
-    this->usuLog->eliminarMensConv(idConv, codMen);
+void ContUsuario::eliminarMensConv(int idConv, int codMen, int celUsu) {
+    this->usuLog->eliminarMensConv(idConv, codMen,celUsu);
 }
 
 DtContacto* ContUsuario::ingContacto(int numCelular) {

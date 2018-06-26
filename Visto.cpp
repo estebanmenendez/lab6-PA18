@@ -12,7 +12,9 @@
  */
 
 #include "Visto.h"
-
+Visto::Visto() {
+    
+}
 Visto::Visto(int celular) {
     this->Receptor = celular;
     this->estado = false;
@@ -61,3 +63,4 @@ DtFechaHoraVisto * Visto::getFechaHoraVisto(){
     DtFechaHoraVisto* dtFecha=new DtFechaHoraVisto(fechaV,horaV);
     return dtFecha;
 }
+void Visto::setReceptor(int rec){this->Receptor=rec;}

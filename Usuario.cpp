@@ -11,6 +11,8 @@
  * Created on 5 de junio de 2018, 01:30 AM
  */
 
+#include <memory>
+
 #include "Usuario.h"
 
 void Usuario::addContacto(Usuario* u) {
@@ -24,6 +26,17 @@ Usuario::Usuario(string nombre, string imagenPerfil, string descripcion, int num
     this->foto_Perfil = imagenPerfil;
     this->descripcion = descripcion;
     this->celular = numCel;
+    this->fechaCreacion = fechora->getFecha();
+    this->horaCreacion = fechora->getHora();
+    this->SetUltima_conexion(fechora->getUltimaConexion());
+}
+
+Usuario::Usuario(int celUsu,string nombre,string UrlImagen,string descripcion){
+    Fecha_Hora_sis* fechora;
+    this->nombre = nombre;
+    this->foto_Perfil = UrlImagen;
+    this->descripcion = descripcion;
+    this->celular = celUsu;
     this->fechaCreacion = fechora->getFecha();
     this->horaCreacion = fechora->getHora();
     this->SetUltima_conexion(fechora->getUltimaConexion());
@@ -115,24 +128,26 @@ void Usuario::SetUltima_conexion(DtUltCon* ultima_conexion) {
 
 Lista * Usuario::getConversaciones() {
     if (estadoConv->isEmpty() == true) {
-        throw "No tiene conversaciones";
+        throw invalid_argument("No tiene conversaciones");
     }
-    Lista *conversacionesAct;
+    Lista *conversacionesAct = new Lista();
     IIterator *it = estadoConv->iterator();
     int cant = 0, cont = 0;
-
+    
     while (it->hasNext()) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->ConvActiva() == true) {
             if (convGrupal(ec->getConversacion()->getIdConv()) == false) {
                 DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), ec->getConversacion()->getCelContacto()); //constructor conv comun
                 conversacionesAct->add(DtConv);
+            it->next();
             } else {
                 conversacionesAct->add(getConvGrupo(ec->getConversacion()->getIdConv()));
+                it->next();
             }
         } else cant++;
+        
     }
-    // DtConversacion * dtConv=new DtConversacion(tip->getGrupo()->GetNombre(),tip->getGrupo()->getConversacion()->getIdConv());//copntructor grupo
     DtConversacion * DtConv = new DtConversacion(cant); //constructor conv archivadas
     conversacionesAct->add(DtConv);
     return conversacionesAct;
@@ -143,6 +158,7 @@ bool Usuario::convGrupal(int idconv) {
     while (it->hasNext()) {
         Tipo *tip = dynamic_cast<Tipo*> (it->getCurrent());
         if (tip->getGrupo()->getConversacion()->getIdConv() == idconv)return true;
+        it->next();
     }
     return false;
 }
@@ -154,8 +170,10 @@ DtConversacion* Usuario::getConvGrupo(int idconv) {
         if (tip->getGrupo()->getConversacion()->getIdConv() == idconv) {
             DtConversacion * dtConv = new DtConversacion(tip->getGrupo()->GetNombre(), tip->getGrupo()->getConversacion()->getIdConv()); //copntructor grupo
             return dtConv;
+        
         }
-
+        it->next();
+        
     }
 }
 
@@ -173,8 +191,9 @@ Lista * Usuario::getConversacionesAr() {
                 conversacionesArc->add(getConvGrupo(ec->getConversacion()->getIdConv()));
             }
         }
-        return conversacionesArc;
+        it->next();
     }
+ return conversacionesArc;
 }
 
 Lista * Usuario::GetContactos() {
@@ -198,8 +217,10 @@ Usuario * Usuario::seleccionarCont(int numCel) {
     return cont;
 }
 
-Lista * Usuario::seleccionarConversacion(int) {
-
+Lista * Usuario::seleccionarConversacion(int idconv) {
+    Lista *lM=new Lista();
+    lM=listarMensajes(idconv);
+    return lM;
 }
 
 void Usuario::crearConversacion(Conversacion *conv) {
@@ -212,12 +233,12 @@ void Usuario::crearEstadoConv(Conversacion *conv, Usuario * cont, Usuario * usuA
     cont->estadoConv->add(ec);
 }
 
-Lista * Usuario::eliminarMensConv(int idConv, int mens) {
+Lista * Usuario::eliminarMensConv(int idConv, int mens, int celUsu) {
     IIterator *it = estadoConv->iterator();
     while (it->hasNext()) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->getConversacion()->getIdConv() == idConv) {
-            ec->getConversacion()->remueveMens(mens);
+            ec->getConversacion()->remueveMens(mens, celUsu);
         }
         it->next();
     }
@@ -228,21 +249,13 @@ bool Usuario::sosElOtro(int idConv) {
     while (it->hasNext()) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->getConversacion()->getIdConv() == idConv) return true;
+        it->next();
     }
     return false;
 }
 
 Lista * Usuario::listarMensajes(int codConv) {
-    IIterator *it = tipo->iterator();
     Lista *listaMen = new Lista();
-    while (it->hasNext()) {
-        Tipo *tip = dynamic_cast<Tipo*> (it->getCurrent());
-        if (tip->getGrupo()->getConversacion()->sosConversacion(codConv) == true) {
-            listaMen = tip->getGrupo()->getConversacion()->listarMensaje(tip->getFechaHoraIng());
-            return listaMen;
-        }
-
-    }
     IIterator *It = estadoConv->iterator();
     while (It->hasNext()) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (It->getCurrent());
@@ -250,20 +263,33 @@ Lista * Usuario::listarMensajes(int codConv) {
             listaMen = ec->getConversacion()->listarMensaje(NULL);
             return listaMen;
         }
-
+        It->next();
     }
 }
 
-Lista * Usuario::listarVistos(int idMens) {
-    Lista *vistos;
+Lista * Usuario::listarVistos(int idMens,int idConv) {
+    Lista *vistos=new Lista();
     IIterator *it = estadoConv->iterator();
     while (it->hasNext()) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
-
+        if(ec->getConversacion()->getIdConv()==idConv){
+            vistos=ec->getConversacion()->listarVistos(idMens);
+        }
+        it->next();
     }
 
 }
-
+int Usuario::getNumContacto(int idConv){
+    IIterator *it=contactos->getIteratorObj();
+    while(it->hasNext()){
+        Usuario* usu=dynamic_cast<Usuario*>(it->getCurrent());
+        if(usu->sosElOtro(idConv)==true){
+            return usu->GetCelular();
+        }
+        it->next();
+    }
+    
+}
 string Usuario::nombreUsu(int numCel) {
     intKey *iKey = new intKey(numCel);
     Usuario *us = dynamic_cast<Usuario*> (contactos->find(iKey));

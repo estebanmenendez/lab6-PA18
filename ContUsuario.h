@@ -47,11 +47,12 @@ public:
     bool usuarioLogueado(int);
     bool ingresarCelular(int); // Chequea que el celular esté en la lista de usuarios del sistema.
     bool altaUsuario(string, string, string);
+    bool altaPrecargaUsuario(int, string, string, string);
     bool cancelaIngreso();
     DtConexion* asignarSesion();
     Lista * listarContactos();
     Lista * listarConversacion();
-    void eliminarMensConv(int, int);
+    void eliminarMensConv(int, int,int);
     DtContacto* ingContacto(int);
     void agregaContacto(DtContacto*);
     void cerrarSesion(DtConexion*);
@@ -67,6 +68,7 @@ public:
     Lista* listaConversacion();
     Lista* listaConversacionArc();
     int getNumUsuLog();
+    Lista*  listarInfoVisto(int idConv,int idMensaje);
     void crearGrupoUsuario(Grupo*,string,int);
 };
 

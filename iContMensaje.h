@@ -44,7 +44,7 @@ public:
     virtual void archivarConv(DtConversacion*) = 0;
     virtual Lista* seleccionarConversacion(int) = 0;
     virtual void seleccionarMensaje(int) = 0;
-    virtual void eliminarMensaje(int, DtMensaje*) = 0;
+    virtual void eliminarMensaje(int, DtMensaje*, int) = 0;
     virtual Lista* listarConvArchivadas() = 0;
     virtual void cuerpoMensaje(DtSimple*) = 0;
     virtual void cuerpoMensaje(DtImagen*) = 0;

@@ -18,7 +18,7 @@
 #include"DtHora.h"
 #include "ICollectible.h"
 
-class DtMensaje : public ICollectible {
+class DtMensaje : public ICollectible{
 public:
     DtMensaje();
     DtMensaje(int, DtFecha*, DtHora*);

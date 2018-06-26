@@ -35,7 +35,7 @@ NodoDicc* NodoDicc::getNext() {
 }
 
 Par* NodoDicc::getPar() {
-    return (this->par);
+   return (this->par);
 }
 
 void NodoDicc::setPar(Par* par) {
