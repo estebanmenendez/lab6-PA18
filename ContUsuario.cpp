@@ -73,19 +73,7 @@ Lista *ContUsuario::listarContactos() {
     Lista* listDtContacto = new Lista();
     intKey* ikey = new intKey(this->numCel);
     Usuario* u = dynamic_cast<Usuario*> (this->usuario->find(ikey));
-    Lista* contactos = u->GetContactos();
-    if (contactos->isEmpty()) {
-        return listDtContacto;
-    } else {
-        IIterator* i = contactos->iterator();
-        while (i->hasNext()) {
-            u = dynamic_cast<Usuario*> (i->getCurrent());
-            DtContacto* dtc = new DtContacto();
-            dtc = u->GetContacto();
-            listDtContacto->add(dtc);
-        }
-    }
-    return listDtContacto;
+    return u->GetContactos();
 }
 
 Lista * ContUsuario::listarConversacion() {
