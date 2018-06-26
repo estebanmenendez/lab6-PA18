@@ -85,6 +85,7 @@ public:
     void crearEstadoConversacion(Conversacion *conv);
     Lista * getTipos();
     Lista * getContactosGrupo(string);
+    Grupo* getGrupo(string grupo);
    
 
 private:

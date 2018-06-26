@@ -117,7 +117,8 @@ DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
 }
 
 Lista* ContGrupo::seleccionarGrupo(string grupo) {
-     Usuario * usuLog = Fabrica::getInstance()->getContUsuario()->getUsu();
+    Usuario * usuLog = Fabrica::getInstance()->getContUsuario()->getUsu();
+    this->grupo = usuLog->getGrupo(grupo);
     Lista* listDtContacto = usuLog->getContactosGrupo(grupo);
     
 //    if (listDtContacto->isEmpty())
@@ -152,3 +153,7 @@ void ContGrupo::Salir() {
     }
     this->ltElegidos = NULL;
 }
+ 
+ void ContGrupo::agregarParticipanteGrupo(){
+     
+ }

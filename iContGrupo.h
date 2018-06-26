@@ -47,6 +47,7 @@ public:
     virtual void Salir() = 0;
     virtual bool estaElegido(string )=0;
     virtual void vaciaListaParticipantes()= 0;
+    virtual void agregarParticipanteGrupo()=0;
 private:
 
 };

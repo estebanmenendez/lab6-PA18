@@ -315,3 +315,17 @@ Lista * Usuario::getContactosGrupo(string grupo) {
     }
     return Dtcontactos;
 }
+
+Grupo* Usuario::getGrupo(string grupo){
+    Grupo* devGrupo = NULL;
+    IIterator * itt = this->tipo->iterator();
+        while (itt->hasNext()) {
+            Tipo* tip = dynamic_cast<Tipo*> (itt->getCurrent());
+            if (tip->getGrupo()->GetNombre() == grupo){
+                devGrupo= tip->getGrupo();
+                break;
+            }
+            itt->next();
+        }
+    return devGrupo;
+}

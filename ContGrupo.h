@@ -22,6 +22,7 @@ private:
     Lista* ltElegidos = new Lista();
     ListDicc* lUsuarios = new ListDicc();
     Lista * listaUsuPart = new Lista();
+    Grupo* grupo;
 public:
     ContGrupo();
     virtual ~ContGrupo();
@@ -46,6 +47,7 @@ public:
     void Salir();
     bool estaElegido(string);
     void vaciaListaParticipantes();
+    void agregarParticipanteGrupo();
 };
 #endif /* CONTGRUPO_H */
 
