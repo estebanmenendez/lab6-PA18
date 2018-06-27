@@ -336,25 +336,58 @@ void eliMensaje() {
         iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
         string nombre, imagenPerfil, descripcion;
         int numCel;
-        usuLog->altaPrecargaUsuario(90123654, 'Juan Pérez' , 'home/img/perfil/juan.png', 'Cómo andan?');
-        usuLog->altaPrecargaUsuario(90765432, 'María Fernández ' , 'home/img/perfil/maria.png ', 'Disponible');
-        usuLog->altaPrecargaUsuario(90246810, 'Pablo Iglesias' , 'home/img/perfil/pablo.png', 'En el Gym');
-        usuLog->altaPrecargaUsuario(90666777, 'Sara Ruiz' , 'home/img/perfil/sara.png', 'Estoy usando TeleTIP');
+        
+        //USU1
+        numCel = 90123654;
+        nombre = "Juan Perez";
+        imagenPerfil = "home/img/perfil/juan.png";
+        descripcion = "Cómo andan?";
+        usuLog->altaPrecargaUsuario(numCel,nombre,imagenPerfil,descripcion);
+        
+        //USU2
+        numCel = 90765432;
+        nombre = "María Fernández";
+        imagenPerfil = "home/img/perfil/maria.png";
+        descripcion = "Disponible";
+        usuLog->altaPrecargaUsuario(numCel,nombre,imagenPerfil,descripcion);
+        
+        //USU3
+        numCel = 90246810;
+        nombre = "Pablo Iglesias";
+        imagenPerfil = "home/img/perfil/pablo.png";
+        descripcion = "En el Gym";
+        usuLog->altaPrecargaUsuario(numCel,nombre,imagenPerfil,descripcion);
+        
+        //USU4
+        numCel = 90666777;
+        nombre = "Sara Ruiz";
+        imagenPerfil = "home/img/perfil/sara.png";
+        descripcion = "Estoy usando TeleTIP";
+        usuLog->altaPrecargaUsuario(numCel,nombre,imagenPerfil,descripcion);
     }
-    
     
     void cargarContactos(){
         iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
         
-        
+        //TANDA DE CONTACTOS 1
+        usuLog->altaPrecargaContacto(90123654);
+        //TANDA DE CONTACTOS 2
+        usuLog->altaPrecargaContacto(90765432);
+        //TANDA DE CONTACTOS 3
+        usuLog->altaPrecargaContacto(90246810);
+        //TANDA DE CONTACTOS 4
+        usuLog->altaPrecargaContacto(90666777);
     }
     
     void cargarConversaciones(){
-    
+        iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+        
+        usuLog->altaPrecargaConversacion();
     }
     
     void cargarMensajes(){
         iContMensaje * mens = Fabrica::getInstance()->getContMensaje();
+        
     }
     
     
