@@ -41,7 +41,7 @@ public:
     virtual void getContactos() = 0;
     virtual Lista* listarConv() = 0;
     virtual void seleccionarConv(int) = 0;
-    virtual void archivarConv(DtConversacion*) = 0;
+    virtual void archivarConv() = 0;
     virtual Lista* seleccionarConversacion(int) = 0;
     virtual void seleccionarMensaje(int) = 0;
     virtual void eliminarMensaje(int, DtMensaje*, int) = 0;

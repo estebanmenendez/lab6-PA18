@@ -381,7 +381,7 @@ void altaGrupo() {
     char salir = 'n', confirmar, removido = 'n';
     string urlI= "", nombreG="";
     int numCel;
-    //ContGru->vaciaListaParticipantes();
+    ContGru->vaciaListaParticipantes();
     DtContacto* dtc = new DtContacto();
     DtContacto* dte = new DtContacto();
     //DtContacto* dtn = new DtContacto();
@@ -476,44 +476,44 @@ void altaGrupo() {
 void agregarPartGrupo(){
     char salir = 'n', confirmar, removido = 'n';
     string urlI= "", nombreG="";
-    //ContGru->vaciaListaParticipantes();
+    ContGru->vaciaListaParticipantes();
     DtContactoGrupo* dtcg = new DtContactoGrupo();
     DtContacto* dtc = new DtContacto(); 
     int numCel;
     DtGrupo* dtg = new DtGrupo("");
     
     try{
-        do {
+        
         Lista* ltGru = ContGru->listarGrupos();
-            removido = 'n';
-            if (ltGru->isEmpty()) {
-                cout << "No tiene Grupos\n";
-                salir = 'n';
-                cin.ignore().get();
-            } else {
+        removido = 'n';
+        if (ltGru->isEmpty()) {
+            cout << "No tiene Grupos\n";
+            salir = 'n';
+            cin.ignore().get();
+        } else {
                 
             cout << "\nGrupos Del Usuario :\n ";
-                IIterator* j = ltGru->iterator();
-                while (j->hasNext()) {
-                    dtg = dynamic_cast<DtGrupo*> (j->getCurrent());
-                    cout << dtg->GetNombre() << "\n";
-                    j->next();
-                }
+            IIterator* j = ltGru->iterator();
+            while (j->hasNext()) {
+                dtg = dynamic_cast<DtGrupo*> (j->getCurrent());
+                cout << dtg->GetNombre() << "\n";
+                j->next();
+            }
             cout << "\nIngrese Nombre del Grupo:\n ";
             cin.ignore();     
             getline(cin, nombreG);
-            
-            cout << "\nUsuarios del Grupo : "<<nombreG<<"\n";
-            Lista* ltContGru = ContGru->seleccionarGrupo(nombreG);
-            IIterator* h = ltContGru->iterator();
-                while (h->hasNext()) {
-                    dtcg = dynamic_cast<DtContactoGrupo*> (h->getCurrent());  
-                    string fechaLin = std::to_string(dtcg->getFecha()->GetDia())+"/"+std::to_string(dtcg->getFecha()->GetMes())+"/"+std::to_string(dtcg->getFecha()->GetAnio())+" "+std::to_string(dtcg->getHora()->GetHora())+":"+std::to_string(dtcg->getHora()->GetMinutos())+":"+std::to_string(dtcg->getHora()->GetSegundo());
-                    cout << std::to_string(dtcg->getCelular())<<" - "<</*dtcg->getnombre()<<*/" - "<<dtcg->getipoEnGrupo()<<" - "<<fechaLin<< "\n";
-                    h->next();
-                }
-            Lista* ltCont = ContGru->listarContactos();
-            cout << "\nContactos existentes:\n ";
+            do {
+                cout << "\nUsuarios del Grupo : "<<nombreG<<"\n";
+                Lista* ltContGru = ContGru->seleccionarGrupo(nombreG);
+                IIterator* h = ltContGru->iterator();
+                    while (h->hasNext()) {
+                        dtcg = dynamic_cast<DtContactoGrupo*> (h->getCurrent());  
+                        string fechaLin = std::to_string(dtcg->getFecha()->GetDia())+"/"+std::to_string(dtcg->getFecha()->GetMes())+"/"+std::to_string(dtcg->getFecha()->GetAnio())+" "+std::to_string(dtcg->getHora()->GetHora())+":"+std::to_string(dtcg->getHora()->GetMinutos())+":"+std::to_string(dtcg->getHora()->GetSegundo());
+                        cout << std::to_string(dtcg->getCelular())<<" - "<</*dtcg->getnombre()<<*/" - "<<dtcg->getipoEnGrupo()<<" - "<<fechaLin<< "\n";
+                        h->next();
+                    }
+                Lista* ltCont = ContGru->listarContactos();
+                cout << "\nContactos existentes:\n ";
 
                 IIterator* i = ltCont->iterator();
                 while (i->hasNext()) {
@@ -521,7 +521,7 @@ void agregarPartGrupo(){
                     cout << dtc->GetNumCel() << " -" << dtc->GetNombre() << " -" << dtc->getUrlImagen() << "\n";
                     i->next();
                 }
-            
+
                 cout << "\nIngrese celular para agregar al grupo:\n ";
                 cin>>numCel;
                 dtc = ContUsu->ingContacto(numCel);
@@ -550,19 +550,18 @@ void agregarPartGrupo(){
                 }
                 cout << "Desea seguir agregando contactos al Grupo ? s/n\n";
                 cin>>salir;
-            if (salir == 'n') {
-                if (!ContGru->listarParticipantes()->isEmpty()) {
-                    
-                    salir = 'n';
-                } else {
-                    cout << "\nDebe ingresar por lo menos 1 contacto\n";
-                    cout << "\nDesea seguir agregando contactos al Grupo ? s/n\n";
-                    cin>>salir;
+                if (salir == 'n') {
+                    if (!ContGru->listarParticipantes()->isEmpty()) {
+                        ContGru->agregarParticipanteGrupo();
+                        salir = 'n';
+                    } else {
+                        cout << "\nDebe ingresar por lo menos 1 contacto\n";
+                        cout << "\nDesea seguir agregando contactos al Grupo ? s/n\n";
+                        cin>>salir;
+                    }
                 }
-            
-            }
-            }//
-        } while (salir == 's');
+            } while (salir == 's');
+        }
     }catch(std::invalid_argument &ia) {
         cout << ia.what() << endl;
     } 
@@ -681,5 +680,37 @@ void  modUsuario(){
 }
 
 void archivarConversaciones(){
-    
+   char confirmar, salir = 'n';
+   int conversa;
+    try { 
+        do {
+        Lista* listCon = ContUsu->listarConversacion();
+        IIterator* it;
+        it = listCon->iterator();
+        cout << "|Nombre:Contacto/Grupo| " << "|Id-Conversacion| " << "|Celular/Cantidad|" << endl;
+        while (it->hasNext()) {
+            DtConversacion* dt = dynamic_cast<DtConversacion*> (it->getCurrent());
+            if (dt->GetNombre().compare("Conversaciones Archivadas") != 0)
+                if(dt->GetCel_Cantidad() == 0)
+                    cout << dt->GetNombre() << " |" << std::to_string(dt->GetIdConversa()) << endl;
+                else
+                    cout << dt->GetNombre() << " |" << std::to_string(dt->GetIdConversa()) << " |" << to_string(dt->GetCel_Cantidad()) << endl;
+
+            it->next();
+        }
+        cin.ignore();
+        cout<<"\nIngrese el Id-Conversacion para Archivar: ";
+        cin>>conversa;
+        ContMen->selecConversacion(conversa);
+        
+        cout << "\nDesea seguir agregando contactos al Grupo ? s/n\n";
+        cin>>salir;
+        }while (salir = 's');
+        
+        
+    }catch(std::invalid_argument &ia) {
+        cout << ia.what() << endl;
+    } 
+  
+  
 }

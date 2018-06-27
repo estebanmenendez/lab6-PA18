@@ -355,3 +355,16 @@ Grupo* Usuario::getGrupo(string grupo){
         }
     return devGrupo;
 }
+void Usuario::archivaConversacion(int conversa){
+    
+    IIterator * itt = this->estadoConv->iterator();
+        while (itt->hasNext()) {
+            EstadoConv* tip = dynamic_cast<EstadoConv*> (itt->getCurrent());
+            if (tip->getConversacion()->getIdConv() == conversa){
+                tip->setEstado(true);
+                break;
+            }
+            itt->next();
+        }
+    
+}

@@ -88,6 +88,7 @@ public:
     Lista * getTipos();
     Lista * getContactosGrupo(string);
     Grupo* getGrupo(string grupo);
+    void archivaConversacion(int);
    
 
 private:

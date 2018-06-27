@@ -49,14 +49,16 @@ void ContMensaje::crear(DtSimple*) {
 void ContMensaje::crearMensaje(DtMensaje*) {
 }
 
-void ContMensaje::selecConversacion(int) {
-    
+void ContMensaje::selecConversacion(int conversa) {
+    this->idConv = conversa;
 }
 
 void ContMensaje::getContactos() {
 }
 
-void ContMensaje::archivarConv(DtConversacion*) {
+void ContMensaje::archivarConv() {
+    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+    usuLog->getUsu()->archivaConversacion(this->idConv);
 }
 
 void ContMensaje::seleccionarMensaje(int) {

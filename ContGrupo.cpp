@@ -144,16 +144,37 @@ void ContGrupo::Salir() {
  }
  
  void ContGrupo::vaciaListaParticipantes() {
+    if(!this->ltElegidos->isEmpty()){
+        DtContacto* dtn = new DtContacto();
+        IIterator* h = this->ltElegidos->iterator();
+        while (h->hasNext()) {
+            dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+            this->ltElegidos->remove(dtn);
+            delete(dtn);
+            h->next();
+        }
+    }
+    //this->ltElegidos = NULL;
+}
+ 
+ void ContGrupo::agregarParticipanteGrupo(){
+    iContUsuario* contUsu = Fabrica::getInstance()->getContUsuario();
+               
+    iContMensaje* contMen = Fabrica::getInstance()->getContMensaje();
+    //crea el mensaje que se le envía a cada uno de los participantes del grupo
+    Mensaje* mens = contMen->crearMensajeGrupo("Te has unido al Grupo "+this->grupo->GetNombre());
+    //setea el mensaje a la conversacion del grupo.
+    this->grupo->getConversacion()->setMensaje(mens);
+    //Por cada usuario elegido para el grupo le pide a ContUsuario que crea el Tipo, el EstConv.
     DtContacto* dtn = new DtContacto();
     IIterator* h = this->ltElegidos->iterator();
     while (h->hasNext()) {
         dtn = dynamic_cast<DtContacto*> (h->getCurrent());
-        this->ltElegidos->remove(dtn);
+        contUsu->crearGrupoUsuario(this->grupo,dtn->GetNumCel(),mens->GetCodigo());
         h->next();
     }
-    this->ltElegidos = NULL;
-}
- 
- void ContGrupo::agregarParticipanteGrupo(){
-     
  }
+ 
+// void ContGrupo::setGrupo(Grupo* grupo){
+//     this->grupo = grupo;
+// }

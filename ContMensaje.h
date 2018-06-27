@@ -48,7 +48,7 @@ public:
     void getContactos();
     Lista* listarConv(); //otro listar es
     void seleccionarConv(int);
-    void archivarConv(DtConversacion*);
+    void archivarConv();
     Lista* seleccionarConversacion(int idConv);
     void seleccionarMensaje(int);
     void eliminarMensaje(int, DtMensaje*,int);
