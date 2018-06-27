@@ -89,7 +89,7 @@ public:
     Lista * getContactosGrupo(string);
     Grupo* getGrupo(string grupo);
     void archivaConversacion(int);
-   
+    Conversacion* getConversacion(int idConv);
 
 private:
 

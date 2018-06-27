@@ -569,8 +569,8 @@ void agregarPartGrupo(){
     
 }
 void eliMensaje() {
-    int opcion=1;
-    char salir = 'n';
+    int opcion = 1, mensa;
+    char confirmar, salir = 'n';
     DtMensaje* dtm = new DtMensaje();
     DtConversacion * dtc = new DtConversacion();
 
@@ -595,15 +595,29 @@ void eliMensaje() {
                     int conv;
                     cout << "Ingrese el codigo de la conversacion que desea seleccionar: ";
                     cin>>conv;
-                    ContMen->seleccionarConv(conv);
+                    Lista * listMen = ContMen->seleccionarConversacion(conv);
+                    IIterator * i = listMen->iterator();
+                    while (i->hasNext()) {
+                        dtm = dynamic_cast<DtMensaje*> (i->getCurrent());
+                        i->next();
+                    }
+                    cout << "\nIngrese el codigo del mensaje a eliminar: ";
+                    cin>>mensa;
+                    ContUsu->getUsu()->getConversacion(conv)->remueveMens(mensa, ContUsu->getUsu()->GetCelular());
                 }
                 if (opcion == 2) {
                     int conv;
                     cout << "\nConversaciones archivadas: \n";
                     Lista * lisConvArch = ContMen->listarConversacionesArch();
-                    cout << "\nIngrese el codigo de la conversacion que desea seleccionar: ";
-                    cin>>conv;
-                    ContMen->seleccionarConv(conv);
+                    IIterator* i = lisConvArch->iterator();
+                    while (i->hasNext()) {
+                        dtc = dynamic_cast<DtConversacion*> (i->getCurrent());
+                        cout << dtc->GetIdConversa() << " - " << dtc->GetNombre() << " - " << dtc->GetCel_Cantidad() << "\n";
+                        i->next();
+                        cout << "\nIngrese el codigo de la conversacion que desea seleccionar: ";
+                        cin>>conv;
+                        ContMen->seleccionarConv(conv);
+                    }
                 }
             } while (opcion != 1 || opcion != 2);
 
@@ -612,6 +626,69 @@ void eliMensaje() {
         cout << ia.what() << endl;
     }
 }
+/*
+void cargarUsu() {
+
+    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+    string nombre, imagenPerfil, descripcion;
+    int numCel;
+
+    //USU1
+    numCel = 90123654;
+    nombre = "Juan Perez";
+    imagenPerfil = "home/img/perfil/juan.png";
+    descripcion = "Cómo andan?";
+    usuLog->altaPrecargaUsuario(numCel, nombre, imagenPerfil, descripcion);
+
+    //USU2
+    numCel = 90765432;
+    nombre = "María Fernández";
+    imagenPerfil = "home/img/perfil/maria.png";
+    descripcion = "Disponible";
+    usuLog->altaPrecargaUsuario(numCel, nombre, imagenPerfil, descripcion);
+
+    //USU3
+    numCel = 90246810;
+    nombre = "Pablo Iglesias";
+    imagenPerfil = "home/img/perfil/pablo.png";
+    descripcion = "En el Gym";
+    usuLog->altaPrecargaUsuario(numCel, nombre, imagenPerfil, descripcion);
+
+    //USU4
+    numCel = 90666777;
+    nombre = "Sara Ruiz";
+    imagenPerfil = "home/img/perfil/sara.png";
+    descripcion = "Estoy usando TeleTIP";
+    usuLog->altaPrecargaUsuario(numCel, nombre, imagenPerfil, descripcion);
+}
+
+void cargarContactos() {
+    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+
+    //TANDA DE CONTACTOS 1
+    usuLog->altaPrecargaContacto(90123654);
+    //TANDA DE CONTACTOS 2
+    usuLog->altaPrecargaContacto(90765432);
+    //TANDA DE CONTACTOS 3
+    usuLog->altaPrecargaContacto(90246810);
+    //TANDA DE CONTACTOS 4
+    usuLog->altaPrecargaContacto(90666777);
+}
+
+void cargarConversaciones() {
+    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
+
+    usuLog->altaPrecargaConversacion();
+}
+
+void cargarMensajes() {
+    iContMensaje * mens = Fabrica::getInstance()->getContMensaje();
+
+}
+
+
+
+
 
 
     
@@ -640,13 +717,7 @@ void eliMensaje() {
     void cargarMensajes(){
         iContMensaje * mens = Fabrica::getInstance()->getContMensaje();
     }
-    
-    
-    
-    
-    
-    
-
+   */
 
 void  modUsuario(){
     Usuario * usuLog = ContUsu->getUsu();

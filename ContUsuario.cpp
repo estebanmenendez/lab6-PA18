@@ -51,11 +51,11 @@ bool ContUsuario::altaUsuario(string nombre, string UrlImagen, string descripcio
     return true;
 }
 
-bool ContUsuario::altaPrecargaUsuario(int celUsu, string nombre, string UrlImagen, string descripcion){
+void ContUsuario::altaPrecargaUsuario(int celUsu, string nombre, string UrlImagen, string descripcion) {
     Usuario* nuevoUsu = new Usuario(celUsu, nombre, UrlImagen, descripcion);
     intKey* key = new intKey(celUsu);
     usuario->add(nuevoUsu, key); //Agrego al usuario a la lista de usuarios
-    return true;
+   
 }
 
 bool ContUsuario::cancelaIngreso() {
@@ -117,7 +117,7 @@ Lista * ContUsuario::seleccionarConversacion(int idConv) {
 }
 
 void ContUsuario::eliminarMensConv(int idConv, int codMen, int celUsu) {
-    this->usuLog->eliminarMensConv(idConv, codMen,celUsu);
+    this->usuLog->eliminarMensConv(idConv, codMen, celUsu);
 }
 
 DtContacto* ContUsuario::ingContacto(int numCelular) {
@@ -129,6 +129,35 @@ DtContacto* ContUsuario::ingContacto(int numCelular) {
         dtc = usu->GetContacto();
     }
     return dtc;
+}
+
+void ContUsuario::altaPrecargaContacto(int numCelular) {
+    intKey* ikey = new intKey(numCelular);
+    Usuario* usu = dynamic_cast<Usuario*> (this->usuario->find(ikey));
+    if (usu != NULL) {
+        if (numCelular == 90123654) {
+            usu->addContacto(usu->seleccionarCont(90765432));
+            usu->addContacto(usu->seleccionarCont(90246810));
+            usu->addContacto(usu->seleccionarCont(90666777));
+        }
+        if (numCelular == 90765432) {
+            usu->addContacto(usu->seleccionarCont(90123654));
+            usu->addContacto(usu->seleccionarCont(90246810));
+        }
+        if (numCelular == 90246810) {
+            usu->addContacto(usu->seleccionarCont(90123654));
+            usu->addContacto(usu->seleccionarCont(90765432));
+            usu->addContacto(usu->seleccionarCont(90666777));
+        }
+        if (numCelular == 90666777) {
+            usu->addContacto(usu->seleccionarCont(90123654));
+            usu->addContacto(usu->seleccionarCont(90246810));
+        }
+    }
+}
+
+void ContUsuario::altaPrecargaConversacion(){
+    
 }
 
 void ContUsuario::agregaContacto(DtContacto* dtc) {
@@ -211,3 +240,6 @@ Lista* ContUsuario::listaConversacionArc() {
     } 
      
  }
+Conversacion* ContUsuario::getConversacion(int idConv) {
+    return this->usuLog->getConversacion(idConv);
+}

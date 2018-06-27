@@ -35,7 +35,9 @@ public:
     virtual bool usuarioLogueado(int) = 0;
     virtual bool ingresarCelular(int) = 0;
     virtual bool altaUsuario(string, string, string) = 0;
-    virtual bool altaPrecargaUsuario(int, string, string, string) = 0;
+    virtual void altaPrecargaUsuario(int, string, string, string) = 0;
+    virtual void altaPrecargaContacto(int) = 0;
+    virtual void altaPrecargaConversacion() = 0;
     virtual bool cancelaIngreso() = 0;
     virtual DtConexion* asignarSesion() = 0;
     virtual Lista * listarContactos() = 0;
@@ -57,6 +59,7 @@ public:
     virtual Usuario* getUsu() = 0;
     virtual Lista*  listarInfoVisto(int idConv,int idMensaje)=0;
     virtual void crearGrupoUsuario(Grupo*,string,int )= 0;
+    virtual Conversacion* getConversacion(int idConv) = 0;
 private:
 
 };

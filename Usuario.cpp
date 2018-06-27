@@ -366,5 +366,15 @@ void Usuario::archivaConversacion(int conversa){
             }
             itt->next();
         }
-    
+}
+
+Conversacion* Usuario::getConversacion(int idConv) {
+    IIterator *it = this->estadoConv->iterator();
+    while(it->hasNext()){
+        EstadoConv* ec = dynamic_cast<EstadoConv*>(it->getCurrent());
+        if(ec->getConversacion()->getIdConv() == idConv)
+            return ec->getConversacion();
+        it->next();
+    }
+    return NULL;
 }
