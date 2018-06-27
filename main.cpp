@@ -509,7 +509,7 @@ void agregarPartGrupo(){
                     while (h->hasNext()) {
                         dtcg = dynamic_cast<DtContactoGrupo*> (h->getCurrent());  
                         string fechaLin = std::to_string(dtcg->getFecha()->GetDia())+"/"+std::to_string(dtcg->getFecha()->GetMes())+"/"+std::to_string(dtcg->getFecha()->GetAnio())+" "+std::to_string(dtcg->getHora()->GetHora())+":"+std::to_string(dtcg->getHora()->GetMinutos())+":"+std::to_string(dtcg->getHora()->GetSegundo());
-                        cout << std::to_string(dtcg->getCelular())<<" - "<</*dtcg->getnombre()<<*/" - "<<dtcg->getipoEnGrupo()<<" - "<<fechaLin<< "\n";
+                        cout << std::to_string(dtcg->getCelular())<<" - "<<dtcg->getnombre()<<" - "<<dtcg->getipoEnGrupo()<<" - "<<fechaLin<< "\n";
                         h->next();
                     }
                 Lista* ltCont = ContGru->listarContactos();
@@ -570,7 +570,7 @@ void agregarPartGrupo(){
 }
 void eliMensaje() {
     int opcion=1;
-    char confirmar, salir = 'n';
+    char salir = 'n';
     DtMensaje* dtm = new DtMensaje();
     DtConversacion * dtc = new DtConversacion();
 

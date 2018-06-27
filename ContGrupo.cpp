@@ -110,6 +110,8 @@ DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
     while (h->hasNext()) {
         dtn = dynamic_cast<DtContacto*> (h->getCurrent());
         contUsu->crearGrupoUsuario(grupo,dtn->GetNumCel(),mens->GetCodigo());
+        Visto* vistos = new Visto(atoi(dtn->GetNumCel().c_str()));
+        mens->SetVisto(vistos);
         h->next();
     }
     //retorna un DtGrupo 
@@ -150,11 +152,14 @@ void ContGrupo::Salir() {
         while (h->hasNext()) {
             dtn = dynamic_cast<DtContacto*> (h->getCurrent());
             this->ltElegidos->remove(dtn);
-            delete(dtn);
-            h->next();
+            //delete(dtn);
+            if (this->ltElegidos->isEmpty())
+                break;
+            else
+                h->next();
         }
     }
-    //this->ltElegidos = NULL;
+    
 }
  
  void ContGrupo::agregarParticipanteGrupo(){
@@ -171,6 +176,8 @@ void ContGrupo::Salir() {
     while (h->hasNext()) {
         dtn = dynamic_cast<DtContacto*> (h->getCurrent());
         contUsu->crearGrupoUsuario(this->grupo,dtn->GetNumCel(),mens->GetCodigo());
+        Visto* vistos = new Visto(atoi(dtn->GetNumCel().c_str()));
+        mens->SetVisto(vistos);
         h->next();
     }
  }

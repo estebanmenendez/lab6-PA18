@@ -302,7 +302,7 @@ void Usuario::crearTipo(Grupo* grupo,string tipo){
 }
 
 void Usuario::crearEstadoConversacion(Conversacion *conv) {
-    EstadoConv *eC = new EstadoConv(true, conv);
+    EstadoConv *eC = new EstadoConv(false, conv);
     this->estadoConv->add(eC);
 }
 Lista * Usuario::getTipos() {
