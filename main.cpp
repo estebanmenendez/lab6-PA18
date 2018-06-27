@@ -377,8 +377,6 @@ void impMen(ICollectible *ic) {
         DtMContacto* DtMC = dynamic_cast<DtMContacto*> (ic);
         cout << to_string(DtMC->GetCodigo()) << " |" << to_string(DtMC->GetFechaEnv()->GetDia()) << "/" << to_string(DtMC->GetFechaEnv()->GetMes()) << "/" << to_string(DtMC->GetFechaEnv()->GetAnio()) << " |" << to_string(DtMC->GetHoraEnv()->GetHora()) << ":" << to_string(DtMC->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtMC->GetHoraEnv()->GetSegundo()) << " | INFO CONTACTO\nCelular:  " << to_string(DtMC->getNumCel()) << "\nNombre: " + DtMC->getNombre() << "\nURL Imagen: " + DtMC->getUrl() << "\nDescripción: " + DtMC->getDesc()<< endl;
     }
-
-
     if (dynamic_cast<DtImagen*> (ic)) {
         DtImagen* DtI = dynamic_cast<DtImagen*> (ic);
         cout << to_string(DtI->GetCodigo()) << " |" << to_string(DtI->GetFechaEnv()->GetDia()) << "/" << to_string(DtI->GetFechaEnv()->GetMes()) << "/" << to_string(DtI->GetFechaEnv()->GetAnio()) << " |" << to_string(DtI->GetHoraEnv()->GetHora()) << ":" << to_string(DtI->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtI->GetHoraEnv()->GetSegundo()) << " | INFO IMAGEN\nTamanio: " << to_string(DtI->GetTamanio()) << "\nFormato: " + DtI->GetFormato() << " |" << "\nURL: " + DtI->GetUrlImg() << endl;
@@ -388,7 +386,6 @@ void impMen(ICollectible *ic) {
     if (dynamic_cast<DtVideo*> (ic)) {
         DtVideo* DtV = dynamic_cast<DtVideo*> (ic);
         cout << to_string(DtV->GetCodigo()) << " |" << to_string(DtV->GetFechaEnv()->GetDia()) << "/" << to_string(DtV->GetFechaEnv()->GetMes()) << "/" << to_string(DtV->GetFechaEnv()->GetAnio()) << " |" << to_string(DtV->GetHoraEnv()->GetHora()) << ":" << to_string(DtV->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtV->GetHoraEnv()->GetSegundo()) << " | INFO VIDEO\nDuración: " << to_string(DtV->GetDuracion()) << " |\nURL: " << DtV->GetUrl() << endl;
-
     }
 }
 

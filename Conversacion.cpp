@@ -20,10 +20,10 @@
 #include "Imagen.h"
 #include "Video.h"
 
-
 Conversacion::Conversacion() {
     this->idConv = Fabrica::getInstance()->getContUsuario()->getIdConv();
 }
+
 Conversacion::Conversacion(int conv) {
     this->idConv = conv;
 }
@@ -32,7 +32,7 @@ Conversacion::Conversacion(const Conversacion& orig) {
 }
 
 Conversacion::~Conversacion() {
-    
+
 }
 
 bool Conversacion::sosConversacion(int idConv) {
@@ -72,71 +72,70 @@ Lista* Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora) {
     iContFecha *contFecha = Fabrica::getInstance()->getContFecha();
     IIterator *it = mensajes->getIteratorObj(), *itt;
     Lista* listDtMensaje = new Lista();
+    DtHora* hora = contFecha->getFechaHora()->getHora();
+    DtFecha* fecha = contFecha->getFechaHora()->getFecha();
     if (fecha_hora == NULL) {
         while (it->hasNext()) {
             if (dynamic_cast<Simple*> (it->getCurrent())) {
                 Mensaje *men = dynamic_cast<Simple*> (it->getCurrent());
-                men->esReceptor(contUsu->getNumUsuLog());
-                IIterator *it = men->getListaVistos()->iterator();
+                IIterator *itt = men->getListaVistos()->iterator();
                 int celUsuLog = contUsu->getUsu()->GetCelular();
-                while(it->hasNext()) {
-                    Visto *v = dynamic_cast<Visto*>(it->getCurrent());
-                    if(v->getEstado() == false && celUsuLog == v->getReceptor()) {
+                while (itt->hasNext()) {
+                    Visto *v = dynamic_cast<Visto*> (itt->getCurrent());
+                    if (v->getEstado() == false && celUsuLog == v->getReceptor()) {
                         v->SetEstado(true);
-                        v->SetFechaV(contFecha->getFechaHora()->getFecha());
-                        v->SetHoraV(contFecha->getFechaHora()->getHora());
+                        v->SetFechaV(fecha);
+                        v->SetHoraV(hora);
                     }
-                    it->next();
+                    itt->next();
                 }
-                listDtMensaje->add(dynamic_cast<Simple*>(men)->getMensaje());
-                //it->next();
+                listDtMensaje->add(dynamic_cast<Simple*> (men)->getMensaje());
             }
             if (dynamic_cast<Contacto*> (it->getCurrent())) {
                 Mensaje *men = dynamic_cast<Contacto*> (it->getCurrent());
-                men->esReceptor(contUsu->getNumUsuLog());
-                IIterator *it = men->getListaVistos()->iterator();
-                while(it->hasNext()) {
-                    Visto *v = dynamic_cast<Visto*>(it->getCurrent());
-                    if(!v->getEstado()) {
+                int celUsuLog = contUsu->getUsu()->GetCelular();
+                IIterator *itt = men->getListaVistos()->iterator();
+                while (itt->hasNext()) {
+                    Visto *v = dynamic_cast<Visto*>(itt->getCurrent());
+                    if (!v->getEstado() && celUsuLog == v->getReceptor()) {
                         v->SetEstado(true);
-                        v->SetFechaV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getFecha());
-                        v->SetHoraV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getHora());
+                        v->SetFechaV(fecha);
+                        v->SetHoraV(hora);
                     }
-                    it->next();
+                    itt->next();
                 }
-                listDtMensaje->add(dynamic_cast<Contacto*>(men)->getMensaje());
-                //it->next();
+                listDtMensaje->add(dynamic_cast<Contacto*> (men)->getMensaje());
             }
             if (dynamic_cast<Imagen*> (it->getCurrent())) {
                 Mensaje *men = dynamic_cast<Imagen*> (it->getCurrent());
-                men->esReceptor(contUsu->getNumUsuLog());
-                IIterator *it = men->getListaVistos()->iterator();
-                while(it->hasNext()) {
-                    Visto *v = dynamic_cast<Visto*>(it->getCurrent());
-                    if(!v->getEstado()) {
+                int celUsuLog = contUsu->getUsu()->GetCelular();
+                IIterator *itt = men->getListaVistos()->iterator();
+                while (itt->hasNext()) {
+                    Visto *v = dynamic_cast<Visto*> (itt->getCurrent());
+                    if (v->getEstado() == false && celUsuLog == v->getReceptor()) {
                         v->SetEstado(true);
-                        v->SetFechaV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getFecha());
-                        v->SetHoraV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getHora());
+                        v->SetFechaV(fecha);
+                        v->SetHoraV(hora);
                     }
-                    it->next();
+                    itt->next();
                 }
-                listDtMensaje->add(dynamic_cast<Imagen*>(men)->getMensaje());
+                listDtMensaje->add(dynamic_cast<Imagen*> (men)->getMensaje());
                 //it->next();
             }
             if (dynamic_cast<Video*> (it->getCurrent())) {
                 Mensaje *men = dynamic_cast<Video*> (it->getCurrent());
-                men->esReceptor(contUsu->getNumUsuLog());
-                IIterator *it = men->getListaVistos()->iterator();
-                while(it->hasNext()) {
-                    Visto *v = dynamic_cast<Visto*>(it->getCurrent());
-                    if(!v->getEstado()) {
+                int celUsuLog = contUsu->getUsu()->GetCelular();
+                IIterator *itt = men->getListaVistos()->iterator();
+                while (itt->hasNext()) {
+                    Visto *v = dynamic_cast<Visto*> (itt->getCurrent());
+                    if (!v->getEstado() && celUsuLog == v->getReceptor()) {
                         v->SetEstado(true);
-                        v->SetFechaV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getFecha());
-                        v->SetHoraV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getHora());
+                        v->SetFechaV(fecha);
+                        v->SetHoraV(hora);
                     }
-                    it->next();
+                    itt->next();
                 }
-                listDtMensaje->add(dynamic_cast<Video*>(men)->getMensaje());
+                listDtMensaje->add(dynamic_cast<Video*> (men)->getMensaje());
                 //it->next();
             }
             it->next();
@@ -145,37 +144,79 @@ Lista* Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora) {
         while (it->hasNext()) {
             if (dynamic_cast<Video*> (it->getCurrent())) {
                 Mensaje *m = dynamic_cast<Video*> (it->getCurrent());
-            if (m->GetFechaEnv()->GetAnio() >= fecha_hora->GetFecha()->GetAnio() && m->GetFechaEnv()->GetDia() >= fecha_hora->GetFecha()->GetDia()
-                    && m->GetFechaEnv()->GetMes() >= fecha_hora->GetFecha()->GetMes() && m->GetHoraEnv()->GetHora() >= fecha_hora->GetHora()->GetHora() && m->GetHoraEnv()->GetMinutos() >=
-                    fecha_hora->GetHora()->GetMinutos() && m->GetHoraEnv()->GetSegundo() >= fecha_hora->GetHora()->GetSegundo()) {
-                listDtMensaje->add(m->getMensaje());
-                m->esReceptor(contUsu->getNumUsuLog());
-            }}
-             if (dynamic_cast<Imagen*> (it->getCurrent())) {
-                  Mensaje *m = dynamic_cast<Imagen*> (it->getCurrent());
-              if (m->GetFechaEnv()->GetAnio() >= fecha_hora->GetFecha()->GetAnio() && m->GetFechaEnv()->GetDia() >= fecha_hora->GetFecha()->GetDia()
-                    && m->GetFechaEnv()->GetMes() >= fecha_hora->GetFecha()->GetMes() && m->GetHoraEnv()->GetHora() >= fecha_hora->GetHora()->GetHora() && m->GetHoraEnv()->GetMinutos() >=
-                    fecha_hora->GetHora()->GetMinutos() && m->GetHoraEnv()->GetSegundo() >= fecha_hora->GetHora()->GetSegundo()) {
-                listDtMensaje->add(m->getMensaje());
-                m->esReceptor(contUsu->getNumUsuLog());
-            }}
-             if (dynamic_cast<Simple*> (it->getCurrent())) {
-                       Mensaje *m = dynamic_cast<Simple*> (it->getCurrent());
-              if (m->GetFechaEnv()->GetAnio() >= fecha_hora->GetFecha()->GetAnio() && m->GetFechaEnv()->GetDia() >= fecha_hora->GetFecha()->GetDia()
-                    && m->GetFechaEnv()->GetMes() >= fecha_hora->GetFecha()->GetMes() && m->GetHoraEnv()->GetHora() >= fecha_hora->GetHora()->GetHora() && m->GetHoraEnv()->GetMinutos() >=
-                    fecha_hora->GetHora()->GetMinutos() && m->GetHoraEnv()->GetSegundo() >= fecha_hora->GetHora()->GetSegundo()) {
-                listDtMensaje->add(m->getMensaje());
-                m->esReceptor(contUsu->getNumUsuLog());
+                if (m->GetFechaEnv()->GetAnio() >= fecha_hora->GetFecha()->GetAnio() && m->GetFechaEnv()->GetDia() >= fecha_hora->GetFecha()->GetDia()
+                        && m->GetFechaEnv()->GetMes() >= fecha_hora->GetFecha()->GetMes() && m->GetHoraEnv()->GetHora() >= fecha_hora->GetHora()->GetHora() && m->GetHoraEnv()->GetMinutos() >=
+                        fecha_hora->GetHora()->GetMinutos() && m->GetHoraEnv()->GetSegundo() >= fecha_hora->GetHora()->GetSegundo()) {
+                    listDtMensaje->add(m->getMensaje());
+                    IIterator *itt = m->getListaVistos()->iterator();
+                    int celUsuLog = contUsu->getUsu()->GetCelular();
+                    while(itt->hasNext()) {
+                        Visto *v = dynamic_cast<Visto*>(itt->getCurrent());
+                        if(!v->getEstado() && celUsuLog == v->getReceptor()) {
+                            v->SetEstado(true);
+                            v->SetFechaV(fecha);
+                            v->SetHoraV(hora);
+                        }
+                        itt->next();
+                    }
+                }
             }
+            if (dynamic_cast<Imagen*> (it->getCurrent())) {
+                Mensaje *m = dynamic_cast<Imagen*> (it->getCurrent());
+                if (m->GetFechaEnv()->GetAnio() >= fecha_hora->GetFecha()->GetAnio() && m->GetFechaEnv()->GetDia() >= fecha_hora->GetFecha()->GetDia()
+                        && m->GetFechaEnv()->GetMes() >= fecha_hora->GetFecha()->GetMes() && m->GetHoraEnv()->GetHora() >= fecha_hora->GetHora()->GetHora() && m->GetHoraEnv()->GetMinutos() >=
+                        fecha_hora->GetHora()->GetMinutos() && m->GetHoraEnv()->GetSegundo() >= fecha_hora->GetHora()->GetSegundo()) {
+                    listDtMensaje->add(m->getMensaje());
+                    IIterator *itt = m->getListaVistos()->iterator();
+                    int celUsuLog = contUsu->getUsu()->GetCelular();
+                    while(itt->hasNext()) {
+                        Visto *v = dynamic_cast<Visto*>(itt->getCurrent());
+                        if(!v->getEstado() && celUsuLog == v->getReceptor()) {
+                            v->SetEstado(true);
+                            v->SetFechaV(fecha);
+                            v->SetHoraV(hora);
+                        }
+                        itt->next();
+                    }
+                }
+            }
+            if (dynamic_cast<Simple*> (it->getCurrent())) {
+                Mensaje *m = dynamic_cast<Simple*> (it->getCurrent());
+                if (m->GetFechaEnv()->GetAnio() >= fecha_hora->GetFecha()->GetAnio() && m->GetFechaEnv()->GetDia() >= fecha_hora->GetFecha()->GetDia()
+                        && m->GetFechaEnv()->GetMes() >= fecha_hora->GetFecha()->GetMes() && m->GetHoraEnv()->GetHora() >= fecha_hora->GetHora()->GetHora() && m->GetHoraEnv()->GetMinutos() >=
+                        fecha_hora->GetHora()->GetMinutos() && m->GetHoraEnv()->GetSegundo() >= fecha_hora->GetHora()->GetSegundo()) {
+                    listDtMensaje->add(m->getMensaje());
+                    IIterator *itt = m->getListaVistos()->iterator();
+                    int celUsuLog = contUsu->getUsu()->GetCelular();
+                    while(itt->hasNext()) {
+                        Visto *v = dynamic_cast<Visto*>(itt->getCurrent());
+                        if(!v->getEstado() && celUsuLog == v->getReceptor()) {
+                            v->SetEstado(true);
+                            v->SetFechaV(fecha);
+                            v->SetHoraV(hora);
+                        }
+                        itt->next();
+                    }
+                }
             }
             if (dynamic_cast<Contacto*> (it->getCurrent())) {
-                      Mensaje *m = dynamic_cast<Contacto*> (it->getCurrent());
-              if (m->GetFechaEnv()->GetAnio() >= fecha_hora->GetFecha()->GetAnio() && m->GetFechaEnv()->GetDia() >= fecha_hora->GetFecha()->GetDia()
-                    && m->GetFechaEnv()->GetMes() >= fecha_hora->GetFecha()->GetMes() && m->GetHoraEnv()->GetHora() >= fecha_hora->GetHora()->GetHora() && m->GetHoraEnv()->GetMinutos() >=
-                    fecha_hora->GetHora()->GetMinutos() && m->GetHoraEnv()->GetSegundo() >= fecha_hora->GetHora()->GetSegundo()) {
-                listDtMensaje->add(m->getMensaje());
-                m->esReceptor(contUsu->getNumUsuLog());
-            }
+                Mensaje *m = dynamic_cast<Contacto*> (it->getCurrent());
+                if (m->GetFechaEnv()->GetAnio() >= fecha_hora->GetFecha()->GetAnio() && m->GetFechaEnv()->GetDia() >= fecha_hora->GetFecha()->GetDia()
+                        && m->GetFechaEnv()->GetMes() >= fecha_hora->GetFecha()->GetMes() && m->GetHoraEnv()->GetHora() >= fecha_hora->GetHora()->GetHora() && m->GetHoraEnv()->GetMinutos() >=
+                        fecha_hora->GetHora()->GetMinutos() && m->GetHoraEnv()->GetSegundo() >= fecha_hora->GetHora()->GetSegundo()) {
+                    listDtMensaje->add(m->getMensaje());
+                    IIterator *itt = m->getListaVistos()->iterator();
+                    int celUsuLog = contUsu->getUsu()->GetCelular();
+                    while(itt->hasNext()) {
+                        Visto *v = dynamic_cast<Visto*>(itt->getCurrent());
+                        if(!v->getEstado() && celUsuLog == v->getReceptor()) {
+                            v->SetEstado(true);
+                            v->SetFechaV(fecha);
+                            v->SetHoraV(hora);
+                        }
+                        itt->next();
+                    }
+                }
             }
             it->next();
         }

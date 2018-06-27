@@ -61,7 +61,9 @@ void ContMensaje::enviarMensaje() {
                 it->next();
             }
         }
-        dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoSimple);
+        Conversacion * conv = dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
+        conv->setMensaje(this->cuerpoSimple);
+        //dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoSimple);
     }
     if(this->cuerpoImagen != NULL){
         if(!it->hasNext())
@@ -230,7 +232,19 @@ Mensaje* ContMensaje::crearMensajeGrupo(string mensaje){
 
 Lista* ContMensaje::informacionAdicional(int idConv, int idMen) {
     Conversacion* conv = Fabrica::getInstance()->getContUsuario()->getConversacion(idConv);
-    Mensaje *m = conv->getMensaje(idMen);
+    Mensaje *m;
+    if(dynamic_cast<Simple*>(conv->getMensaje(idMen)))
+        m = dynamic_cast<Simple*>(conv->getMensaje(idMen));
+    
+    if(dynamic_cast<Imagen*>(conv->getMensaje(idMen)))
+        m = dynamic_cast<Imagen*>(conv->getMensaje(idMen));
+    
+    if(dynamic_cast<Video*>(conv->getMensaje(idMen)))
+        m = dynamic_cast<Video*>(conv->getMensaje(idMen));
+    
+    if(dynamic_cast<Contacto*>(conv->getMensaje(idMen)))
+        m = dynamic_cast<Contacto*>(conv->getMensaje(idMen));
+    
     DtMensajeVisto *dtmv;
     if(m->getEmisor() != Fabrica::getInstance()->getContUsuario()->getUsu()->GetCelular())
         throw invalid_argument("Usted no ha enviado este mensaje\n");
