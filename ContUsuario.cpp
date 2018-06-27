@@ -12,6 +12,7 @@
  */
 
 #include "ContUsuario.h"
+#include "Fabrica.h"
 
 using namespace std;
 
@@ -72,8 +73,8 @@ DtConexion* ContUsuario::asignarSesion() {
     intKey *ikey = new intKey(this->numCel);
     Usuario * usU = dynamic_cast<Usuario*> (usuario->find(ikey));
     this->usuLog = usU;
-    Fecha_Hora_sis* a;
-    usU->SetUltima_conexion(a->getUltimaConexion()); // Esto tiene error y no tenog ni puta idea de que es!
+    //Fecha_Hora_sis* a;
+    usU->SetUltima_conexion(Fabrica::getInstance()->getContFecha()->getFechaHora()); // Esto tiene error y no tenog ni puta idea de que es!
     DtConexion* r = new DtConexion();
     return r;
 }
@@ -243,7 +244,7 @@ Lista* ContUsuario::listaConversacionArc() {
         usU->crearEstadoConversacion(grupo->getConversacion());
        
         //con el id del Mensaje le agrega el visto del usuario.
-        grupo->getConversacion()->getMensaje(mensaje)->GetVistos()->add(visto);
+        grupo->getConversacion()->getMensaje(mensaje)->getVisto()->add(visto);
     } 
      
  }
@@ -255,10 +256,10 @@ void ContUsuario::altaPrecargaContacto(int numCelular) {
     intKey* ikey = new intKey(numCelular);
     Usuario* usu = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     if (usu != NULL) {
-        if (numCelular == 90123654) {
-            intKey* key=new intKey(90765432);
-            intKey* key1=new intKey(90246810);
-            intKey* key2=new intKey(90666777);
+        if (numCelular == 23654) {//90123654
+            intKey* key=new intKey(65432); //90765432
+            intKey* key1=new intKey(46810); //90246810
+            intKey* key2=new intKey(66777); //90666777
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key1)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key2)));
@@ -266,18 +267,18 @@ void ContUsuario::altaPrecargaContacto(int numCelular) {
             delete(key1);
             delete(key2);
         }
-        if (numCelular == 90765432) {
-            intKey* key3=new intKey(90123654);
-            intKey* key4=new intKey(90246810);
+        if (numCelular == 65432)  {//90765432
+            intKey* key3=new intKey(23654);//90123654
+            intKey* key4=new intKey(46810); //90246810
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key3)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key4)));
             delete(key3);
             delete(key4);
         }
-        if (numCelular == 90246810) {
-            intKey* key5=new intKey(90123654);
-            intKey* key6=new intKey(90765432);
-            intKey* key7=new intKey(90666777);
+        if (numCelular == 46810){  //90246810
+            intKey* key5=new intKey(23654); //90123654
+            intKey* key6=new intKey(65432); //90765432
+            intKey* key7=new intKey(66777); //90666777
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key5)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key6)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key7)));
@@ -285,9 +286,9 @@ void ContUsuario::altaPrecargaContacto(int numCelular) {
             delete(key6);
             delete(key7);
         }
-        if (numCelular == 90666777) {
-            intKey* key8=new intKey(90123654);
-            intKey* key9=new intKey(90246810);
+        if (numCelular == 66777) { //90666777
+            intKey* key8=new intKey(23654); //90123654
+            intKey* key9=new intKey(46810); //90246810
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key8)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key9)));
             delete(key8);
@@ -300,10 +301,10 @@ void ContUsuario::altaPrecargaContacto(int numCelular) {
 void ContUsuario::altaPrecargaConversacion(){
     Conversacion * conv1=new Conversacion(2);
     Conversacion * conv2=new Conversacion(3);
-    intKey * key1=new intKey(90123654);
-    intKey * key2=new intKey(90765432);
-    intKey * key3=new intKey(90246810);
-    intKey * key4=new intKey(90666777);
+    intKey * key1=new intKey(23654); //90123654
+    intKey * key2=new intKey(65432); //90765432
+    intKey * key3=new intKey(46810); //90246810
+    intKey * key4=new intKey(66777); //90666777
    
     Usuario* u1=dynamic_cast<Usuario*>(usuario->find(key1));
     u1->crearEstadoConversacion(conv1);

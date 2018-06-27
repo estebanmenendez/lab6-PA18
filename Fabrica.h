@@ -21,7 +21,7 @@
 #include"ContMensaje.h"
 #include"ContUsuario.h"
 #include "ContFecha.h"
-
+#include"DtConexion.h"
 class Fabrica {
     //Fabrica es singleton
 private:

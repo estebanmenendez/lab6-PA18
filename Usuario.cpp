@@ -393,6 +393,7 @@ Conversacion* Usuario::getConversacion(int idConv) {
                 t->getGrupo()->SetHora(hora);
                 
             }
+            it->next();
         }
     }
 

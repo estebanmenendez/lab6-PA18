@@ -43,6 +43,7 @@ public:
     DtMensaje* getMensaje();
     bool esReceptor(int);
     bool remueveVistos();
+    Lista* getVisto();
 
 private:
 

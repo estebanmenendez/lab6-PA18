@@ -109,3 +109,6 @@ Lista * Mensaje::GetVistos() {
     return listaVistos;
 }
 
+Lista* Mensaje::getVisto(){
+    return visto;
+}

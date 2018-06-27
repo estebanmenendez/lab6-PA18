@@ -52,6 +52,7 @@ int main(int argc, char** argv) {
     ContFec->setFechaHoraSistema(0,0,1000,0,0);
     int numCel = 0, optNoCel, optMenuPrincipal;
     bool salirTotal = false, ingresarCel = false, firstMenu = false;
+   //enviarMensaje();
     do {
         try {
             if (!firstMenu) {
@@ -100,7 +101,10 @@ int main(int argc, char** argv) {
                         altaGrupo();
                         break;
                     case 4:
-//                        enviarMensaje();
+                        enviarMensaje();
+                        crSes();
+                        ingresarCel = false;
+                        firstMenu = false;
                         break;
                     case 5:
                         verMensajes();
@@ -281,7 +285,7 @@ void verMensajes() {
     conv->setMensaje(ms);
     conv->setIdConv(1);
     EstadoConv* ec = new EstadoConv(false, conv);
-    ec->setConversacion(conv);
+//    ec->setConversacion(conv);
     ContUsu->getUsu()->SetEstadoConv(ec);
     int opcion, opCoso, idConv, idMen, opcoso2,opcoso3;
     Lista* listCon = new Lista();
@@ -766,4 +770,7 @@ void archivarConversaciones(){
     } 
   
   
+}
+void enviarMensaje(){
+    Fabrica::getInstance()->cargarDatosPrueba();
 }
