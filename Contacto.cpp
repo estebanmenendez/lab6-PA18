@@ -13,6 +13,33 @@
 
 #include "Contacto.h"
 
+string Contacto::getDesc() {
+    return this->desc;
+}
+
+string Contacto::getNombre() {
+    return this->nombre;
+}
+
+string Contacto::getUrl() {
+    return this->urlImagen;
+}
+
+void Contacto::setDesc(string descripcion) {
+    this->desc = descripcion;
+}
+
+void Contacto::setNombre(string nombre) {
+    this->nombre = nombre;
+}
+
+void Contacto::setUrl(string urlImagen) {
+    this->urlImagen = urlImagen;
+}
+
+
+
+
 Contacto::Contacto() {
 }
 

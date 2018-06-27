@@ -38,8 +38,8 @@ public:
     virtual bool altaPrecargaUsuario(int, string, string, string) = 0;
     virtual bool cancelaIngreso() = 0;
     virtual DtConexion* asignarSesion() = 0;
-    virtual Lista * listarContactos() = 0;
-    virtual Lista * listarConversacion() = 0;
+    virtual Lista * listarContactos(string) = 0;
+    virtual Lista * listarConversacion(string) = 0;
     virtual Lista * seleccionarConversacion(int) = 0;
     virtual void eliminarMensConv(int, int,int) = 0;
     virtual DtContacto* ingContacto(int) = 0;
@@ -57,6 +57,11 @@ public:
     virtual Usuario* getUsu() = 0;
     virtual Lista*  listarInfoVisto(int idConv,int idMensaje)=0;
     virtual void crearGrupoUsuario(Grupo*,string,int )= 0;
+    virtual int getIdConv() = 0;
+    virtual void elijeContacto(int celUsu) = 0;
+    virtual Conversacion* getConversacion(int idConv) = 0;
+    virtual int getReceptor() = 0;
+    virtual Usuario* getUsuByCel(int) = 0;
 private:
 
 };

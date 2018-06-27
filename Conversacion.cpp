@@ -22,7 +22,7 @@
 
 
 Conversacion::Conversacion() {
-    
+    this->idConv = Fabrica::getInstance()->getContUsuario()->getIdConv();
 }
 Conversacion::Conversacion(int conv) {
     this->idConv = conv;
@@ -32,6 +32,7 @@ Conversacion::Conversacion(const Conversacion& orig) {
 }
 
 Conversacion::~Conversacion() {
+    
 }
 
 bool Conversacion::sosConversacion(int idConv) {

@@ -24,7 +24,8 @@
 #include "DtImagen.h"
 #include "DtContacto.h"
 #include "DtConversacion.h"
-
+#include"DtVideo.h"
+#include"DtMContacto.h"
 using namespace std;
 
 class iContMensaje {
@@ -48,7 +49,8 @@ public:
     virtual Lista* listarConvArchivadas() = 0;
     virtual void cuerpoMensaje(DtSimple*) = 0;
     virtual void cuerpoMensaje(DtImagen*) = 0;
-    virtual void cuerpoMensaje(DtContacto*) = 0;
+    virtual void cuerpoMensaje(DtVideo*) = 0;
+    virtual void cuerpoMensaje(DtMContacto*) = 0;
     virtual void crearMensaje() = 0;
     virtual void setMensaje(DtMensaje* mensaje) = 0;
     virtual DtMensaje *getMensaje() = 0;

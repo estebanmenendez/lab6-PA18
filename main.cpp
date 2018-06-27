@@ -99,6 +99,7 @@ int main(int argc, char** argv) {
                         altaGrupo();
                         break;
                     case 4:
+                        enviarMensaje();
                         break;
                     case 5:
                         verMensajes();
@@ -134,7 +135,132 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-
+void enviarMensaje() {
+    Lista* ltConv = ContUsu->listarConversacion("enviarMensaje"), *convArch, *ltCont;
+    IIterator *it;
+    DtSimple *dts;
+    DtImagen *dti;
+    DtVideo *dtv;
+    DtMContacto *dtmc;
+    int optMen, idConv, numCelContacto, optTipo, tamanioImagen, duraVideo, celContacto;
+    string texto, urlImagen,formatoImagen,descImagen, urlVideo;
+    if(ltConv->isEmpty()){
+        cout<< "No tene conversaciones\n";
+    }
+    else {
+        it = ltConv->iterator();
+        while(it->hasNext()) {
+            DtConversacion* dtconv = dynamic_cast<DtConversacion*>(it->getCurrent());
+            if(dtconv->GetCel_Cantidad() == 0 && dtconv->GetNombre().compare("Conversaciones Archivadas") != 0) {
+                cout<< to_string(dtconv->GetIdConversa()) + " " + dtconv->GetNombre() << endl;
+            }
+            else if(dtconv->GetNombre().compare("Conversaciones Archivadas") != 0) {
+                cout<< to_string(dtconv->GetIdConversa()) + " " + dtconv->GetNombre() + " " + to_string(dtconv->GetCel_Cantidad()) << endl; 
+            }
+            else{
+                cout<< dtconv->GetNombre() + " " + to_string(dtconv->GetCel_Cantidad()) << endl; 
+            }
+            it->next();
+        }
+    }
+    cout<< "1- Seleccionar una conversación activa\n2- Ver las conversaciones archivadas\n3- Crear nueva conversación.\n";
+    cin >> optMen;
+    switch(optMen) {
+        case 1:
+            cout<< "Ingrese el ID de la conversación.\n";
+            cin >> idConv;
+            ContMen->selecConversacion(idConv);
+            break;
+        case 2:
+            convArch = ContUsu->listaConversacionArc();
+            if(convArch->isEmpty()) {
+                cout<< "No tiene conversaciones archivadas.\n";
+            }
+            else {
+                it = convArch->iterator();
+                while(it->hasNext()) {
+                    DtConversacion* dtconv = dynamic_cast<DtConversacion*>(it->getCurrent());
+                    if(dtconv->GetCel_Cantidad() == 0 && dtconv->GetNombre().compare("Conversaciones Archivadas") != 0) {
+                        cout<< to_string(dtconv->GetIdConversa()) + " " + dtconv->GetNombre() << endl;
+                    }
+                    else if(dtconv->GetNombre().compare("Conversaciones Archivadas") != 0) {
+                        cout<< to_string(dtconv->GetIdConversa()) + " " + dtconv->GetNombre() + " " + to_string(dtconv->GetCel_Cantidad()) << endl; 
+                    }
+                    else{
+                        cout<< dtconv->GetNombre() + " " + to_string(dtconv->GetCel_Cantidad()) << endl; 
+                    }
+                    it->next();
+                }
+                cout<< "Ingrese el ID de la conversación.\n";
+                cin >> idConv;
+                ContMen->selecConversacion(idConv);
+            }
+            break;
+        case 3:
+            ltCont = ContUsu->listarContactos("enviarMensaje");
+            it = ltCont->iterator();
+            while(it->hasNext()) {
+                DtContacto *dtcont = dynamic_cast<DtContacto*>(it->getCurrent());
+                cout<< dtcont->GetNombre() + " " + dtcont->GetNumCel() << endl;
+                it->next();
+            }
+            cout<< "Seleccione un contacto.\n";
+            cin >> numCelContacto;
+            ContUsu->elijeContacto(numCelContacto);
+            break;
+        default:
+            cout<< "Opción incorrecta.\n";
+            break;
+    }
+    cout<< "¿Que tipo de mensaje desea crear?\n1- Simple\n2- Imagen\n3- Video\n4-Contacto\n";
+    cin>> optTipo;
+    switch(optTipo) {
+        case 1:
+            cout<< "Ingrese el texto del mensaje\n";
+            cin.clear();
+            cin.ignore();
+            getline(cin, texto);
+            dts = new DtSimple(texto);
+            ContMen->cuerpoMensaje(dts);
+            break;
+        case 2:
+            cout<< "Ingrese la url de la imagen\n";
+            getline(cin, urlImagen);
+            cout<< "Ingrese formato de la imagen\n";
+            getline(cin, formatoImagen);
+            cout<< "Ingrese tamaño de la imagen\n";
+            cin>> tamanioImagen;
+            cout<< "Descripción de la imagen\n";
+            getline (cin, descImagen);
+            dti = new DtImagen(tamanioImagen, formatoImagen, texto, urlImagen, descImagen);
+            ContMen->cuerpoMensaje(dti);
+            break;
+        case 3:
+            cout<< "Ingrese la URL del video\n";
+            getline(cin, urlVideo);
+            cout<< "Ingrese la duración del video\n";
+            cin>> duraVideo;
+            dtv = new DtVideo(urlVideo, duraVideo);
+            ContMen->cuerpoMensaje(dtv);
+            break;
+        case 4:
+            ltCont = ContUsu->listarContactos("p");
+            it = ltCont->iterator();
+            while(it->hasNext()) {
+                DtContacto* dtc = dynamic_cast<DtContacto*>(it->getCurrent());
+                cout << dtc->GetNombre() + " " + dtc->GetNumCel() << endl;
+                it->next();
+            }
+            cout<< "Seleccione un usuario ingresando su número de celular\n";
+            cin >> numCelContacto;
+            dtmc = new DtMContacto(numCelContacto);
+            ContMen->cuerpoMensaje(dtmc);
+            break;
+        default:
+            break;
+    }
+    ContMen->enviarMensaje();
+}
 void cambiarFechaSist() {
     int dia=0, mes=0, anio=0, hora=0, min=0;
     cout<< "---- CAMBIAR FECHA Y HORA DEL SISTEMA ---- \n";
@@ -189,7 +315,7 @@ bool registrarUsuario() {
 void agregarContacto() {
     char confirmar, salir = 'n';
     do {
-        Lista* ltCont = ContUsu->listarContactos();
+        Lista* ltCont = ContUsu->listarContactos("p");
         int numCel;
         DtContacto* dtc = new DtContacto();
         bool existe = false;
@@ -284,7 +410,7 @@ void verMensajes() {
     Lista * lisConvArch = new Lista();
     Lista * listarMen = new Lista();
     Lista * infoVistos = new Lista();
-    listCon = ContUsu->listarConversacion();
+    listCon = ContUsu->listarConversacion("p");
     IIterator* it;
     it = listCon->iterator();
     cout << "|Nombre:Contacto/Grupo| " << "|Id-Conversacion| " << "|Celular/Cantidad|" << endl;

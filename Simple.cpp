@@ -14,6 +14,13 @@
 #include "Simple.h"
 #include "Fabrica.h"
 
+Simple::Simple(int idMensaje, int idEmi, string texto) {
+    this->texto = texto;
+    this->SetCodigo(idMensaje);
+    this->setEmisor(idEmi);
+}
+
+
 Simple::Simple() {
     
 }

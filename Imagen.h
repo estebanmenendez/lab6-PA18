@@ -27,7 +27,9 @@ public:
     string GetFormato();
     string GetUrlImg();
     string GetTexto();
+    string getDesc();
     DtImagen * getMensaje();
+    void setDesc(string);
     void SetTexto(string);
     void SetTamanio(int);
     void SetFormato(string);
@@ -39,6 +41,7 @@ private:
     string Formato;
     string Texto;
     string urlImg;
+    string descripcion;
 };
 
 #endif /* IMAGEN_H */

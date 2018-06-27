@@ -12,7 +12,13 @@
  */
 
 #include "Imagen.h"
+void Imagen::setDesc(string desc) {
+    this->descripcion = desc;
+}
 
+string Imagen::getDesc() {
+    return this->descripcion;
+}
 Imagen::Imagen() {
 }
 
@@ -55,6 +61,6 @@ void Imagen::SetUrlImg(string urlImg) {
 }
 
 DtImagen* Imagen::getMensaje() {
-    DtImagen * mI = new DtImagen(this->Tamanio, this->Formato, this->Texto, this->urlImg);
+    DtImagen * mI = new DtImagen(this->Tamanio, this->Formato, this->Texto, this->urlImg, this->descripcion);
     return mI;
 }

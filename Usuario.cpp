@@ -126,8 +126,8 @@ void Usuario::SetUltima_conexion(DtUltCon* ultima_conexion) {
     this->ultima_conexion = ultima_conexion;
 }
 
-Lista * Usuario::getConversaciones() {
-    if (estadoConv->isEmpty() == true) {
+Lista * Usuario::getConversaciones(string options) {
+    if (estadoConv->isEmpty() == true && options.compare("enviarMensaje") != 0) {
         throw invalid_argument("No tiene conversaciones");
     }
     Lista *conversacionesAct = new Lista();
@@ -140,13 +140,15 @@ Lista * Usuario::getConversaciones() {
             if (convGrupal(ec->getConversacion()->getIdConv()) == false) {
                 DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), ec->getConversacion()->getCelContacto()); //constructor conv comun
                 conversacionesAct->add(DtConv);
-            it->next();
-            } else {
+            } 
+            else {
                 conversacionesAct->add(getConvGrupo(ec->getConversacion()->getIdConv()));
-                it->next();
             }
-        } else cant++;
-        
+        } 
+        else {
+            cant++;
+        }
+        it->next();
     }
     DtConversacion * DtConv = new DtConversacion(cant); //constructor conv archivadas
     conversacionesAct->add(DtConv);
@@ -196,7 +198,10 @@ Lista * Usuario::getConversacionesAr() {
  return conversacionesArc;
 }
 
-Lista * Usuario::GetContactos() {
+Lista * Usuario::GetContactos(string fromFunction) {
+    if(this->contactos->size() == 0 && fromFunction.compare("enviarMensaje") == 0){
+        throw invalid_argument("No tiene contactos\n");
+    }
     Lista* Dtcontactos = new Lista();
     IIterator * it = contactos->getIteratorObj();
     while (it->hasNext()) {
@@ -302,7 +307,7 @@ void Usuario::crearTipo(Grupo* grupo,string tipo){
 }
 
 void Usuario::crearEstadoConversacion(Conversacion *conv) {
-    EstadoConv *eC = new EstadoConv(true, conv);
+    EstadoConv *eC = new EstadoConv(false, conv);
     this->estadoConv->add(eC);
 }
 Lista * Usuario::getTipos() {
@@ -340,4 +345,31 @@ Lista * Usuario::getContactosGrupo(string grupo) {
         it->next();
     }
     return Dtcontactos;
+}
+Lista* Usuario::getContactosGrupo(int idConv) {
+    Lista* usuarios = new Lista();
+    IIterator *it = this->contactos->getIteratorObj();
+    while(it->hasNext()) {
+        Usuario *cont = dynamic_cast<Usuario*>(it->getCurrent());
+        IIterator *itt = cont->tipo->iterator();
+        while(itt->next()) {
+            Tipo* tip = dynamic_cast<Tipo*>(itt->getCurrent());
+            if(tip->getGrupo()->getConversacion()->getIdConv() == idConv){
+                usuarios->add(cont);
+            }
+            itt->next();
+        }
+        it->next();
+    }
+    return usuarios;
+}
+Conversacion* Usuario::getConversacion(int idConv) {
+    IIterator *it = this->estadoConv->iterator();
+    while(it->hasNext()){
+        EstadoConv* ec = dynamic_cast<EstadoConv*>(it->getCurrent());
+        if(ec->getConversacion()->getIdConv() == idConv)
+            return ec->getConversacion();
+        it->next();
+    }
+    return NULL;
 }

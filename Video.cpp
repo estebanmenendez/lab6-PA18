@@ -13,6 +13,11 @@
 
 #include "Video.h"
 
+Video::Video(int duracion, string url) {
+    this->Duracion = duracion;
+    this->url = url;
+}
+
 Video::Video() {
 }
 

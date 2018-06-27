@@ -66,9 +66,9 @@ public:
     DtContacto* GetContacto();
 
     //Operaciones
-    Lista * getConversaciones();
+    Lista * getConversaciones(string);
     Lista * getConversacionesAr();
-    Lista * GetContactos();
+    Lista * GetContactos(string);
     ListDicc* getListaContactos();
     void crearConvGrupo(Conversacion *);
     Usuario * seleccionarCont(int);
@@ -87,8 +87,8 @@ public:
     void crearEstadoConversacion(Conversacion *conv);
     Lista * getTipos();
     Lista * getContactosGrupo(string);
-   
-
+    Conversacion* getConversacion(int idConv);
+    Lista *getContactosGrupo(int idConv);
 private:
 
     ListDicc* contactos = new ListDicc();

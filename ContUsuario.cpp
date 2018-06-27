@@ -12,9 +12,13 @@
  */
 
 #include "ContUsuario.h"
+#include "Fabrica.h"
 
 using namespace std;
-
+int ContUsuario::getIdConv(){
+    this->idConv++;
+    return this->idConv;
+}
 int ContUsuario::getNumContacto(int idConv) {
     return this->usuLog->getNumContacto(idConv);
 }
@@ -81,15 +85,14 @@ Usuario* ContUsuario::getUsu() {
     return this->usuLog;
 }
 
-Lista *ContUsuario::listarContactos() {
-    Lista* listDtContacto = new Lista();
+Lista *ContUsuario::listarContactos(string fromFunction) {
     intKey* ikey = new intKey(this->numCel);
     Usuario* u = dynamic_cast<Usuario*> (this->usuario->find(ikey));
-    return u->GetContactos();
+    return u->GetContactos(fromFunction);
 }
 
-Lista * ContUsuario::listarConversacion() {
-    Lista * listaConv = this->usuLog->getConversaciones();
+Lista * ContUsuario::listarConversacion(string option) {
+    Lista * listaConv = this->usuLog->getConversaciones(option);
     return listaConv;
 }
 
@@ -160,7 +163,7 @@ string ContUsuario::getNombreCont(int receptor) {
 Lista* ContUsuario::listaConversacion() {
     Usuario* usuLog = getUsu();
     Lista *listConv;
-    listConv = usuLog->getConversaciones();
+    listConv = usuLog->getConversaciones("p");
     return listConv;
 }
 
@@ -192,3 +195,26 @@ Lista* ContUsuario::listaConversacionArc() {
     } 
      
  }
+void ContUsuario::elijeContacto(int celUsu) {
+    this->contactoReceptor = celUsu;
+    intKey *ikey = new intKey(celUsu);
+    Usuario* u = dynamic_cast<Usuario*>(this->usuario->find(ikey));
+    Conversacion *conv = new Conversacion();
+    EstadoConv *ec1 = new EstadoConv(false, conv), *ec2 = new EstadoConv(false, conv);
+    this->usuLog->SetEstadoConv(ec1);
+    u->SetEstadoConv(ec2);
+    Fabrica::getInstance()->getContMensaje()->selecConversacion(this->idConv);
+}
+
+Conversacion* ContUsuario::getConversacion(int idConv) {
+    return this->usuLog->getConversacion(idConv);
+}
+
+int ContUsuario::getReceptor() {
+    return this->contactoReceptor;
+}
+
+Usuario* ContUsuario::getUsuByCel(int celUsu) {
+    intKey *ikey = new intKey(celUsu);
+    return dynamic_cast<Usuario*>(this->usuario->find(ikey));
+}
