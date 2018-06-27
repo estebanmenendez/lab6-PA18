@@ -12,6 +12,7 @@
  */
 
 #include "Video.h"
+#include "Fabrica.h"
 
 Video::Video(int duracion, string url) {
     this->Duracion = duracion;
@@ -45,5 +46,8 @@ void Video::SetUrl(string url) {
 
 DtVideo* Video::getMensaje() {
     DtVideo *mV = new DtVideo(this->url, this->Duracion);
+    DtUltCon* dtu = Fabrica::getInstance()->getContFecha()->getFechaHora();
+    mV->SetFechaEnv(dtu->getFecha());
+    mV->SetHoraEnv(dtu->getHora());
     return mV;
 }
