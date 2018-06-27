@@ -98,8 +98,14 @@ Lista * Mensaje::GetVistos() {
         DtMensajeVisto* DtMVisto = new DtMensajeVisto(contUsu->getNombreCont(vis->getReceptor()), vis->getReceptor(), vis->getFechaHoraVisto(),vis->getEstado());
         if(vis->getEstado()!=true){vis->SetEstado(true);}
         listaVistos->add(DtMVisto);
-        
     }
     return listaVistos;
 }
 
+Lista* Mensaje::getListaVistos() { 
+    return this->visto;
+}
+
+int Mensaje::getEmisor() {
+    return this->emisor;
+}

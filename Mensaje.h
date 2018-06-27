@@ -32,10 +32,11 @@ public:
     int getEmisor();
     void setEmisor(int);
     Lista * GetVistos();
+    Lista * getListaVistos();
     DtFecha *GetFechaEnv();
     DtHora *GetHoraEnv();
     Visto* GetVisto();
-
+    
     void SetCodigo(int);
     void SetFechaEnv(DtFecha*);
     void SetHoraEnv(DtHora*);

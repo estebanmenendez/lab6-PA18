@@ -14,6 +14,7 @@
 #include <memory>
 
 #include "Usuario.h"
+#include "Fabrica.h"
 
 void Usuario::addContacto(Usuario* u) {
     intKey* ikey = new intKey(u->GetCelular());
@@ -140,6 +141,7 @@ Lista * Usuario::getConversaciones(string options) {
         if (ec->ConvActiva() == true) {
             if (convGrupal(ec->getConversacion()->getIdConv()) == false) {
                 DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), ec->getConversacion()->getCelContacto()); //constructor conv comun
+                int celCont = ec->getConversacion()->getCelContacto();
                 conversacionesAct->add(DtConv);
             } 
             else {
@@ -298,7 +300,7 @@ int Usuario::getNumContacto(int idConv){
 }
 string Usuario::nombreUsu(int numCel) {
     intKey *iKey = new intKey(numCel);
-    Usuario *us = dynamic_cast<Usuario*> (contactos->find(iKey));
+    Usuario *us = dynamic_cast<Usuario*> (this->contactos->find(iKey));
     return us->GetNombre();
 }
 

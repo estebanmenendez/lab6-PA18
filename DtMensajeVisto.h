@@ -31,6 +31,7 @@ public:
     bool getVisto();
     int GetCelular();
     string GetNombre();
+    
 
     DtFechaHoraVisto* GetFechaHoraVisto();
 

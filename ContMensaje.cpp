@@ -227,3 +227,24 @@ Mensaje* ContMensaje::crearMensajeGrupo(string mensaje){
     Mensaje* mens = new Simple(this->idMensaje,mensaje);
     return mens;    
 }
+
+Lista* ContMensaje::informacionAdicional(int idConv, int idMen) {
+    Conversacion* conv = Fabrica::getInstance()->getContUsuario()->getConversacion(idConv);
+    Mensaje *m = conv->getMensaje(idMen);
+    DtMensajeVisto *dtmv;
+    if(m->getEmisor() != Fabrica::getInstance()->getContUsuario()->getUsu()->GetCelular())
+        throw invalid_argument("Usted no ha enviado este mensaje\n");
+    Lista* ltVistos = m->getListaVistos(), *ltReturn = new Lista();
+    
+    IIterator *it = ltVistos->iterator();
+    while(it->hasNext()) {
+        Visto* v = dynamic_cast<Visto*>(it->getCurrent());
+        Usuario* usu = Fabrica::getInstance()->getContUsuario()->getUsuByCel(v->getReceptor());
+        if(v->getEstado()) {
+            dtmv = new DtMensajeVisto(usu->GetNombre(),usu->GetCelular(), v->getFechaHoraVisto(), true);
+            ltReturn->add(dtmv);
+        }
+        it->next();
+    }
+    return ltReturn;
+}

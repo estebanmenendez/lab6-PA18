@@ -38,7 +38,6 @@ void eliMensaje(); // Eliminar mensajes Esteban
 void agregarPartGrupo(); // Agregar participantes al grupo **Ernesto
 void cambiarFechaSist(); // Cambiar ficha de sistema Mauro 
 void consultFechaSistema(); // Consultar fecha del sistema Mauro 
-//cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11-Consultar fecha del sistema\n0- Salir\n";
 
 
 
@@ -394,26 +393,13 @@ void impMen(ICollectible *ic) {
 }
 
 void verMensajes() {
-    /*Mensaje* ms = new Simple();
-    ms->SetCodigo(61);
-    Visto *v = new Visto();
-    v->SetEstado(false);
-    v->setReceptor(12);
-    ms->SetVisto(v);
-    ms->setEmisor(ContUsu->getUsu()->GetCelular());
-    dynamic_cast<Simple*> (ms)->setTexto("Hola");
-    Conversacion * conv = new Conversacion();
-    conv->setMensaje(ms);
-    conv->setIdConv(1);
-    EstadoConv* ec = new EstadoConv(false, conv);
-    ec->setConversacion(conv);
-    ContUsu->getUsu()->SetEstadoConv(ec);*/
     int opcion, opCoso, idConv, idMen, opcoso2,opcoso3;
     Lista* listCon = new Lista();
     Lista * lisConvArch = new Lista();
     Lista * listarMen = new Lista();
     Lista * infoVistos = new Lista();
     listCon = ContUsu->listarConversacion("p");
+    DtMensajeVisto* dtmv;
     IIterator* it;
     it = listCon->iterator();
     cout << "|Nombre:Contacto/Grupo| " << "|Id-Conversacion| " << "|Celular/Cantidad|" << endl;
@@ -441,26 +427,28 @@ void verMensajes() {
                     impMen(it->getCurrent());
                     it->next();
                 }
-                
             do {
                 cout << "1-Informacion adicional" << endl;
                 cout << "0-Salir" << endl;
                 cin>>opcoso2;
                 switch (opcoso2){
                         case 1:
-                        cout << "Ingrese el Id del Mensaje: " << endl;
-                        cin>>idMen;
-                        infoVistos = ContUsu->listarInfoVisto(idConv, idMen);
-                        it = infoVistos->iterator();
-                        while (it->hasNext()) {
-                            DtMensajeVisto* dtmv = dynamic_cast<DtMensajeVisto*> (it->getCurrent());
-                            cout << "| Celular|" << "| Nombre|" << "| Estado| " << "| Fecha/Hora| ";
-                            cout << "| " << to_string(dtmv->GetCelular()) << "| " << dtmv->GetNombre() << "| " << dtmv->getVisto() << "| " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio()) << "|" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "| " << endl;
-                            it->next();
-                        }
+                            cout << "Ingrese el Id del Mensaje: " << endl;
+                            cin>>idMen;
+                            //infoVistos = ContUsu->listarInfoVisto(idConv, idMen);
+                            infoVistos = ContMen->informacionAdicional(idConv, idMen);
+                            it = infoVistos->iterator();
+                            while (it->hasNext()) {
+                                dtmv = dynamic_cast<DtMensajeVisto*> (it->getCurrent());
+                                cout << "| Celular|" << "| Nombre|" << "| Estado| " << "| Fecha/Hora| \n";
+                                cout << "| " << to_string(dtmv->GetCelular()) << "| " << dtmv->GetNombre() << "| " << dtmv->getVisto() << "| " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio()) << "|" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "| " << endl;
+                                it->next();
+                            }
                         break;
-                        default: break;}
-                } while (opcoso2 == 0);
+                        default: 
+                            break;
+                }
+                } while (opcoso2 != 0);
                 break;
             case 2: 
                 lisConvArch = ContUsu->listaConversacionArc();
