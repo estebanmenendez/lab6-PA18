@@ -87,10 +87,14 @@ public:
     void crearEstadoConversacion(Conversacion *conv);
     Lista * getTipos();
     Lista * getContactosGrupo(string);
+
     Grupo* getGrupo(string grupo);
     void archivaConversacion(int);
     Conversacion* getConversacion(int idConv);
 
+    void setFechaHoraG(DtFecha* fecha, DtHora* hora);
+    void setIdConvGrupo(int id);
+    void setMensaje(Mensaje*,int idConv);
 private:
 
     ListDicc* contactos = new ListDicc();

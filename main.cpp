@@ -38,6 +38,7 @@ void eliMensaje(); // Eliminar mensajes Esteban
 void agregarPartGrupo(); // Agregar participantes al grupo Ernesto
 void cambiarFechaSist(); // Cambiar ficha de sistema Mauro 
 void consultFechaSistema(); // Consultar fecha del sistema Mauro 
+void cargaGrupo();
 //cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11-Consultar fecha del sistema\n0- Salir\n";
 
 
@@ -692,28 +693,9 @@ void cargarMensajes() {
 
 
     
-    void cargarUsu(){
-        
-        iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
-        string nombre, imagenPerfil, descripcion;
-        int numCel;
-        usuLog->altaPrecargaUsuario(90123654, "Juan Pérez" , "home/img/perfil/juan.png", "Cómo andan?");
-        usuLog->altaPrecargaUsuario(90765432, "María Fernández" , "home/img/perfil/maria.png", "Disponible");
-        usuLog->altaPrecargaUsuario(90246810, "Pablo Iglesias" , "home/img/perfil/pablo.png", "En el Gym");
-        usuLog->altaPrecargaUsuario(90666777, "Sara Ruiz" , "home/img/perfil/sara.png", "Estoy usando TeleTIP");
-    }
     
     
-    void cargarContactos(){
-        iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
-        
-        
-    }
-    
-    void cargarConversaciones(){
-    
-    }
-    
+<<<<<<< HEAD
     void cargarMensajes(){
         iContMensaje * mens = Fabrica::getInstance()->getContMensaje();
     }
@@ -749,7 +731,7 @@ void  modUsuario(){
         cout << ia.what() << endl;
     } 
 }
-
+    
 void archivarConversaciones(){
    char confirmar, salir = 'n';
    int conversa;
