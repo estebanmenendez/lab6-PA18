@@ -31,7 +31,7 @@ DtConversacion::DtConversacion(const DtConversacion& orig) {
 DtConversacion::DtConversacion(string nombre, int idconv) {
     this->Nombre = nombre;
     this->idConversa = idconv;
-    this->Cel_Cantidad= 0;
+    this->Cel_Cantidad = 0;
 }
 
 DtConversacion::DtConversacion(int idconv, int cel_cant) {

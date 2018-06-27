@@ -13,14 +13,23 @@
 
 #include "DtImagen.h"
 
+string DtImagen::getDesc() {
+    return this->descripcion;
+}
+
+void DtImagen::setDesc(string desc) {
+    this->descripcion = desc;
+}
+
 DtImagen::DtImagen() {
 }
 
-DtImagen::DtImagen(int Tamanio, string formato, string texto, string urlImagen) {
+DtImagen::DtImagen(int Tamanio, string formato, string texto, string urlImagen,string descripcion) {
     this->Tamanio = Tamanio;
     this->Formato = formato;
     this->Texto = texto;
     this->urlImg = urlImagen;
+    this->descripcion = descripcion;
 }
 
 DtImagen::DtImagen(const DtImagen& orig) {

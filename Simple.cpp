@@ -14,6 +14,13 @@
 #include "Simple.h"
 #include "Fabrica.h"
 
+Simple::Simple(int idMensaje, int idEmi, string texto) {
+    this->texto = texto;
+    this->SetCodigo(idMensaje);
+    this->setEmisor(idEmi);
+}
+
+
 Simple::Simple() {
     
 }
@@ -40,5 +47,8 @@ void Simple::setTexto(string texto) {
 
 DtSimple* Simple::getMensaje() {
     DtSimple * mS = new DtSimple(this->texto);
+    mS->SetCodigo(this->GetCodigo());
+    mS->SetFechaEnv(this->GetFechaEnv());
+    mS->SetHoraEnv(this->GetHoraEnv());
     return mS;
 }

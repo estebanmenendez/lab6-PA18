@@ -14,7 +14,7 @@
 #include "ContFecha.h"
 
 DtUltCon* ContFecha::getFechaHora() {
-    DtHora* horaa = new DtHora(this->hora, this->min, 0);
+    DtHora* horaa = new DtHora(this->hora, this->min, 1);
     DtFecha* fechaa = new DtFecha(this->dia, this->mes, this->anio);
     return new DtUltCon(fechaa, horaa);
 }

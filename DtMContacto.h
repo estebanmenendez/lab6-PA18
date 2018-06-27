@@ -15,13 +15,20 @@
 #define DTMCONTACTO_H
 
 #include "DtMensaje.h"
-
+#include<iostream>
 class DtMContacto : public DtMensaje {
 private:
     int numCel;
-
+    string nombre, url, descripcion;
 public:
-
+    void setNombre(string nombre);
+    void setUrl(string url);
+    void setDesc(string desc);
+    
+    string getNombre();
+    string getUrl();
+    string getDesc();
+    
     DtMContacto();
     DtMContacto(int);
     DtMContacto(const DtMContacto& orig);

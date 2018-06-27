@@ -13,6 +13,30 @@
 
 #include "DtMContacto.h"
 
+string DtMContacto::getDesc() {
+    return this->descripcion;
+}
+
+string DtMContacto::getNombre() {
+    return this->nombre;
+}
+
+string DtMContacto::getUrl() {
+    return this->url;
+}
+
+void DtMContacto::setDesc(string desc) {
+    this->descripcion = desc;
+}
+
+void DtMContacto::setNombre(string nombre) {
+    this->nombre = nombre;
+}
+
+void DtMContacto::setUrl(string url) {
+    this->url = url;
+}
+
 DtMContacto::DtMContacto(const DtMContacto& orig) {
     this->numCel = orig.numCel;
 }

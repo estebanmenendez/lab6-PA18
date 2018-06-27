@@ -14,6 +14,7 @@
 #include <memory>
 
 #include "Usuario.h"
+#include "Fabrica.h"
 
 void Usuario::addContacto(Usuario* u) {
     intKey* ikey = new intKey(u->GetCelular());
@@ -67,6 +68,7 @@ void Usuario::SetCelular(int celular) {
 
 DtContacto* Usuario::GetContacto() {
     DtContacto* DtCont = new DtContacto(this->nombre, this->celular, this->foto_Perfil);
+    DtCont->setDesc(this->descripcion);
     return DtCont;
 }
 
@@ -131,8 +133,8 @@ void Usuario::SetUltima_conexion(DtUltCon* ultima_conexion) {
     this->ultima_conexion = ultima_conexion;
 }
 
-Lista * Usuario::getConversaciones() {
-    if (estadoConv->isEmpty() == true) {
+Lista * Usuario::getConversaciones(string options) {
+    if (estadoConv->isEmpty() == true && options.compare("enviarMensaje") != 0) {
         throw invalid_argument("No tiene conversaciones");
     }
     Lista *conversacionesAct = new Lista();
@@ -144,14 +146,17 @@ Lista * Usuario::getConversaciones() {
         if (ec->ConvActiva() == true) {
             if (convGrupal(ec->getConversacion()->getIdConv()) == false) {
                 DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), ec->getConversacion()->getCelContacto()); //constructor conv comun
+                int celCont = ec->getConversacion()->getCelContacto();
                 conversacionesAct->add(DtConv);
-            it->next();
-            } else {
+            } 
+            else {
                 conversacionesAct->add(getConvGrupo(ec->getConversacion()->getIdConv()));
-                it->next();
             }
-        } else cant++;
-        
+        } 
+        else {
+            cant++;
+        }
+        it->next();
     }
     DtConversacion * DtConv = new DtConversacion(cant); //constructor conv archivadas
     conversacionesAct->add(DtConv);
@@ -201,7 +206,10 @@ Lista * Usuario::getConversacionesAr() {
  return conversacionesArc;
 }
 
-Lista * Usuario::GetContactos() {
+Lista * Usuario::GetContactos(string fromFunction) {
+    if(this->contactos->size() == 0 && fromFunction.compare("enviarMensaje") == 0){
+        throw invalid_argument("No tiene contactos\n");
+    }
     Lista* Dtcontactos = new Lista();
     IIterator * it = contactos->getIteratorObj();
     while (it->hasNext()) {
@@ -297,7 +305,7 @@ int Usuario::getNumContacto(int idConv){
 }
 string Usuario::nombreUsu(int numCel) {
     intKey *iKey = new intKey(numCel);
-    Usuario *us = dynamic_cast<Usuario*> (contactos->find(iKey));
+    Usuario *us = dynamic_cast<Usuario*> (this->contactos->find(iKey));
     return us->GetNombre();
 }
 
@@ -346,6 +354,45 @@ Lista * Usuario::getContactosGrupo(string grupo) {
     }
     return Dtcontactos;
 }
+Lista* Usuario::getContactosGrupo(int idConv) {
+    Lista* usuarios = new Lista();
+    IIterator *it = this->contactos->getIteratorObj();
+    while(it->hasNext()) {
+        Usuario *cont = dynamic_cast<Usuario*>(it->getCurrent());
+        IIterator *itt = cont->tipo->iterator();
+        while(itt->next()) {
+            Tipo* tip = dynamic_cast<Tipo*>(itt->getCurrent());
+            if(tip->getGrupo()->getConversacion()->getIdConv() == idConv){
+                usuarios->add(cont);
+            }
+            itt->next();
+        }
+        it->next();
+    }
+    return usuarios;
+}
+
+//Conversacion* Usuario::getConversacion(int idConv) {
+//    IIterator *it = this->estadoConv->iterator();
+//    while(it->hasNext()){
+//        EstadoConv* ec = dynamic_cast<EstadoConv*>(it->getCurrent());
+//        if(ec->getConversacion()->getIdConv() == idConv)
+//            return ec->getConversacion();
+//        it->next();
+//    }
+//    return NULL;
+//}
+
+Conversacion* Usuario::getConversacion(int idConv) {
+    IIterator *it = this->estadoConv->iterator();
+    while(it->hasNext()){
+        EstadoConv* ec = dynamic_cast<EstadoConv*>(it->getCurrent());
+        if(ec->getConversacion()->getIdConv() == idConv)
+            return ec->getConversacion();
+        it->next();
+    }
+    return NULL;
+}
 
 Grupo* Usuario::getGrupo(string grupo){
     Grupo* devGrupo = NULL;
@@ -373,16 +420,7 @@ void Usuario::archivaConversacion(int conversa){
         }
 }
 
-Conversacion* Usuario::getConversacion(int idConv) {
-    IIterator *it = this->estadoConv->iterator();
-    while(it->hasNext()){
-        EstadoConv* ec = dynamic_cast<EstadoConv*>(it->getCurrent());
-        if(ec->getConversacion()->getIdConv() == idConv)
-            return ec->getConversacion();
-        it->next();
-    }
-    return NULL;
-}
+
     
     void Usuario::setFechaHoraG(DtFecha* fecha, DtHora* hora){
         IIterator *it=tipo->iterator();
@@ -408,4 +446,41 @@ void Usuario::setMensaje(Mensaje* m, int idConv){
         it->next();
     }
 
+}
+Lista * Usuario :: GetContactos () {
+    Lista * Dtcontactos = new  Lista ();
+    IIterator * it = contactos-> getIteratorObj ();
+    while (it-> hasNext ()) {
+        Usuario * cont = dynamic_cast <Usuario *> (it-> getCurrent ());
+        Dtcontactos-> add (cont-> GetContacto ());
+        it-> next ();
+    }
+    return Dtcontactos;
+}
+
+Lista * Usuario::getConversaciones() {
+    if (estadoConv->isEmpty() == true) {
+        throw invalid_argument("No tiene conversaciones");
+    }
+    Lista *conversacionesAct = new Lista();
+    IIterator *it = estadoConv->iterator();
+    int cant = 0, cont = 0;
+    
+    while (it->hasNext()) {
+        EstadoConv* ec = dynamic_cast<EstadoConv*> (it->getCurrent());
+        if (ec->ConvActiva() == true) {
+            if (convGrupal(ec->getConversacion()->getIdConv()) == false) {
+                DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), ec->getConversacion()->getCelContacto()); //constructor conv comun
+                conversacionesAct->add(DtConv);
+            it->next();
+            } else {
+                conversacionesAct->add(getConvGrupo(ec->getConversacion()->getIdConv()));
+                it->next();
+            }
+        } else cant++;
+        
+    }
+    DtConversacion * DtConv = new DtConversacion(cant); //constructor conv archivadas
+    conversacionesAct->add(DtConv);
+    return conversacionesAct;
 }

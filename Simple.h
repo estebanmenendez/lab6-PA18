@@ -19,6 +19,7 @@
 
 class Simple : public Mensaje {
 public:
+    Simple(int idMensaje, int idEmi, string texto);
     Simple();
     Simple(int,string);
     Simple(const Simple& orig);

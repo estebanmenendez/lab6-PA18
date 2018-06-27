@@ -25,6 +25,10 @@
 #include"Lista.h"
 #include"Mensaje.h"
 #include"Simple.h"
+#include "DtMContacto.h"
+#include "Contacto.h"
+#include"Imagen.h"
+#include"Video.h"
 
 using namespace std;
 
@@ -33,7 +37,10 @@ private:
     DtMensaje *mensaje;
     int idConv;
     int idMensaje= 0;
-    
+    Simple* cuerpoSimple;
+    Imagen* cuerpoImagen;
+    Video* cuerpoVideo;
+    Contacto * cuerpoContacto;
 
 public:
     ContMensaje();
@@ -55,7 +62,8 @@ public:
     Lista* listarConvArchivadas();
     void cuerpoMensaje(DtSimple*);
     void cuerpoMensaje(DtImagen*);
-    void cuerpoMensaje(DtContacto*);
+    void cuerpoMensaje(DtMContacto*);
+    void cuerpoMensaje(DtVideo*);
     void crearMensaje();
     void setMensaje(DtMensaje *mensaje);
     DtMensaje *getMensaje();
@@ -64,7 +72,7 @@ public:
     Lista * listarConversaciones();
     Lista * listarConversacionesArch();
     Mensaje* crearMensajeGrupo(string);
-
+    Lista* informacionAdicional(int idConv, int idMen);
 };
 
 #endif /* CONTMENSAJE_H */

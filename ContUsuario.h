@@ -37,8 +37,7 @@ class ContUsuario : public iContUsuario {
 private:
     ListDicc * usuario = new ListDicc();
     Usuario * usuLog;
-    int numCel;
-    int idConv=0;//incremental para el id
+    int numCel, idConv = 1, contactoReceptor;
 
 public:
     ContUsuario();
@@ -50,7 +49,8 @@ public:
     bool altaUsuario(string, string, string);
     bool cancelaIngreso();
     DtConexion* asignarSesion();
-    Lista * listarContactos();
+    Lista * listarContactos(string);
+    Lista * listarConversacion(string);
     Lista * listarConversacion();
     void eliminarMensConv(int, int,int);
     DtContacto* ingContacto(int);
@@ -70,8 +70,13 @@ public:
     int getNumUsuLog();
     Lista*  listarInfoVisto(int idConv,int idMensaje);
     void crearGrupoUsuario(Grupo*,string,int);
+    int getIdConv();
+    void elijeContacto(int celUsu);
+    Conversacion* getConversacion(int idConv);
+    int getReceptor();
+    Usuario* getUsuByCel(int);
 
-    Conversacion* getConversacion(int idConv); 
+//    Conversacion* getConversacion(int idConv); 
 
     void altaPrecargaUsuario(int, string, string, string);
     void altaPrecargaContacto(int);

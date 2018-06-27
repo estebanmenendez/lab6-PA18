@@ -12,7 +12,14 @@
  */
 
 #include "Imagen.h"
+#include "Fabrica.h"
+void Imagen::setDesc(string desc) {
+    this->descripcion = desc;
+}
 
+string Imagen::getDesc() {
+    return this->descripcion;
+}
 Imagen::Imagen() {
 }
 
@@ -55,6 +62,9 @@ void Imagen::SetUrlImg(string urlImg) {
 }
 
 DtImagen* Imagen::getMensaje() {
-    DtImagen * mI = new DtImagen(this->Tamanio, this->Formato, this->Texto, this->urlImg);
+    DtImagen * mI = new DtImagen(this->Tamanio, this->Formato, "Una imagen", this->urlImg, this->descripcion);
+    DtUltCon* dtu = Fabrica::getInstance()->getContFecha()->getFechaHora();
+    mI->SetFechaEnv(dtu->getFecha());
+    mI->SetHoraEnv(dtu->getHora());
     return mI;
 }

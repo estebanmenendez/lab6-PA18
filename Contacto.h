@@ -25,8 +25,16 @@ public:
     int GetNumCel();
     void SetNumCel(int);
     
+    void setNombre(string nombre);
+    void setUrl(string urlImagen);
+    void setDesc(string descripcion);
+    
+    string getNombre();
+    string getUrl();
+    string getDesc();
 private:
     int numCel;
+    string nombre, urlImagen, desc;
 };
 
 #endif /* CONTACTO_H */

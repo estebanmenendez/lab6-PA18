@@ -52,7 +52,7 @@ bool ContGrupo::agregarNuevoAdmin(int) {
 
 Lista* ContGrupo::listarContactos() {
     Usuario * usuLog = Fabrica::getInstance()->getContUsuario()->getUsu();
-    Lista* listDtContacto = usuLog->GetContactos();
+    Lista* listDtContacto = usuLog->GetContactos("p");
     return listDtContacto;
 }
 

@@ -13,6 +13,33 @@
 
 #include "Contacto.h"
 
+string Contacto::getDesc() {
+    return this->desc;
+}
+
+string Contacto::getNombre() {
+    return this->nombre;
+}
+
+string Contacto::getUrl() {
+    return this->urlImagen;
+}
+
+void Contacto::setDesc(string descripcion) {
+    this->desc = descripcion;
+}
+
+void Contacto::setNombre(string nombre) {
+    this->nombre = nombre;
+}
+
+void Contacto::setUrl(string urlImagen) {
+    this->urlImagen = urlImagen;
+}
+
+
+
+
 Contacto::Contacto() {
 }
 
@@ -32,5 +59,12 @@ void Contacto::SetNumCel(int numCel) {
 
 DtMContacto* Contacto::getMensaje() {
     DtMContacto* mC = new DtMContacto(this->numCel);
+    mC->SetCodigo(this->GetCodigo());
+    mC->SetFechaEnv(this->GetFechaEnv());
+    mC->SetHoraEnv(this->GetHoraEnv());
+    mC->setDesc(this->desc);
+    mC->setNombre(this->nombre);
+    mC->setNumCel(this->numCel);
+    mC->setUrl(this->urlImagen);
     return mC;
 }

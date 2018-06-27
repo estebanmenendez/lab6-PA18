@@ -13,6 +13,7 @@
 
 #ifndef VISTO_H
 #define VISTO_H
+#include<stdio.h>
 #include "DtFechaHoraVisto.h"
 #include"DtFecha.h"
 #include"DtHora.h"
@@ -22,6 +23,7 @@ using namespace std;
 
 class Visto : public ICollectible {
 public:
+    Visto(int receptor, bool estado);
     Visto();
     Visto(int);
     Visto(const Visto& orig);

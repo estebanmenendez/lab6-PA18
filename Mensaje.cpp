@@ -103,12 +103,18 @@ Lista * Mensaje::GetVistos() {
         if(vis->getEstado()!=true){vis->SetEstado(true);}
         
         listaVistos->add(DtMVisto);
-        
     }
     
     return listaVistos;
 }
 
+Lista* Mensaje::getListaVistos() { 
+    return this->visto;
+}
+
+int Mensaje::getEmisor() {
+    return this->emisor;
+}
 Lista* Mensaje::getVisto(){
     return visto;
 }

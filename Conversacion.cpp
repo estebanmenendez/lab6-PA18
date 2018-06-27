@@ -22,7 +22,7 @@
 
 
 Conversacion::Conversacion() {
-    
+    this->idConv = Fabrica::getInstance()->getContUsuario()->getIdConv();
 }
 Conversacion::Conversacion(int conv) {
     this->idConv = conv;
@@ -32,6 +32,7 @@ Conversacion::Conversacion(const Conversacion& orig) {
 }
 
 Conversacion::~Conversacion() {
+    
 }
 
 bool Conversacion::sosConversacion(int idConv) {
@@ -68,31 +69,73 @@ void Conversacion::eviarMensaje(Mensaje* m) {
 
 Lista* Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora) {
     iContUsuario *contUsu = Fabrica::getInstance()->getContUsuario();
-    IIterator *it = mensajes->getIteratorObj();
+    iContFecha *contFecha = Fabrica::getInstance()->getContFecha();
+    IIterator *it = mensajes->getIteratorObj(), *itt;
     Lista* listDtMensaje = new Lista();
     if (fecha_hora == NULL) {
         while (it->hasNext()) {
             if (dynamic_cast<Simple*> (it->getCurrent())) {
                 Mensaje *men = dynamic_cast<Simple*> (it->getCurrent());
                 men->esReceptor(contUsu->getNumUsuLog());
+                IIterator *it = men->getListaVistos()->iterator();
+                int celUsuLog = contUsu->getUsu()->GetCelular();
+                while(it->hasNext()) {
+                    Visto *v = dynamic_cast<Visto*>(it->getCurrent());
+                    if(v->getEstado() == false && celUsuLog == v->getReceptor()) {
+                        v->SetEstado(true);
+                        v->SetFechaV(contFecha->getFechaHora()->getFecha());
+                        v->SetHoraV(contFecha->getFechaHora()->getHora());
+                    }
+                    it->next();
+                }
                 listDtMensaje->add(dynamic_cast<Simple*>(men)->getMensaje());
                 //it->next();
             }
             if (dynamic_cast<Contacto*> (it->getCurrent())) {
                 Mensaje *men = dynamic_cast<Contacto*> (it->getCurrent());
                 men->esReceptor(contUsu->getNumUsuLog());
+                IIterator *it = men->getListaVistos()->iterator();
+                while(it->hasNext()) {
+                    Visto *v = dynamic_cast<Visto*>(it->getCurrent());
+                    if(!v->getEstado()) {
+                        v->SetEstado(true);
+                        v->SetFechaV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getFecha());
+                        v->SetHoraV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getHora());
+                    }
+                    it->next();
+                }
                 listDtMensaje->add(dynamic_cast<Contacto*>(men)->getMensaje());
                 //it->next();
             }
             if (dynamic_cast<Imagen*> (it->getCurrent())) {
                 Mensaje *men = dynamic_cast<Imagen*> (it->getCurrent());
                 men->esReceptor(contUsu->getNumUsuLog());
+                IIterator *it = men->getListaVistos()->iterator();
+                while(it->hasNext()) {
+                    Visto *v = dynamic_cast<Visto*>(it->getCurrent());
+                    if(!v->getEstado()) {
+                        v->SetEstado(true);
+                        v->SetFechaV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getFecha());
+                        v->SetHoraV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getHora());
+                    }
+                    it->next();
+                }
                 listDtMensaje->add(dynamic_cast<Imagen*>(men)->getMensaje());
                 //it->next();
             }
             if (dynamic_cast<Video*> (it->getCurrent())) {
                 Mensaje *men = dynamic_cast<Video*> (it->getCurrent());
                 men->esReceptor(contUsu->getNumUsuLog());
+                IIterator *it = men->getListaVistos()->iterator();
+                while(it->hasNext()) {
+                    Visto *v = dynamic_cast<Visto*>(it->getCurrent());
+                    if(!v->getEstado()) {
+                        v->SetEstado(true);
+                        v->SetFechaV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getFecha());
+                        v->SetHoraV(Fabrica::getInstance()->getContFecha()->getFechaHora()->getHora());
+                    }
+                    it->next();
+                }
                 listDtMensaje->add(dynamic_cast<Video*>(men)->getMensaje());
                 //it->next();
             }

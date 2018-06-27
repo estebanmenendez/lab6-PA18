@@ -23,7 +23,7 @@ using namespace std;
 class DtImagen : public DtMultimedia {
 public:
     DtImagen();
-    DtImagen(int, string, string, string);
+    DtImagen(int Tamanio, string formato, string texto, string urlImagen, string desc);
     DtImagen(const DtImagen& orig);
     virtual ~DtImagen();
 
@@ -31,18 +31,19 @@ public:
     string GetUrlImg();
     string GetTexto();
     string GetFormato();
-
+    string getDesc();
     void SetFormato(string);
     void SetTamanio(int);
     void SetTexto(string);
     void SetUrlImg(string);
+    void setDesc(string);
 
 private:
     int Tamanio;
     string Formato;
     string Texto;
     string urlImg;
-
+    string descripcion;
 };
 
 #endif /* DTIMAGEN_H */

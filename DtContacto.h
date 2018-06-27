@@ -36,7 +36,9 @@ public:
     string GetTipo();
     string GetNombre();
     string getUrlImagen();
-
+    string getDesc();
+    
+    void setDesc(string desc);
     void SetFechaIng(DtFecha);
     void SetHoraIng(DtHora);   
     void SetNombre(string);
@@ -50,6 +52,7 @@ private:
     string numCel;
     string tipo;
     string urlImagen;
+    string descripcion;
     DtFecha fechaIng;
     DtHora horaIng;
 

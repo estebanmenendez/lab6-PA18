@@ -12,6 +12,14 @@
  */
 
 #include "Visto.h"
+
+Visto::Visto(int receptor, bool estado) {
+    this->Receptor = receptor;
+    this->estado = estado;
+    this->fechaV = NULL;
+    this->horaV = NULL;
+}
+
 Visto::Visto() {
     
 }

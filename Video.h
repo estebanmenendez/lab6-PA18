@@ -19,6 +19,7 @@
 
 class Video : public Multimedia {
 public:
+    Video(int, string);
     Video();
     Video(const Video& orig);
     virtual ~Video();
