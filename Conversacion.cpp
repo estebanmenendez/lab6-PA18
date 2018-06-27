@@ -142,10 +142,14 @@ Lista* Conversacion::listarMensaje(DtFechaHoraIng *fecha_hora) {
 }
 
 Lista *Conversacion::listarVistos(int idMen) {
-    Lista *listaMensVisto;
+    Lista *listaMensVisto=new Lista();
+    
     intKey *key = new intKey(idMen);
+    
     Mensaje *men = dynamic_cast<Mensaje*> (mensajes->find(key));
+    
     listaMensVisto = men->GetVistos();
+    
     return listaMensVisto;
 }
 

@@ -64,6 +64,7 @@ public:
     Lista * listarConversaciones();
     Lista * listarConversacionesArch();
     Mensaje* crearMensajeGrupo(string);
+
 };
 
 #endif /* CONTMENSAJE_H */

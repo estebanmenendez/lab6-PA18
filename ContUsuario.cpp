@@ -51,11 +51,11 @@ bool ContUsuario::altaUsuario(string nombre, string UrlImagen, string descripcio
     return true;
 }
 
-bool ContUsuario::altaPrecargaUsuario(int celUsu, string nombre, string UrlImagen, string descripcion){
+void ContUsuario::altaPrecargaUsuario(int celUsu, string nombre, string UrlImagen, string descripcion){
     Usuario* nuevoUsu = new Usuario(celUsu, nombre, UrlImagen, descripcion);
     intKey* key = new intKey(celUsu);
     usuario->add(nuevoUsu, key); //Agrego al usuario a la lista de usuarios
-    return true;
+//    return true;
 }
 
 bool ContUsuario::cancelaIngreso() {
@@ -79,6 +79,12 @@ DtConexion* ContUsuario::asignarSesion() {
 
 Usuario* ContUsuario::getUsu() {
     return this->usuLog;
+}
+Usuario* ContUsuario::getUsuario(int celUsu){
+    intKey *key = new intKey(celUsu);
+    Usuario * usu= dynamic_cast<Usuario*>(usuario->find(key));
+    return usu;
+
 }
 
 Lista *ContUsuario::listarContactos() {
@@ -192,3 +198,82 @@ Lista* ContUsuario::listaConversacionArc() {
     } 
      
  }
+ 
+void ContUsuario::altaPrecargaContacto(int numCelular) {
+    intKey* ikey = new intKey(numCelular);
+    Usuario* usu = dynamic_cast<Usuario*> (this->usuario->find(ikey));
+    if (usu != NULL) {
+        if (numCelular == 90123654) {
+            intKey* key=new intKey(90765432);
+            intKey* key1=new intKey(90246810);
+            intKey* key2=new intKey(90666777);
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key)));
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key1)));
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key2)));
+            delete(key);
+            delete(key1);
+            delete(key2);
+        }
+        if (numCelular == 90765432) {
+            intKey* key3=new intKey(90123654);
+            intKey* key4=new intKey(90246810);
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key3)));
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key4)));
+            delete(key3);
+            delete(key4);
+        }
+        if (numCelular == 90246810) {
+            intKey* key5=new intKey(90123654);
+            intKey* key6=new intKey(90765432);
+            intKey* key7=new intKey(90666777);
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key5)));
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key6)));
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key7)));
+            delete(key5);
+            delete(key6);
+            delete(key7);
+        }
+        if (numCelular == 90666777) {
+            intKey* key8=new intKey(90123654);
+            intKey* key9=new intKey(90246810);
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key8)));
+            usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key9)));
+            delete(key8);
+            delete(key9);
+        }
+    }
+    
+}
+
+void ContUsuario::altaPrecargaConversacion(){
+    Conversacion * conv1=new Conversacion(2);
+    Conversacion * conv2=new Conversacion(3);
+    intKey * key1=new intKey(90123654);
+    intKey * key2=new intKey(90765432);
+    intKey * key3=new intKey(90246810);
+    intKey * key4=new intKey(90666777);
+   
+    Usuario* u1=dynamic_cast<Usuario*>(usuario->find(key1));
+    u1->crearEstadoConversacion(conv1);
+    Usuario* u2=dynamic_cast<Usuario*>(usuario->find(key2));
+    u2->crearEstadoConversacion(conv1);
+    Usuario* u3=dynamic_cast<Usuario*>(usuario->find(key3));
+    u3->crearEstadoConversacion(conv2);
+    Usuario* u4=dynamic_cast<Usuario*>(usuario->find(key4));
+    u4->crearEstadoConversacion(conv2);
+
+}
+void ContUsuario::setFechaHoraG(DtFecha* fech, DtHora * hora) {
+    usuLog->setFechaHoraG(fech,hora);
+}
+int ContUsuario::generarIdConv(){
+    idConv++;
+    return idConv;
+}
+ void ContUsuario::setIdConvGrupo(int idUsu){
+     intKey *key=new intKey(idUsu);
+     Usuario *us=dynamic_cast<Usuario*>(usuario->find(key));
+     us->setIdConvGrupo(1);
+ }
+ 
+ 

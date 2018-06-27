@@ -33,7 +33,7 @@ private:
     static Fabrica* fabrica;
     
 public:
-    
+    void cargarDatosPrueba();
     static Fabrica* getInstance();
     iContUsuario* getContUsuario();
     iContMensaje* getContMensaje();
@@ -41,6 +41,11 @@ public:
     iContFecha* getContFecha();
     //destructor
     virtual ~Fabrica();
+    void cargarUsu();
+    void cargarContactos();
+    void cargaGrupo();
+    void cargarConversaciones();
+    void cargarMensajes();
     
 private:
 

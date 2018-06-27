@@ -93,13 +93,19 @@ Lista * Mensaje::GetVistos() {
     Lista *listaVistos =new Lista();
     IIterator *it = visto->iterator();
     while (it->hasNext()) {
+        
         Visto * vis = dynamic_cast<Visto*> (it->getCurrent());
+        
         iContUsuario *contUsu = Fabrica::getInstance()->getContUsuario();
+                
         DtMensajeVisto* DtMVisto = new DtMensajeVisto(contUsu->getNombreCont(vis->getReceptor()), vis->getReceptor(), vis->getFechaHoraVisto(),vis->getEstado());
+        
         if(vis->getEstado()!=true){vis->SetEstado(true);}
+        
         listaVistos->add(DtMVisto);
         
     }
+    
     return listaVistos;
 }
 

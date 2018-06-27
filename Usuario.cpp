@@ -19,7 +19,12 @@ void Usuario::addContacto(Usuario* u) {
     intKey* ikey = new intKey(u->GetCelular());
     this->contactos->add(u, ikey);
 }
+void Usuario::setIdConvGrupo(int id){
+    IIterator *it=tipo->iterator();
+    Tipo *t=dynamic_cast<Tipo*>(it->getCurrent());
+    t->getGrupo()->getConversacion()->setIdConv(id);
 
+}
 Usuario::Usuario(string nombre, string imagenPerfil, string descripcion, int numCel) {
     Fecha_Hora_sis* fechora;
     this->nombre = nombre;
@@ -107,7 +112,7 @@ void Usuario::SetHoraCreacion(DtHora * horaCreacion) {
 }
 
 string Usuario::GetNombre() {
-    return nombre;
+    return this->nombre;
 }
 
 void Usuario::SetNombre(string nombre) {
@@ -340,4 +345,28 @@ Lista * Usuario::getContactosGrupo(string grupo) {
         it->next();
     }
     return Dtcontactos;
+}
+void Usuario::setFechaHoraG(DtFecha* fecha, DtHora* hora){
+        IIterator *it=tipo->iterator();
+        while(it->hasNext()){
+            Tipo *t=dynamic_cast<Tipo*>(it->getCurrent());
+            if(t->getGrupo()->GetCreador()==this->celular){
+                t->getGrupo()->SetFecha(fecha);
+                t->getGrupo()->SetHora(hora);
+                
+            }
+        }
+    }
+
+void Usuario::setMensaje(Mensaje* m, int idConv){
+    IIterator* it=estadoConv->iterator();
+    
+    while(it->hasNext()){
+        EstadoConv* ec=dynamic_cast<EstadoConv*>(it->getCurrent());
+        if(ec->getConversacion()->getIdConv()==idConv){
+        ec->getConversacion()->setMensaje(m);
+        }
+        it->next();
+    }
+
 }

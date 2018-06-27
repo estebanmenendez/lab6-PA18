@@ -31,6 +31,7 @@ class iContMensaje {
 private:
 
 public:
+
     virtual ~iContMensaje();
     virtual void enviarMensaje() = 0;
     virtual void crearConv(int, int) = 0;
