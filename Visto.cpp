@@ -68,7 +68,7 @@ int Visto::getReceptor(){
     return Receptor;
 }
 DtFechaHoraVisto * Visto::getFechaHoraVisto(){
-    DtFechaHoraVisto* dtFecha=new DtFechaHoraVisto(fechaV,horaV);
+    DtFechaHoraVisto* dtFecha=new DtFechaHoraVisto(this->fechaV,this->horaV);
     return dtFecha;
 }
 void Visto::setReceptor(int rec){this->Receptor=rec;}
