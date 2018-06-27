@@ -69,6 +69,7 @@ public:
     Lista* listaConversacion();
     Lista* listaConversacionArc();
     int getNumUsuLog();
+    Conversacion* getConversacion(int idConv); 
 };
 
 #endif /* CONTUSUARIO_H */

@@ -81,6 +81,7 @@ public:
     Lista * listarMensajes(int codConv);
     Lista * listarVistos(int idMens);
     string nombreUsu(int numCel);
+    Conversacion* getConversacion(int idConv);
 
 private:
 

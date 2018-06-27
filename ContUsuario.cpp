@@ -50,7 +50,7 @@ void ContUsuario::altaPrecargaUsuario(int celUsu, string nombre, string UrlImage
     Usuario* nuevoUsu = new Usuario(celUsu, nombre, UrlImagen, descripcion);
     intKey* key = new intKey(celUsu);
     usuario->add(nuevoUsu, key); //Agrego al usuario a la lista de usuarios
-    return true;
+   
 }
 
 bool ContUsuario::cancelaIngreso() {
@@ -205,4 +205,8 @@ Lista* ContUsuario::listaConversacionArc() {
     Lista* listConvArch;
     listConvArch = usuLog->getConversacionesAr();
     return listConvArch;
+}
+
+Conversacion* ContUsuario::getConversacion(int idConv) {
+    return this->usuLog->getConversacion(idConv);
 }
