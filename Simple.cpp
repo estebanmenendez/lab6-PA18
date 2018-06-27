@@ -47,5 +47,8 @@ void Simple::setTexto(string texto) {
 
 DtSimple* Simple::getMensaje() {
     DtSimple * mS = new DtSimple(this->texto);
+    mS->SetCodigo(this->GetCodigo());
+    mS->SetFechaEnv(this->GetFechaEnv());
+    mS->SetHoraEnv(this->GetHoraEnv());
     return mS;
 }

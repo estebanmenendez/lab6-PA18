@@ -62,6 +62,7 @@ void Usuario::SetCelular(int celular) {
 
 DtContacto* Usuario::GetContacto() {
     DtContacto* DtCont = new DtContacto(this->nombre, this->celular, this->foto_Perfil);
+    DtCont->setDesc(this->descripcion);
     return DtCont;
 }
 

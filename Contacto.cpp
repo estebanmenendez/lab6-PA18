@@ -59,5 +59,12 @@ void Contacto::SetNumCel(int numCel) {
 
 DtMContacto* Contacto::getMensaje() {
     DtMContacto* mC = new DtMContacto(this->numCel);
+    mC->SetCodigo(this->GetCodigo());
+    mC->SetFechaEnv(this->GetFechaEnv());
+    mC->SetHoraEnv(this->GetHoraEnv());
+    mC->setDesc(this->desc);
+    mC->setNombre(this->nombre);
+    mC->setNumCel(this->numCel);
+    mC->setUrl(this->urlImagen);
     return mC;
 }

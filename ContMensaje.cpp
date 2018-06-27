@@ -179,6 +179,7 @@ void ContMensaje::cuerpoMensaje(DtMContacto* dtmc) {
     c->setEmisor(Fabrica::getInstance()->getContUsuario()->getNumUsuLog());
     c->setNombre(u->GetNombre());
     c->setUrl(u->getUrlImagen());
+    c->setDesc(u->getDesc());
     this->cuerpoContacto = c;
 }
 

@@ -13,6 +13,14 @@
 
 #include "DtContacto.h"
 
+string DtContacto::getDesc() {
+    return this->descripcion;
+}
+
+void DtContacto::setDesc(string desc) {
+    this->descripcion = desc;
+}
+
 DtContacto::DtContacto() {
 
 }

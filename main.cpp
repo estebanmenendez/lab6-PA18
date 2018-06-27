@@ -367,19 +367,18 @@ void agregarContacto() {
 void impMen(ICollectible *ic) {
     if (dynamic_cast<DtSimple*> (ic)) {
         DtSimple* DtS = dynamic_cast<DtSimple*> (ic);
-        //cout << to_string(DtS->GetCodigo()) << " |" << to_string(DtS->GetFechaEnv()->GetDia()) << "/" << to_string(DtS->GetFechaEnv()->GetMes()) << "/" << to_string(DtS->GetFechaEnv()->GetAnio()) << " |" << to_string(DtS->GetHoraEnv()->GetHora()) << ":" << to_string(DtS->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtS->GetHoraEnv()->GetSegundo()) << " |" << DtS->GetTexto() << endl;
-        cout << DtS->GetTexto() << endl;
+        cout << to_string(DtS->GetCodigo()) << " |" << to_string(DtS->GetFechaEnv()->GetDia()) << "/" << to_string(DtS->GetFechaEnv()->GetMes()) << "/" << to_string(DtS->GetFechaEnv()->GetAnio()) << " |" << to_string(DtS->GetHoraEnv()->GetHora()) << ":" << to_string(DtS->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtS->GetHoraEnv()->GetSegundo()) << " |" << DtS->GetTexto() << endl;
+        //cout << DtS->GetTexto() << endl;
     }
     if (dynamic_cast<DtMContacto*> (ic)) {
         DtMContacto* DtMC = dynamic_cast<DtMContacto*> (ic);
-        // cout << to_string(DtMC->GetCodigo()) << " |" << to_string(DtMC->GetFechaEnv()->GetDia()) << "/" << to_string(DtMC->GetFechaEnv()->GetMes()) << "/" << to_string(DtMC->GetFechaEnv()->GetAnio()) << " |" << to_string(DtMC->GetHoraEnv()->GetHora()) << ":" << to_string(DtMC->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtMC->GetHoraEnv()->GetSegundo()) << " |" << to_string(DtMC->getNumCel()) << endl;
-
+        cout << to_string(DtMC->GetCodigo()) << " |" << to_string(DtMC->GetFechaEnv()->GetDia()) << "/" << to_string(DtMC->GetFechaEnv()->GetMes()) << "/" << to_string(DtMC->GetFechaEnv()->GetAnio()) << " |" << to_string(DtMC->GetHoraEnv()->GetHora()) << ":" << to_string(DtMC->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtMC->GetHoraEnv()->GetSegundo()) << " | INFO CONTACTO\nCelular:  " << to_string(DtMC->getNumCel()) << "\nNombre: " + DtMC->getNombre() << "\nURL Imagen: " + DtMC->getUrl() << "\nDescripción: " + DtMC->getDesc()<< endl;
     }
 
 
     if (dynamic_cast<DtImagen*> (ic)) {
         DtImagen* DtI = dynamic_cast<DtImagen*> (ic);
-        //cout << to_string(DtI->GetCodigo()) << " |" << to_string(DtI->GetFechaEnv()->GetDia()) << "/" << to_string(DtI->GetFechaEnv()->GetMes()) << "/" << to_string(DtI->GetFechaEnv()->GetAnio()) << " |" << to_string(DtI->GetHoraEnv()->GetHora()) << ":" << to_string(DtI->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtI->GetHoraEnv()->GetSegundo()) << " |" << to_string(DtI->GetTamanio()) << " |" << DtI->GetTexto() << " |" << DtI->GetFormato() << " |" << DtI->GetUrlImg() << endl;
+        cout << to_string(DtI->GetCodigo()) << " |" << to_string(DtI->GetFechaEnv()->GetDia()) << "/" << to_string(DtI->GetFechaEnv()->GetMes()) << "/" << to_string(DtI->GetFechaEnv()->GetAnio()) << " |" << to_string(DtI->GetHoraEnv()->GetHora()) << ":" << to_string(DtI->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtI->GetHoraEnv()->GetSegundo()) << " |" << to_string(DtI->GetTamanio()) << " |" << DtI->GetTexto() << " |" << DtI->GetFormato() << " |" << DtI->GetUrlImg() << endl;
     }
 
 
@@ -391,7 +390,7 @@ void impMen(ICollectible *ic) {
 }
 
 void verMensajes() {
-    Mensaje* ms = new Simple();
+    /*Mensaje* ms = new Simple();
     ms->SetCodigo(61);
     Visto *v = new Visto();
     v->SetEstado(false);
@@ -404,7 +403,7 @@ void verMensajes() {
     conv->setIdConv(1);
     EstadoConv* ec = new EstadoConv(false, conv);
     ec->setConversacion(conv);
-    ContUsu->getUsu()->SetEstadoConv(ec);
+    ContUsu->getUsu()->SetEstadoConv(ec);*/
     int opcion, opCoso, idConv, idMen, opcoso2,opcoso3;
     Lista* listCon = new Lista();
     Lista * lisConvArch = new Lista();
