@@ -50,6 +50,7 @@ iContFecha* ContFec = Fabrica::getInstance()->getContFecha();
 
 int main(int argc, char** argv) {
     ContFec->setFechaHoraSistema(0,0,1000,0,0);
+    char carga;
     int numCel = 0, optNoCel, optMenuPrincipal;
     bool salirTotal = false, ingresarCel = false, firstMenu = false;
    //enviarMensaje();
@@ -58,6 +59,15 @@ int main(int argc, char** argv) {
             if (!firstMenu) {
                 do {
                     cout << "----- Bienvenido a TELETIP -----" << endl;
+                    cout << "\nDesea Cargar los datos de prueba (s/n)\n";
+                    cin>>carga;
+                    if (carga == 's'){
+                        Fabrica::getInstance()->cargarDatosPrueba();
+                        crSes();
+                        ingresarCel = false;
+                        firstMenu = false;
+                        cout<<"Datos de prueba cargados...\n";                        
+                    }
                     cout << " Ingrese un número de celular: " << endl;
                     cin>>numCel;
                     if (ContUsu->ingresarCelular(numCel)) {
@@ -87,6 +97,8 @@ int main(int argc, char** argv) {
             firstMenu = true;
             if (!salirTotal) {
                 cout << "1- Agregar contactos\n2- Cerrar sesión\n3- Crear Grupo\n4- Enviar Mensaje\n5- Ver mensajes\n6- Archivar Conversaciones\n7- Modificar Usuario\n8- Eliminar Mensajes\n9- Agregar participantes a un grupo\n10- Cambiar fecha del sistema\n11- Consultar fecha del sistema\n0- Salir\n";
+                if (carga != 's')
+                    cout<<"12-Cargar Datos de Prueba\n";
                 cin>>optMenuPrincipal;
                 switch (optMenuPrincipal) {
                     case 1:
@@ -102,9 +114,7 @@ int main(int argc, char** argv) {
                         break;
                     case 4:
                         enviarMensaje();
-                        crSes();
-                        ingresarCel = false;
-                        firstMenu = false;
+                       
                         break;
                     case 5:
                         verMensajes();
@@ -126,6 +136,13 @@ int main(int argc, char** argv) {
                         break;
                     case 11:
                        consultFechaSistema();
+                       break;
+                    case 12:
+                        Fabrica::getInstance()->cargarDatosPrueba();
+//                        crSes();
+//                        ingresarCel = false;
+//                        firstMenu = false;
+                        cout<<"Datos de prueba cargados...\n";   
                        break;
                     case 0:
                         salirTotal = true;

@@ -113,7 +113,9 @@ void Fabrica::cargarContactos(){
 void Fabrica::cargaGrupo(){
     iContUsuario* ContUsu=Fabrica::getContUsuario();
     iContGrupo* ContGru=Fabrica::getContGrupo();
-    ContUsu->cerrarSesion(NULL);
+    if (ContUsu->getUsu() != NULL)
+        ContUsu->cerrarSesion(NULL);
+    
         ContUsu->setNumCel(23654);
         ContUsu->asignarSesion();
         Lista * ContP=new Lista();
