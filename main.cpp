@@ -124,6 +124,7 @@ int main(int argc, char** argv) {
                         break;
                     default:
                         break;
+                       
                 }
             }
         } catch (invalid_argument& ia) {
