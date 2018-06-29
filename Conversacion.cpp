@@ -45,24 +45,35 @@ Mensaje* Conversacion::getMensaje(int idMensaje) {
     return men;
 }
 
-void Conversacion::remueveMensConv(Mensaje* men) {
-    mensajes->removeObj(men);
-}
 
-void Conversacion::remueveMens(int men, int celUsu) {
-    intKey * key = new intKey(men);
-    IIterator *it = mensajes->getIteratorKey();
-    Mensaje *mens = dynamic_cast<Mensaje*> (mensajes->find(key));
-    if (mens->esReceptor(celUsu)) {
-        mens->remueveVistos();
-    } else {
-        bool ok = mens->remueveVistos();
-        if (ok == true) {
-            remueveMensConv(mens);
-        }
+
+bool Conversacion::remueveMens(int Idmen) {
+    intKey * Mkey=new intKey(Idmen);
+    Mensaje * men=dynamic_cast<Mensaje*>(mensajes->find(Mkey));
+    if(men->remueveVistos()==true){
+        delete men;
     }
+    return true;
 }
-
+bool Conversacion::remueveMiVisto(int idMen, int idUsu){
+intKey * Mkey=new intKey(idMen);
+Mensaje * mens= dynamic_cast<Mensaje*>(mensajes->find(Mkey));
+return mens->remueveMiVisto(idUsu);
+}
+bool Conversacion::esEmisor(int idMen, int idUsu){
+    intKey *key=new intKey(idMen);
+    Mensaje * men=dynamic_cast<Mensaje*>(mensajes->find(key));
+    if(men->getEmisor()==idUsu){return true;}else return false;
+}
+bool Conversacion::existeMensaje(int idMen){
+    intKey * key = new intKey(idMen);
+    return mensajes->member(key);
+}
+bool Conversacion::esReceptor(int idMen,int idUsu){
+    intKey * mKey=new intKey(idMen);
+    Mensaje *men = dynamic_cast<Mensaje*>(mensajes->find(mKey));
+    return men->esReceptor(idUsu);
+}
 void Conversacion::eviarMensaje(Mensaje* m) {
 }
 

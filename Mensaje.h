@@ -43,7 +43,7 @@ public:
     DtMensaje* getMensaje();
     bool esReceptor(int);
     bool remueveVistos();
-
+    bool remueveMiVisto(int idCel);
 private:
 
     Lista* visto = new Lista();

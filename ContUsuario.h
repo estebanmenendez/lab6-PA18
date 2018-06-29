@@ -52,7 +52,7 @@ public:
     DtConexion* asignarSesion();
     Lista * listarContactos();
     Lista * listarConversacion();
-    void eliminarMensConv(int, int,int);
+    bool eliminarMensaje(int idMen,int idConv);
     DtContacto* ingContacto(int);
     void agregaContacto(DtContacto*);
     void cerrarSesion(DtConexion*);

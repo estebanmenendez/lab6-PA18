@@ -599,12 +599,12 @@ void eliMensaje() {
                     Lista * listMen = ContMen->seleccionarConversacion(conv);
                     IIterator * i = listMen->iterator();
                     while (i->hasNext()) {
-                        dtm = dynamic_cast<DtMensaje*> (i->getCurrent());
+                        impMen(i->getCurrent());
                         i->next();
                     }
                     cout << "\nIngrese el codigo del mensaje a eliminar: ";
                     cin>>mensa;
-                    ContUsu->getUsu()->getConversacion(conv)->remueveMens(mensa, ContUsu->getUsu()->GetCelular());
+                   if(ContUsu->eliminarMensaje(mensa,conv)==true) cout<<"Mensaje eliminado"<<endl;
                 }
                 if (opcion == 2) {
                     int conv;

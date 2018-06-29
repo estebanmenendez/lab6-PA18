@@ -109,7 +109,7 @@ Lista* ContMensaje::seleccionarConversacion(int idConv) {
 
 void ContMensaje::eliminarMensaje(int idConv, DtMensaje* dtMen,int celUsu) {
     iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
-    usuLog->eliminarMensConv(idConv, dtMen->GetCodigo(), celUsu);
+//    usuLog->eliminarMensConv(idConv, dtMen->GetCodigo(), celUsu);
 }
 
 Lista * ContMensaje::listarConversaciones() {

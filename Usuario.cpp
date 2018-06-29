@@ -238,16 +238,7 @@ void Usuario::crearEstadoConv(Conversacion *conv, Usuario * cont, Usuario * usuA
     cont->estadoConv->add(ec);
 }
 
-Lista * Usuario::eliminarMensConv(int idConv, int mens, int celUsu) {
-    IIterator *it = estadoConv->iterator();
-    while (it->hasNext()) {
-        EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
-        if (ec->getConversacion()->getIdConv() == idConv) {
-            ec->getConversacion()->remueveMens(mens, celUsu);
-        }
-        it->next();
-    }
-}
+
 
 bool Usuario::sosElOtro(int idConv) {
     IIterator *it = estadoConv->iterator();
@@ -407,4 +398,25 @@ void Usuario::setMensaje(Mensaje* m, int idConv){
         it->next();
     }
 
+}
+bool Usuario::existeConversacion(int idConv){
+    IIterator *it=estadoConv->iterator();
+    while(it->hasNext()){
+        EstadoConv * ec= dynamic_cast<EstadoConv*>(it->getCurrent());
+        if(ec->getConversacion()->getIdConv()==idConv){return true;}
+        it->next();
+    }
+    return false;
+}
+bool Usuario::esReceptor(int idMen, int idConv){
+    IIterator *it = estadoConv->iterator();
+    
+    while(it->hasNext()){
+        EstadoConv * ec=dynamic_cast<EstadoConv*>(it->getCurrent());
+        if(ec->getConversacion()->getIdConv()==idConv){
+            return ec->getConversacion()->esReceptor(idMen,this->celular);
+        }
+        it->next();
+    }  
+    return false;
 }

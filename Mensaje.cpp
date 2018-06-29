@@ -55,18 +55,30 @@ Visto* Mensaje::GetVisto() {
         return v;
     }
 }
-
+int Mensaje::getEmisor(){
+    return this->emisor;
+}
 bool Mensaje::remueveVistos() {
     IIterator * it = visto->iterator();
     while (it->hasNext()) {
         Visto * v = dynamic_cast<Visto*> (it->getCurrent());
         visto->remove(v);
-        delete visto;
         it->next();
+        delete v;
     }
     return true;
 }
-
+bool Mensaje::remueveMiVisto(int idCel){
+    IIterator * it=visto->iterator();
+    while (it->next()){
+        Visto * v= dynamic_cast<Visto*>(it->getCurrent());
+        if(v->getReceptor()==idCel){
+            it->next();
+            delete v;
+        }
+        it->next();
+    }
+}
 void Mensaje::SetVisto(Visto* visto) {
     this->visto->add(visto);
 }
@@ -77,11 +89,12 @@ bool Mensaje::esReceptor(int numCel) {
         while (it->hasNext()) {
             Visto *v = dynamic_cast<Visto*> (it->getCurrent());
             if (v->esReceptor(numCel) == true) {
-                if (v->getEstado() != true)v->SetEstado(true);
+                return true;
             }
             it->next();
         }
     }
+    return false;
 }
 
 DtMensaje * Mensaje::getMensaje() {

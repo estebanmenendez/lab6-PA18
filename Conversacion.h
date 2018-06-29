@@ -38,8 +38,8 @@ public:
     void setMensaje(Mensaje *);
     bool sosConversacion(int);
     Mensaje* getMensaje(int);
-    void remueveMensConv(Mensaje*);
-    void remueveMens(int,int);
+    bool remueveMens(int Idmen);
+    bool remueveMiVisto(int idMen, int idUsu);
     void eviarMensaje(Mensaje*);
     Lista* listarMensaje(DtFechaHoraIng* );
     Lista* listarVistos(int codMens);
@@ -48,7 +48,9 @@ public:
     int getIdConv();
     int getCelContacto();
     string getNomGrupo();
-    
+    bool esReceptor(int idMen, int idUsu);
+    bool esEmisor(int idMen, int idUsu);
+    bool existeMensaje(int idMen);
 private:
     ListDicc * mensajes=new ListDicc();
     int idConv;

@@ -123,8 +123,16 @@ Lista * ContUsuario::seleccionarConversacion(int idConv) {
     Lista * selecConv = this->usuLog->seleccionarConversacion(idConv);
 }
 
-void ContUsuario::eliminarMensConv(int idConv, int codMen, int celUsu) {
-    this->usuLog->eliminarMensConv(idConv, codMen, celUsu);
+bool ContUsuario::eliminarMensaje(int idMen, int idConv){
+    if(usuLog->existeConversacion(idConv)==true){
+        if(usuLog->getConversacion(idConv)->existeMensaje(idMen)==true){if(usuLog->esReceptor(idMen,idConv)==true){
+       return usuLog->getConversacion(idConv)->remueveMiVisto(idMen,usuLog->GetCelular());
+    }else {if(usuLog->getConversacion(idConv)->esEmisor(idMen,usuLog->GetCelular())==true){
+    
+       return usuLog->getConversacion(idConv)->remueveMens(idMen);
+    }}}throw invalid_argument("No existe el mensaje");
+    }throw invalid_argument("No existe la conversacion");
+    
 }
 
 DtContacto* ContUsuario::ingContacto(int numCelular) {
