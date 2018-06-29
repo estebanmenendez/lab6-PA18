@@ -130,7 +130,7 @@ void Fabrica::cargaGrupo(){
         DtFecha* fecha=new DtFecha(22,5,2017);
         DtHora* hora=new DtHora(15,35,0);
         ContUsu->setFechaHoraG(fecha,hora);
-                    
+        ContUsu->setIdConvGrupo(23654);
     }
   
 void Fabrica::cargarConversaciones(){

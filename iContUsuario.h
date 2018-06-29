@@ -71,7 +71,7 @@ public:
     virtual int generarIdConv()=0;
     virtual Usuario* getUsuario(int celUsu)=0;
 //    virtual void altaPrecargaContacto(int numCelular)=0;
-    
+    virtual void setIdConvGrupo(int idUsu)=0;
 private:
 
 };

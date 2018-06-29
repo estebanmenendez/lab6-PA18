@@ -903,10 +903,10 @@ void archivarConversaciones(){
         cout<<"\nIngrese el Id-Conversacion para Archivar: ";
         cin>>conversa;
         ContMen->selecConversacion(conversa);
-        
-        cout << "\nDesea seguir agregando contactos al Grupo ? s/n\n";
+        ContMen->archivarConv();
+        cout << "\nDesea seguir Archivando Conversaciones ? s/n\n";
         cin>>salir;
-        }while (salir = 's');
+        }while (salir == 's');
         
         
     }catch(std::invalid_argument &ia) {

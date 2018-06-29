@@ -75,6 +75,7 @@ public:
     Conversacion* getConversacion(int idConv);
     int getReceptor();
     Usuario* getUsuByCel(int);
+    void setIdConvGrupo(int idUsu);
 
 //    Conversacion* getConversacion(int idConv); 
 
@@ -83,7 +84,7 @@ public:
     void altaPrecargaConversacion();
     void setFechaHoraG(DtFecha* fech, DtHora * hora);
     int generarIdConv();
-    void setIdConvGrupo(int idConv);//precarga
+    //void setIdConvGrupo(int idConv);//precarga
     void cargarMensaje();
     Usuario* getUsuario(int celUsu);
 };
