@@ -45,7 +45,7 @@ public:
     bool esReceptor(int);
     bool remueveVistos();
     Lista* getVisto();
-
+    bool remueveMiVisto(int idCel);
 private:
 
     Lista* visto = new Lista();

@@ -77,7 +77,8 @@ public:
     Lista * seleccionarConversacion(int);
     void crearConversacion( Conversacion *); //para el usuario actual
     void crearEstadoConv(Conversacion *conv, Usuario * usu, Usuario * usu2); //para el contacto
-    Lista * eliminarMensConv(int, int,int);
+    bool eliminarMensConv(int idMen,int idConv);
+   
     bool convGrupal(int);
     DtConversacion * getConvGrupo(int);
     bool sosElOtro(int idConv);
@@ -99,6 +100,9 @@ public:
     void setFechaHoraG(DtFecha* fecha, DtHora* hora);
     void setIdConvGrupo(int id);
     void setMensaje(Mensaje*,int idConv);
+    bool esReceptor(int idMen, int idConv);
+    bool soyEmisor(int idMen, int idConv);
+    bool existeConversacion(int idConv);
 private:
 
     ListDicc* contactos = new ListDicc();

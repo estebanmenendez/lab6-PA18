@@ -439,13 +439,13 @@ void verMensajes() {
     DtMensajeVisto* dtmv;
     IIterator* it;
     it = listCon->iterator();
-    cout << "|Nombre:Contacto/Grupo| " << "|Id-Conversacion| " << "|Celular/Cantidad|" << endl;
+    cout << "|Nombre:Contacto/Grupo| " << "\t|Id-Conversacion| " << "\t|Celular/Cantidad|" << endl;
     while (it->hasNext()) {
         DtConversacion* dt = dynamic_cast<DtConversacion*> (it->getCurrent());
         if (dt->GetNombre().compare("Conversaciones Archivadas") != 0)
-            cout << dt->GetNombre() << " |" << std::to_string(dt->GetIdConversa()) << " |" << to_string(dt->GetCel_Cantidad()) << endl;
+            cout << dt->GetNombre() << "\t|" << std::to_string(dt->GetIdConversa()) << "\t|" << to_string(dt->GetCel_Cantidad()) << endl;
         else
-            cout << dt->GetNombre() << " |" << to_string(dt->GetCel_Cantidad()) << endl;
+            cout << dt->GetNombre() << "\t|" << to_string(dt->GetCel_Cantidad()) << endl;
         it->next();
     }
 
@@ -459,7 +459,7 @@ void verMensajes() {
                 cin>>idConv;
                 listarMen = ContUsu->seleccionarConversacion(idConv);
                 it = listarMen->iterator();
-                cout << "|Codigo| " << "|Fecha| " << "|Hora| " << "|Simple/Contacto/Imagen/Video| " << endl;
+                cout << "|Codigo| " << "\t|Fecha| " << "\t|Hora| " << "\t|Simple/Contacto/Imagen/Video| " << endl;
                 while (it->hasNext()) {
                     impMen(it->getCurrent());
                     it->next();
@@ -749,12 +749,12 @@ void eliMensaje() {
                     Lista * listMen = ContMen->seleccionarConversacion(conv);
                     IIterator * i = listMen->iterator();
                     while (i->hasNext()) {
-                        dtm = dynamic_cast<DtMensaje*> (i->getCurrent());
+                        impMen(i->getCurrent());
                         i->next();
                     }
                     cout << "\nIngrese el codigo del mensaje a eliminar: ";
                     cin>>mensa;
-                    ContUsu->getUsu()->getConversacion(conv)->remueveMens(mensa, ContUsu->getUsu()->GetCelular());
+                   if(ContUsu->eliminarMensaje(mensa,conv)==true) cout<<"Mensaje eliminado"<<endl;
                 }
                 if (opcion == 2) {
                     int conv;
