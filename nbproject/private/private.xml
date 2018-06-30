@@ -7,42 +7,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Lista.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/IIterator.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ListDiccIteratorObj.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ListaIterator.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Contacto.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContMensaje.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContUsuario.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/NodoDicc.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtConexion.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtMensaje.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtFecha.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Conversacion.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Par.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContMensaje.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Usuario.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContUsuario.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtContacto.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ListDiccIterator.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Simple.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtHora.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Grupo.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/EstadoConv.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContUsuario.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContGrupo.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Fecha_Hora_sis.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtGrupo.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Mensaje.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Grupo.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Tipo.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Tipo.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Usuario.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Nodo.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtMensaje.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Fabrica.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtUltCon.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/iContUsuario.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Conversacion.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContGrupo.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/main.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Mensaje.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContMensaje.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtSimple.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/iContMensaje.h</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Usuario.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/iContGrupo.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Fabrica.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Visto.cpp</file>
+            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContUsuario.h</file>
         </group>
     </open-files>
 </project-private>
