@@ -416,20 +416,20 @@ void impMen(ICollectible *ic) {
 }
 
 void verMensajes() {
-    Mensaje* ms = new Simple();
-    ms->SetCodigo(61);
-    Visto *v = new Visto();
-    v->SetEstado(false);
-    v->setReceptor(12);
-    ms->SetVisto(v);
-    ms->setEmisor(ContUsu->getUsu()->GetCelular());
-    dynamic_cast<Simple*> (ms)->setTexto("Hola");
-    Conversacion * conv = new Conversacion();
-    conv->setMensaje(ms);
-    conv->setIdConv(1);
-    EstadoConv* ec = new EstadoConv(false, conv);
-//    ec->setConversacion(conv);
-    ContUsu->getUsu()->SetEstadoConv(ec);
+//    Mensaje* ms = new Simple();
+//    ms->SetCodigo(61);
+//    Visto *v = new Visto();
+//    v->SetEstado(false);
+//    v->setReceptor(12);
+//    ms->SetVisto(v);
+//    ms->setEmisor(ContUsu->getUsu()->GetCelular());
+//    dynamic_cast<Simple*> (ms)->setTexto("Hola");
+//    Conversacion * conv = new Conversacion();
+//    conv->setMensaje(ms);
+//    conv->setIdConv(1);
+//    EstadoConv* ec = new EstadoConv(false, conv);
+////    ec->setConversacion(conv);
+//    ContUsu->getUsu()->SetEstadoConv(ec);
     int opcion, opCoso, idConv, idMen, opcoso2,opcoso3;
     Lista* listCon = new Lista();
     Lista * lisConvArch = new Lista();
@@ -678,6 +678,8 @@ void agregarPartGrupo(){
                 dtc = ContUsu->ingContacto(numCel);
                 if (dtc == NULL) {
                     cout << "No existe un contacto con ese celular\n";
+                    removido = 's';
+                    
                 } else {
                     if (dtc->GetNumCel() == std::to_string(ContUsu->getUsu()->GetCelular())) {
                         cout << "No puedes agregarte como contacto tu mismo.\n";

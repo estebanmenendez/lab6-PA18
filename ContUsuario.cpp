@@ -240,24 +240,17 @@ Lista* ContUsuario::listaConversacionArc() {
     return listConvArch;
 }
 
- void ContUsuario::crearGrupoUsuario(Grupo* grupo,string celular,int mensaje){
-    //crea un visto para cada usuario ##ver la fecha del Visto.
-    Visto * visto = new Visto(atoi(celular.c_str()));
-    //busca el usuario en la lista por su celular
+ void ContUsuario::crearTipoUsuario(Grupo* grupo,string celular){
+    
     intKey *ikey = new intKey(atoi(celular.c_str()));
     Usuario * usU = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     if (usU != NULL){
         //crea el Tipo y le setea el grupo
-        if(usU->GetCelular() == this->usuLog->GetCelular()){ 
+        if(usU->GetCelular()==this->usuLog->GetCelular()){ 
             usU->crearTipo(grupo,"Admin");
         }else{
             usU->crearTipo(grupo,"Usuario");
         }
-        //si lo encuentra  crea el estado de Conversacion y le setea la conversacion.
-        usU->crearEstadoConversacion(grupo->getConversacion());
-       
-        //con el id del Mensaje le agrega el visto del usuario.
-        grupo->getConversacion()->getMensaje(mensaje)->getVisto()->add(visto);
     } 
      
  }
@@ -356,8 +349,8 @@ void ContUsuario::setFechaHoraG(DtFecha* fech, DtHora * hora) {
     usuLog->setFechaHoraG(fech,hora);
 }
 int ContUsuario::generarIdConv(){
-    idConv++;
-    return idConv;
+    Conversacion* conversa = new Conversacion();
+    return conversa->getIdConv();
 }
  void ContUsuario::setIdConvGrupo(int idUsu){
      intKey *key=new intKey(idUsu);

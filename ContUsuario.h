@@ -69,7 +69,7 @@ public:
     Lista* listaConversacionArc();
     int getNumUsuLog();
     Lista*  listarInfoVisto(int idConv,int idMensaje);
-    void crearGrupoUsuario(Grupo*,string,int);
+    void crearTipoUsuario(Grupo*,string);
     int getIdConv();
     void elijeContacto(int celUsu);
     Conversacion* getConversacion(int idConv);

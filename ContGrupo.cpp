@@ -88,32 +88,33 @@ void ContGrupo::cancelar() {
 }
 
 DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
-    
     iContUsuario* contUsu = Fabrica::getInstance()->getContUsuario();
+    iContMensaje* ContMen = Fabrica::getInstance()->getContMensaje();
     //se crea el grupo y se setean los atributos urlImagen, nombre y usuario creador.
     Grupo* grupo = new Grupo();
     grupo->SetImagen(imagen);
     grupo->SetNombre(nombre);
-    grupo->SetCreador(contUsu->getUsu()->GetCelular());
+    grupo->SetCreador(std::to_string(contUsu->getUsu()->GetCelular()));
     DtGrupo* dtGrupo = new DtGrupo(nombre);
         
-    iContMensaje* contMen = Fabrica::getInstance()->getContMensaje();
-    //crea el mensaje que se le envía a cada uno de los participantes del grupo
-    Mensaje* mens = contMen->crearMensajeGrupo("Te has unido al Grupo "+grupo->GetNombre());
-    //setea el mensaje a la conversacion del grupo.
-    grupo->getConversacion()->setMensaje(mens);
-    //para el usuario que crea el grupo crea el tipo y el estado Conv.
-    contUsu->crearGrupoUsuario(grupo,std::to_string(grupo->GetCreador()),mens->GetCodigo());
-    //Por cada usuario elegido para el grupo le pide a ContUsuario que crea el Tipo, el EstConv.
-    DtContacto* dtn = new DtContacto();
+   // iContMensaje* contMen = Fabrica::getInstance()->getContMensaje();
+    
+    //para el usuario Admin crea el tipo 
+    contUsu->crearTipoUsuario(grupo,grupo->GetCreador());
+    //contUsu-> falta crear el estado Conversacion y unirlo a la conversacion
+    //Por cada usuario elegido para el grupo le pide a ContUsuario que crea el Tipo    
     IIterator* h = this->ltElegidos->iterator();
     while (h->hasNext()) {
-        dtn = dynamic_cast<DtContacto*> (h->getCurrent());
-        contUsu->crearGrupoUsuario(grupo,dtn->GetNumCel(),mens->GetCodigo());
-        Visto* vistos = new Visto(atoi(dtn->GetNumCel().c_str()));
-        mens->SetVisto(vistos);
+        DtContacto* dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+        contUsu->crearTipoUsuario(grupo,dtn->GetNumCel());
         h->next();
     }
+    //setea el idConversacion en ContMensaje
+    ContMen->selecConversacion(contUsu->generarIdConv());
+    //crea el mensaje que se le envía a cada uno de los participantes del grupo
+    DtSimple *dts = new DtSimple("Te has unido al Grupo "+grupo->GetNombre());
+    ContMen->cuerpoMensaje(dts);
+    ContMen->enviarMensaje();
     //retorna un DtGrupo 
     return dtGrupo; 
 }
@@ -145,18 +146,18 @@ void ContGrupo::Salir() {
     return false;
  }
  
+ 
  void ContGrupo::vaciaListaParticipantes() {
     if(!this->ltElegidos->isEmpty()){
-        DtContacto* dtn = new DtContacto();
         IIterator* h = this->ltElegidos->iterator();
         while (h->hasNext()) {
-            dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+            DtContacto* dtn = dynamic_cast<DtContacto*> (h->getCurrent());
             this->ltElegidos->remove(dtn);
-            //delete(dtn);
-            if (this->ltElegidos->isEmpty())
+            delete dtn;
+            if (!h->hasNext())
                 break;
             else
-                h->next();
+            h->next();
         }
     }
     
@@ -175,7 +176,7 @@ void ContGrupo::Salir() {
     IIterator* h = this->ltElegidos->iterator();
     while (h->hasNext()) {
         dtn = dynamic_cast<DtContacto*> (h->getCurrent());
-        contUsu->crearGrupoUsuario(this->grupo,dtn->GetNumCel(),mens->GetCodigo());
+        contUsu->crearTipoUsuario(this->grupo,dtn->GetNumCel());
         Visto* vistos = new Visto(atoi(dtn->GetNumCel().c_str()));
         mens->SetVisto(vistos);
         h->next();

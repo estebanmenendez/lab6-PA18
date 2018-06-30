@@ -28,10 +28,10 @@ public:
     Grupo(const Grupo& orig);
     virtual ~Grupo();
 
-    void SetCreador(int);
+    void SetCreador(string);
     DtFecha* GetFecha();
     DtHora* GetHora();
-    int GetCreador();
+    string GetCreador();
     string GetImagen();
     string GetNombre();
     Conversacion * getConversacion();
@@ -48,7 +48,7 @@ private:
     string imagen;
     DtFecha* fecha;
     DtHora* hora;
-    int creador;
+    string creador;
 
 };
 

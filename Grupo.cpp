@@ -28,11 +28,11 @@ Grupo::Grupo(const Grupo& orig) {
 Grupo::~Grupo() {
 }
 
-int Grupo::GetCreador() {
+string Grupo::GetCreador() {
     return creador;
 }
 
-void Grupo::SetCreador(int creador) {
+void Grupo::SetCreador(string creador) {
     this->creador = creador;
 }
 

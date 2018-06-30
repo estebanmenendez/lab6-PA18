@@ -417,7 +417,7 @@ void Usuario::archivaConversacion(int conversa){
         IIterator *it=tipo->iterator();
         while(it->hasNext()){
             Tipo *t=dynamic_cast<Tipo*>(it->getCurrent());
-            if(t->getGrupo()->GetCreador()==this->celular){
+            if(t->getGrupo()->GetCreador() ==   std::to_string(this->celular)){
                 t->getGrupo()->SetFecha(fecha);
                 t->getGrupo()->SetHora(hora);
                 
