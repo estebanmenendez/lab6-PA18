@@ -71,3 +71,8 @@ void Grupo::SetNombre(string nombre) {
 Conversacion * Grupo::getConversacion() {
     return this->conv;
 }
+
+
+void Grupo::setConversacion(Conversacion* conv){
+    this->conv = conv;
+}

@@ -75,7 +75,9 @@ void ContMensaje::enviarMensaje() {
                 it->next();
             }
         }
-        dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoImagen);
+        Conversacion * conv = dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
+        conv->setMensaje(this->cuerpoImagen);
+        //dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoImagen);
     }
     if(this->cuerpoVideo != NULL){
         if(!it->hasNext())
@@ -87,7 +89,9 @@ void ContMensaje::enviarMensaje() {
                 it->next();
             }
         }
-        dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoVideo);
+        Conversacion * conv = dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
+        conv->setMensaje(this->cuerpoVideo);
+        //dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoVideo);
     }
     if(this->cuerpoContacto != NULL) {
         if(!it->hasNext())
@@ -99,7 +103,9 @@ void ContMensaje::enviarMensaje() {
                 it->next();
             }
         }
-        dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoContacto);
+        Conversacion * conv = dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
+        conv->setMensaje(this->cuerpoContacto);
+        //dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoContacto);
     }
     this->cuerpoImagen = NULL;
     this->cuerpoSimple = NULL;
@@ -194,6 +200,7 @@ Lista * ContMensaje::infromacionAdicional(int idMens) {
 }
 
 void ContMensaje::setIdConv(int id) {
+    this->idConv = id;
 }
 
 Lista * ContMensaje::listarConversacionesArch() {

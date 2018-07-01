@@ -90,29 +90,44 @@ void ContGrupo::cancelar() {
 DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
     iContUsuario* contUsu = Fabrica::getInstance()->getContUsuario();
     iContMensaje* ContMen = Fabrica::getInstance()->getContMensaje();
+     //setea el idConversacion en ContMensaje
+//    int idConv = contUsu->getIdConv();
+//    ContMen->selecConversacion(idConv);    
+//    Conversacion* conv= this->getConversacion(idConv);
+            
+            
     //se crea el grupo y se setean los atributos urlImagen, nombre y usuario creador.
     Grupo* grupo = new Grupo();
     grupo->SetImagen(imagen);
     grupo->SetNombre(nombre);
     grupo->SetCreador(std::to_string(contUsu->getUsu()->GetCelular()));
+//    grupo->setConversacion(conv);
     DtGrupo* dtGrupo = new DtGrupo(nombre);
         
    // iContMensaje* contMen = Fabrica::getInstance()->getContMensaje();
+   
     
     //para el usuario Admin crea el tipo 
     contUsu->crearTipoUsuario(grupo,grupo->GetCreador());
-    //contUsu-> falta crear el estado Conversacion y unirlo a la conversacion
+    EstadoConv *ec1 = new EstadoConv(false);
+    grupo->setConversacion(ec1->getConversacion());
+   
+    contUsu->getUsu()->SetEstadoConv(ec1);
+   
     //Por cada usuario elegido para el grupo le pide a ContUsuario que crea el Tipo    
     IIterator* h = this->ltElegidos->iterator();
     while (h->hasNext()) {
         DtContacto* dtn = dynamic_cast<DtContacto*> (h->getCurrent());
         contUsu->crearTipoUsuario(grupo,dtn->GetNumCel());
+        EstadoConv* ec2 = new EstadoConv(false, ec1->getConversacion());
+        Usuario* u = contUsu->getUsuByCel(atoi(dtn->GetNumCel().c_str())); 
+        u->SetEstadoConv(ec2);
         h->next();
     }
-    //setea el idConversacion en ContMensaje
-    ContMen->selecConversacion(contUsu->generarIdConv());
+    
     //crea el mensaje que se le envía a cada uno de los participantes del grupo
     DtSimple *dts = new DtSimple("Te has unido al Grupo "+grupo->GetNombre());
+    ContMen->setIdConv(ec1->getConversacion()->getIdConv());
     ContMen->cuerpoMensaje(dts);
     ContMen->enviarMensaje();
     //retorna un DtGrupo 

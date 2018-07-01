@@ -24,6 +24,7 @@ using namespace std;
 class EstadoConv : public ICollectible {
 public:
     EstadoConv();
+    EstadoConv(bool);
     EstadoConv(bool, Conversacion*);
     EstadoConv(const EstadoConv& orig);
     virtual ~EstadoConv();
