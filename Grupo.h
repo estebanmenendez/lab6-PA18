@@ -29,6 +29,7 @@ public:
     virtual ~Grupo();
 
     void SetCreador(string);
+    void setConversacion(Conversacion*);
     DtFecha* GetFecha();
     DtHora* GetHora();
     string GetCreador();

@@ -16,7 +16,7 @@
 
 using namespace std;
 int ContUsuario::getIdConv(){
-    this->idConv++;
+    this->idConv = this->idConv + 1;
     return this->idConv;
 }
 int ContUsuario::getNumContacto(int idConv) {
@@ -296,6 +296,7 @@ void ContUsuario::altaPrecargaContacto(int numCelular) {
             delete(key1);
             delete(key2);
         }
+        
         if (numCelular == 65432)  {//90765432
             intKey* key3=new intKey(23654);//90123654
             intKey* key4=new intKey(46810); //90246810

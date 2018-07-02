@@ -25,7 +25,11 @@ bool EstadoConv::ConvActiva() {
 
 EstadoConv::EstadoConv() {
 }
-
+EstadoConv::EstadoConv(bool estado) {
+    Conversacion* conv = new Conversacion();
+    this->conversacion = conv;
+    this->archivada = estado;
+}
 EstadoConv::EstadoConv(bool estado, Conversacion * conv) {
     this->conversacion = conv;
     this->archivada = estado;

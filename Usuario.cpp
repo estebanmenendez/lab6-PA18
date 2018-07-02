@@ -351,7 +351,7 @@ Lista* Usuario::getContactosGrupo(int idConv) {
     while(it->hasNext()) {
         Usuario *cont = dynamic_cast<Usuario*>(it->getCurrent());
         IIterator *itt = cont->tipo->iterator();
-        while(itt->next()) {
+        while(itt->hasNext()) {
             Tipo* tip = dynamic_cast<Tipo*>(itt->getCurrent());
             if(tip->getGrupo()->getConversacion()->getIdConv() == idConv){
                 usuarios->add(cont);
@@ -361,7 +361,7 @@ Lista* Usuario::getContactosGrupo(int idConv) {
         it->next();
     }
     return usuarios;
-}
+} 
 
 //Conversacion* Usuario::getConversacion(int idConv) {
 //    IIterator *it = this->estadoConv->iterator();

@@ -122,8 +122,8 @@ void Fabrica::cargaGrupo(){
         ContP=ContUsu->getUsu()->GetContactos();
         IIterator *it=ContP->iterator();
         while(it->hasNext()){
-        ContGru->agregarParticipante(dynamic_cast<DtContacto*>(it->getCurrent()));
-        it->next();
+            ContGru->agregarParticipante(dynamic_cast<DtContacto*>(it->getCurrent()));
+            it->next();
         }
         //22/05/2017 15:35
         ContGru->altaGrupo("home/img/amigos.png", "Amigos");
