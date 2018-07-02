@@ -53,21 +53,26 @@ int main(int argc, char** argv) {
     char carga;
     int numCel = 0, optNoCel, optMenuPrincipal;
     bool salirTotal = false, ingresarCel = false, firstMenu = false;
-   //enviarMensaje();
+    
+    cout << "\nDesea Cargar los datos de prueba (s/n)\n";
+    cin>>carga;
+    if (carga == 's'){
+        Fabrica::getInstance()->cargarDatosPrueba();
+        crSes();
+        ingresarCel = false;
+        firstMenu = false;
+        cout<<"Datos de prueba cargados...\n";                        
+        cout<<"\nPulse ENTER para continuar...";
+        cin.ignore().get();
+
+    }
     do {
         try {
+            
             if (!firstMenu) {
                 do {
                     cout << "----- Bienvenido a TELETIP -----" << endl;
-                    cout << "\nDesea Cargar los datos de prueba (s/n)\n";
-                    cin>>carga;
-                    if (carga == 's'){
-                        Fabrica::getInstance()->cargarDatosPrueba();
-                        crSes();
-                        ingresarCel = false;
-                        firstMenu = false;
-                        cout<<"Datos de prueba cargados...\n";                        
-                    }
+                    
                     cout << " Ingrese un número de celular: " << endl;
                     cin>>numCel;
                     if (ContUsu->ingresarCelular(numCel)) {
@@ -139,9 +144,6 @@ int main(int argc, char** argv) {
                        break;
                     case 12:
                         Fabrica::getInstance()->cargarDatosPrueba();
-//                        crSes();
-//                        ingresarCel = false;
-//                        firstMenu = false;
                         cout<<"Datos de prueba cargados...\n";   
                        break;
                     case 0:
@@ -416,20 +418,6 @@ void impMen(ICollectible *ic) {
 }
 
 void verMensajes() {
-//    Mensaje* ms = new Simple();
-//    ms->SetCodigo(61);
-//    Visto *v = new Visto();
-//    v->SetEstado(false);
-//    v->setReceptor(12);
-//    ms->SetVisto(v);
-//    ms->setEmisor(ContUsu->getUsu()->GetCelular());
-//    dynamic_cast<Simple*> (ms)->setTexto("Hola");
-//    Conversacion * conv = new Conversacion();
-//    conv->setMensaje(ms);
-//    conv->setIdConv(1);
-//    EstadoConv* ec = new EstadoConv(false, conv);
-////    ec->setConversacion(conv);
-//    ContUsu->getUsu()->SetEstadoConv(ec);
     int opcion, opCoso, idConv, idMen, opcoso2,opcoso3;
     Lista* listCon = new Lista();
     Lista * lisConvArch = new Lista();
@@ -660,7 +648,7 @@ void agregarPartGrupo(){
                     while (h->hasNext()) {
                         dtcg = dynamic_cast<DtContactoGrupo*> (h->getCurrent());  
                         string fechaLin = std::to_string(dtcg->getFecha()->GetDia())+"/"+std::to_string(dtcg->getFecha()->GetMes())+"/"+std::to_string(dtcg->getFecha()->GetAnio())+" "+std::to_string(dtcg->getHora()->GetHora())+":"+std::to_string(dtcg->getHora()->GetMinutos())+":"+std::to_string(dtcg->getHora()->GetSegundo());
-                        cout << std::to_string(dtcg->getCelular())<<" - "<<dtcg->getnombre()<<" - "<<dtcg->getipoEnGrupo()<<" - "<<fechaLin<< "\n";
+                        cout << std::to_string(dtcg->getCelular())<<"\t - "<<dtcg->getnombre()<<"\t - "<<dtcg->getipoEnGrupo()<<"\t - "<<fechaLin<< "\n";
                         h->next();
                     }
                 Lista* ltCont = ContGru->listarContactos();
@@ -696,7 +684,7 @@ void agregarPartGrupo(){
                     cin>>confirmar;
                     if (confirmar == 's') {
                         ContGru->agregarParticipante(dtc);
-                        cout << "Contacto: " << dtc->GetNombre() << "Ingresado al grupo\n";
+                        cout << "\nContacto: " << dtc->GetNombre() << "Ingresado al grupo\n";
                     }
                 } else {
                     removido = 'n';
@@ -708,7 +696,7 @@ void agregarPartGrupo(){
                         ContGru->agregarParticipanteGrupo();
                         salir = 'n';
                     } else {
-                        cout << "\nDebe ingresar por lo menos 1 contacto\n";
+                        cout << "\nDebe ingresar por lo menos 1 contacto!!\n";
                         cout << "\nDesea seguir agregando contactos al Grupo? s/n\n";
                         cin>>salir;
                     }
@@ -756,7 +744,11 @@ void eliMensaje() {
                     }
                     cout << "\nIngrese el codigo del mensaje a eliminar: ";
                     cin>>mensa;
-                   if(ContUsu->eliminarMensaje(mensa,conv)==true) cout<<"Mensaje eliminado"<<endl;
+                   if(ContUsu->eliminarMensaje(mensa,conv)==true) {
+                       cout<<"Mensaje eliminado"<<endl;
+                       cout<<"\nPulse una ENTER para continuar...";
+                       cin.ignore().get();
+                   }
                 }
                 if (opcion == 2) {
                     int conv;
@@ -779,78 +771,6 @@ void eliMensaje() {
         cout << ia.what() << endl;
     }
 }
-/*
-void cargarUsu() {
-
-    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
-    string nombre, imagenPerfil, descripcion;
-    int numCel;
-
-    //USU1
-    numCel = 90123654;
-    nombre = "Juan Perez";
-    imagenPerfil = "home/img/perfil/juan.png";
-    descripcion = "Cómo andan?";
-    usuLog->altaPrecargaUsuario(numCel, nombre, imagenPerfil, descripcion);
-
-    //USU2
-    numCel = 90765432;
-    nombre = "María Fernández";
-    imagenPerfil = "home/img/perfil/maria.png";
-    descripcion = "Disponible";
-    usuLog->altaPrecargaUsuario(numCel, nombre, imagenPerfil, descripcion);
-
-    //USU3
-    numCel = 90246810;
-    nombre = "Pablo Iglesias";
-    imagenPerfil = "home/img/perfil/pablo.png";
-    descripcion = "En el Gym";
-    usuLog->altaPrecargaUsuario(numCel, nombre, imagenPerfil, descripcion);
-
-    //USU4
-    numCel = 90666777;
-    nombre = "Sara Ruiz";
-    imagenPerfil = "home/img/perfil/sara.png";
-    descripcion = "Estoy usando TeleTIP";
-    usuLog->altaPrecargaUsuario(numCel, nombre, imagenPerfil, descripcion);
-}
-
-void cargarContactos() {
-    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
-
-    //TANDA DE CONTACTOS 1
-    usuLog->altaPrecargaContacto(90123654);
-    //TANDA DE CONTACTOS 2
-    usuLog->altaPrecargaContacto(90765432);
-    //TANDA DE CONTACTOS 3
-    usuLog->altaPrecargaContacto(90246810);
-    //TANDA DE CONTACTOS 4
-    usuLog->altaPrecargaContacto(90666777);
-}
-
-void cargarConversaciones() {
-    iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
-
-    usuLog->altaPrecargaConversacion();
-}
-
-void cargarMensajes() {
-    iContMensaje * mens = Fabrica::getInstance()->getContMensaje();
-
-}
-
-
-
-
-
-
-    
-    
-    
-    void cargarMensajes(){
-        iContMensaje * mens = Fabrica::getInstance()->getContMensaje();
-    }
-   */
 
 void  modUsuario(){
     Usuario * usuLog = ContUsu->getUsu();

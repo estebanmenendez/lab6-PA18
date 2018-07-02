@@ -396,6 +396,8 @@ Grupo* Usuario::getGrupo(string grupo){
             }
             itt->next();
         }
+    if (devGrupo == NULL)
+        throw invalid_argument("El Grupo Ingresado no Existe!!\n");
     return devGrupo;
 }
 void Usuario::archivaConversacion(int conversa){
