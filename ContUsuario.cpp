@@ -262,7 +262,7 @@ void ContUsuario::elijeContacto(int celUsu) {
     EstadoConv *ec1 = new EstadoConv(false, conv), *ec2 = new EstadoConv(false, conv);
     this->usuLog->SetEstadoConv(ec1);
     u->SetEstadoConv(ec2);
-    Fabrica::getInstance()->getContMensaje()->selecConversacion(this->idConv);
+    Fabrica::getInstance()->getContMensaje()->selecConversacion(conv->getIdConv());
 }
 
 Conversacion* ContUsuario::getConversacion(int idConv) {

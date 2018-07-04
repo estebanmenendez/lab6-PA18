@@ -169,12 +169,13 @@ void enviarMensaje() {
     DtImagen *dti;
     DtVideo *dtv;
     DtMContacto *dtmc;
-    int optMen, idConv, numCelContacto, optTipo, tamanioImagen, duraVideo, celContacto;
+    int optMen, idConv, numCelContacto, optTipo, tamanioImagen, duraVideo, celContacto,archivadas = 0;
     string texto, urlImagen,formatoImagen,descImagen, urlVideo;
     if(ltConv->isEmpty()){
         cout<< "No tene conversaciones\n";
     }
     else {
+        
         it = ltConv->iterator();
         while(it->hasNext()) {
             DtConversacion* dtconv = dynamic_cast<DtConversacion*>(it->getCurrent());
@@ -186,10 +187,12 @@ void enviarMensaje() {
             }
             else{
                 cout<< dtconv->GetNombre() + " - " + to_string(dtconv->GetCel_Cantidad()) << endl; 
+               
             }
             it->next();
         }
     }
+    
     cout<< "1- Seleccionar una conversación activa\n2- Ver las conversaciones archivadas\n3- Crear nueva conversación.\n";
     cin >> optMen;
     switch(optMen) {
@@ -202,6 +205,7 @@ void enviarMensaje() {
             convArch = ContUsu->listaConversacionArc();
             if(convArch->isEmpty()) {
                 cout<< "No tiene conversaciones archivadas.\n";
+                archivadas = 1;
             }
             else {
                 it = convArch->iterator();
@@ -226,72 +230,76 @@ void enviarMensaje() {
         case 3:
             ltCont = ContUsu->listarContactos("enviarMensaje");
             it = ltCont->iterator();
+            cout<< "TUS CONTACTOS\n";
             while(it->hasNext()) {
                 DtContacto *dtcont = dynamic_cast<DtContacto*>(it->getCurrent());
-                cout<< "TUS CONTACTOS\n";
+                
                 cout<<"Nombre: " + dtcont->GetNombre() + " Celular: " + dtcont->GetNumCel() << endl;
                 it->next();
             }
             cout<< "Seleccione un contacto ingresando el número de celular.\n";
             cin >> numCelContacto;
             ContUsu->elijeContacto(numCelContacto);
+            //ContMen->selecConversacion(0);
             break;
         default:
             cout<< "Opción incorrecta.\n";
             break;
     }
-    cout<< "¿Que tipo de mensaje desea crear?\n1- Simple\n2- Imagen\n3- Video\n4-Contacto\n";
-    cin>> optTipo;
-    switch(optTipo) {
-        case 1:
-            cout<< "Ingrese el texto del mensaje\n";
-            cin.clear();
-            cin.ignore();
-            getline(cin, texto);
-            dts = new DtSimple(texto);
-            ContMen->cuerpoMensaje(dts);
-            break;
-        case 2:
-            cout<< "Ingrese la url de la imagen\n";
-            cin.clear();
-            cin.ignore();
-            getline(cin, urlImagen);
-            cout<< "Ingrese formato de la imagen\n";
-            getline(cin, formatoImagen);
-            cout<< "Ingrese tamaño de la imagen\n";
-            cin>> tamanioImagen;
-            cout<< "Descripción de la imagen\n";
-            getline (cin, descImagen);
-            dti = new DtImagen(tamanioImagen, formatoImagen, texto, urlImagen, descImagen);
-            ContMen->cuerpoMensaje(dti);
-            break;
-        case 3:
-            cout<< "Ingrese la URL del video\n";
-            cin.clear();
-            cin.ignore();
-            getline(cin, urlVideo);
-            cout<< "Ingrese la duración del video\n";
-            cin>> duraVideo;
-            dtv = new DtVideo(urlVideo, duraVideo);
-            ContMen->cuerpoMensaje(dtv);
-            break;
-        case 4:
-            ltCont = ContUsu->listarContactos("p");
-            it = ltCont->iterator();
-            while(it->hasNext()) {
-                DtContacto* dtc = dynamic_cast<DtContacto*>(it->getCurrent());
-                cout <<"Nombre: " + dtc->GetNombre() + " Celular: " + dtc->GetNumCel() << endl;
-                it->next();
-            }
-            cout<< "Seleccione un usuario ingresando su número de celular\n";
-            cin >> numCelContacto;
-            dtmc = new DtMContacto(numCelContacto);
-            ContMen->cuerpoMensaje(dtmc);
-            break;
-        default:
-            break;
-    }
+    if (archivadas != 1){
+        cout<< "¿Que tipo de mensaje desea crear?\n1- Simple\n2- Imagen\n3- Video\n4-Contacto\n";
+        cin>> optTipo;
+        switch(optTipo) {
+            case 1:
+                cout<< "Ingrese el texto del mensaje\n";
+                cin.clear();
+                cin.ignore();
+                getline(cin, texto);
+                dts = new DtSimple(texto);
+                ContMen->cuerpoMensaje(dts);
+                break;
+            case 2:
+                cout<< "Ingrese la url de la imagen\n";
+                cin.clear();
+                cin.ignore();
+                getline(cin, urlImagen);
+                cout<< "Ingrese formato de la imagen\n";
+                getline(cin, formatoImagen);
+                cout<< "Ingrese tamaño de la imagen\n";
+                cin>> tamanioImagen;
+                cout<< "Descripción de la imagen\n";
+                getline (cin, descImagen);
+                dti = new DtImagen(tamanioImagen, formatoImagen, texto, urlImagen, descImagen);
+                ContMen->cuerpoMensaje(dti);
+                break;
+            case 3:
+                cout<< "Ingrese la URL del video\n";
+                cin.clear();
+                cin.ignore();
+                getline(cin, urlVideo);
+                cout<< "Ingrese la duración del video\n";
+                cin>> duraVideo;
+                dtv = new DtVideo(urlVideo, duraVideo);
+                ContMen->cuerpoMensaje(dtv);
+                break;
+            case 4:
+                ltCont = ContUsu->listarContactos("p");
+                it = ltCont->iterator();
+                while(it->hasNext()) {
+                    DtContacto* dtc = dynamic_cast<DtContacto*>(it->getCurrent());
+                    cout <<"Nombre: " + dtc->GetNombre() + " Celular: " + dtc->GetNumCel() << endl;
+                    it->next();
+                }
+                cout<< "Seleccione un usuario ingresando su número de celular\n";
+                cin >> numCelContacto;
+                dtmc = new DtMContacto(numCelContacto);
+                ContMen->cuerpoMensaje(dtmc);
+                break;
+            default:
+                break;
+        }    
     ContMen->enviarMensaje();
+    }
 }
 void cambiarFechaSist() {
     int dia=0, mes=0, anio=0, hora=0, min=0;

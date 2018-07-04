@@ -43,16 +43,19 @@ ContMensaje::~ContMensaje() {
 void ContMensaje::enviarMensaje() {
     IIterator *it;
     Visto* visto;
+    int noGrupo = 0;
     if(Fabrica::getInstance()->getContUsuario()->getUsu()->convGrupal(this->idConv)){
         Lista* usuariosGrupo = Fabrica::getInstance()->getContUsuario()->getUsu()->getContactosGrupo(this->idConv);
         it = usuariosGrupo->iterator();
     }
     else {
         visto = new Visto(Fabrica::getInstance()->getContUsuario()->getReceptor(), false);
+        noGrupo = 1;
     }
     
     if(this->cuerpoSimple != NULL) {
-        if(!it->hasNext())
+        //if(!it->hasNext())
+        if (noGrupo  == 1 )
             this->cuerpoSimple->SetVisto(visto);
         else{
             while(it->hasNext()) {
