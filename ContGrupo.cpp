@@ -174,6 +174,7 @@ void ContGrupo::Salir() {
             else
             h->next();
         }
+        delete h;
     }
     
 }

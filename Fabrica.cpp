@@ -161,7 +161,7 @@ void Fabrica::cargarMensajes(){
         v->SetEstado(true);
         men1->SetVisto(v);
         dynamic_cast<Simple*> (men1)->setTexto("¡Mira que bueno este video!");
-        men1->SetCodigo(1);
+        men1->SetCodigo(2);
         men1->setEmisor(66777);//66777
         fecha=new DtFecha(22,5,2017);
         hora=new DtHora(18,4,0);
@@ -174,7 +174,7 @@ void Fabrica::cargarMensajes(){
          ////////////////mensaje2//////////////////
         Mensaje* men2 = new Video();
         dynamic_cast<Video*>(men2)->SetDuracion(5);
-        men2->SetCodigo(2);
+        men2->SetCodigo(3);
         men2->setEmisor(66777);//65432
         v=new Visto(23654); //90123654
         v->SetEstado(true);
@@ -195,7 +195,7 @@ void Fabrica::cargarMensajes(){
    ////////////////////mensaje3//////////////////////     
         Mensaje* men3 = new Simple();
         dynamic_cast<Simple*>(men3)->setTexto("¡Muy gracioso!");
-        men3->SetCodigo(3);
+        men3->SetCodigo(4);
         men3->setEmisor(23654);//90123654
         v=new Visto(66777);//90666777
         v->SetEstado(true);
@@ -215,7 +215,7 @@ void Fabrica::cargarMensajes(){
     //////////////////mensaje4////////////////7    
         Mensaje* men4 = new Simple();
         dynamic_cast<Simple*>(men4)->setTexto("¡Excelente!");
-        men4->SetCodigo(4);
+        men4->SetCodigo(5);
         men4->setEmisor(46810);//90246810
         v=new Visto(23654);//u1 90123654
         v->SetEstado(true);
@@ -234,7 +234,7 @@ void Fabrica::cargarMensajes(){
     /////////////////mensaje5////////////////////    
         Mensaje* men5 = new Simple();
         dynamic_cast<Simple*>(men5)->setTexto("Hola, me pasas el contacto de Sara que no lo tengo");
-        men5->SetCodigo(5);
+        men5->SetCodigo(6);
         men5->setEmisor(65432); //90765432
         v=new Visto(23654);//u1 90123654
         v->SetEstado(true);
@@ -249,7 +249,7 @@ void Fabrica::cargarMensajes(){
     ///////////////mensaje6//////////////////////    
         Mensaje* men6 = new Contacto();
         dynamic_cast<Contacto*>(men6)->SetNumCel(66777); //90666777
-        men6->SetCodigo(6);
+        men6->SetCodigo(7);
         men6->setEmisor(23654); //90123654
         v=new Visto(65432); //90765432
         v->SetEstado(true);
@@ -265,7 +265,7 @@ void Fabrica::cargarMensajes(){
         ////////////////mensaje7////////////////////    
         Mensaje* men7 = new Simple();
         dynamic_cast<Simple*>(men7)->setTexto("Gracias!");
-        men7->SetCodigo(7);
+        men7->SetCodigo(8);
         men7->setEmisor(65432); //90765432
         v=new Visto(23654); //90123654
         v->SetEstado(true);
@@ -281,7 +281,7 @@ void Fabrica::cargarMensajes(){
     //////////////mensaje8//////////////////////    
         Mensaje* men8 = new Simple();
         dynamic_cast<Simple*>(men8)->setTexto("Hola Pablo, cómo estas?");
-        men8->SetCodigo(8);
+        men8->SetCodigo(9);
         men8->setEmisor(66777); //90666777
         v=new Visto(46810); //90246810
         v->SetEstado(true);
@@ -292,6 +292,6 @@ void Fabrica::cargarMensajes(){
         men8->SetHoraEnv(hora);
         Usuario * u8=cUsu->getUsuario(66777); //90666777
         u8->setMensaje(men8,2);
-
+        this->getContMensaje()->setIdMens(9);
  }
 

@@ -54,6 +54,7 @@ public:
 private:
     ListDicc * mensajes=new ListDicc();
     int idConv;
+    int idMensajeConv= 1;
 };
 
 #endif /* CONVERSACION_H */

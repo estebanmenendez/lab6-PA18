@@ -238,6 +238,8 @@ Lista* ContUsuario::listaConversacionArc() {
     Usuario* usuLog = getUsu();
     Lista* listConvArch;
     listConvArch = usuLog->getConversacionesAr();
+    if (listConvArch == NULL) 
+        throw invalid_argument("\nNo existen Conversaciones Archivadas\n");
     return listConvArch;
 }
 
@@ -345,7 +347,7 @@ void ContUsuario::altaPrecargaConversacion(){
     u3->crearEstadoConversacion(conv2);
     Usuario* u4=dynamic_cast<Usuario*>(usuario->find(key4));
     u4->crearEstadoConversacion(conv2);
-
+    this->idConv = 3;
 }
 void ContUsuario::setFechaHoraG(DtFecha* fech, DtHora * hora) {
     usuLog->setFechaHoraG(fech,hora);
@@ -358,6 +360,7 @@ int ContUsuario::generarIdConv(){
      intKey *key=new intKey(idUsu);
      Usuario *us=dynamic_cast<Usuario*>(usuario->find(key));
      us->setIdConvGrupo(1);
+     this->idConv = 2;
  }
  
  

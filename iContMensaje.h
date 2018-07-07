@@ -61,6 +61,7 @@ public:
     virtual Lista* infromacionAdicional(int) = 0;
     virtual Mensaje* crearMensajeGrupo(string) = 0;
     virtual Lista* informacionAdicional(int idConv, int idMen) = 0;
+    virtual void setIdMens(int id)= 0;
 };
 
 #endif /* ICONTMENSAJE_H */

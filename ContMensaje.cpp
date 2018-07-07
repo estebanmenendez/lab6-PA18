@@ -275,3 +275,6 @@ Lista* ContMensaje::informacionAdicional(int idConv, int idMen) {
     }
     return ltReturn;
 }
+void ContMensaje::setIdMens(int id) {
+    this->idMensaje = id;
+}
