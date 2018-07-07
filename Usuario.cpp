@@ -300,8 +300,8 @@ string Usuario::nombreUsu(int numCel) {
     return us->GetNombre();
 }
 
-void Usuario::crearTipo(Grupo* grupo,string tipo){
-    Tipo * tipos = new Tipo(grupo,tipo);
+void Usuario::crearTipo(Grupo* grupo,string tipo,DtUltCon* fecha){
+    Tipo * tipos = new Tipo(grupo,tipo,fecha);
     this->SetTipo(tipos);
 }
 

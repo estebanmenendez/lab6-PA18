@@ -90,28 +90,18 @@ void ContGrupo::cancelar() {
 DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
     iContUsuario* contUsu = Fabrica::getInstance()->getContUsuario();
     iContMensaje* ContMen = Fabrica::getInstance()->getContMensaje();
+    
      //setea el idConversacion en ContMensaje
-//    int idConv = contUsu->getIdConv();
-//    ContMen->selecConversacion(idConv);    
-//    Conversacion* conv= this->getConversacion(idConv);
-            
-            
-    //se crea el grupo y se setean los atributos urlImagen, nombre y usuario creador.
     Grupo* grupo = new Grupo();
     grupo->SetImagen(imagen);
     grupo->SetNombre(nombre);
     grupo->SetCreador(std::to_string(contUsu->getUsu()->GetCelular()));
-//    grupo->setConversacion(conv);
     DtGrupo* dtGrupo = new DtGrupo(nombre);
-        
-   // iContMensaje* contMen = Fabrica::getInstance()->getContMensaje();
-   
     
     //para el usuario Admin crea el tipo 
     contUsu->crearTipoUsuario(grupo,grupo->GetCreador());
     EstadoConv *ec1 = new EstadoConv(false);
     grupo->setConversacion(ec1->getConversacion());
-   
     contUsu->getUsu()->SetEstadoConv(ec1);
    
     //Por cada usuario elegido para el grupo le pide a ContUsuario que crea el Tipo    
@@ -168,11 +158,9 @@ void ContGrupo::Salir() {
         while (h->hasNext()) {
             DtContacto* dtn = dynamic_cast<DtContacto*> (h->getCurrent());
             this->ltElegidos->remove(dtn);
+            if (h->hasNext())
+                h->next();
             delete dtn;
-            if (!h->hasNext())
-                break;
-            else
-            h->next();
         }
         delete h;
     }
@@ -202,3 +190,8 @@ void ContGrupo::Salir() {
 // void ContGrupo::setGrupo(Grupo* grupo){
 //     this->grupo = grupo;
 // }
+ 
+  void ContGrupo::setGrupo(string grupo){
+     iContUsuario* contUsu = Fabrica::getInstance()->getContUsuario();
+      this->grupo = contUsu->getUsu()->getGrupo(grupo);
+ }

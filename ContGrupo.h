@@ -48,7 +48,7 @@ public:
     bool estaElegido(string);
     void vaciaListaParticipantes();
     void agregarParticipanteGrupo();
-//    void setGrupo(Grupo*);
+    void setGrupo(string);
 };
 #endif /* CONTGRUPO_H */
 

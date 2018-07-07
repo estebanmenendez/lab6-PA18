@@ -48,7 +48,7 @@ public:
     virtual bool estaElegido(string )=0;
     virtual void vaciaListaParticipantes()= 0;
     virtual void agregarParticipanteGrupo()=0;
-    //virtual void setGrupo(Grupo*)= 0;
+    virtual void setGrupo(string)= 0;
 
 private:
 

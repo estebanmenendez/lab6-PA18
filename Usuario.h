@@ -86,7 +86,7 @@ public:
     Lista * listarVistos(int idMens,int idConv);
     string nombreUsu(int numCel);
     int getNumContacto(int);
-    void crearTipo(Grupo*,string);
+    void crearTipo(Grupo*,string,DtUltCon*);
     void crearEstadoConversacion(Conversacion *conv);
     Lista * getTipos();
     Lista * getContactosGrupo(string);

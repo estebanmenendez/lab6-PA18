@@ -13,9 +13,11 @@
 
 #include "Tipo.h"
 
-Tipo::Tipo(Grupo* grupo,string tipo) {
+Tipo::Tipo(Grupo* grupo,string tipo,DtUltCon* fecha) {
     this->grupo = grupo;
     this->tipo = tipo;
+    this->fechaIng = fecha->getFecha();
+    this->horaIng = fecha->getHora();
 }
 
 Tipo::Tipo(const Tipo& orig) {

@@ -24,7 +24,7 @@ using namespace std;
 
 class Tipo : public ICollectible {
 public:
-    Tipo(Grupo*,string);
+    Tipo(Grupo*,string,DtUltCon*);
     Tipo(const Tipo& orig);
     virtual ~Tipo();
 
