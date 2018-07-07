@@ -127,6 +127,7 @@ Lista * ContUsuario::listarConversacion(string option) {
 
 Lista * ContUsuario::seleccionarConversacion(int idConv) {
     Lista * selecConv = this->usuLog->seleccionarConversacion(idConv);
+    return selecConv;
 }
 
 bool ContUsuario::eliminarMensaje(int idMen, int idConv){
