@@ -258,18 +258,18 @@ bool Usuario::sosElOtro(int idConv) {
     return false;
 }
 
-//Lista * Usuario::listarMensajes(int codConv) {
-//    Lista *listaMen = new Lista();
-//    IIterator *It = estadoConv->iterator();
-//    while (It->hasNext()) {
-//        EstadoConv *ec = dynamic_cast<EstadoConv*> (It->getCurrent());
-//        if (ec->getConversacion()->sosConversacion(codConv) == true) {
-//            listaMen = ec->getConversacion()->listarMensaje(NULL);
-//            return listaMen;
-//        }
-//        It->next();
-//    }
-//}
+Lista * Usuario::listarMensajes(int codConv) {
+    Lista *listaMen = new Lista();
+    IIterator *It = estadoConv->iterator();
+    while (It->hasNext()) {
+        EstadoConv *ec = dynamic_cast<EstadoConv*> (It->getCurrent());
+        if (ec->getConversacion()->sosConversacion(codConv) == true) {
+            listaMen = ec->getConversacion()->listarMensaje(NULL);
+            return listaMen;
+        }
+        It->next();
+    }
+}
 
 Lista * Usuario::listarVistos(int idMens,int idConv) {
     Lista *vistos=new Lista();
@@ -499,27 +499,27 @@ bool Usuario::esReceptor(int idMen, int idConv){
     return false;
 }
 
-Lista * Usuario::listarMensajes(int codConv) {
-    Lista *listaMen = new Lista();
-    IIterator *it = tipo->iterator();
-    while(it->hasNext()){
-        Tipo * ti= dynamic_cast<Tipo*>(it->getCurrent());
-        if(ti->getGrupo()->getConversacion()->sosConversacion(codConv)==true){
-           listaMen= ti->getGrupo()->getConversacion()->listarMensaje(ti->getFechaHoraIng());
-           return listaMen;
-        }
-        
-        it->next();
-    }
-    it= estadoConv->iterator();
-    while(it->hasNext()){
-        EstadoConv * ec= dynamic_cast<EstadoConv*>(it->getCurrent());
-        if(ec->getConversacion()->sosConversacion(codConv)==true){
-            listaMen=ec->getConversacion()->listarMensaje(NULL);
-            return listaMen;
-        }
-        
-        it->next();
-    }
-    
-}
+//Lista * Usuario::listarMensajes(int codConv) {
+//    Lista *listaMen = new Lista();
+//    IIterator *it = tipo->iterator();
+//    while(it->hasNext()){
+//        Tipo * ti= dynamic_cast<Tipo*>(it->getCurrent());
+//        if(ti->getGrupo()->getConversacion()->sosConversacion(codConv)==true){
+//           listaMen= ti->getGrupo()->getConversacion()->listarMensaje(ti->getFechaHoraIng());
+//           return listaMen;
+//        }
+//        
+//        it->next();
+//    }
+//    it= estadoConv->iterator();
+//    while(it->hasNext()){
+//        EstadoConv * ec= dynamic_cast<EstadoConv*>(it->getCurrent());
+//        if(ec->getConversacion()->sosConversacion(codConv)==true){
+//            listaMen=ec->getConversacion()->listarMensaje(NULL);
+//            return listaMen;
+//        }
+//        
+//        it->next();
+//    }
+//    
+//}
