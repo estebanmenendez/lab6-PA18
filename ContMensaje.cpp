@@ -126,6 +126,9 @@ void ContMensaje::crearMensaje(DtMensaje*) {
 }
 
 void ContMensaje::selecConversacion(int idConv) {
+    iContUsuario * ContUsu = Fabrica::getInstance()->getContUsuario();
+    if (ContUsu->seleccionarConversacion(idConv)== NULL)
+        throw invalid_argument("Esta conversacion no existe\n");
     this->idConv = idConv;
 }
 

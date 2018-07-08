@@ -465,13 +465,16 @@ Lista * Usuario::getConversaciones() {
             if (convGrupal(ec->getConversacion()->getIdConv()) == false) {
                 DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), ec->getConversacion()->getCelContacto()); //constructor conv comun
                 conversacionesAct->add(DtConv);
-            it->next();
+//            it->next();
             } else {
                 conversacionesAct->add(getConvGrupo(ec->getConversacion()->getIdConv()));
-                it->next();
+//                it->next();
             }
-        } else cant++;
-        
+            it->next();
+        } else {
+            cant++;
+            it->next();
+        }
     }
     DtConversacion * DtConv = new DtConversacion(cant); //constructor conv archivadas
     conversacionesAct->add(DtConv);
