@@ -63,20 +63,29 @@ bool Mensaje::remueveVistos() {
     while (it->hasNext()) {
         Visto * v = dynamic_cast<Visto*> (it->getCurrent());
         visto->remove(v);
-        it->next();
-        delete v;
+        if (it->hasNext()){
+            it->next();
+             delete v;
+        }
+        else
+            break;
+        
+       
     }
     return true;
 }
 bool Mensaje::remueveMiVisto(int idCel){
     IIterator * it=visto->iterator();
-    while (it->next()){
+    while (it->hasNext()){
         Visto * v= dynamic_cast<Visto*>(it->getCurrent());
         if(v->getReceptor()==idCel){
             it->next();
             delete v;
         }
-        it->next();
+        if (it->hasNext())
+            it->next();
+        else
+            break;
     }
 }
 void Mensaje::SetVisto(Visto* visto) {

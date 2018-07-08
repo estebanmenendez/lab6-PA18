@@ -140,7 +140,8 @@ bool ContUsuario::eliminarMensaje(int idMen, int idConv) {
     if (usuLog->existeConversacion(idConv) == true) {
         if (usuLog->getConversacion(idConv)->existeMensaje(idMen) == true) {
             if (usuLog->esReceptor(idMen, idConv) == true) {
-                return usuLog->getConversacion(idConv)->remueveMiVisto(idMen, usuLog->GetCelular());
+                //usuLog->getConversacion(idConv)->remueveMiVisto(idMen, usuLog->GetCelular());
+                return usuLog->getConversacion(idConv)->remueveMens(idMen);
             } else {
                 if (usuLog->getConversacion(idConv)->esEmisor(idMen, usuLog->GetCelular()) == true) {
 

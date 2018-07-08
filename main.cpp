@@ -354,7 +354,7 @@ void agregarContacto() {
         if (ltCont->isEmpty()) {
             cout << "\nNo tiene contactos\n";
         } else {
-            cout <<"\nContactos del Usuario:\n";
+            cout << "\nContactos del Usuario:\n";
             IIterator* i = ltCont->iterator();
             while (i->hasNext()) {
                 impMen(i->getCurrent());
@@ -378,20 +378,20 @@ void agregarContacto() {
                 cout << "\nYa tienes a este contacto agregado\n";
             } else {
                 impMen(dtc);
-//                cout << dtc->GetNombre() << endl;
-//                cout << dtc->GetNumCel() << endl;
-//                cout << dtc->getUrlImagen() << endl;
+                //                cout << dtc->GetNombre() << endl;
+                //                cout << dtc->GetNumCel() << endl;
+                //                cout << dtc->getUrlImagen() << endl;
                 cout << "\n¿Confirmar el ingreso? s/n\n";
                 cin>>confirmar;
                 if (confirmar == 's') {
                     ContUsu->agregaContacto(dtc);
-                    cout<<"\nContacto Agregado !!!";
+                    cout << "\nContacto Agregado !!!";
                 }
             }
         } else {
-            cout << "No existe un usuario con ese celular\n";
+            cout << "\nNo existe un usuario con ese celular\n";
         }
-        cout << "Desea seguir agregando contactos? s/n\n";
+        cout << "\nDesea seguir agregando contactos? s/n\n";
         cin>>salir;
     } while (salir == 's');
 }
@@ -408,7 +408,6 @@ void verMensajes() {
 
     try {
         it = listCon->iterator();
-        //cout << "|Nombre:Contacto/Grupo| " << "\t|Id-Conversacion| " << "\t|Celular/Cantidad|" << endl;
         while (it->hasNext()) {
             impConversacion(it->getCurrent());
             it->next();
@@ -550,11 +549,13 @@ void altaGrupo() {
                     }
                     if (ContGru->estaElegido(dtc->GetNumCel())) {
                         ContGru->eliminarParticipante(dtc);
+                        cout << "Contacto: " << dtc->GetNombre() << " fue sacado del grupo\n";
                         removido = 's';
                     }
                     //}
                     if (removido == 'n') {
-                        cout << dtc->GetNumCel() << " - " << dtc->GetNombre() << " - " << dtc->getUrlImagen() << endl;
+                        impMen(dtc);
+                        //                        cout << dtc->GetNumCel() << " - " << dtc->GetNombre() << " - " << dtc->getUrlImagen() << endl;
                         cout << "¿Confirmar el ingreso al Grupo? s/n\n";
                         cin>>confirmar;
                         if (confirmar == 's') {
@@ -706,7 +707,7 @@ void agregarPartGrupo() {
 }
 
 void eliMensaje() {
-    int opcion = 1, mensa, idconv, opsubMen1, opsubMen2, opsubMen3;
+    int opcion = 1, mensa=1, idconv, opsubMen1, opsubMen2, opsubMen3;
     char confirmar, salir = 'n';
     Lista * listConversaciones;
     Lista * listMensajes;
@@ -740,18 +741,13 @@ void eliMensaje() {
                     }
                     cout << endl;
                     do {
-                        cout << "1-Eliminar mensaje" << endl;
-                        cin>>opsubMen1;
-                        switch (opsubMen1) {
-                            case 1:
-                                cout << "Ingrese el Id del mensaje: " << endl;
-                                cin>>mensa;
-                                if (ContUsu->eliminarMensaje(mensa, idconv) == true) {
-                                    cout << "Mensaje: " << to_string(mensa) << " eliminado!" << endl;
-                                }
-                                break;
+                        cout << "Ingrese el Id del mensaje: (0 = Salir) " << endl;
+                        cin>>mensa;
+                        if (ContUsu->eliminarMensaje(mensa, idconv) == true) {
+                            cout << "Mensaje: " << to_string(mensa) << " eliminado!" << endl;
                         }
-                    } while (opsubMen1 != 0);
+
+                    } while (mensa != 0);
 
                     break;
                 }
@@ -942,11 +938,11 @@ void impMen(ICollectible *ic) {
         if (DtG->getipoEnGrupo().empty() == false)cout << "Tipo: " << DtG->getipoEnGrupo() << endl;
         if (DtG->getnombre().empty() == false)cout << "Nombre: " << (DtG->getnombre()) << endl;
     }
-    
+
     if (dynamic_cast<DtContacto*> (ic)) {
         DtContacto* DtC = dynamic_cast<DtContacto*> (ic);
-        if (DtC->GetNumCel().empty()== false)cout << "\nCelular: " << DtC->GetNumCel();
-        if (DtC->GetNombre().empty() == false)cout << "\nNombre: " << DtC->GetNombre() ;
-        if (DtC->getUrlImagen().empty() == false)cout << "\nImagen: " << DtC->getUrlImagen()<<endl;
+        if (DtC->GetNumCel().empty() == false)cout << "\nCelular: " << DtC->GetNumCel();
+        if (DtC->GetNombre().empty() == false)cout << "\nNombre: " << DtC->GetNombre();
+        if (DtC->getUrlImagen().empty() == false)cout << "\nImagen: " << DtC->getUrlImagen() << endl;
     }
 }

@@ -44,69 +44,71 @@ void ContMensaje::enviarMensaje() {
     IIterator *it;
     Visto* visto;
     int noGrupo = 0;
-    if(Fabrica::getInstance()->getContUsuario()->getUsu()->convGrupal(this->idConv)){
+    if (Fabrica::getInstance()->getContUsuario()->getUsu()->convGrupal(this->idConv)) {
         Lista* usuariosGrupo = Fabrica::getInstance()->getContUsuario()->getUsu()->getContactosGrupo(this->idConv);
         it = usuariosGrupo->iterator();
-    }
-    else {
+    } else {
         visto = new Visto(Fabrica::getInstance()->getContUsuario()->getReceptor(), false);
         noGrupo = 1;
     }
-    
-    if(this->cuerpoSimple != NULL) {
+
+    if (this->cuerpoSimple != NULL) {
         //if(!it->hasNext())
-        if (noGrupo  == 1 )
+        if (noGrupo == 1)
             this->cuerpoSimple->SetVisto(visto);
-        else{
-            while(it->hasNext()) {
-                visto = new Visto(dynamic_cast<Usuario*>(it->getCurrent())->GetCelular(), false);
+        else {
+            while (it->hasNext()) {
+                visto = new Visto(dynamic_cast<Usuario*> (it->getCurrent())->GetCelular(), false);
                 this->cuerpoSimple->SetVisto(visto);
                 it->next();
             }
         }
-        Conversacion * conv = dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
+        Conversacion * conv = dynamic_cast<Conversacion*> (Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
         conv->setMensaje(this->cuerpoSimple);
         //dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoSimple);
     }
-    if(this->cuerpoImagen != NULL){
-        if(!it->hasNext())
+    if (this->cuerpoImagen != NULL) {
+        if (noGrupo == 1)
+            //        if(!it->hasNext())
             this->cuerpoImagen->SetVisto(visto);
-        else{
-            while(it->hasNext()) {
-                visto = new Visto(dynamic_cast<Usuario*>(it->getCurrent())->GetCelular(), false);
+        else {
+            while (it->hasNext()) {
+                visto = new Visto(dynamic_cast<Usuario*> (it->getCurrent())->GetCelular(), false);
                 this->cuerpoImagen->SetVisto(visto);
                 it->next();
             }
         }
-        Conversacion * conv = dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
+        Conversacion * conv = dynamic_cast<Conversacion*> (Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
         conv->setMensaje(this->cuerpoImagen);
         //dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoImagen);
     }
-    if(this->cuerpoVideo != NULL){
-        if(!it->hasNext())
+    if (this->cuerpoVideo != NULL) {
+        if (noGrupo == 1)
+            //        if(!it->hasNext())
             this->cuerpoVideo->SetVisto(visto);
-        else{
-            while(it->hasNext()) {
-                visto = new Visto(dynamic_cast<Usuario*>(it->getCurrent())->GetCelular(), false);
+        else {
+            while (it->hasNext()) {
+                visto = new Visto(dynamic_cast<Usuario*> (it->getCurrent())->GetCelular(), false);
                 this->cuerpoVideo->SetVisto(visto);
                 it->next();
             }
         }
-        Conversacion * conv = dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
+        Conversacion * conv = dynamic_cast<Conversacion*> (Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
         conv->setMensaje(this->cuerpoVideo);
         //dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoVideo);
     }
-    if(this->cuerpoContacto != NULL) {
-        if(!it->hasNext())
+    if (this->cuerpoContacto != NULL) {
+        //        if(!it->hasNext())
+        if (noGrupo == 1)
             this->cuerpoContacto->SetVisto(visto);
-        else{
-            while(it->hasNext()) {
-                visto = new Visto(dynamic_cast<Usuario*>(it->getCurrent())->GetCelular(), false);
+        else {
+            while (it->hasNext()) {
+                visto = new Visto(dynamic_cast<Usuario*> (it->getCurrent())->GetCelular(), false);
                 this->cuerpoContacto->SetVisto(visto);
                 it->next();
             }
         }
-        Conversacion * conv = dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
+        Conversacion * conv = dynamic_cast<Conversacion*> (Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv));
         conv->setMensaje(this->cuerpoContacto);
         //dynamic_cast<Conversacion*>(Fabrica::getInstance()->getContUsuario()->getConversacion(this->idConv))->setMensaje(this->cuerpoContacto);
     }
@@ -127,7 +129,7 @@ void ContMensaje::crearMensaje(DtMensaje*) {
 
 void ContMensaje::selecConversacion(int idConv) {
     iContUsuario * ContUsu = Fabrica::getInstance()->getContUsuario();
-    if (ContUsu->seleccionarConversacion(idConv)== NULL)
+    if (ContUsu->seleccionarConversacion(idConv) == NULL)
         throw invalid_argument("Esta conversacion no existe\n");
     this->idConv = idConv;
 }
@@ -158,6 +160,7 @@ void ContMensaje::cuerpoMensaje(DtVideo* dtv) {
     v->setEmisor(Fabrica::getInstance()->getContUsuario()->getNumUsuLog());
     this->cuerpoVideo = v;
 }
+
 void ContMensaje::cuerpoMensaje(DtSimple* dts) {
     this->idMensaje++;
     DtUltCon* dtu = Fabrica::getInstance()->getContFecha()->getFechaHora();
@@ -165,7 +168,7 @@ void ContMensaje::cuerpoMensaje(DtSimple* dts) {
     s->SetFechaEnv(dtu->getFecha());
     s->SetHoraEnv(dtu->getHora());
     this->cuerpoSimple = s;
-    
+
 }
 
 void ContMensaje::cuerpoMensaje(DtImagen* dti) {
@@ -228,9 +231,9 @@ Lista* ContMensaje::seleccionarConversacion(int idConv) {
     return retorno;
 }
 
-void ContMensaje::eliminarMensaje(int idConv, DtMensaje* dtMen,int celUsu) {
+void ContMensaje::eliminarMensaje(int idConv, DtMensaje* dtMen, int celUsu) {
     iContUsuario * usuLog = Fabrica::getInstance()->getContUsuario();
-//    usuLog->eliminarMensConv(idConv, dtMen->GetCodigo(), celUsu);
+    //    usuLog->eliminarMensConv(idConv, dtMen->GetCodigo(), celUsu);
 }
 
 Lista * ContMensaje::listarConversaciones() {
@@ -240,44 +243,45 @@ Lista * ContMensaje::listarConversaciones() {
     return convAct;
 }
 
-Mensaje* ContMensaje::crearMensajeGrupo(string mensaje){
+Mensaje* ContMensaje::crearMensajeGrupo(string mensaje) {
     this->idMensaje++;
-    Mensaje* mens = new Simple(this->idMensaje,mensaje);
-    return mens;    
+    Mensaje* mens = new Simple(this->idMensaje, mensaje);
+    return mens;
 }
 
 Lista* ContMensaje::informacionAdicional(int idConv, int idMen) {
     Conversacion* conv = Fabrica::getInstance()->getContUsuario()->getConversacion(idConv);
     Mensaje *m;
-    if(dynamic_cast<Simple*>(conv->getMensaje(idMen)))
-        m = dynamic_cast<Simple*>(conv->getMensaje(idMen));
-    
-    if(dynamic_cast<Imagen*>(conv->getMensaje(idMen)))
-        m = dynamic_cast<Imagen*>(conv->getMensaje(idMen));
-    
-    if(dynamic_cast<Video*>(conv->getMensaje(idMen)))
-        m = dynamic_cast<Video*>(conv->getMensaje(idMen));
-    
-    if(dynamic_cast<Contacto*>(conv->getMensaje(idMen)))
-        m = dynamic_cast<Contacto*>(conv->getMensaje(idMen));
-    
+    if (dynamic_cast<Simple*> (conv->getMensaje(idMen)))
+        m = dynamic_cast<Simple*> (conv->getMensaje(idMen));
+
+    if (dynamic_cast<Imagen*> (conv->getMensaje(idMen)))
+        m = dynamic_cast<Imagen*> (conv->getMensaje(idMen));
+
+    if (dynamic_cast<Video*> (conv->getMensaje(idMen)))
+        m = dynamic_cast<Video*> (conv->getMensaje(idMen));
+
+    if (dynamic_cast<Contacto*> (conv->getMensaje(idMen)))
+        m = dynamic_cast<Contacto*> (conv->getMensaje(idMen));
+
     DtMensajeVisto *dtmv;
-    if(m->getEmisor() != Fabrica::getInstance()->getContUsuario()->getUsu()->GetCelular())
+    if (m->getEmisor() != Fabrica::getInstance()->getContUsuario()->getUsu()->GetCelular())
         throw invalid_argument("Usted no ha enviado este mensaje\n");
     Lista* ltVistos = m->getListaVistos(), *ltReturn = new Lista();
-    
+
     IIterator *it = ltVistos->iterator();
-    while(it->hasNext()) {
-        Visto* v = dynamic_cast<Visto*>(it->getCurrent());
+    while (it->hasNext()) {
+        Visto* v = dynamic_cast<Visto*> (it->getCurrent());
         Usuario* usu = Fabrica::getInstance()->getContUsuario()->getUsuByCel(v->getReceptor());
-        if(v->getEstado()) {
-            dtmv = new DtMensajeVisto(usu->GetNombre(),usu->GetCelular(), v->getFechaHoraVisto(), true);
+        if (v->getEstado()) {
+            dtmv = new DtMensajeVisto(usu->GetNombre(), usu->GetCelular(), v->getFechaHoraVisto(), true);
             ltReturn->add(dtmv);
         }
         it->next();
     }
     return ltReturn;
 }
+
 void ContMensaje::setIdMens(int id) {
     this->idMensaje = id;
 }

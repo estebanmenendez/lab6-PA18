@@ -52,6 +52,8 @@ bool Conversacion::remueveMens(int Idmen) {
     intKey * Mkey=new intKey(Idmen);
     Mensaje * men=dynamic_cast<Mensaje*>(mensajes->find(Mkey));
     if(men->remueveVistos()==true){
+        mensajes->removeKey(Mkey);
+        mensajes->removeObj(men);
         delete men;
     }
     return true;
