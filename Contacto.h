@@ -22,8 +22,8 @@ public:
     Contacto(const Contacto& orig);
     virtual ~Contacto();
     DtMContacto* getMensaje();
-    int GetNumCel();
-    void SetNumCel(int);
+    string GetNumCel();
+    void SetNumCel(string);
     
     void setNombre(string nombre);
     void setUrl(string urlImagen);
@@ -33,7 +33,7 @@ public:
     string getUrl();
     string getDesc();
 private:
-    int numCel;
+    string numCel;
     string nombre, urlImagen, desc;
 };
 

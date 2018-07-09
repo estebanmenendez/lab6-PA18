@@ -18,7 +18,7 @@
 #include<iostream>
 class DtMContacto : public DtMensaje {
 private:
-    int numCel;
+    string numCel;
     string nombre, url, descripcion;
 public:
     void setNombre(string nombre);
@@ -30,10 +30,10 @@ public:
     string getDesc();
     
     DtMContacto();
-    DtMContacto(int);
+    DtMContacto(string);
     DtMContacto(const DtMContacto& orig);
     virtual ~DtMContacto();
-    void setNumCel(int);
-    int getNumCel();
+    void setNumCel(string);
+    string getNumCel();
 };
 #endif /* DTMCONTACTO_H */

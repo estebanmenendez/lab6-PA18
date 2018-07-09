@@ -13,7 +13,7 @@
 
 #include "DtMensajeVisto.h"
 
-DtMensajeVisto::DtMensajeVisto(string nombre, int celular, DtFechaHoraVisto* fhv, bool estado) {
+DtMensajeVisto::DtMensajeVisto(string nombre, string celular, DtFechaHoraVisto* fhv, bool estado) {
     this->visto=estado;
     this->Nombre = nombre;
     this->Celular = celular;
@@ -35,7 +35,7 @@ DtMensajeVisto::~DtMensajeVisto() {
 DtFechaHoraVisto* DtMensajeVisto::GetFechaHoraVisto() {
     return FechaHoraVisto;
 }
-int DtMensajeVisto::GetCelular(){
+string DtMensajeVisto::GetCelular(){
     return Celular;
 }
 string DtMensajeVisto::GetNombre() {

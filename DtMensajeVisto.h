@@ -25,11 +25,11 @@ class DtMensajeVisto : public ICollectible {
 public:
     
     DtMensajeVisto();
-    DtMensajeVisto(string, int, DtFechaHoraVisto*,bool);
+    DtMensajeVisto(string, string, DtFechaHoraVisto*,bool);
     DtMensajeVisto(const DtMensajeVisto& orig);
     virtual ~DtMensajeVisto();
     bool getVisto();
-    int GetCelular();
+    string GetCelular();
     string GetNombre();
     
 
@@ -39,7 +39,7 @@ private:
     
     bool visto;
     string Nombre;
-    int Celular;
+    string Celular;
     DtFechaHoraVisto *FechaHoraVisto;
 };
 

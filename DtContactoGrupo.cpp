@@ -15,7 +15,7 @@
 DtContactoGrupo::DtContactoGrupo(){
     
 }
-DtContactoGrupo::DtContactoGrupo(int celular,string nombre,string tipoEnGrupo,DtFecha* fecha,DtHora* hora) {
+DtContactoGrupo::DtContactoGrupo(string celular,string nombre,string tipoEnGrupo,DtFecha* fecha,DtHora* hora) {
     this->celular = celular;
     this->nombre = nombre;
     this->tipoEnGrupo = tipoEnGrupo;
@@ -30,7 +30,7 @@ DtContactoGrupo::DtContactoGrupo(const DtContactoGrupo& orig) {
 DtContactoGrupo::~DtContactoGrupo() {
 }
 
-int DtContactoGrupo::getCelular(){
+string DtContactoGrupo::getCelular(){
     return this->celular;
 }
 string DtContactoGrupo::getipoEnGrupo(){

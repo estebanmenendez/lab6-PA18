@@ -29,7 +29,7 @@ int Mensaje::GetCodigo() {
 void Mensaje::SetCodigo(int codigo) {
     this->codigo = codigo;
 }
-void Mensaje::setEmisor(int emi){
+void Mensaje::setEmisor(string emi){
     this->emisor=emi;
 }
 DtFecha* Mensaje::GetFechaEnv() {
@@ -55,7 +55,7 @@ Visto* Mensaje::GetVisto() {
         return v;
     }
 }
-int Mensaje::getEmisor(){
+string Mensaje::getEmisor(){
     return this->emisor;
 }
 bool Mensaje::remueveVistos() {
@@ -74,7 +74,7 @@ bool Mensaje::remueveVistos() {
     }
     return true;
 }
-bool Mensaje::remueveMiVisto(int idCel){
+bool Mensaje::remueveMiVisto(string idCel){
     IIterator * it=visto->iterator();
     while (it->hasNext()){
         Visto * v= dynamic_cast<Visto*>(it->getCurrent());
@@ -92,8 +92,8 @@ void Mensaje::SetVisto(Visto* visto) {
     this->visto->add(visto);
 }
 
-bool Mensaje::esReceptor(int numCel) {
-    if (this->emisor != numCel) {
+bool Mensaje::esReceptor(string numCel) {
+    if (this->emisor.compare(numCel)!= 0) {
         IIterator *it = visto->iterator();
         while (it->hasNext()) {
             Visto *v = dynamic_cast<Visto*> (it->getCurrent());

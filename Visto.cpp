@@ -13,7 +13,7 @@
 
 #include "Visto.h"
 
-Visto::Visto(int receptor, bool estado) {
+Visto::Visto(string receptor, bool estado) {
     this->Receptor = receptor;
     this->estado = estado;
     this->fechaV = NULL;
@@ -23,7 +23,7 @@ Visto::Visto(int receptor, bool estado) {
 Visto::Visto() {
     
 }
-Visto::Visto(int celular) {
+Visto::Visto(string celular) {
     this->Receptor = celular;
     this->estado = false;
     this->fechaV = new DtFecha();
@@ -61,14 +61,14 @@ void Visto::SetHoraV(DtHora * horaV) {
     this->horaV = horaV;
 }
 
-bool Visto::esReceptor(int recep){
+bool Visto::esReceptor(string recep){
     if (recep==this->Receptor) return true;
 } 
-int Visto::getReceptor(){
+string Visto::getReceptor(){
     return Receptor;
 }
 DtFechaHoraVisto * Visto::getFechaHoraVisto(){
     DtFechaHoraVisto* dtFecha=new DtFechaHoraVisto(this->fechaV,this->horaV);
     return dtFecha;
 }
-void Visto::setReceptor(int rec){this->Receptor=rec;}
+void Visto::setReceptor(string rec){this->Receptor=rec;}

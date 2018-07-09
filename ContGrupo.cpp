@@ -95,7 +95,7 @@ DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
     Grupo* grupo = new Grupo();
     grupo->SetImagen(imagen);
     grupo->SetNombre(nombre);
-    grupo->SetCreador(std::to_string(contUsu->getUsu()->GetCelular()));
+    grupo->SetCreador(contUsu->getUsu()->GetCelular());
     DtGrupo* dtGrupo = new DtGrupo(nombre);
     
     //para el usuario Admin crea el tipo 
@@ -110,7 +110,7 @@ DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
         DtContacto* dtn = dynamic_cast<DtContacto*> (h->getCurrent());
         contUsu->crearTipoUsuario(grupo,dtn->GetNumCel());
         EstadoConv* ec2 = new EstadoConv(false, ec1->getConversacion());
-        Usuario* u = contUsu->getUsuByCel(atoi(dtn->GetNumCel().c_str())); 
+        Usuario* u = contUsu->getUsuByCel(dtn->GetNumCel()); 
         u->SetEstadoConv(ec2);
         h->next();
     }
@@ -181,7 +181,7 @@ void ContGrupo::Salir() {
     while (h->hasNext()) {
         dtn = dynamic_cast<DtContacto*> (h->getCurrent());
         contUsu->crearTipoUsuario(this->grupo,dtn->GetNumCel());
-        Visto* vistos = new Visto(atoi(dtn->GetNumCel().c_str()));
+        Visto* vistos = new Visto(dtn->GetNumCel());
         mens->SetVisto(vistos);
         h->next();
     }

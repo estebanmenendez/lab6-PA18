@@ -33,9 +33,9 @@ DtContacto::DtContacto(string nombre, string numCel, string tipo, DtFecha fechaI
     this->tipo = tipo;
 }
 
-DtContacto::DtContacto(string nombre, int numCel, string urlImagen) {
+DtContacto::DtContacto(string nombre, string numCel, string urlImagen) {
     this->nombre = nombre;
-    this->numCel = std::to_string(numCel);
+    this->numCel = numCel;
     this->urlImagen = urlImagen;
 }
 

@@ -18,14 +18,15 @@
 #include"DtFecha.h"
 #include"DtHora.h"
 #include "ICollectible.h"
+#include <iostream>
 
 using namespace std;
 
 class Visto : public ICollectible {
 public:
-    Visto(int receptor, bool estado);
+    Visto(string, bool );
     Visto();
-    Visto(int);
+    Visto(string);
     Visto(const Visto& orig);
     virtual ~Visto();
     bool getEstado();
@@ -34,13 +35,13 @@ public:
     void SetFechaV(DtFecha *);
     void SetHoraV(DtHora *);
     void SetEstado(bool);
-    bool esReceptor(int);
-    int getReceptor();
+    bool esReceptor(string);
+    string getReceptor();
     DtFechaHoraVisto * getFechaHoraVisto();
-    void setReceptor(int);
+    void setReceptor(string);
 private:
 
-    int Receptor;
+    string Receptor;
     bool estado;
     DtFecha * fechaV;
     DtHora * horaV;

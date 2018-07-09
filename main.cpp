@@ -52,8 +52,9 @@ iContFecha* ContFec = Fabrica::getInstance()->getContFecha();
 int main(int argc, char** argv) {
     ContFec->setFechaHoraSistema(0, 0, 1000, 0, 0);
     char carga;
-    int numCel = 0, optNoCel, optMenuPrincipal;
+    int  optNoCel, optMenuPrincipal;
     bool salirTotal = false, ingresarCel = false, firstMenu = false;
+    string numCel;
 
     cout << "\nDesea Cargar los datos de prueba (s/n)\n";
     cin>>carga;
@@ -170,8 +171,8 @@ void enviarMensaje() {
     DtImagen *dti;
     DtVideo *dtv;
     DtMContacto *dtmc;
-    int optMen, idConv, numCelContacto, optTipo, tamanioImagen, duraVideo, celContacto, archivadas = 0, conversa = 0;
-    string texto, urlImagen, formatoImagen, descImagen, urlVideo;
+    int optMen, idConv, optTipo, tamanioImagen, duraVideo, celContacto, archivadas = 0, conversa = 0;
+    string texto, urlImagen, numCelContacto, formatoImagen, descImagen, urlVideo;
 
     if (ltConv->isEmpty()) {
         cout << "No tene conversaciones\n";
@@ -348,7 +349,7 @@ void agregarContacto() {
     char confirmar, salir = 'n';
     do {
         Lista* ltCont = ContUsu->listarContactos("p");
-        int numCel;
+        string numCel;
         DtContacto* dtc = new DtContacto();
         bool existe = false;
         if (ltCont->isEmpty()) {
@@ -366,13 +367,13 @@ void agregarContacto() {
         IIterator* i = ltCont->iterator();
         while (i->hasNext()) {
             DtContacto* dtc = dynamic_cast<DtContacto*> (i->getCurrent());
-            if (atoi(dtc->GetNumCel().c_str()) == numCel)
+            if (dtc->GetNumCel() == numCel)
                 existe = true;
             i->next();
         }
         dtc = ContUsu->ingContacto(numCel);
         if (dtc != NULL) {
-            if (dtc->GetNumCel() == std::to_string(ContUsu->getNumUsuLog())) {
+            if (dtc->GetNumCel() == ContUsu->getNumUsuLog()) {
                 cout << "\nNo puedes agregarte como contacto a vos mismo.\n";
             } else if (existe) {
                 cout << "\nYa tienes a este contacto agregado\n";
@@ -441,7 +442,7 @@ void verMensajes() {
                             while (it->hasNext()) {
                                 dtmv = dynamic_cast<DtMensajeVisto*> (it->getCurrent());
                                 cout << "| Celular|" << "| Nombre|" << "| Estado| " << "| Fecha/Hora| \n";
-                                cout << "| " << to_string(dtmv->GetCelular()) << "| " << dtmv->GetNombre() << "| " << dtmv->getVisto() << "| " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio()) << "|" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "| " << endl;
+                                cout << "| " << dtmv->GetCelular() << "| " << dtmv->GetNombre() << "| " << dtmv->getVisto() << "| " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio()) << "|" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "| " << endl;
                                 it->next();
                             }
                         }
@@ -482,7 +483,7 @@ void verMensajes() {
                                 while (it->hasNext()) {
                                     dtmv = dynamic_cast<DtMensajeVisto*> (it->getCurrent());
                                     cout << "| Celular|" << "| Nombre|" << "| Estado| " << "| Fecha/Hora| \n";
-                                    cout << "| " << to_string(dtmv->GetCelular()) << "| " << dtmv->GetNombre() << "| " << dtmv->getVisto() << "| " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio()) << "|" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "| " << endl;
+                                    cout << "| " << dtmv->GetCelular() << "| " << dtmv->GetNombre() << "| " << dtmv->getVisto() << "| " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio()) << "|" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "| " << endl;
                                     it->next();
                                 }
                             }
@@ -501,13 +502,13 @@ void verMensajes() {
 
 void altaGrupo() {
     char salir = 'n', confirmar, removido = 'n';
-    string urlI = "", nombreG = "";
-    int numCel, conNombre = 0;
+    string numCel,urlI = "", nombreG = "";
+    int  conNombre = 0;
     ContGru->vaciaListaParticipantes();
     DtContacto* dtc = new DtContacto();
     DtContacto* dte = new DtContacto();
     //DtContacto* dtn = new DtContacto();
-    ContGru->eliminarParticipante(ContUsu->ingContacto(46810));
+    ContGru->eliminarParticipante(ContUsu->ingContacto("090246810"));
     DtGrupo * dtGrupo;
 
     cin.ignore();
@@ -543,7 +544,7 @@ void altaGrupo() {
                 if (dtc == NULL) {
                     cout << "No existe un contacto con ese celular\n";
                 } else {
-                    if (dtc->GetNumCel() == std::to_string(ContUsu->getUsu()->GetCelular())) {
+                    if (dtc->GetNumCel() == ContUsu->getUsu()->GetCelular()) {
                         cout << "No puedes agregarte como contacto tu mismo.\n";
                         removido = 's';
                     }
@@ -607,11 +608,11 @@ void altaGrupo() {
 
 void agregarPartGrupo() {
     char salir = 'n', confirmar, removido = 'n';
-    string urlI = "", nombreG = "";
+    string urlI = "", nombreG = "", numCel;
     ContGru->vaciaListaParticipantes();
     DtContactoGrupo* dtcg = new DtContactoGrupo();
     DtContacto* dtc = new DtContacto();
-    int numCel;
+    
     DtGrupo* dtg = new DtGrupo("");
 
     try {
@@ -664,7 +665,7 @@ void agregarPartGrupo() {
                         removido = 's';
 
                     } else {
-                        if (dtc->GetNumCel() == std::to_string(ContUsu->getUsu()->GetCelular())) {
+                        if (dtc->GetNumCel() == ContUsu->getUsu()->GetCelular()) {
                             cout << "No puedes agregarte como contacto tu mismo.\n";
                             removido = 's';
                         }
@@ -903,7 +904,7 @@ void impMen(ICollectible *ic) {
         if (DtMC->GetCodigo())cout << "Codigo Mensaje: " << to_string(DtMC->GetCodigo()) << endl;
         if (DtMC->GetFechaEnv()->GetDia() || DtMC->GetFechaEnv()->GetMes() || DtMC->GetFechaEnv()->GetAnio())cout << "Fecha envio: " << to_string(DtMC->GetFechaEnv()->GetDia()) << "/" << to_string(DtMC->GetFechaEnv()->GetMes()) << "/" << to_string(DtMC->GetFechaEnv()->GetAnio()) << endl;
         if (DtMC->GetHoraEnv()->GetHora() || DtMC->GetHoraEnv()->GetMinutos() || DtMC->GetHoraEnv()->GetSegundo())cout << "Hora envio: " << to_string(DtMC->GetHoraEnv()->GetHora()) << ":" << to_string(DtMC->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtMC->GetHoraEnv()->GetSegundo()) << endl;
-        if (DtMC->getNumCel())cout << "Numero de celular: " << to_string(DtMC->getNumCel()) << endl;
+        if (DtMC->getNumCel().empty())cout << "Numero de celular: " << DtMC->getNumCel() << endl;
 
     }
 
@@ -932,7 +933,7 @@ void impMen(ICollectible *ic) {
 
     if (dynamic_cast<DtContactoGrupo*> (ic)) {
         DtContactoGrupo* DtG = dynamic_cast<DtContactoGrupo*> (ic);
-        if (DtG->getCelular())cout << "\nCelular: " << to_string(DtG->getCelular()) << endl;
+        if (DtG->getCelular().empty())cout << "\nCelular: " << DtG->getCelular() << endl;
         if (DtG->getFecha()->GetDia() || DtG->getFecha()->GetMes() || DtG->getFecha()->GetAnio())cout << "Fecha Ing: " << to_string(DtG->getFecha()->GetDia()) << "/" << to_string(DtG->getFecha()->GetMes()) << "/" << to_string(DtG->getFecha()->GetAnio()) << endl;
         if (DtG->getHora()->GetHora() || DtG->getHora()->GetMinutos() || DtG->getHora()->GetSegundo())cout << "Hora Ing: " << to_string(DtG->getHora()->GetHora()) << ":" << to_string(DtG->getHora()->GetMinutos()) << ":" << to_string(DtG->getHora()->GetSegundo()) << endl;
         if (DtG->getipoEnGrupo().empty() == false)cout << "Tipo: " << DtG->getipoEnGrupo() << endl;

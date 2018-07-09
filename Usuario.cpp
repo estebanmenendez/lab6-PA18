@@ -17,7 +17,7 @@
 #include "Fabrica.h"
 
 void Usuario::addContacto(Usuario* u) {
-    intKey* ikey = new intKey(u->GetCelular());
+    StringKey* ikey = new StringKey(u->GetCelular());
     this->contactos->add(u, ikey);
 }
 void Usuario::setIdConvGrupo(int id){
@@ -26,7 +26,7 @@ void Usuario::setIdConvGrupo(int id){
     t->getGrupo()->getConversacion()->setIdConv(id);
 
 }
-Usuario::Usuario(string nombre, string imagenPerfil, string descripcion, int numCel) {
+Usuario::Usuario(string nombre, string imagenPerfil, string descripcion, string numCel) {
     Fecha_Hora_sis* fechora;
     this->nombre = nombre;
     this->foto_Perfil = imagenPerfil;
@@ -37,16 +37,16 @@ Usuario::Usuario(string nombre, string imagenPerfil, string descripcion, int num
     this->SetUltima_conexion(fechora->getUltimaConexion());
 }
 
-Usuario::Usuario(int celUsu,string nombre,string UrlImagen,string descripcion){
-    Fecha_Hora_sis* fechora;
-    this->nombre = nombre;
-    this->foto_Perfil = UrlImagen;
-    this->descripcion = descripcion;
-    this->celular = celUsu;
-    this->fechaCreacion = fechora->getFecha();
-    this->horaCreacion = fechora->getHora();
-    this->SetUltima_conexion(fechora->getUltimaConexion());
-}
+//Usuario::Usuario(string celUsu,string nombre,string UrlImagen,string descripcion){
+//    Fecha_Hora_sis* fechora;
+//    this->nombre = nombre;
+//    this->foto_Perfil = UrlImagen;
+//    this->descripcion = descripcion;
+//    this->celular = celUsu;
+//    this->fechaCreacion = fechora->getFecha();
+//    this->horaCreacion = fechora->getHora();
+//    this->SetUltima_conexion(fechora->getUltimaConexion());
+//}
 
 ListDicc* Usuario::getListaContactos() {
     return this->contactos;
@@ -58,11 +58,11 @@ Usuario::Usuario(const Usuario& orig) {
 Usuario::~Usuario() {
 }
 
-int Usuario::GetCelular() {
+string Usuario::GetCelular() {
     return celular;
 }
 
-void Usuario::SetCelular(int celular) {
+void Usuario::SetCelular(string celular) {
     this->celular = celular;
 }
 
@@ -73,7 +73,7 @@ DtContacto* Usuario::GetContacto() {
 }
 
 void Usuario::SetContacto(Usuario * contacto) {
-    intKey * key = new intKey(contacto->GetCelular());
+    StringKey * key = new StringKey(contacto->GetCelular());
     this->contactos->add(contacto, key);
 }
 
@@ -145,8 +145,8 @@ Lista * Usuario::getConversaciones(string options) {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->ConvActiva() == true) {
             if (convGrupal(ec->getConversacion()->getIdConv()) == false) {
-                DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), ec->getConversacion()->getCelContacto()); //constructor conv comun
-                int celCont = ec->getConversacion()->getCelContacto();
+                DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), atoi(ec->getConversacion()->getCelContacto().c_str())); //constructor conv comun
+                int celCont = atoi(ec->getConversacion()->getCelContacto().c_str());
                 conversacionesAct->add(DtConv);
             } 
             else {
@@ -195,7 +195,7 @@ Lista * Usuario::getConversacionesAr() {
         EstadoConv *ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->ConvActiva() == false) {
             if (convGrupal(ec->getConversacion()->getIdConv()) == false) {
-                DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), ec->getConversacion()->getCelContacto()); //constructor conv comun
+                DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(),atoi(ec->getConversacion()->getCelContacto().c_str())); //constructor conv comun
                 conversacionesArc->add(DtConv);
             } else {
                 conversacionesArc->add(getConvGrupo(ec->getConversacion()->getIdConv()));
@@ -223,8 +223,8 @@ Lista * Usuario::GetContactos(string fromFunction) {
 void Usuario::crearConvGrupo(Conversacion *conv) {
 }
 
-Usuario * Usuario::seleccionarCont(int numCel) {
-    intKey *key = new intKey(numCel);
+Usuario * Usuario::seleccionarCont(string numCel) {
+    StringKey *key = new StringKey(numCel);
 
     Usuario * cont = dynamic_cast<Usuario*> (contactos->find(key));
     return cont;
@@ -283,7 +283,7 @@ Lista * Usuario::listarVistos(int idMens,int idConv) {
     }
 
 }
-int Usuario::getNumContacto(int idConv){
+string Usuario::getNumContacto(int idConv){
     IIterator *it=contactos->getIteratorObj();
     while(it->hasNext()){
         Usuario* usu=dynamic_cast<Usuario*>(it->getCurrent());
@@ -294,8 +294,8 @@ int Usuario::getNumContacto(int idConv){
     }
     
 }
-string Usuario::nombreUsu(int numCel) {
-    intKey *iKey = new intKey(numCel);
+string Usuario::nombreUsu(string numCel) {
+    StringKey *iKey = new StringKey(numCel);
     Usuario *us = dynamic_cast<Usuario*> (this->contactos->find(iKey));
     return us->GetNombre();
 }
@@ -419,7 +419,7 @@ void Usuario::archivaConversacion(int conversa){
         IIterator *it=tipo->iterator();
         while(it->hasNext()){
             Tipo *t=dynamic_cast<Tipo*>(it->getCurrent());
-            if(t->getGrupo()->GetCreador() ==   std::to_string(this->celular)){
+            if(t->getGrupo()->GetCreador() ==   this->celular){
                 t->getGrupo()->SetFecha(fecha);
                 t->getGrupo()->SetHora(hora);
                 
@@ -463,7 +463,7 @@ Lista * Usuario::getConversaciones() {
         EstadoConv* ec = dynamic_cast<EstadoConv*> (it->getCurrent());
         if (ec->ConvActiva() == true) {
             if (convGrupal(ec->getConversacion()->getIdConv()) == false) {
-                DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), ec->getConversacion()->getCelContacto()); //constructor conv comun
+                DtConversacion * DtConv = new DtConversacion(ec->getConversacion()->getIdConv(), atoi(ec->getConversacion()->getCelContacto().c_str())); //constructor conv comun
                 conversacionesAct->add(DtConv);
 //            it->next();
             } else {

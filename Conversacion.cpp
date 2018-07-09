@@ -58,12 +58,12 @@ bool Conversacion::remueveMens(int Idmen) {
     }
     return true;
 }
-bool Conversacion::remueveMiVisto(int idMen, int idUsu){
+bool Conversacion::remueveMiVisto(int idMen, string idUsu){
 intKey * Mkey=new intKey(idMen);
 Mensaje * mens= dynamic_cast<Mensaje*>(mensajes->find(Mkey));
 return mens->remueveMiVisto(idUsu);
 }
-bool Conversacion::esEmisor(int idMen, int idUsu){
+bool Conversacion::esEmisor(int idMen, string idUsu){
     intKey *key=new intKey(idMen);
     Mensaje * men=dynamic_cast<Mensaje*>(mensajes->find(key));
     if(men->getEmisor()==idUsu){return true;}else return false;
@@ -72,7 +72,7 @@ bool Conversacion::existeMensaje(int idMen){
     intKey * key = new intKey(idMen);
     return mensajes->member(key);
 }
-bool Conversacion::esReceptor(int idMen,int idUsu){
+bool Conversacion::esReceptor(int idMen,string idUsu){
     intKey * mKey=new intKey(idMen);
     Mensaje *men = dynamic_cast<Mensaje*>(mensajes->find(mKey));
     return men->esReceptor(idUsu);
@@ -263,7 +263,7 @@ void Conversacion::setMensaje(Mensaje* mensaje) {
     mensajes->add(mensaje, key);
 }
 
-int Conversacion::getCelContacto() {
+string Conversacion::getCelContacto() {
     iContUsuario *contusu = Fabrica::getInstance()->getContUsuario();
     return contusu->getNumContacto(this->idConv);
 }

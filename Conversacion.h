@@ -39,17 +39,17 @@ public:
     bool sosConversacion(int);
     Mensaje* getMensaje(int);
     bool remueveMens(int Idmen);
-    bool remueveMiVisto(int idMen, int idUsu);
+    bool remueveMiVisto(int idMen, string idUsu);
     void eviarMensaje(Mensaje*);
     Lista* listarMensaje(DtFechaHoraIng* );
     Lista* listarVistos(int codMens);
     void setEstado(bool);
     void setIdConv(int);
     int getIdConv();
-    int getCelContacto();
+    string getCelContacto();
     string getNomGrupo();
-    bool esReceptor(int idMen, int idUsu);
-    bool esEmisor(int idMen, int idUsu);
+    bool esReceptor(int idMen, string idUsu);
+    bool esEmisor(int idMen, string idUsu);
     bool existeMensaje(int idMen);
 private:
     ListDicc * mensajes=new ListDicc();

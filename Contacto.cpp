@@ -49,11 +49,11 @@ Contacto::Contacto(const Contacto& orig) {
 Contacto::~Contacto() {
 }
 
-int Contacto::GetNumCel() {
+string Contacto::GetNumCel() {
     return this->numCel;
 }
 
-void Contacto::SetNumCel(int numCel) {
+void Contacto::SetNumCel(string numCel) {
     this->numCel = numCel;
 }
 

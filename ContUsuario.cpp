@@ -21,7 +21,7 @@ int ContUsuario::getIdConv() {
     return this->idConv;
 }
 
-int ContUsuario::getNumContacto(int idConv) {
+string ContUsuario::getNumContacto(int idConv) {
     return this->usuLog->getNumContacto(idConv);
 }
 
@@ -40,13 +40,13 @@ Lista* ContUsuario::listarInfoVisto(int idConv, int idMensaje) {
     return lMen;
 }
 
-bool ContUsuario::usuarioLogueado(int numCel) {
+bool ContUsuario::usuarioLogueado(string numCel) {
     if (usuLog->GetCelular() == numCel)return true;
     return false;
 }
 
-bool ContUsuario::ingresarCelular(int numCel) {
-    intKey* ikey = new intKey(numCel);
+bool ContUsuario::ingresarCelular(string numCel) {
+    StringKey* ikey = new StringKey(numCel);
     bool ok = this->usuario->member(ikey);
     setNumCel(numCel);
     return ok;
@@ -54,20 +54,20 @@ bool ContUsuario::ingresarCelular(int numCel) {
 
 bool ContUsuario::altaUsuario(string nombre, string UrlImagen, string descripcion) {
     Usuario* nuevoUsu = new Usuario(nombre, UrlImagen, descripcion, this->getNumCel());
-    intKey* key = new intKey(this->getNumCel());
+    StringKey* key = new StringKey(this->getNumCel());
     usuario->add(nuevoUsu, key); //Agrego al usuario a la lista de usuarios
     return true;
 }
 
-void ContUsuario::altaPrecargaUsuario(int celUsu, string nombre, string UrlImagen, string descripcion) {
-    Usuario* nuevoUsu = new Usuario(celUsu, nombre, UrlImagen, descripcion);
-    intKey* key = new intKey(celUsu);
+void ContUsuario::altaPrecargaUsuario(string celUsu, string nombre, string UrlImagen, string descripcion) {
+    Usuario* nuevoUsu = new Usuario( nombre, UrlImagen, descripcion,celUsu);
+    StringKey* key = new StringKey(celUsu);
     usuario->add(nuevoUsu, key); //Agrego al usuario a la lista de usuarios
     //    return true;
 }
 
 bool ContUsuario::cancelaIngreso() {
-    intKey *ikey = new intKey(getNumCel());
+    StringKey *ikey = new StringKey(getNumCel());
     Usuario *usuR = dynamic_cast<Usuario*> (usuario->find(ikey));
     Usuario *aux1 = dynamic_cast<Usuario*> (usuario->removeObj(usuR));
     delete aux1;
@@ -76,7 +76,7 @@ bool ContUsuario::cancelaIngreso() {
 }
 
 DtConexion* ContUsuario::asignarSesion() {
-    intKey *ikey = new intKey(this->numCel);
+    StringKey *ikey = new StringKey(this->numCel);
     Usuario * usU = dynamic_cast<Usuario*> (usuario->find(ikey));
     this->usuLog = usU;
     //Fecha_Hora_sis* a;
@@ -89,8 +89,8 @@ Usuario* ContUsuario::getUsu() {
     return this->usuLog;
 }
 
-Usuario* ContUsuario::getUsuario(int celUsu) {
-    intKey *key = new intKey(celUsu);
+Usuario* ContUsuario::getUsuario(string celUsu) {
+    StringKey *key = new StringKey(celUsu);
     Usuario * usu = dynamic_cast<Usuario*> (usuario->find(key));
     return usu;
 
@@ -116,7 +116,7 @@ Usuario* ContUsuario::getUsuario(int celUsu) {
 //}
 
 Lista *ContUsuario::listarContactos(string fromFunction) {
-    intKey* ikey = new intKey(this->numCel);
+    StringKey* ikey = new StringKey(this->numCel);
     Usuario* u = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     return u->GetContactos(fromFunction);
 }
@@ -155,8 +155,8 @@ bool ContUsuario::eliminarMensaje(int idMen, int idConv) {
 
 }
 
-DtContacto* ContUsuario::ingContacto(int numCelular) {
-    intKey* ikey = new intKey(numCelular);
+DtContacto* ContUsuario::ingContacto(string numCelular) {
+    StringKey* ikey = new StringKey(numCelular);
     Usuario* usu = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     DtContacto* dtc = NULL;
     if (usu != NULL) {
@@ -196,7 +196,7 @@ DtContacto* ContUsuario::ingContacto(int numCelular) {
 //}
 
 void ContUsuario::agregaContacto(DtContacto* dtc) {
-    intKey* ikey = new intKey(atoi(dtc->GetNumCel().c_str()));
+    StringKey* ikey = new StringKey(dtc->GetNumCel());
     Usuario* usu = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     this->usuLog->addContacto(usu);
 }
@@ -208,7 +208,7 @@ void ContUsuario::cerrarSesion(DtConexion*) {
     this->usuLog = NULL;
 }
 
-int ContUsuario::getNumUsuLog() {
+string ContUsuario::getNumUsuLog() {
     return this->usuLog->GetCelular();
 }
 
@@ -218,11 +218,11 @@ void ContUsuario::modificarPerfil(string, string, string) {
 void ContUsuario::actualizarDatos() {
 }
 
-void ContUsuario::setNumCel(int numCel) {
+void ContUsuario::setNumCel(string numCel) {
     this->numCel = numCel;
 }
 
-int ContUsuario::getNumCel() {
+string ContUsuario::getNumCel() {
     return numCel;
 }
 
@@ -235,7 +235,7 @@ void ContUsuario::setUsuLog(Usuario * usu) {
 
 }
 
-string ContUsuario::getNombreCont(int receptor) {
+string ContUsuario::getNombreCont(string receptor) {
     return usuLog->nombreUsu(receptor); //tre el nombre del receptor
 
 }
@@ -258,7 +258,7 @@ Lista* ContUsuario::listaConversacionArc() {
 
 void ContUsuario::crearTipoUsuario(Grupo* grupo, string celular) {
     DtUltCon* fecha = Fabrica::getInstance()->getContFecha()->getFechaHora();
-    intKey *ikey = new intKey(atoi(celular.c_str()));
+    StringKey *ikey = new StringKey(celular);
     Usuario * usU = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     if (usU != NULL) {
         //crea el Tipo y le setea el grupo
@@ -271,9 +271,9 @@ void ContUsuario::crearTipoUsuario(Grupo* grupo, string celular) {
 
 }
 
-void ContUsuario::elijeContacto(int celUsu) {
+void ContUsuario::elijeContacto(string celUsu) {
     this->contactoReceptor = celUsu;
-    intKey *ikey = new intKey(celUsu);
+    StringKey *ikey = new StringKey(celUsu);
     Usuario* u = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     Conversacion *conv = new Conversacion();
     EstadoConv *ec1 = new EstadoConv(false, conv), *ec2 = new EstadoConv(false, conv);
@@ -286,26 +286,26 @@ Conversacion* ContUsuario::getConversacion(int idConv) {
     return this->usuLog->getConversacion(idConv);
 }
 
-int ContUsuario::getReceptor() {
+string ContUsuario::getReceptor() {
     return this->contactoReceptor;
 }
 
-Usuario* ContUsuario::getUsuByCel(int celUsu) {
-    intKey *ikey = new intKey(celUsu);
+Usuario* ContUsuario::getUsuByCel(string celUsu) {
+    StringKey *ikey = new StringKey(celUsu);
     return dynamic_cast<Usuario*> (this->usuario->find(ikey));
 }
 //Conversacion* ContUsuario::getConversacion(int idConv) {
 //    return this->usuLog->getConversacion(idConv);
 //}
 
-void ContUsuario::altaPrecargaContacto(int numCelular) {
-    intKey* ikey = new intKey(numCelular);
+void ContUsuario::altaPrecargaContacto(string numCelular) {
+    StringKey* ikey = new StringKey(numCelular);
     Usuario* usu = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     if (usu != NULL) {
-        if (numCelular == 23654) {//90123654
-            intKey* key = new intKey(65432); //90765432
-            intKey* key1 = new intKey(46810); //90246810
-            intKey* key2 = new intKey(66777); //90666777
+        if (numCelular.compare("090123654")== 0) {//90123654
+            StringKey* key = new StringKey("090765432"); //90765432
+            StringKey* key1 = new StringKey("090246810"); //90246810
+            StringKey* key2 = new StringKey("090666777"); //90666777
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key1)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key2)));
@@ -314,18 +314,18 @@ void ContUsuario::altaPrecargaContacto(int numCelular) {
             delete(key2);
         }
 
-        if (numCelular == 65432) {//90765432
-            intKey* key3 = new intKey(23654); //90123654
-            intKey* key4 = new intKey(46810); //90246810
+        if (numCelular == "090765432") {//90765432
+            StringKey* key3 = new StringKey("090123654"); //90123654
+            StringKey* key4 = new StringKey("090246810"); //90246810
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key3)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key4)));
             delete(key3);
             delete(key4);
         }
-        if (numCelular == 46810) { //90246810
-            intKey* key5 = new intKey(23654); //90123654
-            intKey* key6 = new intKey(65432); //90765432
-            intKey* key7 = new intKey(66777); //90666777
+        if (numCelular == "090246810") { //90246810
+            StringKey* key5 = new StringKey("090123654"); //90123654
+            StringKey* key6 = new StringKey("090765432"); //90765432
+            StringKey* key7 = new StringKey("090666777"); //90666777
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key5)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key6)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key7)));
@@ -333,9 +333,9 @@ void ContUsuario::altaPrecargaContacto(int numCelular) {
             delete(key6);
             delete(key7);
         }
-        if (numCelular == 66777) { //90666777
-            intKey* key8 = new intKey(23654); //90123654
-            intKey* key9 = new intKey(46810); //90246810
+        if (numCelular == "090666777") { //90666777
+            StringKey* key8 = new StringKey("090123654"); //90123654
+            StringKey* key9 = new StringKey("090246810"); //90246810
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key8)));
             usu->addContacto(dynamic_cast<Usuario*> (this->usuario->find(key9)));
             delete(key8);
@@ -348,10 +348,10 @@ void ContUsuario::altaPrecargaContacto(int numCelular) {
 void ContUsuario::altaPrecargaConversacion() {
     Conversacion * conv1 = new Conversacion(2);
     Conversacion * conv2 = new Conversacion(3);
-    intKey * key1 = new intKey(23654); //90123654
-    intKey * key2 = new intKey(65432); //90765432
-    intKey * key3 = new intKey(46810); //90246810
-    intKey * key4 = new intKey(66777); //90666777
+    StringKey * key1 = new StringKey("090123654"); //90123654
+    StringKey * key2 = new StringKey("090765432"); //90765432
+    StringKey * key3 = new StringKey("090246810"); //90246810
+    StringKey * key4 = new StringKey("090666777"); //90666777
 
     Usuario* u1 = dynamic_cast<Usuario*> (usuario->find(key1));
     u1->crearEstadoConversacion(conv1);
@@ -373,8 +373,8 @@ int ContUsuario::generarIdConv() {
     return conversa->getIdConv();
 }
 
-void ContUsuario::setIdConvGrupo(int idUsu) {
-    intKey *key = new intKey(idUsu);
+void ContUsuario::setIdConvGrupo(string idUsu) {
+    StringKey *key = new StringKey(idUsu);
     Usuario *us = dynamic_cast<Usuario*> (usuario->find(key));
     us->setIdConvGrupo(1);
     this->idConv = 2;

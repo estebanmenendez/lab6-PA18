@@ -265,7 +265,7 @@ Lista* ContMensaje::informacionAdicional(int idConv, int idMen) {
         m = dynamic_cast<Contacto*> (conv->getMensaje(idMen));
 
     DtMensajeVisto *dtmv;
-    if (m->getEmisor() != Fabrica::getInstance()->getContUsuario()->getUsu()->GetCelular())
+    if (m->getEmisor().compare(Fabrica::getInstance()->getContUsuario()->getUsu()->GetCelular())!= 0)
         throw invalid_argument("Usted no ha enviado este mensaje\n");
     Lista* ltVistos = m->getListaVistos(), *ltReturn = new Lista();
 

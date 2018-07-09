@@ -23,17 +23,17 @@ using namespace std;
 class DtContactoGrupo: public ICollectible {
 public:
     DtContactoGrupo();
-    DtContactoGrupo(int,string,string,DtFecha*,DtHora*);
+    DtContactoGrupo(string,string,string,DtFecha*,DtHora*);
     DtContactoGrupo(const DtContactoGrupo& orig);
     virtual ~DtContactoGrupo();
-    int getCelular();
+    string getCelular();
     string getipoEnGrupo();
     string getnombre();
     DtFecha* getFecha();
     DtHora* getHora();
     
 private:
-    int celular;
+    string celular;
     string nombre; 
     string tipoEnGrupo;
     DtFecha * fecha;

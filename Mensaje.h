@@ -29,8 +29,8 @@ public:
     Mensaje(const Mensaje& orig);
     virtual ~Mensaje();
     int GetCodigo();
-    int getEmisor();
-    void setEmisor(int);
+    string getEmisor();
+    void setEmisor(string);
     Lista * GetVistos();
     Lista * getListaVistos();
     DtFecha *GetFechaEnv();
@@ -42,14 +42,14 @@ public:
     void SetHoraEnv(DtHora*);
     void SetVisto(Visto *);
     DtMensaje* getMensaje();
-    bool esReceptor(int);
+    bool esReceptor(string);
     bool remueveVistos();
     Lista* getVisto();
-    bool remueveMiVisto(int idCel);
+    bool remueveMiVisto(string idCel);
 private:
 
     Lista* visto = new Lista();
-    int emisor;
+    string emisor;
     int codigo;
     DtFecha *fechaEnv;
     DtHora *horaEnv;

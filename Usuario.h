@@ -28,7 +28,7 @@
 #include "Fecha_Hora_sis.h"
 #include "DtConversacion.h"
 #include "DtContactoGrupo.h"
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -36,13 +36,13 @@ class Usuario : public ICollectible {
 public:
     //constructores:
     Usuario();
-    Usuario(string nombre, string imagenPerfil, string descripcion, int numCel);
-    Usuario(int celUsu,string nombre,string UrlImagen,string descripcion);
+    Usuario(string nombre, string imagenPerfil, string descripcion, string numCel);
+//    Usuario(string celUsu,string nombre,string UrlImagen,string descripcion);
     Usuario(const Usuario& orig);
     virtual ~Usuario();
 
     //Setter atributos
-    void SetCelular(int);
+    void SetCelular(string);
     void SetContacto(Usuario * contacto);
     void SetDescripcion(string);
     void SetNombre(string);
@@ -55,7 +55,7 @@ public:
     void addContacto(Usuario*);
 
     //Getters atributos
-    int GetCelular();
+    string GetCelular();
     string GetDescripcion();
     string GetFoto_Perfil();
     string GetNombre();
@@ -73,7 +73,7 @@ public:
     Lista* GetContactos();
     ListDicc* getListaContactos();
     void crearConvGrupo(Conversacion *);
-    Usuario * seleccionarCont(int);
+    Usuario * seleccionarCont(string);
     Lista * seleccionarConversacion(int);
     void crearConversacion( Conversacion *); //para el usuario actual
     void crearEstadoConv(Conversacion *conv, Usuario * usu, Usuario * usu2); //para el contacto
@@ -84,8 +84,8 @@ public:
     bool sosElOtro(int idConv);
     Lista * listarMensajes(int codConv);
     Lista * listarVistos(int idMens,int idConv);
-    string nombreUsu(int numCel);
-    int getNumContacto(int);
+    string nombreUsu(string numCel);
+    string getNumContacto(int);
     void crearTipo(Grupo*,string,DtUltCon*);
     void crearEstadoConversacion(Conversacion *conv);
     Lista * getTipos();
@@ -108,7 +108,7 @@ private:
     ListDicc* contactos = new ListDicc();
     Lista * estadoConv = new Lista();
     Lista * tipo = new Lista();
-    int celular;
+    string celular;
     string nombre;
     string foto_Perfil;
     string descripcion;
