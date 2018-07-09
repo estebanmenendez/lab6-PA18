@@ -52,7 +52,7 @@ iContFecha* ContFec = Fabrica::getInstance()->getContFecha();
 int main(int argc, char** argv) {
     ContFec->setFechaHoraSistema(0, 0, 1000, 0, 0);
     char carga;
-    int  optNoCel, optMenuPrincipal;
+    int optNoCel, optMenuPrincipal;
     bool salirTotal = false, ingresarCel = false, firstMenu = false;
     string numCel;
 
@@ -73,8 +73,8 @@ int main(int argc, char** argv) {
 
             if (!firstMenu) {
                 do {
-                    cout << "----- Bienvenido a TELETIP -----" << endl;
-
+                    consultFechaSistema();
+                    cout << "\n----- Bienvenido a TELETIP -----" << endl;
                     cout << " Ingrese un número de celular: " << endl;
                     cin>>numCel;
                     if (ContUsu->ingresarCelular(numCel)) {
@@ -216,20 +216,28 @@ void enviarMensaje() {
             }
             break;
         case 3:
-            ltCont = ContUsu->listarContactos("enviarMensaje");
-            it = ltCont->iterator();
-            cout << "TUS CONTACTOS\n";
-            while (it->hasNext()) {
-                DtContacto *dtcont = dynamic_cast<DtContacto*> (it->getCurrent());
+            do {
+                ltCont = ContUsu->listarContactos("enviarMensaje");
+                it = ltCont->iterator();
+                cout << "\nTUS CONTACTOS\n";
+                while (it->hasNext()) {
+                    DtContacto *dtcont = dynamic_cast<DtContacto*> (it->getCurrent());
 
-                cout << "Nombre: " + dtcont->GetNombre() + " Celular: " + dtcont->GetNumCel() << endl;
-                it->next();
-            }
-            cout << "Seleccione un contacto ingresando el número de celular.\n";
-            cin >> numCelContacto;
-            ContUsu->elijeContacto(numCelContacto);
-            //ContMen->selecConversacion(0);
-            break;
+                    cout << "Nombre: " + dtcont->GetNombre() + " Celular: " + dtcont->GetNumCel() << endl;
+                    it->next();
+                }
+                cout << "\nSeleccione un contacto ingresando el número de celular.\n";
+                cin >> numCelContacto;
+
+                if (numCelContacto == ContUsu->getNumUsuLog()) {
+                    cout << "\nNo puedes enviarte un mensaje.\n";
+                    archivadas = 1;
+                } else{
+                    ContUsu->elijeContacto(numCelContacto);
+                    archivadas = 0;
+                }
+            } while (archivadas != 0);//ContMen->selecConversacion(0);
+                break;
         default:
             cout << "Opción incorrecta.\n";
             break;
@@ -320,6 +328,7 @@ void cambiarFechaSist() {
 }
 
 void consultFechaSistema() {
+    cout << "\n Fecha Hora del Sistema: ";
     cout << Fabrica::getInstance()->getContFecha()->getFechaHoraSistema();
 }
 
@@ -502,8 +511,8 @@ void verMensajes() {
 
 void altaGrupo() {
     char salir = 'n', confirmar, removido = 'n';
-    string numCel,urlI = "", nombreG = "";
-    int  conNombre = 0;
+    string numCel, urlI = "", nombreG = "";
+    int conNombre = 0;
     ContGru->vaciaListaParticipantes();
     DtContacto* dtc = new DtContacto();
     DtContacto* dte = new DtContacto();
@@ -612,7 +621,7 @@ void agregarPartGrupo() {
     ContGru->vaciaListaParticipantes();
     DtContactoGrupo* dtcg = new DtContactoGrupo();
     DtContacto* dtc = new DtContacto();
-    
+
     DtGrupo* dtg = new DtGrupo("");
 
     try {
@@ -708,7 +717,7 @@ void agregarPartGrupo() {
 }
 
 void eliMensaje() {
-    int opcion = 1, mensa=1, idconv, opsubMen1, opsubMen2, opsubMen3;
+    int opcion = 1, mensa = 1, idconv, opsubMen1, opsubMen2, opsubMen3, archivadas = 0;
     char confirmar, salir = 'n';
     Lista * listConversaciones;
     Lista * listMensajes;
@@ -753,50 +762,42 @@ void eliMensaje() {
                     break;
                 }
                 case 2:
-
                     listConversaciones = ContUsu->listaConversacionArc();
-                    IIterator * it = listConversaciones->iterator();
-                    while (it->hasNext()) {
-                        impConversacion(it->getCurrent());
-                        it->next();
-                    }
-
-                    do {
-                        cout << "\n1-Listar mensajes conversacion" << endl;
-                        cin>>opsubMen2;
-                        switch (opsubMen2) {
-                            case 1:
-                                cout << "\nIngrese el Id de la conversacion: " << endl;
-                                cin>>idconv;
-                                listMensajes = ContUsu->seleccionarConversacion(idconv);
-                                IIterator * itM2 = listMensajes->iterator();
-                                while (itM2->hasNext()) {
-                                    impMen(itM2->getCurrent());
-                                    itM2->next();
-                                }
-                                cout << endl;
-                                do {
-                                    cout << "1-Eliminar mensaje" << endl;
-                                    cin>>opsubMen3;
-                                    switch (opsubMen3) {
-                                        case 1:
-                                            cout << "\nIngrese el Id del mensaje: " << endl;
-                                            cin>>mensa;
-                                            if (ContUsu->eliminarMensaje(mensa, idconv) == true) {
-                                                cout << "\nMensaje: " << to_string(mensa) << " eliminado!" << endl;
-                                            }
-                                            break;
-                                    }
-                                } while (opsubMen3 != 0);
-                                break;
+                    if (listConversaciones->isEmpty()) {
+                        cout << "No tiene conversaciones archivadas.\n";
+                        archivadas = 1;
+                    } else {
+                        IIterator * it = listConversaciones->iterator();
+                        while (it->hasNext()) {
+                            impConversacion(it->getCurrent());
+                            it->next();
                         }
-                    } while (opsubMen2 != 0);
-
+                        cout << "\nIngrese el Id de la conversacion: " << endl;
+                        cin>>idconv;
+                        listMensajes = ContUsu->seleccionarConversacion(idconv);
+                        if (listMensajes == NULL) {
+                            cout << "\nConversacion no existe\n";
+                            cout << "\nPulse ENTER para continuar...";
+                            cin.ignore().get();
+                        } else {
+                            IIterator * itM2 = listMensajes->iterator();
+                            while (itM2->hasNext()) {
+                                impMen(itM2->getCurrent());
+                                itM2->next();
+                            }
+                            cout << endl;
+                            do {
+                                cout << "Ingrese el Id del mensaje: (0 = Salir) " << endl;
+                                cin>>mensa;
+                                if (ContUsu->eliminarMensaje(mensa, idconv) == true) {
+                                    cout << "Mensaje: " << to_string(mensa) << " eliminado!" << endl;
+                                }
+                            } while (mensa != 0);
+                        }
+                    }
                     break;
             }
-
         } while (opcion != 0);
-
     } catch (std::invalid_argument &ia) {
         cout << ia.what() << endl;
     }
@@ -849,9 +850,24 @@ void archivarConversaciones() {
             cout << "\nIngrese el Id-Conversacion para Archivar: ";
             cin>>conversa;
             ContMen->selecConversacion(conversa);
+            Lista* listConArch = ContUsu->listaConversacionArc();
+            
+            IIterator* itt = listConArch->iterator();
+            while (itt->hasNext()) {
+                if( dynamic_cast<DtConversacion*> (itt->getCurrent())->GetIdConversa() == conversa ){
+                    salir = 'n';
+                    cout<<"\nConversacion ya esta archivada";
+                    break;
+                }
+                it->next();
+            }
+            if (salir = 's'){
             ContMen->archivarConv();
+            cout << "\nConversación Archivada\nPulse una ENTER para continuar...";
+            cin.ignore().get();
             cout << "\nDesea seguir Archivando Conversaciones ? s/n\n";
             cin>>salir;
+            }
         } while (salir == 's');
 
 
@@ -888,7 +904,7 @@ void impConversacion(ICollectible * ic) {
     }
 }
 
-void impMen(ICollectible *ic) {
+void impMen(ICollectible * ic) {
     if (dynamic_cast<DtSimple*> (ic)) {
         DtSimple* DtS = dynamic_cast<DtSimple*> (ic);
         cout << "\nMensaje Simple!" << endl;
