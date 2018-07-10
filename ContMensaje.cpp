@@ -131,7 +131,8 @@ void ContMensaje::selecConversacion(int idConv) {
     iContUsuario * ContUsu = Fabrica::getInstance()->getContUsuario();
     if (ContUsu->seleccionarConversacion(idConv) == NULL)
         throw invalid_argument("Esta conversacion no existe\n");
-    ContUsu->setReceptor(->getCelContacto());
+   // ContUsu->setReceptor(->getCelContacto());
+   // ContUsu->setReceptor(ContUsu->getConversacion(idConv)->primerReceptor()) ;
     this->idConv = idConv;
 }
 
