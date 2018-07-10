@@ -23,8 +23,6 @@
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/intKey.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/StringKey.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Conversacion.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtContacto.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/IDictionary.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Visto.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtMensaje.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtConversacion.cpp</file>
@@ -35,11 +33,9 @@
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtContactoGrupo.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Grupo.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Nodo.cpp</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/iContUsuario.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Fabrica.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Simple.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtMContacto.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/iContMensaje.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ListaDicc.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/IIterator.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ListDiccIteratorObj.cpp</file>
@@ -59,7 +55,6 @@
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ICollection.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtMensajeVisto.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/ContUsuario.h</file>
-            <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtContacto.cpp</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/IKey.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/DtFecha.h</file>
             <file>file:/home/ernesto/NetBeansProjects/lab6-PA18/Grupo.h</file>
