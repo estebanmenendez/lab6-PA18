@@ -47,6 +47,7 @@ void Video::SetUrl(string url) {
 DtVideo* Video::getMensaje() {
     DtVideo *mV = new DtVideo(this->url, this->Duracion);
     mV->SetCodigo(this->GetCodigo());
+    mV->SetEmisor(this->getEmisor());
     DtUltCon* dtu = Fabrica::getInstance()->getContFecha()->getFechaHora();
     mV->SetFechaEnv(dtu->getFecha());
     mV->SetHoraEnv(dtu->getHora());

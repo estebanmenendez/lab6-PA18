@@ -107,7 +107,7 @@ bool Mensaje::esReceptor(string numCel) {
 }
 
 DtMensaje * Mensaje::getMensaje() {
-    DtMensaje * men = new DtMensaje(this->codigo, this->fechaEnv, this->horaEnv);
+    DtMensaje * men = new DtMensaje(this->codigo, this->fechaEnv, this->horaEnv,this->emisor);
     return men;
 }
 

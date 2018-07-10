@@ -153,12 +153,12 @@ void Fabrica::cargarMensajes(){
         Visto *v;
         Mensaje* men1 = new Simple();
         v=new Visto("090123654");//90123654
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men1->SetVisto(v);
         v=new Visto("090765432");//90765432
         men1->SetVisto(v);
         v=new Visto("090246810");//90246810
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men1->SetVisto(v);
         dynamic_cast<Simple*> (men1)->setTexto("¡Mira que bueno este video!");
         men1->SetCodigo(2);
@@ -177,12 +177,12 @@ void Fabrica::cargarMensajes(){
         men2->SetCodigo(3);
         men2->setEmisor("090666777");//65432
         v=new Visto("090123654"); //90123654
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men2->SetVisto(v);
         v=new Visto("090765432"); //90765432
         men2->SetVisto(v);
         v=new Visto("090246810"); //90246810
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men2->SetVisto(v);
         fecha=new DtFecha(22,5,2018);
         hora=new DtHora(18,5,0);
@@ -198,12 +198,12 @@ void Fabrica::cargarMensajes(){
         men3->SetCodigo(4);
         men3->setEmisor("090123654");//90123654
         v=new Visto("090666777");//90666777
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men3->SetVisto(v);
         v=new Visto("090765432");//90765432
         men3->SetVisto(v);
         v=new Visto("090246810");//90246810
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men3->SetVisto(v);
         fecha=new DtFecha(22,5,2018);
         hora=new DtHora(18,12,0);
@@ -218,7 +218,7 @@ void Fabrica::cargarMensajes(){
         men4->SetCodigo(5);
         men4->setEmisor("090246810");//90246810
         v=new Visto("090123654");//u1 90123654
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men4->SetVisto(v);
         v=new Visto("090765432");//u2 90765432
         men4->SetVisto(v);
@@ -237,7 +237,7 @@ void Fabrica::cargarMensajes(){
         men5->SetCodigo(6);
         men5->setEmisor("090765432"); //90765432
         v=new Visto("090123654");//u1 90123654
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men5->SetVisto(v);
         fecha=new DtFecha(23,5,2018);
         hora=new DtHora(12,23,0);
@@ -252,7 +252,7 @@ void Fabrica::cargarMensajes(){
         men6->SetCodigo(7);
         men6->setEmisor("090123654"); //90123654
         v=new Visto("090765432"); //90765432
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men6->SetVisto(v);
         fecha=new DtFecha(23,5,2018);
         hora=new DtHora(12,25,0);
@@ -268,7 +268,7 @@ void Fabrica::cargarMensajes(){
         men7->SetCodigo(8);
         men7->setEmisor("090765432"); //90765432
         v=new Visto("090123654"); //90123654
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men7->SetVisto(v);
         fecha=new DtFecha(23,5,2018);
         hora=new DtHora(12,26,0);
@@ -284,7 +284,7 @@ void Fabrica::cargarMensajes(){
         men8->SetCodigo(9);
         men8->setEmisor("090666777"); //90666777
         v=new Visto("090246810"); //90246810
-        v->SetEstado(true);
+        //v->SetEstado(true);
         men8->SetVisto(v);
         fecha=new DtFecha(23,5,2018);
         hora=new DtHora(12,26,0);

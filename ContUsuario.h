@@ -75,6 +75,7 @@ public:
     void elijeContacto(string celUsu);
     Conversacion* getConversacion(int idConv);
     string getReceptor();
+    void setReceptor(string);
     Usuario* getUsuByCel(string);
     void setIdConvGrupo(string idUsu);
 

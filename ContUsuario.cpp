@@ -60,7 +60,7 @@ bool ContUsuario::altaUsuario(string nombre, string UrlImagen, string descripcio
 }
 
 void ContUsuario::altaPrecargaUsuario(string celUsu, string nombre, string UrlImagen, string descripcion) {
-    Usuario* nuevoUsu = new Usuario( nombre, UrlImagen, descripcion,celUsu);
+    Usuario* nuevoUsu = new Usuario(nombre, UrlImagen, descripcion, celUsu);
     StringKey* key = new StringKey(celUsu);
     usuario->add(nuevoUsu, key); //Agrego al usuario a la lista de usuarios
     //    return true;
@@ -272,9 +272,12 @@ void ContUsuario::crearTipoUsuario(Grupo* grupo, string celular) {
 }
 
 void ContUsuario::elijeContacto(string celUsu) {
-    this->contactoReceptor = celUsu;
+
     StringKey *ikey = new StringKey(celUsu);
+    if (!this->usuario->member(ikey))
+        throw invalid_argument("\nNo es un contacto del Usuario \n");
     Usuario* u = dynamic_cast<Usuario*> (this->usuario->find(ikey));
+    this->contactoReceptor = celUsu;
     Conversacion *conv = new Conversacion();
     EstadoConv *ec1 = new EstadoConv(false, conv), *ec2 = new EstadoConv(false, conv);
     this->usuLog->SetEstadoConv(ec1);
@@ -289,6 +292,9 @@ Conversacion* ContUsuario::getConversacion(int idConv) {
 string ContUsuario::getReceptor() {
     return this->contactoReceptor;
 }
+void ContUsuario::setReceptor(string celular) {
+    this->contactoReceptor = celular;
+}
 
 Usuario* ContUsuario::getUsuByCel(string celUsu) {
     StringKey *ikey = new StringKey(celUsu);
@@ -302,7 +308,7 @@ void ContUsuario::altaPrecargaContacto(string numCelular) {
     StringKey* ikey = new StringKey(numCelular);
     Usuario* usu = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     if (usu != NULL) {
-        if (numCelular.compare("090123654")== 0) {//90123654
+        if (numCelular.compare("090123654") == 0) {//90123654
             StringKey* key = new StringKey("090765432"); //90765432
             StringKey* key1 = new StringKey("090246810"); //90246810
             StringKey* key2 = new StringKey("090666777"); //90666777

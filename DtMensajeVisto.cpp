@@ -41,7 +41,10 @@ string DtMensajeVisto::GetCelular(){
 string DtMensajeVisto::GetNombre() {
     return Nombre;
 }
-bool DtMensajeVisto::getVisto(){
-    return visto;
+string DtMensajeVisto::getVisto(){
+    if (visto)
+        return "Visto";
+    else
+        return "No visto";
 }
 

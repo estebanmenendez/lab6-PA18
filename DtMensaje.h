@@ -17,24 +17,28 @@
 #include"DtFecha.h"
 #include"DtHora.h"
 #include "ICollectible.h"
+#include <iostream>
 
 class DtMensaje : public ICollectible{
 public:
     DtMensaje();
-    DtMensaje(int, DtFecha*, DtHora*);
+    DtMensaje(int, DtFecha*, DtHora*,string);
     DtMensaje(const DtMensaje& orig);
     virtual ~DtMensaje();
 
     int GetCodigo();
     DtHora* GetHoraEnv();
     DtFecha *GetFechaEnv();
+    string getEmisor();
 
     void SetCodigo(int);
     void SetFechaEnv(DtFecha*);
     void SetHoraEnv(DtHora*);
+    void SetEmisor(string);
 
 private:
     int codigo;
+    string emisor;
     DtFecha *fechaEnv;
     DtHora *horaEnv;
 };

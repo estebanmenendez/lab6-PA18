@@ -61,6 +61,7 @@ public:
     virtual void elijeContacto(string celUsu) = 0;
 //    virtual Conversacion* getConversacion(int idConv) = 0;
     virtual string getReceptor() = 0;
+    virtual void setReceptor(string)=0;
     virtual Usuario* getUsuByCel(string) = 0;
     virtual Conversacion* getConversacion(int idConv) = 0;
     virtual void altaPrecargaUsuario(string, string, string, string) = 0;

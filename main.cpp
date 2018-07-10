@@ -73,12 +73,13 @@ int main(int argc, char** argv) {
 
             if (!firstMenu) {
                 do {
-                    consultFechaSistema();
+
                     cout << "\n----- Bienvenido a TELETIP -----" << endl;
                     cout << " Ingrese un número de celular: " << endl;
-                    cin>>numCel;
+                    getline(cin, numCel);
                     if (ContUsu->ingresarCelular(numCel)) {
                         DtConexion* con = ContUsu->asignarSesion();
+                        consultFechaSistema();
                         ingresarCel = true;
                     } else {
                         cout << "1- Registrarse\n2- Seguir ingresando números\n3- Salir\n";
@@ -115,6 +116,7 @@ int main(int argc, char** argv) {
                         crSes();
                         ingresarCel = false;
                         firstMenu = false;
+                        cin.ignore();
                         break;
                     case 3:
                         altaGrupo();
@@ -173,7 +175,7 @@ void enviarMensaje() {
     DtMContacto *dtmc;
     int optMen, idConv, optTipo, tamanioImagen, duraVideo, celContacto, archivadas = 0, conversa = 0;
     string texto, urlImagen, numCelContacto, formatoImagen, descImagen, urlVideo;
-
+    try{
     if (ltConv->isEmpty()) {
         cout << "No tene conversaciones\n";
     } else {
@@ -232,12 +234,12 @@ void enviarMensaje() {
                 if (numCelContacto == ContUsu->getNumUsuLog()) {
                     cout << "\nNo puedes enviarte un mensaje.\n";
                     archivadas = 1;
-                } else{
+                } else {
                     ContUsu->elijeContacto(numCelContacto);
                     archivadas = 0;
                 }
-            } while (archivadas != 0);//ContMen->selecConversacion(0);
-                break;
+            } while (archivadas != 0); //ContMen->selecConversacion(0);
+            break;
         default:
             cout << "Opción incorrecta.\n";
             break;
@@ -298,6 +300,9 @@ void enviarMensaje() {
         cout << "\nMensaje enviado...\nPulse ENTER para continuar...";
         cin.ignore().get();
 
+    }
+    } catch (std::invalid_argument &ia) {
+        cout << ia.what() << endl;
     }
 }
 
@@ -417,12 +422,13 @@ void verMensajes() {
     IIterator* it;
 
     try {
-        it = listCon->iterator();
-        while (it->hasNext()) {
-            impConversacion(it->getCurrent());
-            it->next();
-        }
+
         do {
+            it = listCon->iterator();
+            while (it->hasNext()) {
+                impConversacion(it->getCurrent());
+                it->next();
+            }
             cout << "\n1-Seleccionar conversacion\n2-Listar conversaciones archivadas\n0-Salir\n";
             cin>>opCoso;
             switch (opCoso) {
@@ -449,11 +455,11 @@ void verMensajes() {
                             infoVistos = ContMen->informacionAdicional(idConv, idMen);
                             it = infoVistos->iterator();
                             while (it->hasNext()) {
-                                dtmv = dynamic_cast<DtMensajeVisto*> (it->getCurrent());
-                                cout << "| Celular|" << "| Nombre|" << "| Estado| " << "| Fecha/Hora| \n";
-                                cout << "| " << dtmv->GetCelular() << "| " << dtmv->GetNombre() << "| " << dtmv->getVisto() << "| " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio()) << "|" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "| " << endl;
+                                impMen(it->getCurrent());
                                 it->next();
                             }
+                            cout << "\nPulse ENTER para continuar...";
+                            cin.ignore().get();
                         }
                     }
                     break;
@@ -490,11 +496,12 @@ void verMensajes() {
                                 infoVistos = ContMen->informacionAdicional(idConv, idMen);
                                 it = infoVistos->iterator();
                                 while (it->hasNext()) {
-                                    dtmv = dynamic_cast<DtMensajeVisto*> (it->getCurrent());
-                                    cout << "| Celular|" << "| Nombre|" << "| Estado| " << "| Fecha/Hora| \n";
-                                    cout << "| " << dtmv->GetCelular() << "| " << dtmv->GetNombre() << "| " << dtmv->getVisto() << "| " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio()) << "|" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "| " << endl;
+                                    impMen(it->getCurrent());
                                     it->next();
                                 }
+                                cout << "\nPulse ENTER para continuar...";
+                                cin.ignore().get();
+
                             }
                         }
                     }
@@ -548,7 +555,7 @@ void altaGrupo() {
                 }
 
                 cout << "\nIngrese celular para agregar al grupo:\n";
-                cin>>numCel;
+                getline(cin, numCel);
                 dtc = ContUsu->ingContacto(numCel);
                 if (dtc == NULL) {
                     cout << "No existe un contacto con ese celular\n";
@@ -562,10 +569,8 @@ void altaGrupo() {
                         cout << "Contacto: " << dtc->GetNombre() << " fue sacado del grupo\n";
                         removido = 's';
                     }
-                    //}
                     if (removido == 'n') {
                         impMen(dtc);
-                        //                        cout << dtc->GetNumCel() << " - " << dtc->GetNombre() << " - " << dtc->getUrlImagen() << endl;
                         cout << "¿Confirmar el ingreso al Grupo? s/n\n";
                         cin>>confirmar;
                         if (confirmar == 's') {
@@ -851,22 +856,22 @@ void archivarConversaciones() {
             cin>>conversa;
             ContMen->selecConversacion(conversa);
             Lista* listConArch = ContUsu->listaConversacionArc();
-            
+
             IIterator* itt = listConArch->iterator();
             while (itt->hasNext()) {
-                if( dynamic_cast<DtConversacion*> (itt->getCurrent())->GetIdConversa() == conversa ){
+                if (dynamic_cast<DtConversacion*> (itt->getCurrent())->GetIdConversa() == conversa) {
                     salir = 'n';
-                    cout<<"\nConversacion ya esta archivada";
+                    cout << "\nConversacion ya esta archivada";
                     break;
                 }
                 it->next();
             }
-            if (salir = 's'){
-            ContMen->archivarConv();
-            cout << "\nConversación Archivada\nPulse una ENTER para continuar...";
-            cin.ignore().get();
-            cout << "\nDesea seguir Archivando Conversaciones ? s/n\n";
-            cin>>salir;
+            if (salir = 's') {
+                ContMen->archivarConv();
+                cout << "\nConversación Archivada\nPulse una ENTER para continuar...";
+                cin.ignore().get();
+                cout << "\nDesea seguir Archivando Conversaciones ? s/n\n";
+                cin>>salir;
             }
         } while (salir == 's');
 
@@ -907,8 +912,9 @@ void impConversacion(ICollectible * ic) {
 void impMen(ICollectible * ic) {
     if (dynamic_cast<DtSimple*> (ic)) {
         DtSimple* DtS = dynamic_cast<DtSimple*> (ic);
-        cout << "\nMensaje Simple!" << endl;
+        cout << "\nMensaje Simple:" << endl;
         if (DtS->GetCodigo())cout << "Codigo Mensaje: " << to_string(DtS->GetCodigo()) << endl;
+        if (DtS->getEmisor().empty() == false)cout << "Emisor : " << DtS->getEmisor() << endl;
         if (DtS->GetFechaEnv()->GetDia() || DtS->GetFechaEnv()->GetMes() || DtS->GetFechaEnv()->GetAnio())cout << "Fecha envio: " << to_string(DtS->GetFechaEnv()->GetDia()) << "/" << to_string(DtS->GetFechaEnv()->GetMes()) << "/" << to_string(DtS->GetFechaEnv()->GetAnio()) << endl;
         if (DtS->GetHoraEnv()->GetHora() || DtS->GetHoraEnv()->GetMinutos() || DtS->GetHoraEnv()->GetSegundo())cout << "Hora envio: " << to_string(DtS->GetHoraEnv()->GetHora()) << ":" << to_string(DtS->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtS->GetHoraEnv()->GetSegundo()) << endl;
         if (DtS->GetTexto().empty() == false)cout << "Texto: " << DtS->GetTexto() << endl;
@@ -918,6 +924,7 @@ void impMen(ICollectible * ic) {
         DtMContacto* DtMC = dynamic_cast<DtMContacto*> (ic);
         cout << "\nMensaje Contacto:" << endl;
         if (DtMC->GetCodigo())cout << "Codigo Mensaje: " << to_string(DtMC->GetCodigo()) << endl;
+        if (DtMC->getEmisor().empty() == false)cout << "Emisor : " << DtMC->getEmisor() << endl;
         if (DtMC->GetFechaEnv()->GetDia() || DtMC->GetFechaEnv()->GetMes() || DtMC->GetFechaEnv()->GetAnio())cout << "Fecha envio: " << to_string(DtMC->GetFechaEnv()->GetDia()) << "/" << to_string(DtMC->GetFechaEnv()->GetMes()) << "/" << to_string(DtMC->GetFechaEnv()->GetAnio()) << endl;
         if (DtMC->GetHoraEnv()->GetHora() || DtMC->GetHoraEnv()->GetMinutos() || DtMC->GetHoraEnv()->GetSegundo())cout << "Hora envio: " << to_string(DtMC->GetHoraEnv()->GetHora()) << ":" << to_string(DtMC->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtMC->GetHoraEnv()->GetSegundo()) << endl;
         if (DtMC->getNumCel().empty())cout << "Numero de celular: " << DtMC->getNumCel() << endl;
@@ -929,6 +936,7 @@ void impMen(ICollectible * ic) {
         DtImagen* DtI = dynamic_cast<DtImagen*> (ic);
         cout << "\nMensaje Multimedia Imagen" << endl;
         if (DtI->GetCodigo())cout << "Codigo Mensaje: " << to_string(DtI->GetCodigo()) << endl;
+        if (DtI->getEmisor().empty() == false)cout << "Emisor : " << DtI->getEmisor() << endl;
         if (DtI->GetFechaEnv()->GetDia() || DtI->GetFechaEnv()->GetMes() || DtI->GetFechaEnv()->GetAnio())cout << "Fecha envio: " << to_string(DtI->GetFechaEnv()->GetDia()) << "/" << to_string(DtI->GetFechaEnv()->GetMes()) << "/" << to_string(DtI->GetFechaEnv()->GetAnio()) << endl;
         if (DtI->GetHoraEnv()->GetHora() || DtI->GetHoraEnv()->GetMinutos() || DtI->GetHoraEnv()->GetSegundo())cout << "Hora envio: " << to_string(DtI->GetHoraEnv()->GetHora()) << ":" << to_string(DtI->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtI->GetHoraEnv()->GetSegundo()) << endl;
         if (DtI->GetUrlImg().empty() == false)cout << "Imagen: " << DtI->GetUrlImg() << endl;
@@ -941,6 +949,7 @@ void impMen(ICollectible * ic) {
         DtVideo* DtV = dynamic_cast<DtVideo*> (ic);
         cout << "\nMensaje Multimedia Video" << endl;
         if (DtV->GetCodigo())cout << "Codigo Mensaje: " << to_string(DtV->GetCodigo()) << endl;
+        if (DtV->getEmisor().empty() == false)cout << "Emisor : " << DtV->getEmisor() << endl;
         if (DtV->GetFechaEnv()->GetDia() || DtV->GetFechaEnv()->GetMes() || DtV->GetFechaEnv()->GetAnio())cout << "Fecha envio: " << to_string(DtV->GetFechaEnv()->GetDia()) << "/" << to_string(DtV->GetFechaEnv()->GetMes()) << "/" << to_string(DtV->GetFechaEnv()->GetAnio()) << endl;
         if (DtV->GetHoraEnv()->GetHora() || DtV->GetHoraEnv()->GetMinutos() || DtV->GetHoraEnv()->GetSegundo())cout << "Hora envio: " << to_string(DtV->GetHoraEnv()->GetHora()) << ":" << to_string(DtV->GetHoraEnv()->GetMinutos()) << ":" << to_string(DtV->GetHoraEnv()->GetSegundo()) << endl;
         if (DtV->GetUrl().empty() == false)cout << "Video: " << DtV->GetUrl() << endl;
@@ -950,6 +959,7 @@ void impMen(ICollectible * ic) {
     if (dynamic_cast<DtContactoGrupo*> (ic)) {
         DtContactoGrupo* DtG = dynamic_cast<DtContactoGrupo*> (ic);
         if (DtG->getCelular().empty())cout << "\nCelular: " << DtG->getCelular() << endl;
+        //if (DtG->getEmisor().empty())cout<< "Emisor : " << DtG->getEmisor() <<endl;
         if (DtG->getFecha()->GetDia() || DtG->getFecha()->GetMes() || DtG->getFecha()->GetAnio())cout << "Fecha Ing: " << to_string(DtG->getFecha()->GetDia()) << "/" << to_string(DtG->getFecha()->GetMes()) << "/" << to_string(DtG->getFecha()->GetAnio()) << endl;
         if (DtG->getHora()->GetHora() || DtG->getHora()->GetMinutos() || DtG->getHora()->GetSegundo())cout << "Hora Ing: " << to_string(DtG->getHora()->GetHora()) << ":" << to_string(DtG->getHora()->GetMinutos()) << ":" << to_string(DtG->getHora()->GetSegundo()) << endl;
         if (DtG->getipoEnGrupo().empty() == false)cout << "Tipo: " << DtG->getipoEnGrupo() << endl;
@@ -961,5 +971,14 @@ void impMen(ICollectible * ic) {
         if (DtC->GetNumCel().empty() == false)cout << "\nCelular: " << DtC->GetNumCel();
         if (DtC->GetNombre().empty() == false)cout << "\nNombre: " << DtC->GetNombre();
         if (DtC->getUrlImagen().empty() == false)cout << "\nImagen: " << DtC->getUrlImagen() << endl;
+    }
+    if (dynamic_cast<DtMensajeVisto*> (ic)) {
+        DtMensajeVisto* dtmv = dynamic_cast<DtMensajeVisto*> (ic);
+        if (dtmv->GetCelular().empty() == false)cout << "\nCelular: " << dtmv->GetCelular();
+        if (dtmv->GetNombre().empty() == false)cout << "\nNombre: " << dtmv->GetNombre();
+        cout << "\nEstado: " << dtmv->getVisto();
+        cout << "\nFecha: " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio());
+        cout << "\nHora: " << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "\n";
+
     }
 }

@@ -28,7 +28,7 @@ public:
     DtMensajeVisto(string, string, DtFechaHoraVisto*,bool);
     DtMensajeVisto(const DtMensajeVisto& orig);
     virtual ~DtMensajeVisto();
-    bool getVisto();
+    string getVisto();
     string GetCelular();
     string GetNombre();
     

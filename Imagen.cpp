@@ -64,6 +64,7 @@ void Imagen::SetUrlImg(string urlImg) {
 DtImagen* Imagen::getMensaje() {
     DtImagen * mI = new DtImagen(this->Tamanio, this->Formato, "Una imagen", this->urlImg, this->descripcion);
     DtUltCon* dtu = Fabrica::getInstance()->getContFecha()->getFechaHora();
+    mI->SetEmisor(this->getEmisor());
     mI->SetCodigo(this->GetCodigo());
     mI->SetFechaEnv(dtu->getFecha());
     mI->SetHoraEnv(dtu->getHora());

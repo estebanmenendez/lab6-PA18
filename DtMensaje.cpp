@@ -13,10 +13,11 @@
 
 #include "DtMensaje.h"
 
-DtMensaje::DtMensaje(int codigo, DtFecha *fechaEnv, DtHora *horaEnv) {
+DtMensaje::DtMensaje(int codigo, DtFecha *fechaEnv, DtHora *horaEnv, string emisor) {
     this->codigo = codigo;
     this->fechaEnv = fechaEnv;
     this->horaEnv = horaEnv;
+    this->emisor = emisor;
 }
 
 DtMensaje::DtMensaje() {
@@ -53,4 +54,12 @@ DtHora* DtMensaje::GetHoraEnv() {
 
 void DtMensaje::SetHoraEnv(DtHora *horaEnv) {
     this->horaEnv = horaEnv;
+}
+
+void DtMensaje::SetEmisor(string emisor){
+    this->emisor = emisor;
+}
+
+string DtMensaje::getEmisor(){
+    return this->emisor;
 }

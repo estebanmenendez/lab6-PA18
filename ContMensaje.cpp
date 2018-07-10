@@ -131,6 +131,7 @@ void ContMensaje::selecConversacion(int idConv) {
     iContUsuario * ContUsu = Fabrica::getInstance()->getContUsuario();
     if (ContUsu->seleccionarConversacion(idConv) == NULL)
         throw invalid_argument("Esta conversacion no existe\n");
+    ContUsu->setReceptor(->getCelContacto());
     this->idConv = idConv;
 }
 
@@ -251,7 +252,7 @@ Mensaje* ContMensaje::crearMensajeGrupo(string mensaje) {
 
 Lista* ContMensaje::informacionAdicional(int idConv, int idMen) {
     Conversacion* conv = Fabrica::getInstance()->getContUsuario()->getConversacion(idConv);
-    Mensaje *m;
+    Mensaje *m = NULL;
     if (dynamic_cast<Simple*> (conv->getMensaje(idMen)))
         m = dynamic_cast<Simple*> (conv->getMensaje(idMen));
 
@@ -263,7 +264,8 @@ Lista* ContMensaje::informacionAdicional(int idConv, int idMen) {
 
     if (dynamic_cast<Contacto*> (conv->getMensaje(idMen)))
         m = dynamic_cast<Contacto*> (conv->getMensaje(idMen));
-
+    if (m == NULL)
+        throw invalid_argument("Este Mensaje no existe\n");
     DtMensajeVisto *dtmv;
     if (m->getEmisor().compare(Fabrica::getInstance()->getContUsuario()->getUsu()->GetCelular())!= 0)
         throw invalid_argument("Usted no ha enviado este mensaje\n");
@@ -273,13 +275,14 @@ Lista* ContMensaje::informacionAdicional(int idConv, int idMen) {
     while (it->hasNext()) {
         Visto* v = dynamic_cast<Visto*> (it->getCurrent());
         Usuario* usu = Fabrica::getInstance()->getContUsuario()->getUsuByCel(v->getReceptor());
-        if (v->getEstado()) {
-            dtmv = new DtMensajeVisto(usu->GetNombre(), usu->GetCelular(), v->getFechaHoraVisto(), true);
+//        if (v->getEstado()) {
+            dtmv = new DtMensajeVisto(usu->GetNombre(), usu->GetCelular(), v->getFechaHoraVisto(), v->getEstado());
             ltReturn->add(dtmv);
-        }
+//        }
         it->next();
     }
     return ltReturn;
+    
 }
 
 void ContMensaje::setIdMens(int id) {

@@ -51,6 +51,7 @@ public:
     bool esReceptor(int idMen, string idUsu);
     bool esEmisor(int idMen, string idUsu);
     bool existeMensaje(int idMen);
+    string primerReceptor();
 private:
     ListDicc * mensajes=new ListDicc();
     int idConv;
