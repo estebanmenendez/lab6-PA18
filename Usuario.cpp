@@ -302,7 +302,7 @@ string Usuario::nombreUsu(string numCel) {
 
 void Usuario::crearTipo(Grupo* grupo,string tipo,DtUltCon* fecha){
     Tipo * tipos = new Tipo(grupo,tipo,fecha);
-    this->SetTipo(tipos);
+    this->tipo->add(tipos);
 }
 
 void Usuario::crearEstadoConversacion(Conversacion *conv) {

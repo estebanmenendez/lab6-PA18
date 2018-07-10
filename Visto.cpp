@@ -16,8 +16,8 @@
 Visto::Visto(string receptor, bool estado) {
     this->Receptor = receptor;
     this->estado = estado;
-    this->fechaV = NULL;
-    this->horaV = NULL;
+    this->fechaV = new DtFecha(0,0,0);
+    this->horaV = new DtHora(0,0,0);
 }
 
 Visto::Visto() {

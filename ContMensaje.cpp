@@ -48,6 +48,7 @@ void ContMensaje::enviarMensaje() {
         Lista* usuariosGrupo = Fabrica::getInstance()->getContUsuario()->getUsu()->getContactosGrupo(this->idConv);
         it = usuariosGrupo->iterator();
     } else {
+        
         visto = new Visto(Fabrica::getInstance()->getContUsuario()->getReceptor(), false);
         noGrupo = 1;
     }

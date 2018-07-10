@@ -272,10 +272,10 @@ string Conversacion::getCelContacto() {
 string Conversacion::primerReceptor(){
     IIterator* it = this->mensajes->getIteratorObj();
     while (it->hasNext()){
-        Lista* lVist =  dynamic_cast<Mensaje*>(it->getCurrent())->getListaVistos();
+        Lista* lVist = dynamic_cast<Mensaje*>(it->getCurrent())->getListaVistos();
         IIterator* itt = lVist->iterator();
         while (itt->hasNext()){
-            return dynamic_cast<Visto*>(it->getCurrent())->getReceptor();
+            return dynamic_cast<Visto*>(itt->getCurrent())->getReceptor();
         }
     }
 }

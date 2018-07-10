@@ -99,7 +99,7 @@ DtGrupo* ContGrupo::altaGrupo(string imagen, string nombre) {
     DtGrupo* dtGrupo = new DtGrupo(nombre);
     
     //para el usuario Admin crea el tipo 
-    contUsu->crearTipoUsuario(grupo,grupo->GetCreador());
+    contUsu->crearTipoUsuario(grupo,contUsu->getUsu()->GetCelular());
     EstadoConv *ec1 = new EstadoConv(false);
     grupo->setConversacion(ec1->getConversacion());
     contUsu->getUsu()->SetEstadoConv(ec1);

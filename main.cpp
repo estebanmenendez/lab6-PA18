@@ -193,9 +193,10 @@ void enviarMensaje() {
         case 1:
             cout << "Ingrese el ID de la conversación.\n";
             cin >> idConv;
-            if (ContUsu->getConversacion(idConv) != NULL)
+            if (ContUsu->getConversacion(idConv) != NULL){
                 ContMen->selecConversacion(idConv);
-            else {
+                ContUsu->setReceptor(ContUsu->getConversacion(idConv)->primerReceptor());
+            }else {
                 cout << "\nNo existe esa conversacion";
                 conversa = 1;
             }
@@ -215,6 +216,7 @@ void enviarMensaje() {
                 cout << "Ingrese el ID de la conversación.\n";
                 cin >> idConv;
                 ContMen->selecConversacion(idConv);
+                 ContUsu->setReceptor(ContUsu->getConversacion(idConv)->primerReceptor());
             }
             break;
         case 3:
@@ -977,8 +979,8 @@ void impMen(ICollectible * ic) {
         if (dtmv->GetCelular().empty() == false)cout << "\nCelular: " << dtmv->GetCelular();
         if (dtmv->GetNombre().empty() == false)cout << "\nNombre: " << dtmv->GetNombre();
         cout << "\nEstado: " << dtmv->getVisto();
-        cout << "\nFecha: " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio());
-        cout << "\nHora: " << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "\n";
+        if(dtmv->GetFechaHoraVisto()->GetFecha() != NULL )cout << "\nFecha: " << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetDia()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetMes()) << "/" << to_string(dtmv->GetFechaHoraVisto()->GetFecha()->GetAnio());
+        if(dtmv->GetFechaHoraVisto()->GetHora() != NULL )cout << "\nHora: " << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetHora()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetMinutos()) << ":" << to_string(dtmv->GetFechaHoraVisto()->GetHora()->GetSegundo()) << "\n";
 
     }
 }
