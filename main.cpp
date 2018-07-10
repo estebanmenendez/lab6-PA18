@@ -257,6 +257,7 @@ void enviarMensaje() {
                 getline(cin, texto);
                 dts = new DtSimple(texto);
                 ContMen->cuerpoMensaje(dts);
+                enviar = 0;
                 break;
             case 2:
                 cout << "Ingrese la url de la imagen\n";
@@ -271,6 +272,7 @@ void enviarMensaje() {
                 getline(cin, descImagen);
                 dti = new DtImagen(tamanioImagen, formatoImagen, texto, urlImagen, descImagen);
                 ContMen->cuerpoMensaje(dti);
+                enviar = 0;
                 break;
             case 3:
                 cout << "Ingrese la URL del video\n";
@@ -280,6 +282,7 @@ void enviarMensaje() {
                 cin>> duraVideo;
                 dtv = new DtVideo(urlVideo, duraVideo);
                 ContMen->cuerpoMensaje(dtv);
+                enviar = 0;
                 break;
             case 4:
                 ltCont = ContUsu->listarContactos("p");
@@ -303,14 +306,14 @@ void enviarMensaje() {
             default:
                 break;
         }
-        if (enviar = 0){
+        //if (enviar = 0){
         ContMen->enviarMensaje();
         cout << "\nMensaje enviado...\nPulse ENTER para continuar...";
         cin.ignore().get();
-        }else{
-            cout << "\nMensaje NO enviado...\nPulse ENTER para continuar...";
-        cin.ignore().get();
-        }
+//        }else{
+//            cout << "\nMensaje NO enviado...\nPulse ENTER para continuar...";
+//        cin.ignore().get();
+//        }
 
     }
     } catch (std::invalid_argument &ia) {
