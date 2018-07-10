@@ -25,13 +25,13 @@ using namespace std;
 class DtContacto  :public ICollectible{
 public:
     DtContacto();
-    DtContacto(string , string , string , DtFecha , DtHora );
+    DtContacto(string , string , string , DtFecha* , DtHora* );
     DtContacto(string,string, string);
     DtContacto(const DtContacto& orig);
     virtual ~DtContacto();
     
-    DtFecha GetFechaIng();
-    DtHora GetHoraIng();
+    DtFecha* GetFechaIng();
+    DtHora* GetHoraIng();
     string GetNumCel();
     string GetTipo();
     string GetNombre();
@@ -39,8 +39,8 @@ public:
     string getDesc();
     
     void setDesc(string desc);
-    void SetFechaIng(DtFecha);
-    void SetHoraIng(DtHora);   
+    void SetFechaIng(DtFecha*);
+    void SetHoraIng(DtHora*);   
     void SetNombre(string);
     void SetNumCel(string);
     void SetTipo(string);
@@ -53,8 +53,8 @@ private:
     string tipo;
     string urlImagen;
     string descripcion;
-    DtFecha fechaIng;
-    DtHora horaIng;
+    DtFecha* fechaIng;
+    DtHora* horaIng;
 
 };
 

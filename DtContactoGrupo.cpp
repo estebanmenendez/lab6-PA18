@@ -37,11 +37,11 @@ string DtContactoGrupo::getipoEnGrupo(){
     return this->tipoEnGrupo;
 }
 string DtContactoGrupo::getnombre(){
-    this->nombre;
+    return this->nombre;
 }
 DtFecha* DtContactoGrupo::getFecha(){
-    this->fecha;
+    return this->fecha;
 }
 DtHora* DtContactoGrupo::getHora(){
-    this->hora;
+    return this->hora;
 }

@@ -25,7 +25,7 @@ DtContacto::DtContacto() {
 
 }
 
-DtContacto::DtContacto(string nombre, string numCel, string tipo, DtFecha fechaIng, DtHora horaIng) {
+DtContacto::DtContacto(string nombre, string numCel, string tipo, DtFecha* fechaIng, DtHora* horaIng) {
     this->fechaIng = fechaIng;
     this->horaIng = horaIng;
     this->nombre = nombre;
@@ -45,19 +45,19 @@ DtContacto::DtContacto(const DtContacto& orig) {
 DtContacto::~DtContacto() {
 }
 
-DtFecha DtContacto::GetFechaIng() {
+DtFecha* DtContacto::GetFechaIng() {
     return fechaIng;
 }
 
-void DtContacto::SetFechaIng(DtFecha fechaIng) {
+void DtContacto::SetFechaIng(DtFecha* fechaIng) {
     this->fechaIng = fechaIng;
 }
 
-DtHora DtContacto::GetHoraIng() {
+DtHora* DtContacto::GetHoraIng() {
     return horaIng;
 }
 
-void DtContacto::SetHoraIng(DtHora horaIng) {
+void DtContacto::SetHoraIng(DtHora* horaIng) {
     this->horaIng = horaIng;
 }
 

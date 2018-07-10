@@ -960,7 +960,7 @@ void impMen(ICollectible * ic) {
 
     if (dynamic_cast<DtContactoGrupo*> (ic)) {
         DtContactoGrupo* DtG = dynamic_cast<DtContactoGrupo*> (ic);
-        if (DtG->getCelular().empty())cout << "\nCelular: " << DtG->getCelular() << endl;
+        if (DtG->getCelular().empty()== false)cout << "\nCelular: " << DtG->getCelular() << endl;
         //if (DtG->getEmisor().empty())cout<< "Emisor : " << DtG->getEmisor() <<endl;
         if (DtG->getFecha()->GetDia() || DtG->getFecha()->GetMes() || DtG->getFecha()->GetAnio())cout << "Fecha Ing: " << to_string(DtG->getFecha()->GetDia()) << "/" << to_string(DtG->getFecha()->GetMes()) << "/" << to_string(DtG->getFecha()->GetAnio()) << endl;
         if (DtG->getHora()->GetHora() || DtG->getHora()->GetMinutos() || DtG->getHora()->GetSegundo())cout << "Hora Ing: " << to_string(DtG->getHora()->GetHora()) << ":" << to_string(DtG->getHora()->GetMinutos()) << ":" << to_string(DtG->getHora()->GetSegundo()) << endl;
