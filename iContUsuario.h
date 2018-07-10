@@ -72,6 +72,7 @@ public:
     virtual Usuario* getUsuario(string celUsu)=0;
 //    virtual void altaPrecargaContacto(int numCelular)=0;
     virtual void setIdConvGrupo(string idUsu)=0;
+    virtual string getOtroContacto(int idConv)=0;
 private:
 
 };

@@ -293,8 +293,10 @@ string Usuario::getNumContacto(int idConv) {
         }
         it->next();
     }
-
-}
+    iContUsuario* cont= Fabrica::getInstance()->getContUsuario();
+    return cont->getOtroContacto(idConv);
+    
+ }
 
 string Usuario::nombreUsu(string numCel) {
     StringKey *iKey = new StringKey(numCel);

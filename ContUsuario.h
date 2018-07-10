@@ -89,6 +89,7 @@ public:
     //void setIdConvGrupo(int idConv);//precarga
     void cargarMensaje();
     Usuario* getUsuario(string celUsu);
+    string getOtroContacto(int);
 };
 
 #endif /* CONTUSUARIO_H */

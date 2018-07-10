@@ -153,12 +153,12 @@ void Fabrica::cargarMensajes(){
         Visto *v;
         Mensaje* men1 = new Simple();
         v=new Visto("090123654");//90123654
-        //v->SetEstado(true);
+        v->SetEstado(true);
         men1->SetVisto(v);
         v=new Visto("090765432");//90765432
         men1->SetVisto(v);
         v=new Visto("090246810");//90246810
-        //v->SetEstado(true);
+        v->SetEstado(true);
         men1->SetVisto(v);
         dynamic_cast<Simple*> (men1)->setTexto("¡Mira que bueno este video!");
         men1->SetCodigo(2);

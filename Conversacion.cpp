@@ -19,11 +19,12 @@
 #include "Contacto.h"
 #include "Imagen.h"
 #include "Video.h"
+//#include "iContUsuario.h"
 
 Conversacion::Conversacion() {
-    this->idConv = Fabrica::getInstance()->getContUsuario()->getIdConv();
+    iContUsuario* contU =Fabrica::getInstance()->getContUsuario();
+    this->idConv = contU->getIdConv();
 }
-
 Conversacion::Conversacion(int conv) {
     this->idConv = conv;
 }

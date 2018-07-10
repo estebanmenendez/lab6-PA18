@@ -171,6 +171,7 @@ void ContMensaje::cuerpoMensaje(DtSimple* dts) {
     s->SetFechaEnv(dtu->getFecha());
     s->SetHoraEnv(dtu->getHora());
     this->cuerpoSimple = s;
+    
 
 }
 

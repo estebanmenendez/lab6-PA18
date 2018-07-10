@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
 
             if (!firstMenu) {
                 do {
-
+cin.ignore();
                     cout << "\n----- Bienvenido a TELETIP -----" << endl;
                     cout << " Ingrese un número de celular: " << endl;
                     getline(cin, numCel);

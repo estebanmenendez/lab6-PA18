@@ -279,9 +279,9 @@ void ContUsuario::elijeContacto(string celUsu) {
     Usuario* u = dynamic_cast<Usuario*> (this->usuario->find(ikey));
     this->contactoReceptor = celUsu;
     Conversacion *conv = new Conversacion();
-    EstadoConv *ec1 = new EstadoConv(false, conv), *ec2 = new EstadoConv(false, conv);
-    this->usuLog->SetEstadoConv(ec1);
-    u->SetEstadoConv(ec2);
+   // EstadoConv *ec1 = new EstadoConv(false, conv), *ec2 = new EstadoConv(false, conv);
+    this->usuLog->crearEstadoConversacion(conv);
+    u->crearEstadoConversacion(conv);
     Fabrica::getInstance()->getContMensaje()->selecConversacion(conv->getIdConv());
 }
 
@@ -387,3 +387,15 @@ void ContUsuario::setIdConvGrupo(string idUsu) {
 }
 
 
+string ContUsuario::getOtroContacto(int idConv){
+    IIterator* it = usuario->getIteratorObj();
+    while(it->hasNext()){
+        Usuario * usu = dynamic_cast<Usuario *>(it->getCurrent());
+        if (usu->existeConversacion(idConv) == true){
+            return usu->GetCelular();
+        }
+        
+        
+        it->next();
+    }
+}
