@@ -173,7 +173,7 @@ void enviarMensaje() {
     DtImagen *dti;
     DtVideo *dtv;
     DtMContacto *dtmc;
-    int optMen, idConv, optTipo, tamanioImagen, duraVideo, celContacto, archivadas = 0, conversa = 0;
+    int optMen, idConv, optTipo, tamanioImagen, duraVideo, celContacto, archivadas = 0, conversa = 0, enviar = 0;
     string texto, urlImagen, numCelContacto, formatoImagen, descImagen, urlVideo;
     try{
     if (ltConv->isEmpty()) {
@@ -274,7 +274,6 @@ void enviarMensaje() {
                 break;
             case 3:
                 cout << "Ingrese la URL del video\n";
-                cin.clear();
                 cin.ignore();
                 getline(cin, urlVideo);
                 cout << "Ingrese la duración del video\n";
@@ -292,15 +291,26 @@ void enviarMensaje() {
                 }
                 cout << "Seleccione un usuario ingresando su número de celular\n";
                 cin >> numCelContacto;
+                 if (numCelContacto == ContUsu->getNumUsuLog()) {
+                    cout << "\nNo puedes enviar tu contacto.\n";
+                    enviar = 1;
+                } else {
                 dtmc = new DtMContacto(numCelContacto);
                 ContMen->cuerpoMensaje(dtmc);
+                enviar = 0;
+                }
                 break;
             default:
                 break;
         }
+        if (enviar = 0){
         ContMen->enviarMensaje();
         cout << "\nMensaje enviado...\nPulse ENTER para continuar...";
         cin.ignore().get();
+        }else{
+            cout << "\nMensaje NO enviado...\nPulse ENTER para continuar...";
+        cin.ignore().get();
+        }
 
     }
     } catch (std::invalid_argument &ia) {
@@ -529,7 +539,7 @@ void altaGrupo() {
     ContGru->eliminarParticipante(ContUsu->ingContacto("090246810"));
     DtGrupo * dtGrupo;
 
-    cin.ignore();
+   // cin.ignore();
     try {
         cout << "\nCreación de Grupo\n";
         do {
@@ -555,7 +565,7 @@ void altaGrupo() {
                     cout << dtc->GetNumCel() << " - " << dtc->GetNombre() << " - " << dtc->getUrlImagen() << "\n";
                     i->next();
                 }
-
+                cin.ignore();
                 cout << "\nIngrese celular para agregar al grupo:\n";
                 getline(cin, numCel);
                 dtc = ContUsu->ingContacto(numCel);
@@ -599,10 +609,11 @@ void altaGrupo() {
                                 conNombre = 0;
 
                         } while (conNombre == 1);
+//                        cin.ignore();
                         cout << "\nIngrese URL Imagen: ";
                         getline(cin, urlI);
                         dtGrupo = ContGru->altaGrupo(urlI, nombreG);
-                        cout << "\nSe dio de alta el Grupo: \'" << dtGrupo->GetNombre() << "\'\n";
+                        cout << "\nSe dio de alta el Grupo: \'" << dtGrupo->GetNombre() << "\'";
                         cout << "\nPulse ENTER para continuar...";
                         cin.ignore().get();
                         //ContGru->agregarNuevoAdmin(ContUsu->getUsu()->GetCelular());
@@ -613,6 +624,7 @@ void altaGrupo() {
                         cin>>salir;
                     }
                 }
+//                cin.ignore();
             }
 
         } while (salir == 's');
@@ -706,6 +718,10 @@ void agregarPartGrupo() {
                     if (salir == 'n') {
                         if (!ContGru->listarParticipantes()->isEmpty()) {
                             ContGru->agregarParticipanteGrupo();
+                            
+                            cout << "\nSe dio de alta en Grupo: \'" << ContUsu->getUsu()->getGrupo(nombreG)->GetNombre() << "\'\n";
+                            cout << "\nPulse ENTER para continuar...";
+                            cin.ignore().get();
                             salir = 'n';
                         } else {
                             cout << "\nDebe ingresar por lo menos 1 contacto!!\n";
