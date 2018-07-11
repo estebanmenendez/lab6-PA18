@@ -180,9 +180,18 @@ void ContGrupo::Salir() {
     IIterator* h = this->ltElegidos->iterator();
     while (h->hasNext()) {
         dtn = dynamic_cast<DtContacto*> (h->getCurrent());
+//        StringKey* skey = StringKey(dtn->GetNumCel());
+        Usuario* usu = contUsu->getUsuario(dtn->GetNumCel());
+        EstadoConv* cv = new EstadoConv(false, grupo->getConversacion());
+        usu->SetEstadoConv(cv);
         contUsu->crearTipoUsuario(this->grupo,dtn->GetNumCel());
         Visto* vistos = new Visto(dtn->GetNumCel());
         mens->SetVisto(vistos);
+        
+        
+        
+        
+        
         h->next();
     }
  }
